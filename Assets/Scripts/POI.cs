@@ -22,6 +22,22 @@ public class POI : MonoBehaviour
         }
     }
 
+    // stop coroutine when agent exits the collider to prevent multiple coroutines from stacking up if the agent enters and exits the collider multiple times
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("Something exited POI");
+        if (other.CompareTag("Agent")) // Check if the collider belongs to an agent
+        {
+            Debug.Log("Agent exited POI");
+            NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
+            if (agent != null)
+            {
+                StopCoroutine(PauseAgent(agent)); // Stop the coroutine to prevent stacking
+                agent.isStopped = false; // Ensure the agent is resumed if it exits the collider before the pause duration is over
+            }
+        }
+    }
+
     private System.Collections.IEnumerator PauseAgent(NavMeshAgent agent)
     {
         agent.isStopped = true; // Pause the agent
