@@ -2,16 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using System.Threading.Tasks;
 
 public class AgentMovement : MonoBehaviour
 {
 
-    public enum ShopperState { Pathfinding, Browsing, Finished }
-    public List<Transform> shoppingListItemsLocations = new List<Transform>(); // Switched to List for easy removal
+    public enum ShopperState { Pathfinding, Browsing, Buying, Finished }
+    public List<Vector2> shoppingListItemsLocations = new(); // Switched to List for easy removal
 
     // serialize exit positions in the inspector for easy assignment, but we won't remove them from the list like targets since we only head to them at the end
 
-    public List<Transform> availableExitLocations = new List<Transform>(); // Switched to List for easy removal
+    public List<Transform> availableExitLocations = new(); // Switched to List for easy removal
 
     [SerializeField]
     private SupermarketLayoutSO layoutData; // Reference to the ScriptableObject containing the layout data
@@ -19,10 +20,13 @@ public class AgentMovement : MonoBehaviour
     private NavMeshAgent agent;
     private bool isMoving = false;
 
-    private List<string> shoppingList = new List<string>() { "Milk", "Fruits" }; // This will hold the names of the items we need to buy, which should correspond to the section names in our layout data
+    private ProductSlot currentTargetSlot; // Keep track of the current target slot to mark it as occupied when we arrive
+
+    private List<string> shoppingList = new() { "Milk", "Fruits" }; // This will hold the names of the items we need to buy, which should correspond to the section names in our layout data
 
     void Start()
     {
+        Debug.Log($"Agent '{gameObject.name}' starting with shopping list: {string.Join(", ", shoppingList)}");
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false; // Disable automatic rotation
         agent.updateUpAxis = false;   // Disable automatic up axis adjustment
@@ -42,11 +46,11 @@ public class AgentMovement : MonoBehaviour
             ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == item);
             if (section != null)
             {
-                if (section.TryGetEmptySlot(out Vector3 slotPosition))
-                {                    // Create a temporary transform to hold the slot position and add it to our list of targets
-                    GameObject tempTarget = new GameObject(item + "_Target");
-                    tempTarget.transform.position = slotPosition;
-                    shoppingListItemsLocations.Add(tempTarget.transform);
+                if (section.TryGetEmptySlot(out Vector2 slotPosition))
+                {
+
+                    shoppingListItemsLocations.Add(slotPosition);
+                    section.Slots.Find(s => s.Position == slotPosition).IsOccupied = true; // Mark this slot as occupied so other agents won't target it
                 }
                 else
                 {
@@ -75,6 +79,9 @@ public class AgentMovement : MonoBehaviour
             isMoving = false;
             Debug.Log("Destination reached! Finding the next closest target...");
 
+            _ = PauseAgent(2000); // Pause for 1 second to simulate browsing time
+            // clear the current target slot reference since we've arrived and are now "browsing" it
+            currentTargetSlot = null;
             FindAndMoveToClosest();
         }
         // Detect if 2 or more agents are stuck on each other by checking if the agent has a path but isn't moving
@@ -85,7 +92,7 @@ public class AgentMovement : MonoBehaviour
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             Debug.Log("Resetting agent position and targets...");
-            agent.Warp(Vector3.zero); // Reset agent to the center of the map (or you can set this to a specific spawn point)
+            agent.Warp(Vector2.zero); // Reset agent to the center of the map (or you can set this to a specific spawn point)
         }
     }
 
@@ -113,18 +120,18 @@ public class AgentMovement : MonoBehaviour
             if (availableExitLocations.Count > 0)
             {
                 Debug.Log("Heading to exit...");
-                MoveToClosest(availableExitLocations.ConvertAll(e => e.position).ToArray(), false);
+                MoveToClosest(availableExitLocations.ConvertAll(t => (Vector2)t.position).ToArray(), false);
             }
 
             return;
         }
 
-        Vector3[] destinations = new Vector3[shoppingListItemsLocations.Count];
+        Vector2[] destinations = new Vector2[shoppingListItemsLocations.Count];
         for (int i = 0; i < shoppingListItemsLocations.Count; i++)
         {
             // Add a small random offset to the target position to help prevent agents from clustering on the exact same spot
-            Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), 0, Random.Range(-0.5f, 0.5f));
-            destinations[i] = shoppingListItemsLocations[i].position + randomOffset;
+            Vector2 randomOffset = new(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+            destinations[i] = shoppingListItemsLocations[i] + randomOffset;
         }
 
         MoveToClosest(destinations, true);
@@ -133,20 +140,20 @@ public class AgentMovement : MonoBehaviour
     /// <summary>
     /// Evaluates destinations and commands the agent to move to the closest valid one.
     /// </summary>
-    public void MoveToClosest(Vector3[] destinations, bool removeFromTargetPositions = true)
+    public void MoveToClosest(Vector2[] destinations, bool removeFromTargetPositions = true)
     {
         if (destinations == null || destinations.Length == 0) return;
 
-        Vector3 bestDestination = Vector3.zero;
+        Vector2 bestDestination = Vector2.zero;
         float shortestPathLength = float.MaxValue;
         bool pathFound = false;
         int bestIndex = -1;
 
-        NavMeshPath path = new NavMeshPath();
+        NavMeshPath path = new();
 
         for (int i = 0; i < destinations.Length; i++)
         {
-            Vector3 target = destinations[i];
+            Vector2 target = destinations[i];
 
             if (agent.CalculatePath(target, path))
             {
@@ -168,6 +175,7 @@ public class AgentMovement : MonoBehaviour
         if (pathFound)
         {
             agent.SetDestination(bestDestination);
+            // 
             isMoving = true;
 
             // Remove the target we are heading to from our list so we don't pick it next time
@@ -211,8 +219,15 @@ public class AgentMovement : MonoBehaviour
         float totalLength = 0f;
         for (int i = 0; i < path.corners.Length - 1; i++)
         {
-            totalLength += Vector3.Distance(path.corners[i], path.corners[i + 1]);
+            totalLength += Vector2.Distance(path.corners[i], path.corners[i + 1]);
         }
         return totalLength;
+    }
+
+    private async Task PauseAgent(int delayMs)
+    {
+        agent.isStopped = true; // Stop the agent while waiting
+        await Task.Delay(delayMs);
+        agent.isStopped = false; // Resume the agent after the delay
     }
 }

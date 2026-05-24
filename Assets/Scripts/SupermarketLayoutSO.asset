@@ -16,13 +16,13 @@ MonoBehaviour:
   - SectionName: Milk
     Slots:
     - Position: {x: -5.7944307, y: 11.501285, z: 0}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: -5.7944307, y: 10.2176895, z: 0}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: -5.7944307, y: 8.93925, z: 0}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: -5.7944307, y: 7.7896852, z: 0}
-      IsOccupied: 0
+      IsOccupied: 1
   - SectionName: Chips
     Slots:
     - Position: {x: 1.1282692, y: 1.2118845, z: 0}
@@ -46,15 +46,15 @@ MonoBehaviour:
   - SectionName: Fruits
     Slots:
     - Position: {x: 22.93827, y: 1.19933, z: 0}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 22.93827, y: -0.21323061, z: 0}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 22.93827, y: -1.5538551, z: 0}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 22.93827, y: -3.9408207, z: 0}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 22.93827, y: -2.776766, z: 0}
-      IsOccupied: 0
+      IsOccupied: 1
   - SectionName: Vegetables
     Slots:
     - Position: {x: 22.93827, y: 11.53163, z: 0}
@@ -79,3 +79,6 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -18.78173, y: 7.635534, z: 0}
       IsOccupied: 0
+  ExitLocations:
+  - {x: -10.53, y: -17.94, z: 0}
+  - {x: -18, y: -17.93, z: 0}

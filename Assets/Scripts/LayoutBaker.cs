@@ -10,11 +10,21 @@ public class LayoutBaker : MonoBehaviour
     {
         if (layoutAsset == null) return;
 
+
         layoutAsset.ProductSections.Clear();
+        layoutAsset.ExitLocations.Clear();
 
         // Loop through all top-level children of this GameObject (e.g., "Milk Section", "Cereal Isle")
         foreach (Transform sectionTransform in transform)
         {
+
+            // caompare tag to see if this is an exit location or a product section
+            if (sectionTransform.CompareTag("Exit"))
+            {
+                layoutAsset.ExitLocations.Add(sectionTransform.position);
+                continue; // Skip the rest of the loop for this iteration since it's an exit, not a product section
+            }
+
             ProductSection newSection = new ProductSection();
             newSection.SectionName = sectionTransform.name;
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class ProductSlot
 {
-    public Vector3 Position;
+    public Vector2 Position;
     public bool IsOccupied; // Tracks if an agent is currently standing here/heading here
 }
 
@@ -17,7 +17,7 @@ public class ProductSection
     public List<ProductSlot> Slots = new List<ProductSlot>();
 
     // Helper function for your agents to quickly grab an open spot
-    public bool TryGetEmptySlot(out Vector3 slotPosition)
+    public bool TryGetEmptySlot(out Vector2 slotPosition)
     {
         foreach (var slot in Slots)
         {
@@ -29,9 +29,10 @@ public class ProductSection
         }
 
         // Fallback if full: return the center or first slot
-        slotPosition = Slots.Count > 0 ? Slots[0].Position : Vector3.zero;
+        slotPosition = Slots.Count > 0 ? Slots[0].Position : Vector2.zero;
         return false;
     }
+
 }
 
 
@@ -39,4 +40,32 @@ public class ProductSection
 public class SupermarketLayoutSO : ScriptableObject
 {
     public List<ProductSection> ProductSections = new List<ProductSection>();
+    public List<Vector2> ExitLocations = new List<Vector2>(); // List of exit positions in the store
+
+    // create a dictionary for quick lookup of sections name by location, which can be used by agents to determine which section they are in based on their position
+    public Dictionary<Vector2, ProductSection> sectionLookup = new Dictionary<Vector2, ProductSection>();
+
+    private void OnEnable()
+    {
+        // Build the lookup dictionary when the ScriptableObject is loaded
+        sectionLookup.Clear();
+        foreach (var section in ProductSections)
+        {
+            // foreach (var slot in section.Slots)
+            // {
+            sectionLookup[section.Slots[0].Position] = section;
+            // }
+        }
+    }
+
+    public void ResetLayout()
+    {
+        foreach (var section in ProductSections)
+        {
+            foreach (var slot in section.Slots)
+            {
+                slot.IsOccupied = false; // Reset the flag
+            }
+        }
+    }
 }

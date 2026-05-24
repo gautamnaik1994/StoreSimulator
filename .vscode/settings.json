@@ -68,5 +68,10 @@
         "*.slnx": "*.csproj"
     },
     "dotnet.defaultSolution": "StoreSimulator.slnx",
-    "dotnet.enableWorkspaceBasedDevelopment": false
+    "dotnet.enableWorkspaceBasedDevelopment": false,
+    "[csharp]": {
+    "editor.codeActionsOnSave": [
+        "source.organizeImports"
+    ]
+}
 }
