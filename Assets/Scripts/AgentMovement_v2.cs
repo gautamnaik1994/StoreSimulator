@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-using System.Threading.Tasks;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AgentMovement_v2 : MonoBehaviour
@@ -11,13 +11,11 @@ public class AgentMovement_v2 : MonoBehaviour
     private SupermarketLayoutSO layoutData; // Reference to the ScriptableObject containing the layout data
 
     private NavMeshAgent agent;
-    private bool isMoving = false;
 
-    public enum AgentState { Evaluating, MovingToTarget, Buying, Wandering, Exiting }
+    public enum AgentState { Evaluating, MovingToTarget, Buying, BuyingComplete, Wandering, Exiting }
 
     [Header("State Machine")]
     public AgentState currentState = AgentState.Evaluating;
-    // public TextMeshProUGUI stateDebugText; // Floating canvas UI text above head
 
     [Header("Agent Attributes")]
     [Range(0f, 1f)] public float impulseProbability = 0.4f;
@@ -26,29 +24,21 @@ public class AgentMovement_v2 : MonoBehaviour
 
     [Header("Navigation & Timing")]
     public float buyDuration = 4.0f;
-    public float wanderDuration = 3.0f;
-    public Transform exitTransform;
+    public float wanderDuration = 6.0f;
 
-    private GameObject currentTargetItem;
+    private ProductSlot currentTargetItem;
     private ProductSection currentTargetSection;
     private float stateTimer = 0f;
+    private bool isPurchaseInProgress = false;
+    private Coroutine buyingCoroutine;
 
     [SerializeField]
     private List<Vector2> shoppingListItemsLocations = new(); // This will hold the positions of the items we need to buy, which should correspond to the section names in our layout data
-    [SerializeField]
-    private List<Transform> availableExitLocations = new(); // This will hold the exit positions in the store, which we can assign in the inspector based on our layout data
 
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
-        // if (layoutData == null)
-        // {
-        //     Debug.LogError("Layout data is not assigned on AgentMovement_v2.", this);
-        //     enabled = false;
-        //     return;
-        // }
 
         agent.updateRotation = false; // Disable automatic rotation
         agent.updateUpAxis = false;   // Disable automatic up axis adjustment
@@ -103,39 +93,34 @@ public class AgentMovement_v2 : MonoBehaviour
                 HandleMovingState();
                 break;
             case AgentState.Buying:
-                // HandleBuyingState();
+                HandleBuyingState();
                 break;
             case AgentState.Wandering:
-                // HandleWanderingState();
+                HandleWanderingState();
+                break;
+
+            case AgentState.Evaluating:
+                break;
+            case AgentState.Exiting:
+                HandleExitingState();
                 break;
         }
     }
 
+    private void HandleExitingState()
+    {
+        Vector2 closestExit = FindClosestDestination(layoutData.ExitLocations.ToArray());
+        agent.SetDestination(closestExit);
+    }
+
     public void EvaluateNextTarget()
     {
-        // if (agent == null)
-        // {
-        //     agent = agent != null ? agent : GetComponent<NavMeshAgent>();
-        //     if (agent == null)
-        //     {
-        //         Debug.LogError("NavMeshAgent is missing on AgentMovement_v2.", this);
-        //         return;
-        //     }
-        // }
-
-        // if (layoutData == null || layoutData.ProductSections == null)
-        // {
-        //     Debug.LogError("Layout data or ProductSections is missing on AgentMovement_v2.", this);
-        //     return;
-        // }
+        Debug.Log("Evaluating next target..., Current shopping list: " + string.Join(", ", shoppingList));
 
         if (shoppingList.Count == 0)
         {
-            if (exitTransform != null)
-            {
-                agent.SetDestination(exitTransform.position);
-                ChangeState(AgentState.Exiting);
-            }
+            Debug.Log("Shopping list complete! Heading to exit...");
+            ChangeState(AgentState.Exiting);
             return;
         }
 
@@ -168,7 +153,7 @@ public class AgentMovement_v2 : MonoBehaviour
         if (potentialTargets.Count > 0)
         {
             Vector2 closestLocation = FindClosestDestination(potentialTargets.ToArray());
-            currentTargetSection = layoutData.sectionLookup[closestLocation]; // Set the current target section based on the closest location
+            currentTargetSection = layoutData.sectionLookup[closestLocation].section; // Set the current target section based on the closest location
             ChangeState(AgentState.MovingToTarget);
             // agent.SetDestination(closestLocation);
             Debug.Log($"Heading to next item: {currentTargetSection.SectionName} at {closestLocation}");
@@ -252,26 +237,108 @@ public class AgentMovement_v2 : MonoBehaviour
 
     void HandleMovingState()
     {
-        Debug.Log($"Current Target Section: {currentTargetSection.SectionName}, Remaining Distance: {agent.remainingDistance}");
+        // Debug.Log($"Current Target Section: {currentTargetSection.SectionName}, Remaining Distance: {agent.remainingDistance}");
         if (currentTargetSection == null) { ChangeState(AgentState.Evaluating); return; }
 
         // Check if close to the target item shelf
-        if (!agent.pathPending && agent.remainingDistance <= 5.0f)
+        if (agent.remainingDistance <= 5.0f && currentTargetItem == null)
         {
             // Check if the target section is occupied
             if (currentTargetSection.TryGetEmptySlot(out Vector2 slotPosition))
             {
                 // Move to the specific slot position in the section
                 Debug.Log($"Moving to section {currentTargetSection.SectionName} at slot position {slotPosition}");
+                layoutData.sectionLookup[slotPosition].slot.IsOccupied = true; // Mark the slot as occupied
+                currentTargetItem = layoutData.sectionLookup[slotPosition].slot;
                 agent.SetDestination(slotPosition);
+                ChangeState(AgentState.Buying);
+
             }
             else
             {
                 // If the section is full, switch to wandering state
                 ChangeState(AgentState.Wandering);
-                Debug.Log("Section is full, switching to wandering state.");
+                // Debug.Log("Section is full, switching to wandering state.");
+                // agent.SetDestination(transform.position); // Stop moving while we decide where to wander
+                // // add a coroutine delay here to simulate wandering around for a bit before re-evaluating targets
+                // StartCoroutine(WanderAndReevaluate());
+
             }
         }
+    }
+
+    private IEnumerator WanderAndReevaluate()
+    {
+        yield return new WaitForSeconds(2f); // Simulate wandering for 2 seconds
+        ChangeState(AgentState.Evaluating);
+        EvaluateNextTarget();
+    }
+
+    void HandleWanderingState()
+    {
+        // In this simple implementation, we'll just wait for a short duration and then re-evaluate our targets
+        stateTimer += Time.deltaTime;
+        if (stateTimer >= wanderDuration)
+        {
+            EvaluateNextTarget();
+            ChangeState(AgentState.Evaluating);
+        }
+    }
+
+    void HandleBuyingState()
+    {
+        if (isPurchaseInProgress)
+        {
+            return;
+        }
+
+        if (HasReachedDestination() && currentTargetSection != null && currentTargetItem != null)
+        {
+            Debug.Log($"Arrived at target item in section and starting purchase process.");
+            buyingCoroutine = StartCoroutine(CompletePurchaseAfterDelay(currentTargetSection, currentTargetItem));
+        }
+    }
+
+    private IEnumerator CompletePurchaseAfterDelay(ProductSection targetSection, ProductSlot targetItem)
+    {
+        isPurchaseInProgress = true;
+
+        yield return new WaitForSeconds(buyDuration);
+
+        if (targetSection != null && targetItem != null)
+        {
+            Debug.Log($"Finished buying item from section {targetSection.SectionName}");
+            Debug.Log($"Marking slot at position {targetItem.Position} as unoccupied.");
+            targetItem.IsOccupied = false;
+            shoppingList.Remove(targetSection.SectionName);
+
+            if (currentTargetItem == targetItem)
+            {
+                currentTargetItem = null;
+            }
+
+            if (currentTargetSection == targetSection)
+            {
+                currentTargetSection = null;
+            }
+        }
+
+        isPurchaseInProgress = false;
+        buyingCoroutine = null;
+        EvaluateNextTarget();
+    }
+
+    private void OnDisable()
+    {
+        if (buyingCoroutine != null)
+        {
+            StopCoroutine(buyingCoroutine);
+            buyingCoroutine = null;
+        }
+
+        isPurchaseInProgress = false;
+
+        // 
     }
 
 

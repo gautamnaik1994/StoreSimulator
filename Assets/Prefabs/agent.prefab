@@ -185,7 +185,5 @@ MonoBehaviour:
   - Soda
   - New Energy Drink
   buyDuration: 4
-  wanderDuration: 3
-  exitTransform: {fileID: 0}
+  wanderDuration: 6
   shoppingListItemsLocations: []
-  availableExitLocations: []

@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097e832ba601b401e931a3e33a8fbc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AgentManager
-  agentCount: 1
+  agentCount: 6
   agentPrefab: {fileID: 3713120276510021531, guid: 3883dc2d7857e49afba1ddbf75171c15, type: 3}
   spawnPoint: {fileID: 1763961664}
 --- !u!114 &247899942

@@ -43,7 +43,7 @@ public class SupermarketLayoutSO : ScriptableObject
     public List<Vector2> ExitLocations = new List<Vector2>(); // List of exit positions in the store
 
     // create a dictionary for quick lookup of sections name by location, which can be used by agents to determine which section they are in based on their position
-    public Dictionary<Vector2, ProductSection> sectionLookup = new Dictionary<Vector2, ProductSection>();
+    public Dictionary<Vector2, (ProductSection section, ProductSlot slot)> sectionLookup = new Dictionary<Vector2, (ProductSection section, ProductSlot slot)>();
 
     private void OnEnable()
     {
@@ -51,10 +51,10 @@ public class SupermarketLayoutSO : ScriptableObject
         sectionLookup.Clear();
         foreach (var section in ProductSections)
         {
-            // foreach (var slot in section.Slots)
-            // {
-            sectionLookup[section.Slots[0].Position] = section;
-            // }
+            foreach (var slot in section.Slots)
+            {
+                sectionLookup[slot.Position] = (section, slot);
+            }
         }
     }
 
