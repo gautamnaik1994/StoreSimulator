@@ -9,6 +9,10 @@ public class AgentManager : MonoBehaviour
     public GameObject agentPrefab;
 
     public Transform spawnPoint;
+
+    public int delay = 1; // Delay in seconds between each batch of agents spawned
+
+    public int agentBatchCount = 3; // Number of agents to spawn in each batch when 'S' is pressed  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
@@ -16,19 +20,26 @@ public class AgentManager : MonoBehaviour
     {
         if (Keyboard.current.sKey.wasPressedThisFrame)
         {
-            SpawnAgents();
+            StartCoroutine(BatchSpawnCoroutine(delay));
         }
     }
 
-    void SpawnAgents()
+
+    private System.Collections.IEnumerator BatchSpawnCoroutine(float delay)
     {
-
-        for (int i = 0; i < agentCount; i++)
+        int batches = Mathf.CeilToInt((float)agentCount / agentBatchCount);
+        for (int i = 0; i < batches; i++)
         {
-            // add a delay between spawns to avoid all agents spawning on top of each other and getting stuck
-            Vector2 randomOffset = new(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-            Instantiate(agentPrefab, spawnPoint.position + (Vector3)randomOffset, Quaternion.identity);
-
+            int agentsToSpawn = Mathf.Min(agentBatchCount, agentCount - (i * agentBatchCount));
+            for (int j = 0; j < agentsToSpawn; j++)
+            {
+                Instantiate(agentPrefab, spawnPoint.position, Quaternion.identity);
+            }
+            yield return new WaitForSeconds(delay);
         }
     }
 }
+
+
+
+

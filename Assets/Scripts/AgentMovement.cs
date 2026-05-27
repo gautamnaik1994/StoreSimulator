@@ -1,194 +1,254 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-using System.Threading.Tasks;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class AgentMovement : MonoBehaviour
 {
-
-    public enum ShopperState { Pathfinding, Browsing, Buying, Finished }
-    public List<Vector2> shoppingListItemsLocations = new(); // Switched to List for easy removal
-
-    // serialize exit positions in the inspector for easy assignment, but we won't remove them from the list like targets since we only head to them at the end
-
-    public List<Transform> availableExitLocations = new(); // Switched to List for easy removal
-
     [SerializeField]
     private SupermarketLayoutSO layoutData; // Reference to the ScriptableObject containing the layout data
 
     private NavMeshAgent agent;
-    private bool isMoving = false;
 
-    private ProductSlot currentTargetSlot; // Keep track of the current target slot to mark it as occupied when we arrive
+    public enum AgentState { Evaluating, MovingToTarget, Buying, BuyingComplete, GoingToCheckout, WaitingInCheckoutLine, Wandering, Exiting }
 
-    private List<string> shoppingList = new() { "Milk", "Fruits" }; // This will hold the names of the items we need to buy, which should correspond to the section names in our layout data
+    [Header("State Machine")]
+    public AgentState currentState = AgentState.Evaluating;
+
+    [Header("Agent Attributes")]
+    [Range(0f, 1f)] public float impulseProbability = 0.4f;
+    public List<string> shoppingList = new List<string>() { "Milk", "Chips" };
+    public List<string> impulseFavorites = new List<string>() { "Chips", "Soda", "New Energy Drink" };
+
+    [Header("Navigation & Timing")]
+    public float buyDuration = 4.0f;
+    public float wanderDuration = 6.0f;
+
+    private ProductSlot currentTargetItem;
+    private ProductSection currentTargetSection;
+    private float stateTimer = 0f;
+    private bool isPurchaseInProgress = false;
+    private Coroutine buyingCoroutine;
+
+    private int currentQueueIndex = -1; // Track the agent's position in the checkout queue
+
+    [SerializeField]
+    private List<Vector2> shoppingListItemsLocations = new(); // This will hold the positions of the items we need to buy, which should correspond to the section names in our layout data
+
 
     void Start()
     {
-        Debug.Log($"Agent '{gameObject.name}' starting with shopping list: {string.Join(", ", shoppingList)}");
         agent = GetComponent<NavMeshAgent>();
+
         agent.updateRotation = false; // Disable automatic rotation
         agent.updateUpAxis = false;   // Disable automatic up axis adjustment
-        // randomize priority to avoid agents getting stuck on each other
         agent.avoidancePriority = Random.Range(10, 90); // Add a small random value to further reduce ties
-        // randomize speed slightly to add some variation between agents
         agent.speed += Random.Range(-0.5f, 0.5f);
-        // randomize stopping distance slightly to add some variation between agents
         agent.stoppingDistance += Random.Range(-0.2f, 0.2f);
-        // randomize acceleration slightly to add some variation between agents
         agent.acceleration += Random.Range(-0.5f, 0.5f);
 
+        // generate a random shopping list from ProductSections in our layout data for this agent
+        shoppingList.Clear();
+        foreach (var section in layoutData.ProductSections)
+        {
+            if (Random.value < 0.5f) // 50% chance to add each section to the shopping list
+            {
+                shoppingList.Add(section.SectionName);
+            }
+        }
+        if (shoppingList.Count == 0) // Ensure at least one item is on the shopping list
+        {
+            shoppingList.Add(layoutData.ProductSections[Random.Range(0, layoutData.ProductSections.Count)].SectionName);
 
-        // populate our shopping list item locations based on the section names in our shopping list and the data in our layout scriptable object
+        }
+        Debug.Log($"Agent '{gameObject.name}' starting with shopping list: {string.Join(", ", shoppingList)}");
+
+        ChangeState(AgentState.Evaluating);
+        EvaluateNextTarget();
+
+    }
+
+    public void ChangeState(AgentState newState)
+    {
+        currentState = newState;
+        stateTimer = 0f;
+    }
+
+    void Update()
+    {
+        // Execute logic based on active state
+        switch (currentState)
+        {
+            case AgentState.MovingToTarget:
+                HandleMovingState();
+                break;
+            case AgentState.Buying:
+                HandleBuyingState();
+                break;
+            case AgentState.Wandering:
+                HandleWanderingState();
+                break;
+
+            case AgentState.WaitingInCheckoutLine:
+                // Waiting logic can be handled by the CheckoutCounter, so we might not need to do anything here for now
+                break;
+
+            case AgentState.GoingToCheckout:
+                HandleGoingToCheckoutState();
+                break;
+
+            case AgentState.Evaluating:
+                break;
+            case AgentState.Exiting:
+                HandleExitingState();
+                break;
+        }
+    }
+
+    private void HandleExitingState()
+    {
+        Vector2 closestExit = FindClosestDestination(layoutData.ExitLocations.ToArray());
+        agent.SetDestination(closestExit);
+    }
+
+    public void EvaluateNextTarget()
+    {
+        Debug.Log("Evaluating next target..., Current shopping list: " + string.Join(", ", shoppingList));
+
+        if (shoppingList.Count == 0)
+        {
+            Debug.Log("Shopping list complete! Heading to exit...");
+            ChangeState(AgentState.GoingToCheckout);
+            return;
+        }
+
+        // // Hackathon Feature: Roll for Impulse Buying diversion
+        // if (Random.value < impulseProbability)
+        // {
+        //     GameObject launchItem = FindClosestLaunchOrFavorite();
+        //     if (launchItem != null)
+        //     {
+        //         currentTargetItem = launchItem;
+        //         agent.SetDestination(currentTargetItem.transform.position);
+        //         ChangeState(AgentState.MovingToTarget);
+        //         if(stateDebugText != null) stateDebugText.text = "🤑 Impulse Buy Distraction!";
+        //         return;
+        //     }
+        // }
+
+        // // Standard Logic: Find closest item from core list
+        // build a list of potential targets based on the remaining items in the shopping list and the layout data
+        List<Vector2> potentialTargets = new();
         foreach (string item in shoppingList)
         {
             ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == item);
             if (section != null)
             {
-                if (section.TryGetEmptySlot(out Vector2 slotPosition))
-                {
-
-                    shoppingListItemsLocations.Add(slotPosition);
-                    section.Slots.Find(s => s.Position == slotPosition).IsOccupied = true; // Mark this slot as occupied so other agents won't target it
-                }
-                else
-                {
-                    Debug.LogWarning($"No available slots found in section '{item}' for agent '{gameObject.name}'.");
-                }
+                potentialTargets.Add(section.Slots[0].Position); // Again, using the first slot as a general target for the section
             }
-            else
+        }
+        // currentTargetSection = layoutData.sectionLookup[potentialTargets[0]]; // Set the current target section based on the first potential target (this is a simplification and could be improved to find the actual closest section)
+        if (potentialTargets.Count > 0)
+        {
+            Vector2 closestLocation = FindClosestDestination(potentialTargets.ToArray());
+            currentTargetSection = layoutData.sectionLookup[closestLocation].section; // Set the current target section based on the closest location
+            ChangeState(AgentState.MovingToTarget);
+            // agent.SetDestination(closestLocation);
+            Debug.Log($"Heading to next item: {currentTargetSection.SectionName} at {closestLocation}");
+            agent.SetDestination(closestLocation);
+
+        }
+
+    }
+
+    void HandleGoingToCheckoutState()
+    {
+        CheckoutCounter CounterWithLeastAgents = null;
+        int leastAgentsInLine = int.MaxValue;
+        foreach (var counter in layoutData.CheckoutCounters)
+        {
+            if (!counter.IsFull && counter.AgentCount < leastAgentsInLine)
             {
-                Debug.LogWarning($"Section '{item}' not found in layout data for agent '{gameObject.name}'.");
+                CounterWithLeastAgents = counter;
+                leastAgentsInLine = counter.AgentCount;
             }
         }
 
-    }
-
-    void Update()
-    {
-        // 1. Trigger the initial search
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (CounterWithLeastAgents == null)
         {
-            FindAndMoveToClosest();
-        }
-
-        // 2. Continuous check to see if we arrived
-        if (isMoving && HasReachedDestination())
-        {
-            isMoving = false;
-            Debug.Log("Destination reached! Finding the next closest target...");
-
-            _ = PauseAgent(2000); // Pause for 1 second to simulate browsing time
-            // clear the current target slot reference since we've arrived and are now "browsing" it
-            currentTargetSlot = null;
-            FindAndMoveToClosest();
-        }
-        // Detect if 2 or more agents are stuck on each other by checking if the agent has a path but isn't moving
-
-
-
-        // Optional: Add a key to reset the agent for testing purposes
-        if (Keyboard.current.rKey.wasPressedThisFrame)
-        {
-            Debug.Log("Resetting agent position and targets...");
-            agent.Warp(Vector2.zero); // Reset agent to the center of the map (or you can set this to a specific spawn point)
-        }
-    }
-
-    void LateUpdate()
-    {
-
-        if (agent.hasPath && agent.velocity.sqrMagnitude < 0.01f)
-        {
-            Debug.LogWarning("Agent seems to be stuck. Attempting to get unstuck.");
-            agent.avoidancePriority = Random.Range(10, 90);
-        }
-    }
-
-    /// <summary>
-    /// Helper method to extract positions from remaining targets and trigger movement.
-    /// </summary>
-    private void FindAndMoveToClosest()
-    {
-        // Clean up any null references in the list just in case
-        shoppingListItemsLocations.RemoveAll(t => t == null);
-
-        if (shoppingListItemsLocations.Count == 0)
-        {
-            Debug.Log("All destinations visited!");
-            if (availableExitLocations.Count > 0)
-            {
-                Debug.Log("Heading to exit...");
-                MoveToClosest(availableExitLocations.ConvertAll(t => (Vector2)t.position).ToArray(), false);
-            }
-
+            Debug.LogWarning($"Agent '{gameObject.name}' found no available checkout counters. Wandering.");
+            ChangeState(AgentState.Wandering);
             return;
         }
 
-        Vector2[] destinations = new Vector2[shoppingListItemsLocations.Count];
-        for (int i = 0; i < shoppingListItemsLocations.Count; i++)
-        {
-            // Add a small random offset to the target position to help prevent agents from clustering on the exact same spot
-            Vector2 randomOffset = new(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
-            destinations[i] = shoppingListItemsLocations[i] + randomOffset;
-        }
+        CounterWithLeastAgents.TryJoinLine(this, out Vector2 assignedPosition, out int positionIndex);
+        currentQueueIndex = positionIndex;
+        agent.SetDestination(assignedPosition);
+        ChangeState(AgentState.WaitingInCheckoutLine);
+    }
 
-        MoveToClosest(destinations, true);
+
+    /// <summary>
+    /// Calculates the closest destination from an array of potential targets using NavMesh pathfinding
+    /// </summary>
+    public Vector2 FindClosestDestination(Vector2[] destinations)
+    {
+        Vector2[] closestDestinations = FindClosestDestinations(destinations, 1);
+        return closestDestinations.Length > 0 ? closestDestinations[0] : Vector2.zero;
+
     }
 
     /// <summary>
-    /// Evaluates destinations and commands the agent to move to the closest valid one.
+    /// Calculates the top 3 closest destinations from an array of potential targets using NavMesh pathfinding.
     /// </summary>
-    public void MoveToClosest(Vector2[] destinations, bool removeFromTargetPositions = true)
+    public Vector2[] FindTop3ClosestDestinations(Vector2[] destinations)
     {
-        if (destinations == null || destinations.Length == 0) return;
+        return FindClosestDestinations(destinations, 3);
 
-        Vector2 bestDestination = Vector2.zero;
-        float shortestPathLength = float.MaxValue;
-        bool pathFound = false;
-        int bestIndex = -1;
+    }
 
+    private Vector2[] FindClosestDestinations(Vector2[] destinations, int maxResults)
+    {
+        if (destinations == null || destinations.Length == 0 || maxResults <= 0)
+        {
+            return System.Array.Empty<Vector2>();
+        }
+
+        List<(Vector2 destination, float pathLength)> rankedDestinations = new();
         NavMeshPath path = new();
 
         for (int i = 0; i < destinations.Length; i++)
         {
             Vector2 target = destinations[i];
 
-            if (agent.CalculatePath(target, path))
+            if (agent.CalculatePath(target, path) && path.status == NavMeshPathStatus.PathComplete)
             {
-                if (path.status == NavMeshPathStatus.PathComplete)
-                {
-                    float pathLength = GetPathLength(path);
-
-                    if (pathLength < shortestPathLength)
-                    {
-                        shortestPathLength = pathLength;
-                        bestDestination = target;
-                        bestIndex = i;
-                        pathFound = true;
-                    }
-                }
+                rankedDestinations.Add((target, GetPathLength(path)));
             }
         }
 
-        if (pathFound)
+        if (rankedDestinations.Count == 0)
         {
-            agent.SetDestination(bestDestination);
-            // 
-            isMoving = true;
+            int fallbackCount = Mathf.Min(maxResults, destinations.Length);
+            Vector2[] fallbackDestinations = new Vector2[fallbackCount];
+            System.Array.Copy(destinations, fallbackDestinations, fallbackCount);
+            return fallbackDestinations;
+        }
 
-            // Remove the target we are heading to from our list so we don't pick it next time
-            if (removeFromTargetPositions && bestIndex >= 0 && bestIndex < shoppingListItemsLocations.Count)
-            {
-                shoppingListItemsLocations.RemoveAt(bestIndex);
-            }
-        }
-        else
+        rankedDestinations.Sort((left, right) => left.pathLength.CompareTo(right.pathLength));
+
+        int resultCount = Mathf.Min(maxResults, rankedDestinations.Count);
+        Vector2[] closestDestinations = new Vector2[resultCount];
+
+        for (int i = 0; i < resultCount; i++)
         {
-            Debug.LogWarning("No complete NavMesh path found to any of the remaining destinations.");
-            isMoving = false;
+            closestDestinations[i] = rankedDestinations[i].destination;
         }
+
+        return closestDestinations;
+
     }
 
     /// <summary>
@@ -224,10 +284,127 @@ public class AgentMovement : MonoBehaviour
         return totalLength;
     }
 
-    private async Task PauseAgent(int delayMs)
+    void HandleMovingState()
     {
-        agent.isStopped = true; // Stop the agent while waiting
-        await Task.Delay(delayMs);
-        agent.isStopped = false; // Resume the agent after the delay
+        agent.avoidancePriority = Random.Range(10, 90); // Add a small random value to reduce ties in avoidance with other agents
+        // Debug.Log($"Current Target Section: {currentTargetSection.SectionName}, Remaining Distance: {agent.remainingDistance}");
+        if (currentTargetSection == null) { ChangeState(AgentState.Evaluating); return; }
+
+        // Check if close to the target item shelf
+        if (agent.remainingDistance <= 5.0f && currentTargetItem == null)
+        {
+            // Check if the target section is occupied
+            if (currentTargetSection.TryGetEmptySlot(out Vector2 slotPosition))
+            {
+                // Move to the specific slot position in the section
+                Debug.Log($"Moving to section {currentTargetSection.SectionName} at slot position {slotPosition}");
+                layoutData.sectionLookup[slotPosition].slot.IsOccupied = true; // Mark the slot as occupied
+                currentTargetItem = layoutData.sectionLookup[slotPosition].slot;
+                agent.SetDestination(slotPosition);
+                ChangeState(AgentState.Buying);
+
+            }
+            else
+            {
+                // If the section is full, switch to wandering state
+                ChangeState(AgentState.Wandering);
+
+            }
+        }
     }
+
+    void HandleWanderingState()
+    {
+        agent.avoidancePriority = 1;
+        // In this simple implementation, we'll just wait for a short duration and then re-evaluate our targets
+        stateTimer += Time.deltaTime;
+        if (stateTimer >= wanderDuration)
+        {
+
+            if (shoppingList.Count == 0)
+            {
+                ChangeState(AgentState.GoingToCheckout);
+                return;
+            }
+            // // Standard Logic: Find closest item from core list
+            // build a list of potential targets based on the remaining items in the shopping list and the layout data
+            List<Vector2> potentialTargets = new();
+            foreach (string item in shoppingList)
+            {
+                ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == item);
+                if (section != null)
+                {
+                    potentialTargets.Add(section.Slots[0].Position); // Again, using the first slot as a general target for the section
+                }
+            }
+            // currentTargetSection = layoutData.sectionLookup[potentialTargets[0]]; // Set the current target section based on the first potential target (this is a simplification and could be improved to find the actual closest section)
+            if (potentialTargets.Count > 0)
+            {
+                Vector2 closestLocation = FindTop3ClosestDestinations(potentialTargets.ToArray())[1]; // Get the 2nd closest of the top 3 destinations to add some variation
+                currentTargetSection = layoutData.sectionLookup[closestLocation].section; // Set the current target section based on the closest location
+                ChangeState(AgentState.MovingToTarget);
+                // agent.SetDestination(closestLocation);
+                Debug.Log($"Heading to next item: {currentTargetSection.SectionName} at {closestLocation}");
+                agent.SetDestination(closestLocation);
+
+            }
+        }
+    }
+
+    void HandleBuyingState()
+    {
+        if (isPurchaseInProgress)
+        {
+            return;
+        }
+
+        if (HasReachedDestination() && currentTargetSection != null && currentTargetItem != null)
+        {
+            Debug.Log($"Arrived at target item in section and starting purchase process.");
+            buyingCoroutine = StartCoroutine(CompletePurchaseAfterDelay(currentTargetSection, currentTargetItem));
+        }
+    }
+
+    private IEnumerator CompletePurchaseAfterDelay(ProductSection targetSection, ProductSlot targetItem)
+    {
+        isPurchaseInProgress = true;
+
+        yield return new WaitForSeconds(buyDuration);
+
+        if (targetSection != null && targetItem != null)
+        {
+            Debug.Log($"Finished buying item from section {targetSection.SectionName}");
+            Debug.Log($"Marking slot at position {targetItem.Position} as unoccupied.");
+            targetItem.IsOccupied = false;
+            shoppingList.Remove(targetSection.SectionName);
+
+            if (currentTargetItem == targetItem)
+            {
+                currentTargetItem = null;
+            }
+
+            if (currentTargetSection == targetSection)
+            {
+                currentTargetSection = null;
+            }
+        }
+
+        isPurchaseInProgress = false;
+        buyingCoroutine = null;
+        EvaluateNextTarget();
+    }
+
+    private void OnDisable()
+    {
+        if (buyingCoroutine != null)
+        {
+            StopCoroutine(buyingCoroutine);
+            buyingCoroutine = null;
+        }
+
+        isPurchaseInProgress = false;
+
+        // 
+    }
+
 }
