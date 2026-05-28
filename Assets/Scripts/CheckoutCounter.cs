@@ -16,5 +16,7 @@ public class CheckoutCounter
     public List<CheckoutSlot> QueueSlots = new List<CheckoutSlot>(); // Define these in the Inspector (0 = front of line)
     public string CounterName; // Optional: for debugging or display purposes
 
+    public Vector2 position;
+
     // public bool IsFull => waitingAgents.Count >= QueueSlots.Count;
 }

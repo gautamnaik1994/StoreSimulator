@@ -38,7 +38,8 @@ public class LayoutBaker : MonoBehaviour
 
                 CheckoutCounter newCounter = new CheckoutCounter
                 {
-                    CounterName = sectionTransform.name
+                    CounterName = sectionTransform.name,
+                    position = sectionTransform.position
                 };
                 // Get the component "CheckoutHandler" from the current sectionTransform and assign it to the newCounter's handler reference
 

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7190743926061962175}
   - component: {fileID: 2992684148966817285}
   - component: {fileID: 2187546697014310718}
-  - component: {fileID: 1571305312920689329}
   - component: {fileID: 2385621821437106546}
+  - component: {fileID: -9126716359624825782}
   m_Layer: 0
   m_Name: agent
   m_TagString: Agent
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.36, y: -11.11, z: 0}
-  m_LocalScale: {x: 0.6151, y: 0.6633, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,7 +103,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3713120276510021531}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.4
+  m_Radius: 0.32
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -116,8 +116,34 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!61 &1571305312920689329
-BoxCollider2D:
+--- !u!114 &2385621821437106546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3713120276510021531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3299f7beab11d47f6a01f4b5eefd1a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AgentMovement_v2
+  layoutData: {fileID: 11400000, guid: 7bccf230b1faa4e9690aef5d5d70c31a, type: 2}
+  currentState: 0
+  impulseProbability: 0.4
+  shoppingList:
+  - Milk
+  - Fruits
+  impulseFavorites:
+  - Chips
+  - Soda
+  - New Energy Drink
+  buyDuration: 4
+  wanderDuration: 6
+  checkoutArrivalThreshold: 30
+  shoppingListItemsLocations: []
+--- !u!58 &-9126716359624825782
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,44 +172,9 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &2385621821437106546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3713120276510021531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3299f7beab11d47f6a01f4b5eefd1a37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AgentMovement_v2
-  layoutData: {fileID: 11400000, guid: 7bccf230b1faa4e9690aef5d5d70c31a, type: 2}
-  currentState: 0
-  impulseProbability: 0.4
-  shoppingList:
-  - Milk
-  - Fruits
-  impulseFavorites:
-  - Chips
-  - Soda
-  - New Energy Drink
-  buyDuration: 4
-  wanderDuration: 6
-  shoppingListItemsLocations: []
+  m_Radius: 0.52
