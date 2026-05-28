@@ -19,6 +19,12 @@ public class LayoutBaker : MonoBehaviour
         // Loop through all top-level children of this GameObject (e.g., "Milk Section", "Cereal Isle")
         foreach (Transform sectionTransform in transform)
         {
+            // check if transform is active before processing to allow for easy exclusion of certain sections from the layout by simply deactivating them in the hierarchy
+            if (!sectionTransform.gameObject.activeInHierarchy)
+            {
+                Debug.Log($"Skipping inactive section '{sectionTransform.name}'");
+                continue;
+            }
 
             // caompare tag to see if this is an exit location or a product section
             if (sectionTransform.CompareTag("Exit"))

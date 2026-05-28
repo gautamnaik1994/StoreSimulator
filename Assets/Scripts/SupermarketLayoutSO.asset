@@ -58,7 +58,7 @@ MonoBehaviour:
     - Position: {x: 8.218269, y: 0.21188462}
       IsOccupied: 0
     - Position: {x: 8.218269, y: -1.0717101}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 8.218269, y: -2.3501496}
       IsOccupied: 0
     - Position: {x: 8.218269, y: -3.4997144}
@@ -146,21 +146,6 @@ MonoBehaviour:
   - {x: -18, y: -17.93}
   CheckoutCounters:
   - QueueSlots:
-    - Position: {x: -22.62827, y: -13.525693}
-      IsOccupied: 0
-    - Position: {x: -22.62827, y: -12.650699}
-      IsOccupied: 0
-    - Position: {x: -22.62827, y: -11.73847}
-      IsOccupied: 0
-    - Position: {x: -22.62827, y: -10.813831}
-      IsOccupied: 0
-    - Position: {x: -22.62827, y: -9.957454}
-      IsOccupied: 0
-    - Position: {x: -22.62827, y: -9.113487}
-      IsOccupied: 0
-    - Position: {x: -22.62827, y: -8.20126}
-      IsOccupied: 0
-  - QueueSlots:
     - Position: {x: -17.91827, y: -13.525693}
       IsOccupied: 0
     - Position: {x: -17.91827, y: -12.650699}
@@ -175,3 +160,4 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -17.91827, y: -8.20126}
       IsOccupied: 0
+    CounterName: Checkout_2

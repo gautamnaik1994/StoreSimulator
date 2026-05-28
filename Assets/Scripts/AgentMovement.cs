@@ -53,7 +53,7 @@ public class AgentMovement : MonoBehaviour
         shoppingList.Clear();
         foreach (var section in layoutData.ProductSections)
         {
-            if (Random.value < 0.5f) // 50% chance to add each section to the shopping list
+            if (Random.value < 0.3f) // 30% chance to add each section to the shopping list
             {
                 shoppingList.Add(section.SectionName);
             }
@@ -68,6 +68,13 @@ public class AgentMovement : MonoBehaviour
         ChangeState(AgentState.Evaluating);
         EvaluateNextTarget();
 
+    }
+
+    public void SetAvoidancePriorityBasedOnQueuePosition(int queuePosition)
+    {
+        // Lower priority for those closer to the front of the line (lower index)
+        int priority = Mathf.Clamp(queuePosition * 10, 10, 90); // Example: 0th in line = 10 priority, 1st in line = 20 priority, etc.
+        agent.avoidancePriority = priority;
     }
 
     public void ChangeState(AgentState newState)
@@ -166,14 +173,39 @@ public class AgentMovement : MonoBehaviour
     void HandleGoingToCheckoutState()
     {
         CheckoutCounter CounterWithLeastAgents = null;
+        CheckoutHandler HandlerWithLeastAgents = null;
         int leastAgentsInLine = int.MaxValue;
-        foreach (var counter in layoutData.CheckoutCounters)
+        // foreach (var counter in layoutData.CheckoutCounters)
+        // {
+        //     if (!counter.IsFull && counter.AgentCount < leastAgentsInLine)
+        //     {
+        //         CounterWithLeastAgents = counter;
+        //         leastAgentsInLine = counter.AgentCount;
+        //     }
+        // }
+
+        // if (CounterWithLeastAgents == null)
+        // {
+        //     Debug.LogWarning($"Agent '{gameObject.name}' found no available checkout counters. Wandering.");
+        //     ChangeState(AgentState.Wandering);
+        //     return;
+        // }
+
+        // CounterWithLeastAgents.TryJoinLine(this, out Vector2 assignedPosition, out int positionIndex);
+        // currentQueueIndex = positionIndex;
+        // agent.SetDestination(assignedPosition);
+        // ChangeState(AgentState.WaitingInCheckoutLine);
+
+        // Updated logic to check with CheckoutHandlers instead of directly with CheckoutCounters
+        foreach (var handler in layoutData.CheckoutHandlers)
         {
-            if (!counter.IsFull && counter.AgentCount < leastAgentsInLine)
+            if (!handler.IsFull && handler.AgentCount < leastAgentsInLine)
             {
-                CounterWithLeastAgents = counter;
-                leastAgentsInLine = counter.AgentCount;
+                CounterWithLeastAgents = handler.associatedCounter;
+                HandlerWithLeastAgents = handler;
+                leastAgentsInLine = handler.AgentCount;
             }
+
         }
 
         if (CounterWithLeastAgents == null)
@@ -183,10 +215,11 @@ public class AgentMovement : MonoBehaviour
             return;
         }
 
-        CounterWithLeastAgents.TryJoinLine(this, out Vector2 assignedPosition, out int positionIndex);
+        HandlerWithLeastAgents.TryJoinLine(this, out Vector2 assignedPosition, out int positionIndex);
         currentQueueIndex = positionIndex;
         agent.SetDestination(assignedPosition);
         ChangeState(AgentState.WaitingInCheckoutLine);
+
     }
 
 
@@ -405,6 +438,11 @@ public class AgentMovement : MonoBehaviour
         isPurchaseInProgress = false;
 
         // 
+    }
+
+    public void MoveToLocation(Vector2 location)
+    {
+        agent.SetDestination(location);
     }
 
 }
