@@ -15,6 +15,20 @@ public class AgentMovement : MonoBehaviour
 
     public enum AgentState { Evaluating, MovingBetweenShelves, Buying, BuyingComplete, GoingToCheckout, WaitingInCheckoutLine, Wandering, Exiting }
 
+    private Dictionary<AgentState, Color> AgentStateColors = new Dictionary<AgentState, Color>()
+    {
+        { AgentState.Evaluating, Color.blue },
+        { AgentState.MovingBetweenShelves, Color.yellow },
+        { AgentState.Buying, Color.green },
+        { AgentState.BuyingComplete, Color.cyan },
+        { AgentState.GoingToCheckout, Color.magenta },
+        { AgentState.WaitingInCheckoutLine, Color.red },
+        { AgentState.Wandering, Color.gray },
+        { AgentState.Exiting, Color.black }
+    };
+
+    public GameObject agentStatusRing; // Optional: A SpriteRenderer to visually indicate the agent's current state with color coding (for debugging purposes)
+
     [Header("State Machine")]
     public AgentState currentState = AgentState.Evaluating;
 
@@ -39,10 +53,19 @@ public class AgentMovement : MonoBehaviour
     [SerializeField]
     private List<Vector2> shoppingListItemsLocations = new(); // This will hold the positions of the items we need to buy, which should correspond to the section names in our layout data
 
+    private Renderer agentRenderer;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        // get the renderer component and set the color based on the current state
+        agentRenderer = GetComponent<Renderer>();
+        if (agentRenderer != null && AgentStateColors.ContainsKey(currentState))
+        {
+            agentRenderer.material.color = AgentStateColors[currentState];
+        }
+        agentStatusRing.SetActive(false);
+
 
         agent.updateRotation = false; // Disable automatic rotation
         agent.updateUpAxis = false;   // Disable automatic up axis adjustment
@@ -83,6 +106,10 @@ public class AgentMovement : MonoBehaviour
     {
         currentState = newState;
         stateTimer = 0f;
+        if (agentRenderer != null)
+        {
+            agentRenderer.material.color = AgentStateColors.ContainsKey(currentState) ? AgentStateColors[currentState] : Color.white;
+        }
     }
 
     void Update()
@@ -365,7 +392,8 @@ public class AgentMovement : MonoBehaviour
 
     void HandleWanderingState()
     {
-        agent.avoidancePriority = 1;
+        agent.avoidancePriority = 99;
+        agentStatusRing.SetActive(true);
         // In this simple implementation, we'll just wait for a short duration and then re-evaluate our targets
         stateTimer += Time.deltaTime;
         if (stateTimer >= wanderDuration)
@@ -373,6 +401,7 @@ public class AgentMovement : MonoBehaviour
 
             if (shoppingList.Count == 0)
             {
+                agentStatusRing.SetActive(false);
                 ChangeState(AgentState.GoingToCheckout);
                 return;
             }
@@ -394,6 +423,7 @@ public class AgentMovement : MonoBehaviour
                 currentTargetSection = layoutData.sectionLookup[closestLocation].section; // Set the current target section based on the closest location
                 ChangeState(AgentState.MovingBetweenShelves);
                 // agent.SetDestination(closestLocation);
+                agentStatusRing.SetActive(false);
                 Debug.Log($"Heading to next item: {currentTargetSection.SectionName} at {closestLocation}");
                 agent.SetDestination(closestLocation);
 
