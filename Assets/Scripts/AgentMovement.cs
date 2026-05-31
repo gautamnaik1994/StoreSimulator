@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-using Unity.VisualScripting;
+// using Unity.VisualScripting;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AgentMovement : MonoBehaviour
@@ -15,17 +15,7 @@ public class AgentMovement : MonoBehaviour
 
     public enum AgentState { Evaluating, MovingBetweenShelves, Buying, BuyingComplete, GoingToCheckout, WaitingInCheckoutLine, Wandering, Exiting }
 
-    private Dictionary<AgentState, Color> AgentStateColors = new Dictionary<AgentState, Color>()
-    {
-        { AgentState.Evaluating, Color.blue },
-        { AgentState.MovingBetweenShelves, Color.yellow },
-        { AgentState.Buying, Color.green },
-        { AgentState.BuyingComplete, Color.cyan },
-        { AgentState.GoingToCheckout, Color.magenta },
-        { AgentState.WaitingInCheckoutLine, Color.red },
-        { AgentState.Wandering, Color.gray },
-        { AgentState.Exiting, Color.black }
-    };
+    private Dictionary<AgentState, Color> AgentStateColors;
 
     public GameObject agentStatusRing; // Optional: A SpriteRenderer to visually indicate the agent's current state with color coding (for debugging purposes)
 
@@ -54,6 +44,20 @@ public class AgentMovement : MonoBehaviour
     private List<Vector2> shoppingListItemsLocations = new(); // This will hold the positions of the items we need to buy, which should correspond to the section names in our layout data
 
     private Renderer agentRenderer;
+    private void Awake()
+    {
+        AgentStateColors = new Dictionary<AgentState, Color>()
+        {
+            { AgentState.Evaluating, ParseColor("#38BDF8") },
+            { AgentState.MovingBetweenShelves, ParseColor("#34D399") },
+            { AgentState.Buying, ParseColor("#4ADE80") },
+            { AgentState.BuyingComplete, ParseColor("#059669") },
+            { AgentState.GoingToCheckout, ParseColor("#A855F7") },
+            { AgentState.WaitingInCheckoutLine, ParseColor("#F43F5E") }, // Bottleneck alert!
+            { AgentState.Wandering, ParseColor("#FBBF24") },
+            { AgentState.Exiting, ParseColor("#94A3B8") }
+        };
+    }
 
     void Start()
     {
@@ -93,6 +97,15 @@ public class AgentMovement : MonoBehaviour
         ChangeState(AgentState.Evaluating);
         EvaluateNextTarget();
 
+    }
+
+    private Color ParseColor(string hex)
+    {
+        if (UnityEngine.ColorUtility.TryParseHtmlString(hex, out Color color))
+        {
+            return color;
+        }
+        return Color.white; // Fallback
     }
 
     public void SetAvoidancePriorityBasedOnQueuePosition(int queuePosition)

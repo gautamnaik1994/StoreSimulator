@@ -220,6 +220,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.40784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2901961
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall (3)
@@ -414,6 +426,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.09803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.08627451
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall (8)
@@ -624,7 +648,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -632,7 +656,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &271906160
 PrefabInstance:
@@ -642,6 +666,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.40784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2901961
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall (1)
@@ -793,7 +829,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -801,7 +837,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &278198416
 GameObject:
@@ -842,6 +878,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.53333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.050980393
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall (12)
@@ -1015,7 +1063,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1023,7 +1071,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &375489299
 GameObject:
@@ -1297,7 +1345,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1305,7 +1353,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &519420028
 GameObject:
@@ -1575,6 +1623,18 @@ PrefabInstance:
     - target: {fileID: 2560202985777545642, guid: db78ff85ff0e142b29a2a51081e5ad48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444956041747176515, guid: db78ff85ff0e142b29a2a51081e5ad48, type: 3}
+      propertyPath: m_Color.b
+      value: 0.54509807
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444956041747176515, guid: db78ff85ff0e142b29a2a51081e5ad48, type: 3}
+      propertyPath: m_Color.g
+      value: 0.45490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444956041747176515, guid: db78ff85ff0e142b29a2a51081e5ad48, type: 3}
+      propertyPath: m_Color.r
+      value: 0.39215687
       objectReference: {fileID: 0}
     - target: {fileID: 8518528685333206724, guid: db78ff85ff0e142b29a2a51081e5ad48, type: 3}
       propertyPath: m_Name
@@ -1884,7 +1944,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1892,7 +1952,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &747273670
 GameObject:
@@ -1933,6 +1993,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.09803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.08627451
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall (15)
@@ -2408,6 +2480,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.40784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2901961
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall (4)
@@ -2478,6 +2562,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.09803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.08627451
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall (2)
@@ -2548,6 +2644,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.18039216
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall (7)
@@ -2760,7 +2868,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2768,7 +2876,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1011933980
 PrefabInstance:
@@ -2884,6 +2992,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7764706
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall (6)
@@ -3062,7 +3182,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3070,7 +3190,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1222696471
 GameObject:
@@ -3157,7 +3277,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3165,7 +3285,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1284166503
 GameObject:
@@ -3284,7 +3404,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3292,7 +3412,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1344717895
 PrefabInstance:
@@ -3302,6 +3422,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.40784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2901961
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall (5)
@@ -3605,7 +3737,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3613,7 +3745,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1565534975
 PrefabInstance:
@@ -4286,7 +4418,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4294,7 +4426,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1807458649
 GameObject:
@@ -4442,6 +4574,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 3967649642128659465, guid: a2b31c41f6f3f46b182df4880e78dede, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967649642128659465, guid: a2b31c41f6f3f46b182df4880e78dede, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6113976513990286861, guid: a2b31c41f6f3f46b182df4880e78dede, type: 3}
       propertyPath: m_Name
       value: Checkout_2
@@ -4515,7 +4655,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 61.85821, y: 37.28059, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1717521673}
@@ -4585,12 +4725,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.2830189, g: 0.14551443, b: 0.14551443, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 00ada06de2a9240189ab9b0f39d1b9c0, type: 3}
+  m_Color: {r: 0.15686275, g: 0.1764706, b: 0.23921569, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 2
+  m_Size: {x: 61.9, y: 36.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4797,6 +4937,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.53333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.050980393
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall (17)
@@ -4898,6 +5050,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717521673}
     m_Modifications:
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.40784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 63745280031685289, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2901961
+      objectReference: {fileID: 0}
     - target: {fileID: 919959002125809237, guid: 51693da7e2687445f8f644175354cbe1, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -5121,6 +5285,14 @@ PrefabInstance:
     - target: {fileID: 3572429621429425389, guid: a2b31c41f6f3f46b182df4880e78dede, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967649642128659465, guid: a2b31c41f6f3f46b182df4880e78dede, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967649642128659465, guid: a2b31c41f6f3f46b182df4880e78dede, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6113976513990286861, guid: a2b31c41f6f3f46b182df4880e78dede, type: 3}
       propertyPath: m_Name
