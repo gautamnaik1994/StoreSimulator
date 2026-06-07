@@ -14,6 +14,7 @@ public class CheckoutHandler : MonoBehaviour
 
     public float CheckoutSpeedSeconds = 3.0f;
     public int AgentCount => waitingAgents.Count;
+    public float EstimatedWaitTimeSeconds => waitingAgents.Count * CheckoutSpeedSeconds;
 
     // public bool IsFull => waitingAgents.Count >= QueueSlots.Count;
     public bool IsFull => associatedCounter != null && waitingAgents.Count >= associatedCounter.QueueSlots.Count;
