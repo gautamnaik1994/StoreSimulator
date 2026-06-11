@@ -13,7 +13,7 @@ public class AgentMovement : MonoBehaviour
 
     private NavMeshAgent agent;
 
-    public enum AgentState { Evaluating, MovingBetweenShelves, Buying, BuyingComplete, GoingToCheckout, WaitingInCheckoutLine, Wandering, Exiting }
+    public enum AgentState { Evaluating, MovingBetweenShelves, Buying, BuyingComplete, GoingToCheckoutHolding, GoingToCheckout, WaitingInCheckoutLine, Wandering, Exiting }
 
     private Dictionary<AgentState, Color> AgentStateColors;
 
@@ -30,6 +30,8 @@ public class AgentMovement : MonoBehaviour
     [Header("Navigation & Timing")]
     public float buyDuration = 4.0f;
     public float wanderDuration = 6.0f;
+    public float revisitPenalty = 12.0f;
+
 
     private ProductSlot currentTargetItem;
     private ProductSection currentTargetSection;
@@ -39,6 +41,7 @@ public class AgentMovement : MonoBehaviour
     public float checkoutArrivalThreshold = 15.0f; // Distance threshold to consider the agent has arrived at the checkout counter
 
     private int currentQueueIndex = -1; // Track the agent's position in the checkout queue
+    private readonly Queue<string> recentVisitedSections = new();
 
     [SerializeField]
     private List<Vector2> shoppingListItemsLocations = new(); // This will hold the positions of the items we need to buy, which should correspond to the section names in our layout data
@@ -82,7 +85,7 @@ public class AgentMovement : MonoBehaviour
         shoppingList.Clear();
         foreach (var section in layoutData.ProductSections)
         {
-            if (Random.value < 0.3f) // 30% chance to add each section to the shopping list
+            if (Random.value < 0.2f) // 30% chance to add each section to the shopping list
             {
                 shoppingList.Add(section.SectionName);
             }
@@ -146,8 +149,12 @@ public class AgentMovement : MonoBehaviour
                 HandleWanderingState();
                 break;
 
+            case AgentState.GoingToCheckoutHolding:
+                HandleGoingToCheckoutHoldingState();
+                break;
+
             case AgentState.GoingToCheckout:
-                HandleGoingToCheckoutState();
+                // HandleGoingToCheckoutState();
                 break;
 
             case AgentState.WaitingInCheckoutLine:
@@ -163,11 +170,7 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
-    private void HandleExitingState()
-    {
-        Vector2 closestExit = FindClosestDestination(layoutData.ExitLocations.ToArray());
-        agent.SetDestination(closestExit);
-    }
+
 
     public void EvaluateNextTarget()
     {
@@ -180,20 +183,6 @@ public class AgentMovement : MonoBehaviour
             return;
         }
 
-        // // Hackathon Feature: Roll for Impulse Buying diversion
-        // if (Random.value < impulseProbability)
-        // {
-        //     GameObject launchItem = FindClosestLaunchOrFavorite();
-        //     if (launchItem != null)
-        //     {
-        //         currentTargetItem = launchItem;
-        //         agent.SetDestination(currentTargetItem.transform.position);
-        //         ChangeState(AgentState.MovingToTarget);
-        //         if(stateDebugText != null) stateDebugText.text = "🤑 Impulse Buy Distraction!";
-        //         return;
-        //     }
-        // }
-
         // // Standard Logic: Find closest item from core list
         // build a list of potential targets based on the remaining items in the shopping list and the layout data
         List<Vector2> potentialTargets = new();
@@ -205,7 +194,6 @@ public class AgentMovement : MonoBehaviour
                 potentialTargets.Add(section.Slots[0].Position); // Again, using the first slot as a general target for the section
             }
         }
-        // currentTargetSection = layoutData.sectionLookup[potentialTargets[0]]; // Set the current target section based on the first potential target (this is a simplification and could be improved to find the actual closest section)
         if (potentialTargets.Count > 0)
         {
             Vector2 closestLocation = FindClosestDestination(potentialTargets.ToArray());
@@ -218,40 +206,28 @@ public class AgentMovement : MonoBehaviour
         }
 
     }
-
     void HandleBuyingCompleteState()
     {
-        // get closest checkout counter from layout data
-        Vector2 closestCheckout = FindClosestDestination(layoutData.CheckoutCounters.ConvertAll(counter => counter.position).ToArray());
-        CheckoutCounter targetCounter = layoutData.CheckoutCounters.Find(counter => counter.position == closestCheckout);
-        if (targetCounter != null)
-        {
-            Debug.Log($"Heading to checkout counter '{targetCounter.CounterName}' at position {closestCheckout}");
-            agent.SetDestination(closestCheckout);
-            ChangeState(AgentState.GoingToCheckout);
-        }
-        else
-        {
-            Debug.LogError("No checkout counters found in layout data!");
-            ChangeState(AgentState.Wandering);
-        }
+        // get closest holding area from layout data
+        Vector2 closestHolding = FindClosestDestination(layoutData.HoldingAreas.ConvertAll(holding => holding.CenterPosition).ToArray());
+        Holding targetHolding = layoutData.HoldingAreas.Find(holding => holding.CenterPosition == closestHolding);
+
+        Debug.Log($"Heading to holding area '{targetHolding.SectionName}' at position {closestHolding}");
+        agent.SetDestination(targetHolding.GetRandomPositionInHoldingArea());
+        ChangeState(AgentState.GoingToCheckoutHolding);
+
+
     }
 
-    void HandleGoingToCheckoutState()
+    void HandleGoingToCheckoutHoldingState()
     {
-        if (!HasReachedDestination(checkoutArrivalThreshold))
+        if (!HasReachedDestination())
         {
             return; // Keep heading to checkout until we arrive
         }
-
-
         CheckoutCounter CounterWithLeastAgents = null;
         CheckoutHandler HandlerWithLeastAgents = null;
         int leastAgentsInLine = int.MaxValue;
-
-
-
-
 
         // Updated logic to check with CheckoutHandlers instead of directly with CheckoutCounters
         foreach (var handler in layoutData.CheckoutHandlers)
@@ -262,7 +238,6 @@ public class AgentMovement : MonoBehaviour
                 HandlerWithLeastAgents = handler;
                 leastAgentsInLine = handler.AgentCount;
             }
-
         }
 
         if (CounterWithLeastAgents == null)
@@ -276,9 +251,60 @@ public class AgentMovement : MonoBehaviour
         currentQueueIndex = positionIndex;
         agent.SetDestination(assignedPosition);
         ChangeState(AgentState.WaitingInCheckoutLine);
-
     }
 
+    void HandleGoingToCheckoutState()
+    {
+        if (!HasReachedDestination())
+        {
+            return; // Keep heading to checkout until we arrive
+        }
+    }
+
+    private Vector2 PickWeightedShoppingTarget(List<Vector2> candidates, bool preferClosest)
+    {
+        if (candidates == null || candidates.Count == 0)
+        {
+            return Vector2.zero;
+        }
+
+        Vector2 bestTarget = candidates[0];
+        float bestScore = float.MaxValue;
+
+        foreach (Vector2 candidate in candidates)
+        {
+            float score = EstimatePathLength(candidate);
+
+            if (!preferClosest)
+            {
+                score += Random.Range(0f, 4f);
+            }
+
+            if (layoutData.sectionLookup.TryGetValue(candidate, out var lookup) && lookup.section != null && IsRecentlyVisited(lookup.section.SectionName))
+            {
+                score += revisitPenalty;
+            }
+
+            if (score < bestScore)
+            {
+                bestScore = score;
+                bestTarget = candidate;
+            }
+        }
+
+        return bestTarget;
+    }
+
+    private float EstimatePathLength(Vector2 target)
+    {
+        NavMeshPath path = new();
+        if (agent.CalculatePath(target, path) && path.status == NavMeshPathStatus.PathComplete)
+        {
+            return GetPathLength(path);
+        }
+
+        return Vector2.Distance(transform.position, target) * 1.5f;
+    }
 
     /// <summary>
     /// Calculates the closest destination from an array of potential targets using NavMesh pathfinding
@@ -403,6 +429,11 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
+    private bool IsRecentlyVisited(string sectionName)
+    {
+        return !string.IsNullOrWhiteSpace(sectionName) && recentVisitedSections.Contains(sectionName);
+    }
+
     void HandleWanderingState()
     {
         agent.avoidancePriority = 99;
@@ -415,7 +446,7 @@ public class AgentMovement : MonoBehaviour
             if (shoppingList.Count == 0)
             {
                 agentStatusRing.SetActive(false);
-                ChangeState(AgentState.GoingToCheckout);
+                ChangeState(AgentState.GoingToCheckoutHolding);
                 return;
             }
             // // Standard Logic: Find closest item from core list
@@ -485,6 +516,17 @@ public class AgentMovement : MonoBehaviour
         isPurchaseInProgress = false;
         buyingCoroutine = null;
         EvaluateNextTarget();
+    }
+
+    private void HandleExitingState()
+    {
+        if (!HasReachedDestination())
+        {
+            return; // Keep heading to exit until we arrive
+        }
+
+        Vector2 closestExit = FindClosestDestination(layoutData.ExitLocations.ToArray());
+        agent.SetDestination(closestExit);
     }
 
     private void OnDisable()

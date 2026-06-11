@@ -248,20 +248,6 @@ public class AgentMovement : MonoBehaviour
             return;
         }
 
-        // // Hackathon Feature: Roll for Impulse Buying diversion
-        // if (Random.value < impulseProbability)
-        // {
-        //     GameObject launchItem = FindClosestLaunchOrFavorite();
-        //     if (launchItem != null)
-        //     {
-        //         currentTargetItem = launchItem;
-        //         agent.SetDestination(currentTargetItem.transform.position);
-        //         ChangeState(AgentState.MovingToTarget);
-        //         if(stateDebugText != null) stateDebugText.text = "🤑 Impulse Buy Distraction!";
-        //         return;
-        //     }
-        // }
-
         // // Standard Logic: Find closest item from core list
         // build a list of potential targets based on the remaining items in the shopping list and the layout data
         List<Vector2> potentialTargets = new();

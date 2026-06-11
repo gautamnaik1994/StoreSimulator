@@ -11,6 +11,7 @@ public class SupermarketLayoutSO : ScriptableObject
     public List<CheckoutCounter> CheckoutCounters = new List<CheckoutCounter>();
     [System.NonSerialized]
     public List<CheckoutHandler> CheckoutHandlers = new List<CheckoutHandler>();
+    public List<Holding> HoldingAreas = new List<Holding>();
     private void OnEnable()
     {
         // Build the lookup dictionary when the ScriptableObject is loaded

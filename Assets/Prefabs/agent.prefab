@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 2187546697014310718}
   - component: {fileID: 2385621821437106546}
   - component: {fileID: -9126716359624825782}
+  - component: {fileID: -2127297683842979253}
   m_Layer: 0
   m_Name: agent
   m_TagString: Agent
@@ -233,7 +234,7 @@ MonoBehaviour:
   - New Energy Drink
   buyDuration: 4
   wanderDuration: 6
-  checkoutArrivalThreshold: 30
+  checkoutArrivalThreshold: 40
   shoppingListItemsLocations: []
 --- !u!58 &-9126716359624825782
 CircleCollider2D:
@@ -271,3 +272,30 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.52
+--- !u!50 &-2127297683842979253
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3713120276510021531}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 2
+  m_AngularDamping: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4

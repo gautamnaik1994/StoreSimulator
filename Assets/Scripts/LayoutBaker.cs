@@ -14,6 +14,7 @@ public class LayoutBaker : MonoBehaviour
         layoutAsset.ProductSections.Clear();
         layoutAsset.ExitLocations.Clear();
         layoutAsset.CheckoutCounters.Clear();
+        layoutAsset.HoldingAreas.Clear();
 
 
         // Loop through all top-level children of this GameObject (e.g., "Milk Section", "Cereal Isle")
@@ -31,6 +32,17 @@ public class LayoutBaker : MonoBehaviour
             {
                 layoutAsset.ExitLocations.Add(sectionTransform.position);
                 continue; // Skip the rest of the loop for this iteration since it's an exit, not a product section
+            }
+
+            if (sectionTransform.CompareTag("Holding"))
+            {
+                Holding newHolding = new Holding
+                {
+                    SectionName = sectionTransform.name,
+                    CenterPosition = sectionTransform.position,
+                };
+                layoutAsset.HoldingAreas.Add(newHolding);
+                continue; // Skip the rest of the loop for this iteration since it's a holding area, not a product section
             }
 
             if (sectionTransform.CompareTag("Checkout"))

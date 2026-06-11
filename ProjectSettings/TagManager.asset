@@ -7,6 +7,7 @@ TagManager:
   - Agent
   - Exit
   - Checkout
+  - Holding
   layers:
   - Default
   - TransparentFX
