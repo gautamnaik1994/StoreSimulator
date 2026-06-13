@@ -102,9 +102,9 @@ GameObject:
   - component: {fileID: 7190743926061962175}
   - component: {fileID: 2992684148966817285}
   - component: {fileID: 2187546697014310718}
-  - component: {fileID: 2385621821437106546}
   - component: {fileID: -9126716359624825782}
   - component: {fileID: -2127297683842979253}
+  - component: {fileID: 6207434533820580187}
   m_Layer: 0
   m_Name: agent
   m_TagString: Agent
@@ -209,33 +209,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2385621821437106546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3713120276510021531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3299f7beab11d47f6a01f4b5eefd1a37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AgentMovement_v2
-  layoutData: {fileID: 11400000, guid: 7bccf230b1faa4e9690aef5d5d70c31a, type: 2}
-  agentStatusRing: {fileID: 2087894805237343971}
-  currentState: 0
-  impulseProbability: 0.4
-  shoppingList:
-  - Milk
-  - Fruits
-  impulseFavorites:
-  - Chips
-  - Soda
-  - New Energy Drink
-  buyDuration: 4
-  wanderDuration: 6
-  checkoutArrivalThreshold: 40
-  shoppingListItemsLocations: []
 --- !u!58 &-9126716359624825782
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -299,3 +272,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &6207434533820580187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3713120276510021531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965fe425b43bb42ae922ec4b72262ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AgentMovementEnhanced
+  layoutData: {fileID: 11400000, guid: 7bccf230b1faa4e9690aef5d5d70c31a, type: 2}
+  queueCheckInterval: 1.5
+  evaluationInterval: 0.2
+  currentState: 0
+  fullShelfCooldownDuration: 15

@@ -9,7 +9,7 @@ public class CheckoutHandler : MonoBehaviour
     public CheckoutCounter associatedCounter;
 
     // Queue holding the agents currently waiting
-    private Queue<AgentMovement> waitingAgents = new Queue<AgentMovement>();
+    private Queue<AgentMovementEnhanced> waitingAgents = new Queue<AgentMovementEnhanced>();
     // private bool isProcessingCheckout = false;
 
     public float CheckoutSpeedSeconds = 3.0f;
@@ -52,7 +52,7 @@ public class CheckoutHandler : MonoBehaviour
     /// <summary>
     /// Attempts to join the back of this checkout line.
     /// </summary>
-    public bool TryJoinLine(AgentMovement agent, out Vector2 assignedPosition, out int positionIndex)
+    public bool TryJoinLine(AgentMovementEnhanced agent, out Vector2 assignedPosition, out int positionIndex)
     {
         if (IsFull)
         {
@@ -65,7 +65,7 @@ public class CheckoutHandler : MonoBehaviour
         // Position index is based on their current place in the queue
         assignedPosition = associatedCounter.QueueSlots[waitingAgents.Count - 1].Position;
         positionIndex = waitingAgents.Count - 1;
-        agent.SetAvoidancePriorityBasedOnQueuePosition(positionIndex); // Higher priority for those closer to the front of the line (lower index)
+        // agent.SetAvoidancePriorityBasedOnQueuePosition(positionIndex); // Higher priority for those closer to the front of the line (lower index)
         // assign highest agent avoidance priority to the front of the line, so we want to assign the new agent a priority based on how many are already in line
 
         // Start processing if this is the only agent and we aren't active
@@ -87,7 +87,7 @@ public class CheckoutHandler : MonoBehaviour
         while (waitingAgents.Count > 0)
         {
 
-            AgentMovement frontAgent = waitingAgents.Peek();
+            AgentMovementEnhanced frontAgent = waitingAgents.Peek();
             Debug.Log($"Processing agent '{frontAgent.gameObject.name}' at the front of the line for '{gameObject.name}'.");
 
             // Wait until the agent actually arrives at the front of the line (index 0)
@@ -103,7 +103,7 @@ public class CheckoutHandler : MonoBehaviour
             associatedCounter.QueueSlots[0].IsOccupied = false; // Mark the front spot as unoccupied for the next agent
             Debug.Log($"Processing checkout for agent: {frontAgent.gameObject.name}");
             // frontAgent.CompleteCheckoutAndExit(); // Custom method we will add to Agent
-            frontAgent.ChangeState(AgentMovement.AgentState.Exiting); // Change state to exiting, which should trigger their exit behavior
+            frontAgent.ChangeState(AgentMovementEnhanced.AgentState.Leaving); // Change state to exiting, which should trigger their exit behavior
 
             // Shift everybody forward in line physically
             UpdateLinePositions();
@@ -112,7 +112,7 @@ public class CheckoutHandler : MonoBehaviour
         isProcessingCheckout = false;
     }
 
-    private bool HasAgentArrivedAtFront(AgentMovement agent)
+    private bool HasAgentArrivedAtFront(AgentMovementEnhanced agent)
     {
         // Simple distance check to the front spot
         return Vector2.Distance(agent.transform.position, associatedCounter.QueueSlots[0].Position) < 0.5f;
