@@ -22,7 +22,8 @@ public class CrowdBuster : MonoBehaviour
         if (Mouse.current == null) return;
 
         // 3. New Input System syntax for "Was clicked this frame"
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        // use middle mouse button for triggering the explosion
+        if (Mouse.current.middleButton.wasPressedThisFrame)
         {
             TriggerExplosionAtMouse();
         }

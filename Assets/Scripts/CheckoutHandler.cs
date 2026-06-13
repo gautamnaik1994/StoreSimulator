@@ -94,6 +94,7 @@ public class CheckoutHandler : MonoBehaviour
             // You might want to pass a flag or check if they are close enough to QueuePositions[0]
             frontAgent.MoveToLocation(associatedCounter.QueueSlots[0].Position); // Ensure they are moving to the front spot
             yield return new WaitUntil(() => HasAgentArrivedAtFront(frontAgent));
+            frontAgent.ChangeState(AgentMovementEnhanced.AgentState.CheckingOut); // Change state to waiting in line, which should trigger their waiting behavior
 
             // Simulate scanning items
             yield return new WaitForSeconds(CheckoutSpeedSeconds);

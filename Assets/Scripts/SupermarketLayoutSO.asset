@@ -15,75 +15,75 @@ MonoBehaviour:
   ProductSections:
   - SectionName: FrozenFoods
     Slots:
-    - Position: {x: -40.886635, y: 27.080011}
+    - Position: {x: -42.086407, y: 27.080011}
       IsOccupied: 0
-    - Position: {x: -35.172348, y: 27.080011}
+    - Position: {x: -36.37212, y: 27.080011}
       IsOccupied: 0
-    - Position: {x: -45.172348, y: 27.080011}
+    - Position: {x: -46.37212, y: 27.080011}
       IsOccupied: 0
-    - Position: {x: -42.315205, y: 27.080011}
+    - Position: {x: -43.514977, y: 27.080011}
       IsOccupied: 0
-    - Position: {x: -36.600918, y: 27.080011}
+    - Position: {x: -37.80069, y: 27.080011}
       IsOccupied: 0
-    - Position: {x: -39.45806, y: 27.080011}
+    - Position: {x: -40.657833, y: 27.080011}
       IsOccupied: 0
-    - Position: {x: -43.74378, y: 27.080011}
+    - Position: {x: -44.94355, y: 27.080011}
       IsOccupied: 0
-    - Position: {x: -38.02949, y: 27.080011}
+    - Position: {x: -39.229263, y: 27.080011}
       IsOccupied: 0
   - SectionName: Juice
     Slots:
-    - Position: {x: -46.839954, y: 19.120987}
+    - Position: {x: -41.956284, y: 20.140999}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 24.835274}
+    - Position: {x: -36.242, y: 20.14101}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 14.835272}
+    - Position: {x: -46.242, y: 20.14099}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 17.692415}
+    - Position: {x: -43.384857, y: 20.140995}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 23.4067}
+    - Position: {x: -37.67057, y: 20.141006}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 20.549559}
+    - Position: {x: -40.527714, y: 20.141}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 16.263844}
+    - Position: {x: -44.813427, y: 20.140993}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 21.978128}
+    - Position: {x: -39.09914, y: 20.141005}
       IsOccupied: 0
   - SectionName: SoftDrink
     Slots:
-    - Position: {x: -46.839954, y: 7.3857145}
+    - Position: {x: -40.533337, y: 23.07751}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 13.100001}
+    - Position: {x: -46.24762, y: 23.077528}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 3.1000004}
+    - Position: {x: -36.24762, y: 23.0775}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 5.957143}
+    - Position: {x: -39.104763, y: 23.077507}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 11.67143}
+    - Position: {x: -44.81905, y: 23.077524}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 8.814286}
+    - Position: {x: -41.961906, y: 23.077517}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 4.528571}
+    - Position: {x: -37.676193, y: 23.077503}
       IsOccupied: 0
-    - Position: {x: -46.839954, y: 10.242858}
+    - Position: {x: -43.39048, y: 23.07752}
       IsOccupied: 0
   - SectionName: Milk
     Slots:
-    - Position: {x: -28.914371, y: 27.112751}
+    - Position: {x: -30.114143, y: 27.112751}
       IsOccupied: 0
-    - Position: {x: -23.200087, y: 27.112751}
+    - Position: {x: -24.399858, y: 27.112751}
       IsOccupied: 0
-    - Position: {x: -33.20009, y: 27.112751}
+    - Position: {x: -34.399857, y: 27.112751}
       IsOccupied: 0
-    - Position: {x: -30.342943, y: 27.112751}
+    - Position: {x: -31.542715, y: 27.112751}
       IsOccupied: 0
-    - Position: {x: -24.628658, y: 27.112751}
+    - Position: {x: -25.82843, y: 27.112751}
       IsOccupied: 0
-    - Position: {x: -27.485802, y: 27.112751}
+    - Position: {x: -28.685574, y: 27.112751}
       IsOccupied: 0
-    - Position: {x: -31.771515, y: 27.112751}
+    - Position: {x: -32.971287, y: 27.112751}
       IsOccupied: 0
-    - Position: {x: -26.05723, y: 27.112751}
+    - Position: {x: -27.257002, y: 27.112751}
       IsOccupied: 0
   - SectionName: FrozenChicken
     Slots:
@@ -232,7 +232,7 @@ MonoBehaviour:
   - SectionName: Wheat
     Slots:
     - Position: {x: 65.462685, y: -14.1357155}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 65.462685, y: -16.82143}
       IsOccupied: 0
     - Position: {x: 65.462685, y: -20.850002}
@@ -267,21 +267,21 @@ MonoBehaviour:
       IsOccupied: 0
   - SectionName: IceCream
     Slots:
-    - Position: {x: -39.762943, y: 20.318548}
+    - Position: {x: -30.592634, y: 20.722443}
       IsOccupied: 0
-    - Position: {x: -38.567944, y: 20.328548}
+    - Position: {x: -30.60263, y: 21.917442}
       IsOccupied: 0
-    - Position: {x: -40.59994, y: 21.668549}
+    - Position: {x: -31.942638, y: 19.885448}
       IsOccupied: 0
-    - Position: {x: -40.59994, y: 20.86855}
+    - Position: {x: -31.142637, y: 19.885445}
       IsOccupied: 0
-    - Position: {x: -37.615944, y: 21.648548}
+    - Position: {x: -31.922628, y: 22.869446}
       IsOccupied: 0
-    - Position: {x: -37.62694, y: 20.855549}
+    - Position: {x: -31.12963, y: 22.858444}
       IsOccupied: 0
-    - Position: {x: -39.78794, y: 22.25355}
+    - Position: {x: -32.527634, y: 20.697449}
       IsOccupied: 0
-    - Position: {x: -38.56594, y: 22.26355}
+    - Position: {x: -32.537632, y: 21.919449}
       IsOccupied: 0
   - SectionName: Chocolates
     Slots:
@@ -303,21 +303,21 @@ MonoBehaviour:
       IsOccupied: 0
   - SectionName: LargeIceCream
     Slots:
-    - Position: {x: -33.062943, y: 20.318548}
+    - Position: {x: -25.708504, y: 20.754868}
       IsOccupied: 0
-    - Position: {x: -31.86794, y: 20.328548}
+    - Position: {x: -25.7185, y: 21.949867}
       IsOccupied: 0
-    - Position: {x: -33.89994, y: 21.668549}
+    - Position: {x: -27.058508, y: 19.917873}
       IsOccupied: 0
-    - Position: {x: -33.89994, y: 20.86855}
+    - Position: {x: -26.258507, y: 19.91787}
       IsOccupied: 0
-    - Position: {x: -30.915941, y: 21.648548}
+    - Position: {x: -27.038498, y: 22.90187}
       IsOccupied: 0
-    - Position: {x: -30.92694, y: 20.855549}
+    - Position: {x: -26.245499, y: 22.89087}
       IsOccupied: 0
-    - Position: {x: -33.08794, y: 22.25355}
+    - Position: {x: -27.643505, y: 20.729874}
       IsOccupied: 0
-    - Position: {x: -31.865942, y: 22.26355}
+    - Position: {x: -27.653502, y: 21.951874}
       IsOccupied: 0
   - SectionName: GreetingCards
     Slots:
@@ -730,7 +730,7 @@ MonoBehaviour:
   - SectionName: Stationery
     Slots:
     - Position: {x: 33, y: 21.15}
-      IsOccupied: 1
+      IsOccupied: 0
     - Position: {x: 31.714285, y: 21.16}
       IsOccupied: 0
     - Position: {x: 27.857143, y: 23.1}
@@ -760,7 +760,7 @@ MonoBehaviour:
   - SectionName: CookingOil
     Slots:
     - Position: {x: 59.169243, y: -8.8751545}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 57.88353, y: -8.865154}
       IsOccupied: 0
     - Position: {x: 54.026386, y: -6.925154}
@@ -820,7 +820,7 @@ MonoBehaviour:
   - SectionName: Cereals
     Slots:
     - Position: {x: 59.309372, y: -21.067167}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 58.02366, y: -21.057167}
       IsOccupied: 0
     - Position: {x: 54.166515, y: -19.117167}
@@ -904,4 +904,4 @@ MonoBehaviour:
     position: {x: -10.058307, y: -31.140934}
   HoldingAreas:
   - SectionName: CheckoutHolding
-    CenterPosition: {x: -19.800001, y: -22}
+    CenterPosition: {x: -19.800001, y: -20.9}

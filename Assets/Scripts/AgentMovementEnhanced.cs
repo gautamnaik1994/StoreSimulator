@@ -14,7 +14,7 @@ public class AgentMovementEnhanced : MonoBehaviour
     private NavMeshAgent agent;
     private List<string> shoppingList = new List<string>() { "Milk", "Chips" };
     private Dictionary<AgentState, Color> AgentStateColors;
-    private Renderer agentRenderer;
+    private SpriteRenderer agentRenderer;
     private float stateTimer = 0f;
     private float shoppingElapsedTime = 0f;
     private int checkoutCurrentQueueIndex = -1; // Track the agent's position in the checkout queue
@@ -30,7 +30,7 @@ public class AgentMovementEnhanced : MonoBehaviour
     private ProductSlot currentTargetItem;
 
 
-    public enum AgentState { Evaluating, NavigatingToShelf, BrowsingShelf, Wandering, WaitingToQueue, GoingToCheckout, WaitingInLine, Leaving }
+    public enum AgentState { Evaluating, NavigatingToShelf, BrowsingShelf, Wandering, WaitingToQueue, GoingToCheckout, CheckingOut, Leaving }
     public AgentState currentState = AgentState.Evaluating;
     private float impulseProbability = 0.3f; // 30% chance to make an impulse detour
     private readonly List<string> impulseFavorites = new() { "Chocolate", "Soda", "Candy" };
@@ -44,6 +44,7 @@ public class AgentMovementEnhanced : MonoBehaviour
     // Tracks sections that were full, allowing us to penalize them temporarily during evaluation
     private Dictionary<string, float> sectionCooldowns = new Dictionary<string, float>();
     [SerializeField] private float fullShelfCooldownDuration = 15.0f;
+    public GameObject agentStatusRing; // Optional: A SpriteRenderer to visually indicate that agent is thinking (evaluating) 
 
     private struct AgentHistoryEntry
     {
@@ -66,10 +67,10 @@ public class AgentMovementEnhanced : MonoBehaviour
             { AgentState.Evaluating, ParseColor("#38BDF8") },
             { AgentState.NavigatingToShelf, ParseColor("#34D399") },
             { AgentState.BrowsingShelf, ParseColor("#4ADE80") },
-            { AgentState.Wandering,  ParseColor("#FBBF24")},
+            { AgentState.Wandering,  ParseColor("#fb5bfb")},
             { AgentState.WaitingToQueue, ParseColor("#A855F7") },
-            { AgentState.GoingToCheckout, ParseColor("#A855F7") },
-            { AgentState.WaitingInLine,ParseColor("#F43F5E") },
+            { AgentState.GoingToCheckout, ParseColor("#FBBF24") },
+            { AgentState.CheckingOut,ParseColor("#F43F5E") },
             { AgentState.Leaving, ParseColor("#94A3B8") }
         };
         agent = GetComponent<NavMeshAgent>();
@@ -79,8 +80,9 @@ public class AgentMovementEnhanced : MonoBehaviour
         agent.speed += Random.Range(-0.5f, 0.5f);
         // agent.stoppingDistance += Random.Range(-0.2f, 0.2f);
         agent.acceleration += Random.Range(-0.5f, 0.5f);
+        // agentStatusRing.SetActive(false);
 
-        agentRenderer = GetComponent<Renderer>();
+        agentRenderer = GetComponent<SpriteRenderer>();
 
 
         shoppingList.Clear();
@@ -132,8 +134,8 @@ public class AgentMovementEnhanced : MonoBehaviour
             case AgentState.GoingToCheckout:
                 // Handle arrival at the actual assigned queue slot here if needed
                 break;
-            case AgentState.WaitingInLine:
-                // Handle waiting in line logic here if needed
+            case AgentState.CheckingOut:
+                // Handle checkout completion and transition to leaving state here if needed
                 break;
             case AgentState.NavigatingToShelf:
                 HandleNavigatingToShelf();
@@ -164,6 +166,7 @@ public class AgentMovementEnhanced : MonoBehaviour
 
             // Reset the timer so they check lines immediately upon changing state
             nextQueueCheckTime = Time.time;
+            agentStatusRing.SetActive(false);
             return;
         }
 
@@ -180,7 +183,9 @@ public class AgentMovementEnhanced : MonoBehaviour
             ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == item);
             if (section != null)
             {
-                potentialTargets.Add(section.Slots[0].Position);
+                // potentialTargets.Add(section.Slots[0].Position);
+                int randomSlotIndex = Random.Range(0, section.Slots.Count);
+                potentialTargets.Add(section.Slots[randomSlotIndex].Position);
             }
         }
 
@@ -206,7 +211,7 @@ public class AgentMovementEnhanced : MonoBehaviour
             {
                 rankedDestinationsQueue.Enqueue(target);
             }
-
+            agentStatusRing.SetActive(false); // Optional: Turn off the status ring to indicate we're done thinking and have a target
             // Set off toward the first (closest) option
             NavigateToNextCachedTarget();
         }
@@ -227,6 +232,8 @@ public class AgentMovementEnhanced : MonoBehaviour
         {
             // No more cached routes available, force brain to re-evaluate whole picture
             ChangeState(AgentState.Evaluating);
+            agentStatusRing.SetActive(true); // Optional: Turn on the status ring to indicate a thinking state
+            agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "No more cached targets. Forcing re-evaluation of options.")); // Log that we're out of cached options and need
         }
     }
 
@@ -245,6 +252,7 @@ public class AgentMovementEnhanced : MonoBehaviour
                 currentTargetItem = null;
 
                 ChangeState(AgentState.Evaluating);
+                agentStatusRing.SetActive(true); // Optional: Turn on the status ring to indicate a thinking state
 
             }
         }
@@ -277,6 +285,7 @@ public class AgentMovementEnhanced : MonoBehaviour
             if (Random.value < 0.2f)
             {
                 agent.SetDestination(GetClosestHoldingArea() + Random.insideUnitCircle * 2f);
+                agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "All checkout lines are full. Shuffling in holding area."));
             }
             return;
         }
@@ -288,6 +297,7 @@ public class AgentMovementEnhanced : MonoBehaviour
             SetAvoidancePriorityBasedOnQueuePosition(checkoutCurrentQueueIndex);
             agent.SetDestination(assignedPosition);
             ChangeState(AgentState.GoingToCheckout);
+            agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Joining checkout line at position {checkoutCurrentQueueIndex} with assigned spot at {assignedPosition}"));
         }
     }
 
@@ -337,6 +347,7 @@ public class AgentMovementEnhanced : MonoBehaviour
 
         Vector2 closestExit = FindClosestDestination(layoutData.ExitLocations.ToArray());
         agent.SetDestination(closestExit);
+        agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Heading to exit at {closestExit}"));
     }
 
     CheckoutHandler GetCheckoutHandlerWithLeastAgents()
@@ -432,7 +443,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         stateTimer = 0f;
         if (agentRenderer != null)
         {
-            agentRenderer.material.color = AgentStateColors.ContainsKey(currentState) ? AgentStateColors[currentState] : Color.white;
+            agentRenderer.color = AgentStateColors.ContainsKey(currentState) ? AgentStateColors[currentState] : Color.white;
         }
     }
 
@@ -491,11 +502,8 @@ public class AgentMovementEnhanced : MonoBehaviour
         {
             return GetPathLength(path);
         }
-
         return Vector2.Distance(transform.position, target) * 1.5f;
     }
-
-
 }
 
 
