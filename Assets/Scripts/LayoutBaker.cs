@@ -73,7 +73,8 @@ public class LayoutBaker : MonoBehaviour
 
             ProductSection newSection = new ProductSection
             {
-                SectionName = sectionTransform.name
+                SectionName = sectionTransform.name,
+                Price = Random.Range(50, 500) // Assign a random price for demonstration; you can customize this as needed
             };
 
             // Loop through the sub-children (the actual 3 individual slot positions)

@@ -287,6 +287,9 @@ MonoBehaviour:
   layoutData: {fileID: 11400000, guid: 7bccf230b1faa4e9690aef5d5d70c31a, type: 2}
   queueCheckInterval: 1.5
   evaluationInterval: 0.2
+  randomBrowseProbability: 0.15
   currentState: 0
   fullShelfCooldownDuration: 15
   agentStatusRing: {fileID: 2087894805237343971}
+  wanderDuration: 10
+  TotalMoney: 1000

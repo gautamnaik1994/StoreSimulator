@@ -28,12 +28,13 @@ public class AgentMovementEnhanced : MonoBehaviour
     private ProductSection currentTargetSection;
 
     private ProductSlot currentTargetItem;
-
+    [Header("Detour Settings")]
+    [Range(0f, 1f)] public float randomBrowseProbability = 0.15f; // 15% chance to aimlessly wander instead of shopping
 
     public enum AgentState { Evaluating, NavigatingToShelf, BrowsingShelf, Wandering, WaitingToQueue, GoingToCheckout, CheckingOut, Leaving }
     public AgentState currentState = AgentState.Evaluating;
     private float impulseProbability = 0.3f; // 30% chance to make an impulse detour
-    private readonly List<string> impulseFavorites = new() { "Chocolate", "Soda", "Candy" };
+    private List<string> impulseFavorites;
 
     // create a agent history to track their shopping behavior and decisions and state transitions
     private List<AgentHistoryEntry> agentHistory = new List<AgentHistoryEntry>();
@@ -45,6 +46,7 @@ public class AgentMovementEnhanced : MonoBehaviour
     private Dictionary<string, float> sectionCooldowns = new Dictionary<string, float>();
     [SerializeField] private float fullShelfCooldownDuration = 15.0f;
     public GameObject agentStatusRing; // Optional: A SpriteRenderer to visually indicate that agent is thinking (evaluating) 
+    public int wanderDuration = 10; // Time in seconds the agent will spend wandering before re-evaluating their shopping list
 
     private struct AgentHistoryEntry
     {
@@ -59,6 +61,11 @@ public class AgentMovementEnhanced : MonoBehaviour
             actionDescription = description;
         }
     }
+    public int TotalMoney = 10000;
+    private readonly List<ProductSection> cartItems = new List<ProductSection>();
+    private int TotalMoneySpent = 0;
+
+    private List<ProductSection> CostlyItems;
 
     void Awake()
     {
@@ -98,6 +105,20 @@ public class AgentMovementEnhanced : MonoBehaviour
             shoppingList.Add(layoutData.ProductSections[Random.Range(0, layoutData.ProductSections.Count)].SectionName);
 
         }
+
+        // build a list of impulse favorites from the layout data but make sure it doesn't overlap with the shopping list
+        impulseFavorites = new List<string>();
+        foreach (var section in layoutData.ProductSections)
+        {
+            if (!shoppingList.Contains(section.SectionName))
+            {
+                if (Random.value < 0.5f)
+                {
+                    impulseFavorites.Add(section.SectionName);
+                }
+            }
+        }
+
         ChangeState(AgentState.Evaluating);
         // write to the agent history that they have been initialized with a shopping list
         agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Initialized with shopping list: {string.Join(", ", shoppingList)}"));
@@ -122,6 +143,10 @@ public class AgentMovementEnhanced : MonoBehaviour
                     // Run the heavy selection, impulse checks, and path estimations here
                     CentralizeDecisionMaking();
                 }
+                break;
+
+            case AgentState.Wandering:
+                HandleWanderingState();
                 break;
             case AgentState.BrowsingShelf:
                 HandleBrowsingShelf();
@@ -153,7 +178,6 @@ public class AgentMovementEnhanced : MonoBehaviour
         forceReevaluation = true;
     }
 
-
     private void CentralizeDecisionMaking()
     {
         // 1. Structural Check: Is the shopper done?
@@ -164,17 +188,38 @@ public class AgentMovementEnhanced : MonoBehaviour
             agent.SetDestination(holdingArea);
             agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "Shopping list completed. Moving to holding area."));
 
-            // Reset the timer so they check lines immediately upon changing state
             nextQueueCheckTime = Time.time;
             agentStatusRing.SetActive(false);
             return;
         }
 
+        // --- DETOUR DETERMINATION PHASE ---
+        float decisionRoll = Random.value;
 
+        // CASE A: Random Detour / Wandering (Simulating aimless window shopping)
+        if (decisionRoll < randomBrowseProbability)
+        {
+            rankedDestinationsQueue.Clear(); // Drop the queue plans
+            currentTargetSection = null;
+            currentTargetItem = null;
+
+            // Pick a completely random zone position from any section in the layout
+            int randomSectionIdx = Random.Range(0, layoutData.ProductSections.Count);
+            var randomSection = layoutData.ProductSections[randomSectionIdx];
+            Vector2 randomWanderPoint = randomSection.Slots[Random.Range(0, randomSection.Slots.Count)].Position;
+
+            agent.SetDestination(randomWanderPoint);
+            ChangeState(AgentState.Wandering); // Walks over and idles/browses aimlessly 
+            agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Taking a random detour to wander near section: {randomSection.SectionName}"));
+            return;
+        }
+
+        // CASE B: Core Shopping List & Impulse Calculations
         List<Vector2> potentialTargets = new List<Vector2>();
+
+        // Step 1: Add regular shopping list items (Your existing logic)
         foreach (string item in shoppingList)
         {
-            // Skip shelves that we verified were completely full very recently
             if (sectionCooldowns.TryGetValue(item, out float cooldownExpiry) && Time.time < cooldownExpiry)
             {
                 continue;
@@ -183,13 +228,12 @@ public class AgentMovementEnhanced : MonoBehaviour
             ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == item);
             if (section != null)
             {
-                // potentialTargets.Add(section.Slots[0].Position);
                 int randomSlotIndex = Random.Range(0, section.Slots.Count);
                 potentialTargets.Add(section.Slots[randomSlotIndex].Position);
             }
         }
 
-        // If ALL remaining options are on cooldown, clear cooldowns to prevent freezing
+        // Reset cooldowns if standard targets are completely starved
         if (potentialTargets.Count == 0 && shoppingList.Count > 0)
         {
             sectionCooldowns.Clear();
@@ -200,19 +244,52 @@ public class AgentMovementEnhanced : MonoBehaviour
             }
         }
 
-        // 3. Populate the destination queue in order of proximity
-        if (potentialTargets.Count > 0)
-        {
-            // Fetch up to 3 closest valid locations in sorted order
-            Vector2[] sortedTargets = FindClosestDestinations(potentialTargets.ToArray(), 3);
+        // Step 2: Query nearest options out of our valid targets
+        Vector2[] sortedTargets = FindClosestDestinations(potentialTargets.ToArray(), 3);
 
-            rankedDestinationsQueue.Clear();
-            foreach (Vector2 target in sortedTargets)
+        rankedDestinationsQueue.Clear();
+        foreach (Vector2 target in sortedTargets)
+        {
+            rankedDestinationsQueue.Enqueue(target);
+        }
+
+        // CASE C: Impulse Buying (Intercepting the closest target choice)
+        // If we pass our probability roll and have favorite items left to exploit
+        if (decisionRoll >= randomBrowseProbability && decisionRoll < (randomBrowseProbability + impulseProbability))
+        {
+            // Try to pick an impulse item that isn't already on the standard shopping list
+            // List<string> validImpulseChoices = impulseFavorites.FindAll(fav => !shoppingList.Contains(fav));
+            List<string> validImpulseChoices = impulseFavorites;
+
+            if (validImpulseChoices.Count > 0)
             {
-                rankedDestinationsQueue.Enqueue(target);
+                string chosenImpulseItem = validImpulseChoices[Random.Range(0, validImpulseChoices.Count)];
+                ProductSection impulseSection = layoutData.ProductSections.Find(s => s.SectionName == chosenImpulseItem);
+
+                if (impulseSection != null)
+                {
+                    Vector2 impulseSlotPos = impulseSection.Slots[Random.Range(0, impulseSection.Slots.Count)].Position;
+
+                    // CRITICAL DESIGN MOVE: Re-create the queue to put impulse at the absolute FRONT
+                    Queue<Vector2> interceptQueue = new Queue<Vector2>();
+                    interceptQueue.Enqueue(impulseSlotPos); // Impulse is Destination #1!
+
+                    // Append the remaining regular targets back behind it
+                    while (rankedDestinationsQueue.Count > 0)
+                    {
+                        interceptQueue.Enqueue(rankedDestinationsQueue.Dequeue());
+                    }
+
+                    rankedDestinationsQueue = interceptQueue;
+                    agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"[Impulse Alert] Spotted {chosenImpulseItem}! Added to front of itinerary layout."));
+                }
             }
-            agentStatusRing.SetActive(false); // Optional: Turn off the status ring to indicate we're done thinking and have a target
-            // Set off toward the first (closest) option
+        }
+
+        // 3. Set off toward the front item in our finalized queue layout
+        if (rankedDestinationsQueue.Count > 0)
+        {
+            agentStatusRing.SetActive(false);
             NavigateToNextCachedTarget();
         }
     }
@@ -244,17 +321,74 @@ public class AgentMovementEnhanced : MonoBehaviour
             // Simulate browsing time
             if (stateTimer >= Random.Range(2f, 5f))
             {
-                // Remove the item from the shopping list and mark the slot as occupied
-                shoppingList.Remove(currentTargetSection.SectionName);
-                agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Finished browsing {currentTargetSection.SectionName}. Remaining list: {string.Join(", ", shoppingList)}"));
-                currentTargetItem.IsOccupied = false; // Mark the slot as unoccupied for other agents
+                bool itemPurchased = false;
+                string purchasedItemName = currentTargetSection.SectionName;
+                bool wasPlanned = shoppingList.Contains(purchasedItemName);
+                bool wasImpulse = impulseFavorites.Contains(purchasedItemName);
+
+                // compare price to check if the agent can afford it
+                if (currentTargetSection.Price <= TotalMoney)
+                {
+                    itemPurchased = true;
+                }
+
+                // 1. Clear it from the lists it belongs to
+                if (wasPlanned)
+                {
+                    shoppingList.Remove(purchasedItemName);
+                }
+
+                if (wasImpulse)
+                {
+                    // Removing it from favorites ensures they don't repeatedly impulse-buy 
+                    // the exact same item over and over during a single shopping trip.
+                    impulseFavorites.Remove(purchasedItemName);
+                }
+
+                if (itemPurchased)
+                {
+
+                    // 2. Log exact historical behavior for debugging data
+                    string logMessage = $"Finished browsing {purchasedItemName}. ";
+                    if (wasPlanned && wasImpulse) logMessage += "(Cleared from both Shopping and Impulse lists)";
+                    else if (wasPlanned) logMessage += "(Planned item complete)";
+                    else if (wasImpulse) logMessage += "(Spontaneous impulse buy complete)";
+
+                    agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, logMessage));
+                    // update the cart with the newly purchased item
+                    UpdateCart(currentTargetSection);
+                }
+                else
+                {
+                    agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Browsed {purchasedItemName} but couldn't afford it. Needed {currentTargetSection.Price}, had {TotalMoney}."));
+                }
+
+
+                // 3. Clean up slot references and state transition
+                if (currentTargetItem != null)
+                {
+                    currentTargetItem.IsOccupied = false; // Free up the physical layout space for other agents
+                }
+
                 currentTargetSection = null;
                 currentTargetItem = null;
 
+                // Shift right back to the central decision hub
                 ChangeState(AgentState.Evaluating);
-                agentStatusRing.SetActive(true); // Optional: Turn on the status ring to indicate a thinking state
-
+                agentStatusRing.SetActive(true);
             }
+        }
+    }
+
+    void HandleWanderingState()
+    {
+        // If they finish walking to their random wander slot OR get tired of looking around
+        if (HasReachedDestination(arrivalThreshold: 2.0f) || stateTimer >= wanderDuration)
+        {
+            stateTimer = 0f;
+            ChangeState(AgentState.Evaluating); // Loop back to brain to reassess target list
+            agentStatusRing.SetActive(true); // Optional: Turn on the status ring to indicate a thinking state
+            agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "Finished wandering. Re-evaluating shopping list and targets.")); // Log that we're done wandering and going back to evaluation
         }
     }
 
@@ -437,6 +571,12 @@ public class AgentMovementEnhanced : MonoBehaviour
         return closestDestinations;
 
     }
+    private void UpdateCart(ProductSection section)
+    {
+        cartItems.Add(section);
+        TotalMoneySpent += section.Price;
+        TotalMoney -= section.Price;
+    }
     public void ChangeState(AgentState newState)
     {
         currentState = newState;
@@ -503,6 +643,11 @@ public class AgentMovementEnhanced : MonoBehaviour
             return GetPathLength(path);
         }
         return Vector2.Distance(transform.position, target) * 1.5f;
+    }
+    void OnDisable()
+    {
+        Debug.Log($"Agent '{gameObject.name}' is being disabled. Final shopping list: {string.Join(", ", shoppingList)}. Total money spent: {TotalMoneySpent}. Remaining money: {TotalMoney}.");
+
     }
 }
 

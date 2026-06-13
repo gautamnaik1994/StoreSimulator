@@ -7,11 +7,13 @@ public class ProductSlot
 {
     public Vector2 Position;
     public bool IsOccupied; // Tracks if an agent is currently standing here/heading here
+
 }
 
 [System.Serializable]
 public class ProductSection
 {
+    public int Price; // Optional: Price of the product at this slot
     public string SectionName; // e.g., "Milk Section", "Bakery"
     public List<ProductSlot> Slots = new List<ProductSlot>();
 
