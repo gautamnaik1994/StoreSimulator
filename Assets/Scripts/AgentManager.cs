@@ -16,11 +16,25 @@ public class AgentManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
-    void Update()
+    void LateUpdate()
     {
         if (Keyboard.current.sKey.wasPressedThisFrame)
         {
             StartCoroutine(BatchSpawnCoroutine(delay));
+        }
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            Collider2D hit = Physics2D.OverlapPoint(worldPoint);
+
+            if (hit != null)
+            {
+                AgentMovementEnhanced agent = hit.GetComponent<AgentMovementEnhanced>();
+                if (agent != null)
+                {
+                    Debug.Log("Agent Details: " + agent.GetAgentDetails());
+                }
+            }
         }
     }
 
@@ -38,6 +52,8 @@ public class AgentManager : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
     }
+    // write a function which will get the details of the agent when mouse is clicked over it
+
 }
 
 

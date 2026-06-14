@@ -644,6 +644,26 @@ public class AgentMovementEnhanced : MonoBehaviour
         }
         return Vector2.Distance(transform.position, target) * 1.5f;
     }
+
+    public string GetAgentDetails()
+    {
+        string details = $"Position: {transform.position}\n" +
+                         $"Current State: {currentState}\n" +
+                         $"Shopping List: {string.Join(", ", shoppingList)}\n" +
+                         $"Impulse Favorites: {string.Join(", ", impulseFavorites)}\n" +
+                         $"Cart Items: {string.Join(", ", cartItems.ConvertAll(item => item.SectionName))}\n" +
+                         $"Total Money Spent: {TotalMoneySpent}\n" +
+                         $"Remaining Money: {TotalMoney}\n" +
+                         $"Agent History:\n";
+
+        foreach (var entry in agentHistory)
+        {
+            details += $"- [{entry.timestamp:F2}s] State: {entry.state}, Action: {entry.actionDescription}\n";
+        }
+
+        return details;
+    }
+
     void OnDisable()
     {
         Debug.Log($"Agent '{gameObject.name}' is being disabled. Final shopping list: {string.Join(", ", shoppingList)}. Total money spent: {TotalMoneySpent}. Remaining money: {TotalMoney}.");
