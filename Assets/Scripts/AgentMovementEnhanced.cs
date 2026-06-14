@@ -36,8 +36,6 @@ public class AgentMovementEnhanced : MonoBehaviour
     private float impulseProbability = 0.3f; // 30% chance to make an impulse detour
     private List<string> impulseFavorites;
 
-    // create a agent history to track their shopping behavior and decisions and state transitions
-    private List<AgentHistoryEntry> agentHistory = new List<AgentHistoryEntry>();
 
     // Tracks the current ranked destinations chosen by the brain for this execution cycle
     private Queue<Vector2> rankedDestinationsQueue = new Queue<Vector2>();
@@ -48,6 +46,8 @@ public class AgentMovementEnhanced : MonoBehaviour
     public GameObject agentStatusRing; // Optional: A SpriteRenderer to visually indicate that agent is thinking (evaluating) 
     public int wanderDuration = 10; // Time in seconds the agent will spend wandering before re-evaluating their shopping list
 
+    // create a agent history to track their shopping behavior and decisions and state transitions
+    private List<AgentHistoryEntry> agentHistory = new List<AgentHistoryEntry>();
     private struct AgentHistoryEntry
     {
         public float timestamp;
@@ -360,6 +360,7 @@ public class AgentMovementEnhanced : MonoBehaviour
                 }
                 else
                 {
+                    CostlyItems.Add(currentTargetSection);
                     agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Browsed {purchasedItemName} but couldn't afford it. Needed {currentTargetSection.Price}, had {TotalMoney}."));
                 }
 
@@ -651,6 +652,7 @@ public class AgentMovementEnhanced : MonoBehaviour
                          $"Current State: {currentState}\n" +
                          $"Shopping List: {string.Join(", ", shoppingList)}\n" +
                          $"Impulse Favorites: {string.Join(", ", impulseFavorites)}\n" +
+                         $"Costly Items: {string.Join(", ", CostlyItems)}\n" +
                          $"Cart Items: {string.Join(", ", cartItems.ConvertAll(item => item.SectionName))}\n" +
                          $"Total Money Spent: {TotalMoneySpent}\n" +
                          $"Remaining Money: {TotalMoney}\n" +

@@ -1,5 +1,12 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:ScrollView name="DetailPanel" style="height: 100%; width: 50%; background-color: rgba(123, 62, 62, 0.353); align-self: flex-end;">
-        <ui:Label text="This text turns&lt;color=&quot;red&quot;&gt; red" style="color: white; font-size: 108px;"/>
-    </ui:ScrollView>
+    <Style src="project://database/Assets/UI/AgentDetails.uss?fileID=7433441132597879392&amp;guid=f07e6d69aeec5482d8632c412accd80d&amp;type=3#AgentDetails"/>
+    <ui:VisualElement name="Main" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="RightDrawer" style="flex-grow: 1; display: flex; width: 30%; align-self: flex-end;">
+            <ui:ScrollView name="DetailPanel" horizontal-scroller-visibility="Hidden" nested-interaction-kind="Default" style="display: flex; width: 100%;">
+                <ui:Label text="" name="AgentDetails" style="color: white; font-size: 24px; align-items: auto; align-content: auto; width: 100%; white-space: normal;"/>
+            </ui:ScrollView>
+            <ui:Button text="Close" name="Close"/>
+            <ui:Button text="Update" name="Update"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>

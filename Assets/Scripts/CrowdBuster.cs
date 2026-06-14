@@ -16,23 +16,10 @@ public class CrowdBuster : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-    void Update()
-    {
-        // 2. Safely check if a mouse is connected
-        if (Mouse.current == null) return;
-
-        // 3. New Input System syntax for "Was clicked this frame"
-        // use middle mouse button for triggering the explosion
-        if (Mouse.current.middleButton.wasPressedThisFrame)
-        {
-            TriggerExplosionAtMouse();
-        }
-    }
-
-    private void TriggerExplosionAtMouse()
+    public void TriggerExplosionAtMouse(Vector2 mousePosition)
     {
         // 4. Read the mouse position via the new API
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        // Vector2 mousePosition = Mouse.current.position.ReadValue();
 
         // Convert screen space to 2D world space
         Vector2 worldPoint = mainCamera.ScreenToWorldPoint(mousePosition);

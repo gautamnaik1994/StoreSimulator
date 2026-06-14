@@ -1,0 +1,31 @@
+:root {
+}
+
+#DetailPanel {
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    width: 30%;
+    align-self: flex-end;
+    padding-top: 50px;
+}
+
+#Close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#Close:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+

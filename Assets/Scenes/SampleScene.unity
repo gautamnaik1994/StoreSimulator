@@ -1233,6 +1233,7 @@ GameObject:
   - component: {fileID: 247899941}
   - component: {fileID: 247899942}
   - component: {fileID: 247899943}
+  - component: {fileID: 247899944}
   m_Layer: 0
   m_Name: ManagerMain
   m_TagString: Untagged
@@ -1272,6 +1273,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1763961664}
   delay: 3
   agentBatchCount: 3
+  uiDocument: {fileID: 691124301}
 --- !u!114 &247899942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,6 +1302,18 @@ MonoBehaviour:
   explosionRadius: 3
   explosionForce: 500
   forceMode: 1
+--- !u!114 &247899944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247899939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485f0a14a892d44d6a75bf970cb5f6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameInputManager
 --- !u!1001 &256727210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2517,7 +2531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
   m_PanelSettings: {fileID: 11400000, guid: c04c908cabbcb4b15a5c74dd303d9264, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 81696cad93b4847958529dd0507c12dc, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: b08d661de27b44f8bb77d69d355374e3, type: 3}
   m_SortingOrder: 0
   m_Position: 0
   m_WorldSpaceSizeMode: 1

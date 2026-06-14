@@ -21,15 +21,8 @@ public class SimulationManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    void LateUpdate()
-    {
-        if (Keyboard.current.pKey.wasPressedThisFrame)
-        {
-            CycleSimulationSpeed();
-        }
-    }
 
-    private void CycleSimulationSpeed()
+    public void CycleSimulationSpeed()
     {
         // Cycle: Normal (1x) → Paused (0x) → SlowMotion (0.5x) → FastForward (2x) → Normal
         currentSpeed = currentSpeed switch
