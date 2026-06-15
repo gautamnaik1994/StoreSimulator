@@ -5,6 +5,8 @@ public class LayoutBaker : MonoBehaviour
 {
     [SerializeField] private SupermarketLayoutSO layoutAsset;
 
+    private List<string> all_product_section = new List<string>();
+
     [ContextMenu("Bake Sections and Slots")]
     public void Bake()
     {
@@ -77,6 +79,8 @@ public class LayoutBaker : MonoBehaviour
                 Price = Random.Range(50, 500) // Assign a random price for demonstration; you can customize this as needed
             };
 
+            all_product_section.Add(sectionTransform.name);
+
             // Loop through the sub-children (the actual 3 individual slot positions)
             foreach (Transform slotTransform in sectionTransform)
             {
@@ -96,5 +100,6 @@ public class LayoutBaker : MonoBehaviour
         UnityEditor.EditorUtility.SetDirty(layoutAsset);
 #endif
         Debug.Log("Nested store layout successfully baked!");
+        Debug.Log($"All product sections: {string.Join(", ", all_product_section)}");
     }
 }
