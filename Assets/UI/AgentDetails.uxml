@@ -1,12 +1,13 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/AgentDetails.uss?fileID=7433441132597879392&amp;guid=f07e6d69aeec5482d8632c412accd80d&amp;type=3#AgentDetails"/>
     <ui:VisualElement name="Main" style="width: 100%; height: 100%;">
-        <ui:VisualElement name="RightDrawer" style="flex-grow: 1; display: flex; width: 30%; align-self: flex-end;">
+        <ui:VisualElement name="RightDrawer" style="flex-grow: 1; display: none; width: 30%; align-self: flex-end;">
             <ui:ScrollView name="DetailPanel" horizontal-scroller-visibility="Hidden" nested-interaction-kind="Default" style="display: flex; width: 100%;">
-                <ui:Label text="" name="AgentDetails" style="color: white; font-size: 24px; align-items: auto; align-content: auto; width: 100%; white-space: normal;"/>
+                <ui:Label text="Agent Details" name="AgentDetails" emoji-fallback-support="true" class="agent-details"/>
+                <ui:Label text="Agent History" name="AgentHistory" class="agent-details"/>
             </ui:ScrollView>
             <ui:Button text="Close" name="Close"/>
-            <ui:Button text="Update" name="Update"/>
+            <ui:Button text="Update" name="Update" class="update-button"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

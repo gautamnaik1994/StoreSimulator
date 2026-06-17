@@ -38,7 +38,6 @@ public class AgentMovementEnhanced : MonoBehaviour
     private float impulseProbability = 0.3f; // 30% chance to make an impulse detour
     private List<string> impulseFavorites;
 
-
     // Tracks the current ranked destinations chosen by the brain for this execution cycle
     private Queue<Vector2> rankedDestinationsQueue = new Queue<Vector2>();
 
@@ -71,6 +70,8 @@ public class AgentMovementEnhanced : MonoBehaviour
     private int TotalMoneySpent = 0;
     private AgentMood currentMood = AgentMood.Neutral;
 
+    private string AgentPersonaName = "Default Persona";
+
     private List<ProductSection> CostlyItems = new List<ProductSection>();
 
     void Awake()
@@ -101,46 +102,63 @@ public class AgentMovementEnhanced : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false; // Disable automatic rotation
         agent.updateUpAxis = false;   // Disable automatic up axis adjustment
-        agent.avoidancePriority = Random.Range(10, 90); // Add a small random value to further reduce ties
-        agent.speed += Random.Range(-0.5f, 0.5f);
-        agent.acceleration += Random.Range(-0.5f, 0.5f);
+        // agent.avoidancePriority = Random.Range(10, 90); // Add a small random value to further reduce ties
+        // agent.speed += Random.Range(-0.5f, 0.5f);
+        // agent.acceleration += Random.Range(-0.5f, 0.5f);
         // agentStatusRing.SetActive(false);
 
         agentRenderer = GetComponent<SpriteRenderer>();
         statusRingRenderer = agentStatusRing.GetComponent<SpriteRenderer>();
 
-        shoppingList.Clear();
-        foreach (var section in layoutData.ProductSections)
-        {
-            if (Random.value < 0.2f) // 30% chance to add each section to the shopping list
-            {
-                shoppingList.Add(section.SectionName);
-            }
-        }
-        if (shoppingList.Count == 0) // Ensure at least one item is on the shopping list
-        {
-            shoppingList.Add(layoutData.ProductSections[Random.Range(0, layoutData.ProductSections.Count)].SectionName);
+        // shoppingList.Clear();
+        // foreach (var section in layoutData.ProductSections)
+        // {
+        //     if (Random.value < 0.2f) // 30% chance to add each section to the shopping list
+        //     {
+        //         shoppingList.Add(section.SectionName);
+        //     }
+        // }
+        // if (shoppingList.Count == 0) // Ensure at least one item is on the shopping list
+        // {
+        //     shoppingList.Add(layoutData.ProductSections[Random.Range(0, layoutData.ProductSections.Count)].SectionName);
 
-        }
+        // }
 
-        // build a list of impulse favorites from the layout data but make sure it doesn't overlap with the shopping list
-        impulseFavorites = new List<string>();
-        foreach (var section in layoutData.ProductSections)
-        {
-            if (!shoppingList.Contains(section.SectionName))
-            {
-                if (Random.value < 0.2f) // 20% chance to add each section to the impulse favorites
-                {
-                    impulseFavorites.Add(section.SectionName);
-                }
-            }
-        }
+        // // build a list of impulse favorites from the layout data but make sure it doesn't overlap with the shopping list
+        // impulseFavorites = new List<string>();
+        // foreach (var section in layoutData.ProductSections)
+        // {
+        //     if (!shoppingList.Contains(section.SectionName))
+        //     {
+        //         if (Random.value < 0.2f) // 20% chance to add each section to the impulse favorites
+        //         {
+        //             impulseFavorites.Add(section.SectionName);
+        //         }
+        //     }
+        // }
 
         ChangeState(AgentState.Evaluating);
         ChangeMood(AgentMood.Neutral);
         // write to the agent history that they have been initialized with a shopping list
-        agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Initialized with shopping list: {string.Join(", ", shoppingList)}", currentMood));
+        // agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Initialized with shopping list: {string.Join(", ", shoppingList)}", currentMood));
     }
+
+    public void InitializeWithPersona(AgentPersonaData persona)
+    {
+        shoppingList = new List<string>(persona.base_shopping_list);
+        impulseFavorites = new List<string>(persona.base_impulse_favorites);
+        TotalMoney = persona.base_total_money;
+        agent.speed = persona.baseline_physics.base_speed + Random.Range(-0.5f, 0.5f);
+        agent.acceleration = persona.baseline_physics.base_acceleration + Random.Range(-0.5f, 0.5f);
+        agent.avoidancePriority = persona.baseline_physics.base_avoidance_priority + Random.Range(-5, 5);
+        impulseProbability = persona.psychological_profile.base_impulse_probability;
+        randomBrowseProbability = persona.psychological_profile.base_random_browse_probability;
+        AgentPersonaName = persona.persona_name;
+
+        // Log the initialization in the agent history
+        agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Initialized with persona: {persona.persona_name}, Shopping List: {string.Join(", ", shoppingList)}, Impulse Favorites: {string.Join(", ", impulseFavorites)}, Total Money: {TotalMoney}", currentMood));
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -695,9 +713,10 @@ public class AgentMovementEnhanced : MonoBehaviour
         return Vector2.Distance(transform.position, target) * 1.5f;
     }
 
-    public string GetAgentDetails()
+    public Dictionary<string, string> GetAgentDetails()
     {
-        string details = $"Position: {transform.position}\n" +
+        string details = $"Agent Persona: {AgentPersonaName}\n" +
+                         $"Position: {transform.position}\n" +
                          $"Current State: {currentState}\n" +
                          $"Current Mood: {currentMood}\n" +
                          $"Shopping List: {string.Join(", ", shoppingList)}\n" +
@@ -708,12 +727,19 @@ public class AgentMovementEnhanced : MonoBehaviour
                          $"Remaining Money: {TotalMoney}\n" +
                          $"Agent History:\n";
 
+        string historyDetails = "";
         foreach (var entry in agentHistory)
         {
-            details += $"- [{entry.timestamp:F2}s] State: {entry.state}, Action: {entry.actionDescription}\n";
+            historyDetails += $"- [{entry.timestamp:F2}s] State: {entry.state}, Action: {entry.actionDescription}\n";
         }
 
-        return details;
+        var agentData = new Dictionary<string, string>
+        {
+            { "details", details },
+            { "history", historyDetails }
+        };
+
+        return agentData;
     }
 
     void OnDisable()

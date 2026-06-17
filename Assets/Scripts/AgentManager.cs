@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -11,7 +12,8 @@ public class AgentManager : MonoBehaviour
     public int agentBatchCount = 3; // Number of agents to spawn in each batch when 'S' is pressed  
 
     public UIDocument uiDocument;
-    private TextElement agentDetailsText;
+    [SerializeField] private CameraController cameraController;
+    private TextElement agentDetailsText, agentHistoryText;
 
     private VisualElement rightDrawer;
 
@@ -21,10 +23,20 @@ public class AgentManager : MonoBehaviour
 
     private AgentMovementEnhanced selectedAgent;
 
+    private PersonaDatabase database;
+
+    private int agentIDCounter = 0; // To assign unique IDs to agents
+
     void Start()
     {
+
+        cameraController = gameObject.GetComponent<CameraController>();
+
         agentDetailsText = uiDocument.rootVisualElement.Q<TextElement>("AgentDetails");
+        agentHistoryText = uiDocument.rootVisualElement.Q<TextElement>("AgentHistory");
         agentDetailsText.text = "Click on an agent to see details here.";
+        agentHistoryText.text = "Agent History will be displayed here.";
+
 
         rightDrawer = uiDocument.rootVisualElement.Q<VisualElement>("RightDrawer");
         closeButton = uiDocument.rootVisualElement.Q<Button>("Close");
@@ -32,6 +44,8 @@ public class AgentManager : MonoBehaviour
 
         closeButton.clicked += CloseAgentDetails;
         updateDetailsButton.clicked += ForceUpdateAgentDetails;
+
+        database = Resources.Load<PersonaDatabase>("PersonaDatabase");
     }
 
     void CloseAgentDetails()
@@ -39,14 +53,12 @@ public class AgentManager : MonoBehaviour
         rightDrawer.style.display = DisplayStyle.None;
     }
 
-    public void UpdateAgentDetails(string details)
+    public void UpdateAgentDetails(Dictionary<string, string> agentData)
     {
         // check if AgentDetailsPanel display is none, if so set it to flex
-        // if (agentDetailsPanel.style.display == DisplayStyle.None)
-        // {
-        // }
         rightDrawer.style.display = DisplayStyle.Flex;
-        agentDetailsText.text = details;
+        agentDetailsText.text = agentData["details"];
+        agentHistoryText.text = agentData["history"];
     }
 
     public void SpawnAgents()
@@ -87,7 +99,14 @@ public class AgentManager : MonoBehaviour
         if (closestAgent != null)
         {
             selectedAgent = closestAgent;
-            UpdateAgentDetails("Agent Details: " + selectedAgent.GetAgentDetails());
+            // if (cameraController != null)
+            // {
+            cameraController.SetSelectedAgent(selectedAgent.gameObject);
+            // }
+
+            var agentData = selectedAgent.GetAgentDetails();
+            UpdateAgentDetails(agentData);
+
         }
     }
 
@@ -99,17 +118,23 @@ public class AgentManager : MonoBehaviour
             int agentsToSpawn = Mathf.Min(agentBatchCount, agentCount - (i * agentBatchCount));
             for (int j = 0; j < agentsToSpawn; j++)
             {
-                Instantiate(agentPrefab, spawnPoint.position, Quaternion.identity);
+                GameObject obj = Instantiate(agentPrefab, spawnPoint.position, Quaternion.identity);
+                AgentMovementEnhanced agent = obj.GetComponent<AgentMovementEnhanced>();
+                AgentPersonaData randomProfile = database.personas[agentIDCounter % database.personas.Count]; // Loop through personas if we have more agents than profiles
+                agent.InitializeWithPersona(randomProfile);
+                agentIDCounter++;
             }
             yield return new WaitForSeconds(delay);
         }
-    }
 
+
+    }
     void ForceUpdateAgentDetails()
     {
         if (selectedAgent != null)
         {
-            UpdateAgentDetails("Agent Details: " + selectedAgent.GetAgentDetails());
+            var agentData = selectedAgent.GetAgentDetails();
+            UpdateAgentDetails(agentData);
         }
     }
 }

@@ -1,0 +1,2808 @@
+{
+    "personas": [
+        {
+            "persona_name": "Budget Student",
+            "demographics": {
+                "age": 21,
+                "profession": "College Student",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "BargainHunter",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 3.5,
+                "base_acceleration": 3.0,
+                "base_avoidance_priority": 60
+            },
+            "base_total_money": 1500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.1,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "Rice",
+                "CannedFood",
+                "Juice",
+                "Chocolates",
+                "IceCream",
+                "FrozenFoods"
+            ],
+            "base_impulse_favorites": [
+                "SoftDrink",
+                "Bakery",
+                "Fruits",
+                "FrozenChicken"
+            ]
+        },
+        {
+            "persona_name": "Economical Night Owl",
+            "demographics": {
+                "age": 21,
+                "profession": "Student",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.4,
+                "base_acceleration": 4.2,
+                "base_avoidance_priority": 25
+            },
+            "base_total_money": 1600,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.06
+            },
+            "base_shopping_list": [
+                "Rice",
+                "InstantNoodles",
+                "Cereals",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "SoftDrink",
+                "Bakery"
+            ]
+        },
+        {
+            "persona_name": "Budget-Conscious Elder",
+            "demographics": {
+                "age": 76,
+                "profession": "Retired Store Manager",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "BargainHunter",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.3,
+                "base_acceleration": 2.0,
+                "base_avoidance_priority": 74
+            },
+            "base_total_money": 900,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.04,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "Milk",
+                "Rice",
+                "CannedFood",
+                "Vegetables",
+                "Bakery",
+                "Detergent"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Mindful Elder",
+            "demographics": {
+                "age": 74,
+                "profession": "Retired Psychologist",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.4,
+                "base_acceleration": 2.1,
+                "base_avoidance_priority": 70
+            },
+            "base_total_money": 2500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.06,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "FrozenMeat",
+                "Vegetables",
+                "Fruits",
+                "Cereals",
+                "Milk",
+                "Tea"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "Books"
+            ]
+        },
+        {
+            "persona_name": "Thoughtful Grandpa",
+            "demographics": {
+                "age": 78,
+                "profession": "Retired Engineer",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.3,
+                "base_acceleration": 2.0,
+                "base_avoidance_priority": 75
+            },
+            "base_total_money": 1200,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "FreshCutMeat",
+                "OrganicGreen",
+                "Wheat",
+                "Cereals",
+                "Coffee",
+                "PersonalCare",
+                "OralCare"
+            ],
+            "base_impulse_favorites": [
+                "Books",
+                "Magazines",
+                "BoardGames"
+            ]
+        },
+        {
+            "persona_name": "Vegan Nutritionist",
+            "demographics": {
+                "age": 30,
+                "profession": "Nutritionist",
+                "income_level": "High",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.2,
+                "base_acceleration": 4.0,
+                "base_avoidance_priority": 30
+            },
+            "base_total_money": 20000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.01,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "OrganicGreen",
+                "Fruits",
+                "Vegetables",
+                "Milk",
+                "Grains"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "Tea",
+                "FrozenFoods"
+            ]
+        },
+        {
+            "persona_name": "Patient Grocery Master",
+            "demographics": {
+                "age": 50,
+                "profession": "Stay-at-home Parent",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.3,
+                "base_acceleration": 2.4,
+                "base_avoidance_priority": 75
+            },
+            "base_total_money": 1600,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.03,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "Vegetables",
+                "Fruits",
+                "Diapers",
+                "Milk",
+                "CannedFood",
+                "FrozenChicken",
+                "Detergent",
+                "Toiletries"
+            ],
+            "base_impulse_favorites": [
+                "SoftDrink",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Snack-Driven Night Owl",
+            "demographics": {
+                "age": 19,
+                "profession": "Community College Student",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "ImpulseBuyer",
+            "primary_trait": "Impulsive",
+            "baseline_physics": {
+                "base_speed": 4.3,
+                "base_acceleration": 4.1,
+                "base_avoidance_priority": 20
+            },
+            "base_total_money": 1300,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.03,
+                "base_impulse_probability": 0.7
+            },
+            "base_shopping_list": [
+                "Cereals",
+                "Bakery",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "SoftDrink",
+                "FrozenFoods"
+            ]
+        },
+        {
+            "persona_name": "Gentle Grandmother",
+            "demographics": {
+                "age": 72,
+                "profession": "Retired Teacher",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.5,
+                "base_acceleration": 2.0,
+                "base_avoidance_priority": 70
+            },
+            "base_total_money": 1500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.1,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "Milk",
+                "Rice",
+                "Vegetables",
+                "Fruits",
+                "Bakery",
+                "CookingOil",
+                "Tea",
+                "CannedFood"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "GreetingCards"
+            ]
+        },
+        {
+            "persona_name": "Competitive Runner",
+            "demographics": {
+                "age": 24,
+                "profession": "Student",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Impulsive",
+            "baseline_physics": {
+                "base_speed": 4.6,
+                "base_acceleration": 4.4,
+                "base_avoidance_priority": 30
+            },
+            "base_total_money": 1000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.15,
+                "base_impulse_probability": 0.55
+            },
+            "base_shopping_list": [
+                "FreshCutMeat",
+                "Fruits",
+                "Vegetables",
+                "Milk",
+                "Cereals"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Sustainable Living Advocate",
+            "demographics": {
+                "age": 29,
+                "profession": "Environmental Scientist",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 3.2,
+                "base_acceleration": 2.5,
+                "base_avoidance_priority": 65
+            },
+            "base_total_money": 15000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.1,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "OrganicGreen",
+                "Fruits",
+                "Vegetables",
+                "Milk",
+                "Cereals"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "Tea",
+                "PersonalCare"
+            ]
+        },
+        {
+            "persona_name": "Late Night Gamer",
+            "demographics": {
+                "age": 19,
+                "profession": "Undergraduate Student",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "WindowShopper",
+            "primary_trait": "Indecisive",
+            "baseline_physics": {
+                "base_speed": 3.0,
+                "base_acceleration": 2.5,
+                "base_avoidance_priority": 70
+            },
+            "base_total_money": 1300,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.7,
+                "base_impulse_probability": 0.6
+            },
+            "base_shopping_list": [
+                "Chocolates",
+                "IceCream",
+                "CannedFood"
+            ],
+            "base_impulse_favorites": [
+                "SoftDrink",
+                "PartySupplies",
+                "FrozenFoods",
+                "Juice"
+            ]
+        },
+        {
+            "persona_name": "Practical Family Shopper",
+            "demographics": {
+                "age": 37,
+                "profession": "Teacher",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.5,
+                "base_acceleration": 2.6,
+                "base_avoidance_priority": 72
+            },
+            "base_total_money": 1600,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.03,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "Juice",
+                "Rice",
+                "FrozenMeat",
+                "Toiletries",
+                "Diapers",
+                "BabyCare"
+            ],
+            "base_impulse_favorites": [
+                "Toys",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Quick Snack Grabber",
+            "demographics": {
+                "age": 19,
+                "profession": "High School Graduate",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "BargainHunter",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 4.1,
+                "base_acceleration": 4.0,
+                "base_avoidance_priority": 30
+            },
+            "base_total_money": 1100,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.1,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "Bakery",
+                "CannedFood",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "SoftDrink",
+                "FrozenFoods"
+            ]
+        },
+        {
+            "persona_name": "Careful Family Buyer",
+            "demographics": {
+                "age": 52,
+                "profession": "Accountant",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.2,
+                "base_acceleration": 2.3,
+                "base_avoidance_priority": 78
+            },
+            "base_total_money": 1400,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.03,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "CannedFood",
+                "FrozenChicken",
+                "Detergent",
+                "Milk",
+                "Diapers",
+                "BabyCare"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Nutrition-Focused Retiree",
+            "demographics": {
+                "age": 67,
+                "profession": "Retired",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.5,
+                "base_acceleration": 2.0,
+                "base_avoidance_priority": 70
+            },
+            "base_total_money": 15000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.1,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "OrganicGreen",
+                "Fruits",
+                "Vegetables",
+                "Milk",
+                "Cereals"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "Tea",
+                "PersonalCare"
+            ]
+        },
+        {
+            "persona_name": "Social Butterfly",
+            "demographics": {
+                "age": 68,
+                "profession": "Retired Social Worker",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.5,
+                "base_acceleration": 2.1,
+                "base_avoidance_priority": 67
+            },
+            "base_total_money": 2800,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.08,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "Seafood",
+                "FreshCutMeat",
+                "Vegetables",
+                "Fruits",
+                "Bakery",
+                "Tea",
+                "CannedFood",
+                "OralCare"
+            ],
+            "base_impulse_favorites": [
+                "GreetingCards",
+                "Toys"
+            ]
+        },
+        {
+            "persona_name": "Thrifty Family Organizer",
+            "demographics": {
+                "age": 46,
+                "profession": "Customer Service Rep",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.4,
+                "base_acceleration": 2.5,
+                "base_avoidance_priority": 74
+            },
+            "base_total_money": 1550,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.04,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "Rice",
+                "Juice",
+                "FrozenMeat",
+                "Fruits",
+                "Toiletries",
+                "Diapers"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Toys"
+            ]
+        },
+        {
+            "persona_name": "Organized Family Shopper",
+            "demographics": {
+                "age": 34,
+                "profession": "Nurse",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.8,
+                "base_acceleration": 2.9,
+                "base_avoidance_priority": 65
+            },
+            "base_total_money": 1800,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.04,
+                "base_impulse_probability": 0.06
+            },
+            "base_shopping_list": [
+                "FrozenFoods",
+                "Milk",
+                "DogFood",
+                "CatFood",
+                "BabyCare",
+                "Chocolates",
+                "IceCream",
+                "MensClothing"
+            ],
+            "base_impulse_favorites": [
+                "Toys",
+                "Books",
+                "Magazines"
+            ]
+        },
+        {
+            "persona_name": "Overworked Tech Lead",
+            "demographics": {
+                "age": 36,
+                "profession": "Tech Lead",
+                "income_level": "High",
+                "gender": "Male"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.5,
+                "base_acceleration": 4.4,
+                "base_avoidance_priority": 20
+            },
+            "base_total_money": 20000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.01,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "FreshCutMeat",
+                "FrozenFoods",
+                "Bakery",
+                "SoftDrink",
+                "Fruits"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "Juice"
+            ]
+        },
+        {
+            "persona_name": "Healthy Lifestyle Promoter",
+            "demographics": {
+                "age": 40,
+                "profession": "Wellness Educator",
+                "income_level": "High",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.5,
+                "base_acceleration": 4.2,
+                "base_avoidance_priority": 25
+            },
+            "base_total_money": 20000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.01
+            },
+            "base_shopping_list": [
+                "OrganicGreen",
+                "Fruits",
+                "Vegetables",
+                "Milk",
+                "FreshCutMeat"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "CannedFood",
+                "Bakery"
+            ]
+        },
+        {
+            "persona_name": "Health-Conscious Developer",
+            "demographics": {
+                "age": 32,
+                "profession": "Software Developer",
+                "income_level": "High",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.2,
+                "base_acceleration": 4.1,
+                "base_avoidance_priority": 22
+            },
+            "base_total_money": 16000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.01,
+                "base_impulse_probability": 0.04
+            },
+            "base_shopping_list": [
+                "Fruits",
+                "Vegetables",
+                "OrganicGreen",
+                "FrozenFoods",
+                "Cereals"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "Tea",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Culinary Enthusiast",
+            "demographics": {
+                "age": 67,
+                "profession": "Retired Chef",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.6,
+                "base_acceleration": 2.2,
+                "base_avoidance_priority": 65
+            },
+            "base_total_money": 3000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.12,
+                "base_impulse_probability": 0.04
+            },
+            "base_shopping_list": [
+                "FrozenFoods",
+                "FreshCutMeat",
+                "Vegetables",
+                "Fruits",
+                "Bakery",
+                "CookingOil",
+                "Rice",
+                "CannedFood"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "GreetingCards"
+            ]
+        },
+        {
+            "persona_name": "Late Night Study Buddy",
+            "demographics": {
+                "age": 20,
+                "profession": "Student Tutor",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "WindowShopper",
+            "primary_trait": "Indecisive",
+            "baseline_physics": {
+                "base_speed": 3.6,
+                "base_acceleration": 3.2,
+                "base_avoidance_priority": 65
+            },
+            "base_total_money": 1250,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.75,
+                "base_impulse_probability": 0.5
+            },
+            "base_shopping_list": [
+                "Cereals",
+                "Tea",
+                "FrozenChicken"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "SoftDrink",
+                "Fruits"
+            ]
+        },
+        {
+            "persona_name": "Holistic Wellness Advocate",
+            "demographics": {
+                "age": 28,
+                "profession": "Wellness Coach",
+                "income_level": "High",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 3.2,
+                "base_acceleration": 3.0,
+                "base_avoidance_priority": 65
+            },
+            "base_total_money": 18000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "OrganicGreen",
+                "Fruits",
+                "Vegetables",
+                "Juice",
+                "Milk"
+            ],
+            "base_impulse_favorites": [
+                "Tea",
+                "CannedFood",
+                "PersonalCare"
+            ]
+        },
+        {
+            "persona_name": "Budget-Conscious Parent",
+            "demographics": {
+                "age": 38,
+                "profession": "School Teacher",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.5,
+                "base_acceleration": 2.5,
+                "base_avoidance_priority": 70
+            },
+            "base_total_money": 1200,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "Milk",
+                "Rice",
+                "CannedFood",
+                "FrozenChicken",
+                "Fruits",
+                "Vegetables",
+                "Detergent",
+                "Diapers",
+                "BabyCare"
+            ],
+            "base_impulse_favorites": [
+                "Toys",
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Nostalgic Widow",
+            "demographics": {
+                "age": 80,
+                "profession": "Retired Librarian",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.2,
+                "base_acceleration": 2.0,
+                "base_avoidance_priority": 75
+            },
+            "base_total_money": 800,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.1,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "FrozenMeat",
+                "Fruits",
+                "Vegetables",
+                "Juice",
+                "Bakery",
+                "Chocolates",
+                "CannedFood",
+                "Tea"
+            ],
+            "base_impulse_favorites": [
+                "GreetingCards",
+                "Toys"
+            ]
+        },
+        {
+            "persona_name": "Night Owl Snacker",
+            "demographics": {
+                "age": 22,
+                "profession": "Graduate Student",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "ImpulseBuyer",
+            "primary_trait": "Impulsive",
+            "baseline_physics": {
+                "base_speed": 4.2,
+                "base_acceleration": 4.0,
+                "base_avoidance_priority": 20
+            },
+            "base_total_money": 1800,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.75
+            },
+            "base_shopping_list": [
+                "FrozenMeat",
+                "Tea",
+                "PartySupplies",
+                "Bakery",
+                "InstantNoodles"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "SoftDrink",
+                "FrozenFoods"
+            ]
+        },
+        {
+            "persona_name": "Savvy Student",
+            "demographics": {
+                "age": 24,
+                "profession": "University Student",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.7,
+                "base_acceleration": 4.3,
+                "base_avoidance_priority": 30
+            },
+            "base_total_money": 1600,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.04,
+                "base_impulse_probability": 0.08
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "Milk",
+                "Cereals",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "Fruits",
+                "SoftDrink"
+            ]
+        },
+        {
+            "persona_name": "Efficient UX Designer",
+            "demographics": {
+                "age": 27,
+                "profession": "UX Designer",
+                "income_level": "High",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.4,
+                "base_acceleration": 4.3,
+                "base_avoidance_priority": 20
+            },
+            "base_total_money": 18000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.01,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "FrozenFoods",
+                "Vegetables",
+                "Juice",
+                "Bakery",
+                "Rice"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "PartySupplies"
+            ]
+        },
+        {
+            "persona_name": "Busy Software Engineer",
+            "demographics": {
+                "age": 29,
+                "profession": "Software Engineer",
+                "income_level": "High",
+                "gender": "Male"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.5,
+                "base_acceleration": 4.0,
+                "base_avoidance_priority": 20
+            },
+            "base_total_money": 17500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "Juice",
+                "FrozenMeat",
+                "Rice",
+                "OrganicGreen"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "FreshCutMeat"
+            ]
+        },
+        {
+            "persona_name": "Fitness Coach",
+            "demographics": {
+                "age": 32,
+                "profession": "Personal Trainer",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 3.0,
+                "base_acceleration": 2.8,
+                "base_avoidance_priority": 60
+            },
+            "base_total_money": 16000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.15,
+                "base_impulse_probability": 0.1
+            },
+            "base_shopping_list": [
+                "FreshCutMeat",
+                "Fruits",
+                "Vegetables",
+                "Milk",
+                "CookingOil"
+            ],
+            "base_impulse_favorites": [
+                "Tea",
+                "Juice",
+                "CannedFood"
+            ]
+        },
+        {
+            "persona_name": "Resourceful Mom",
+            "demographics": {
+                "age": 39,
+                "profession": "Marketing Specialist",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.6,
+                "base_acceleration": 2.7,
+                "base_avoidance_priority": 72
+            },
+            "base_total_money": 1400,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.07
+            },
+            "base_shopping_list": [
+                "FrozenFoods",
+                "Cereals",
+                "Juice",
+                "FreshCutMeat",
+                "Rice",
+                "OrganicGreen",
+                "Toiletries"
+            ],
+            "base_impulse_favorites": [
+                "Toys",
+                "PartySupplies"
+            ]
+        },
+        {
+            "persona_name": "Busy Corporate Executive",
+            "demographics": {
+                "age": 35,
+                "profession": "Marketing Director",
+                "income_level": "High",
+                "gender": "Male"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.7,
+                "base_acceleration": 4.5,
+                "base_avoidance_priority": 20
+            },
+            "base_total_money": 19000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.01,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "Milk",
+                "OrganicGreen",
+                "FreshCutMeat",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "SoftDrink",
+                "Cosmetics",
+                "Bakery"
+            ]
+        },
+        {
+            "persona_name": "Gardening Enthusiast",
+            "demographics": {
+                "age": 82,
+                "profession": "Retired Gardener",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.2,
+                "base_acceleration": 2.0,
+                "base_avoidance_priority": 77
+            },
+            "base_total_money": 700,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.04,
+                "base_impulse_probability": 0.01
+            },
+            "base_shopping_list": [
+                "Fruits",
+                "Vegetables",
+                "OrganicGreen",
+                "CannedFood",
+                "Tea"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "Books"
+            ]
+        },
+        {
+            "persona_name": "Health-Conscious Senior",
+            "demographics": {
+                "age": 70,
+                "profession": "Retired Nurse",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.5,
+                "base_acceleration": 2.0,
+                "base_avoidance_priority": 68
+            },
+            "base_total_money": 2500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.09,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "OrganicGreen",
+                "Fruits",
+                "Vegetables",
+                "Rice",
+                "Cereals",
+                "Detergent",
+                "PersonalCare",
+                "OralCare"
+            ],
+            "base_impulse_favorites": [
+                "Tea",
+                "Coffee",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Traditional Shopper",
+            "demographics": {
+                "age": 74,
+                "profession": "Retired Farmer",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.4,
+                "base_acceleration": 2.1,
+                "base_avoidance_priority": 72
+            },
+            "base_total_money": 2200,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.06,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "Wheat",
+                "FrozenMeat",
+                "Bakery",
+                "Fruits",
+                "Vegetables",
+                "Juice",
+                "Milk",
+                "CookingOil"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Books"
+            ]
+        },
+        {
+            "persona_name": "Overworked System Analyst",
+            "demographics": {
+                "age": 30,
+                "profession": "System Analyst",
+                "income_level": "High",
+                "gender": "Male"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.3,
+                "base_acceleration": 4.2,
+                "base_avoidance_priority": 19
+            },
+            "base_total_money": 17000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "Seafood",
+                "FreshCutMeat",
+                "OrganicGreen",
+                "FrozenMeat",
+                "Milk"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "Chocolates",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Strategic Family Buyer",
+            "demographics": {
+                "age": 41,
+                "profession": "Software Developer",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.5,
+                "base_acceleration": 2.6,
+                "base_avoidance_priority": 69
+            },
+            "base_total_money": 1700,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.04
+            },
+            "base_shopping_list": [
+                "FrozenMeat",
+                "CookingOil",
+                "Rice",
+                "Toiletries",
+                "Diapers",
+                "BabyCare"
+            ],
+            "base_impulse_favorites": [
+                "Toys",
+                "PartySupplies",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Family-Oriented Grandfather",
+            "demographics": {
+                "age": 80,
+                "profession": "Retired Firefighter",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.5,
+                "base_acceleration": 2.1,
+                "base_avoidance_priority": 69
+            },
+            "base_total_money": 2300,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.07,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "Fruits",
+                "Vegetables",
+                "Bakery",
+                "CookingOil",
+                "Milk"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "GreetingCards"
+            ]
+        },
+        {
+            "persona_name": "Thrifty Family Manager",
+            "demographics": {
+                "age": 42,
+                "profession": "Project Manager",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.9,
+                "base_acceleration": 3.0,
+                "base_avoidance_priority": 67
+            },
+            "base_total_money": 1300,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.06,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "Milk",
+                "FrozenMeat",
+                "DogFood",
+                "BabyCare",
+                "CannedFood",
+                "Rice",
+                "Detergent"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "Toys"
+            ]
+        },
+        {
+            "persona_name": "Active Retiree",
+            "demographics": {
+                "age": 69,
+                "profession": "Retired Fitness Instructor",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.6,
+                "base_acceleration": 2.2,
+                "base_avoidance_priority": 66
+            },
+            "base_total_money": 2900,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.09,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "OrganicGreen",
+                "Fruits",
+                "Vegetables",
+                "Rice",
+                "Bakery",
+                "CookingOil"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Budget Night Scholar",
+            "demographics": {
+                "age": 24,
+                "profession": "Graduate Student",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "BargainHunter",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 3.4,
+                "base_acceleration": 3.1,
+                "base_avoidance_priority": 60
+            },
+            "base_total_money": 1200,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.06,
+                "base_impulse_probability": 0.08
+            },
+            "base_shopping_list": [
+                "CannedFood",
+                "Bakery",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "SoftDrink",
+                "FrozenFoods"
+            ]
+        },
+        {
+            "persona_name": "Quick-Lunch Software Tester",
+            "demographics": {
+                "age": 26,
+                "profession": "Software Tester",
+                "income_level": "High",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.1,
+                "base_acceleration": 4.0,
+                "base_avoidance_priority": 23
+            },
+            "base_total_money": 15500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.01,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "FrozenFoods",
+                "Rice",
+                "Juice",
+                "Bakery",
+                "CannedFood"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "SoftDrink"
+            ]
+        },
+        {
+            "persona_name": "Efficient Family Buyer",
+            "demographics": {
+                "age": 43,
+                "profession": "Finance Officer",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.6,
+                "base_acceleration": 2.7,
+                "base_avoidance_priority": 70
+            },
+            "base_total_money": 1500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "Milk",
+                "FrozenFoods",
+                "CannedFood",
+                "Fruits",
+                "Vegetables",
+                "Rice"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "Toys"
+            ]
+        },
+        {
+            "persona_name": "Executive Project Manager",
+            "demographics": {
+                "age": 35,
+                "profession": "Project Manager",
+                "income_level": "High",
+                "gender": "Male"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.8,
+                "base_acceleration": 4.5,
+                "base_avoidance_priority": 15
+            },
+            "base_total_money": 19000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.03,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "FreshCutMeat",
+                "Bakery",
+                "FrozenChicken",
+                "CannedFood",
+                "SoftDrink"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "LargeIceCream",
+                "PartySupplies"
+            ]
+        },
+        {
+            "persona_name": "Early Bird Shopper",
+            "demographics": {
+                "age": 79,
+                "profession": "Retired Mail Carrier",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.3,
+                "base_acceleration": 2.0,
+                "base_avoidance_priority": 74
+            },
+            "base_total_money": 1000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.01
+            },
+            "base_shopping_list": [
+                "FrozenMeat",
+                "Rice",
+                "CookingOil",
+                "Fruits",
+                "Vegetables",
+                "Milk"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "GreetingCards"
+            ]
+        },
+        {
+            "persona_name": "Fast-Paced Product Manager",
+            "demographics": {
+                "age": 34,
+                "profession": "Product Manager",
+                "income_level": "High",
+                "gender": "Male"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.6,
+                "base_acceleration": 4.4,
+                "base_avoidance_priority": 16
+            },
+            "base_total_money": 20000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "FreshCutMeat",
+                "Bakery",
+                "SoftDrink",
+                "Fruits"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "Chocolates",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Crafty Grandmother",
+            "demographics": {
+                "age": 75,
+                "profession": "Retired Craftsperson",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.5,
+                "base_acceleration": 2.1,
+                "base_avoidance_priority": 68
+            },
+            "base_total_money": 2600,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.07,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "Fruits",
+                "Vegetables",
+                "Bakery",
+                "CannedFood",
+                "CookingOil",
+                "Milk"
+            ],
+            "base_impulse_favorites": [
+                "GreetingCards",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Instant Food Lover",
+            "demographics": {
+                "age": 20,
+                "profession": "Community College Student",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "BargainHunter",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 3.8,
+                "base_acceleration": 3.5,
+                "base_avoidance_priority": 65
+            },
+            "base_total_money": 1400,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.1
+            },
+            "base_shopping_list": [
+                "InstantNoodles",
+                "CannedFood",
+                "Tea",
+                "Rice"
+            ],
+            "base_impulse_favorites": [
+                "Bakery",
+                "IceCream",
+                "Chocolates",
+                "SoftDrink"
+            ]
+        },
+        {
+            "persona_name": "Instant Snack Shopper",
+            "demographics": {
+                "age": 20,
+                "profession": "Student",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "ImpulseBuyer",
+            "primary_trait": "Impulsive",
+            "baseline_physics": {
+                "base_speed": 4.1,
+                "base_acceleration": 4.0,
+                "base_avoidance_priority": 20
+            },
+            "base_total_money": 1500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.68
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "Cereals",
+                "Bakery",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "SoftDrink",
+                "FrozenFoods"
+            ]
+        },
+        {
+            "persona_name": "Nutritional Blogger",
+            "demographics": {
+                "age": 27,
+                "profession": "Food Blogger",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Impulsive",
+            "baseline_physics": {
+                "base_speed": 3.5,
+                "base_acceleration": 3.0,
+                "base_avoidance_priority": 45
+            },
+            "base_total_money": 15000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.25,
+                "base_impulse_probability": 0.65
+            },
+            "base_shopping_list": [
+                "Fruits",
+                "Vegetables",
+                "OrganicGreen",
+                "Cereals",
+                "Milk"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "FrozenFoods"
+            ]
+        },
+        {
+            "persona_name": "Frugal Family Planner",
+            "demographics": {
+                "age": 45,
+                "profession": "Administrative Assistant",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.7,
+                "base_acceleration": 2.6,
+                "base_avoidance_priority": 68
+            },
+            "base_total_money": 1500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.07,
+                "base_impulse_probability": 0.08
+            },
+            "base_shopping_list": [
+                "Juice",
+                "Wheat",
+                "FrozenMeat",
+                "PartySupplies",
+                "FreshCutMeat",
+                "Cereals",
+                "CookingOil",
+                "Toiletries"
+            ],
+            "base_impulse_favorites": [
+                "GreetingCards",
+                "BoardGames"
+            ]
+        },
+        {
+            "persona_name": "Health-Conscious Yogi",
+            "demographics": {
+                "age": 29,
+                "profession": "Yoga Instructor",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.5,
+                "base_acceleration": 4.0,
+                "base_avoidance_priority": 25
+            },
+            "base_total_money": 18000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "OrganicGreen",
+                "Fruits",
+                "Vegetables",
+                "Milk",
+                "FreshCutMeat",
+                "Cereals"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "Tea",
+                "PersonalCare"
+            ]
+        },
+        {
+            "persona_name": "Active Single Parent",
+            "demographics": {
+                "age": 36,
+                "profession": "Single Parent",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.0,
+                "base_acceleration": 3.5,
+                "base_avoidance_priority": 30
+            },
+            "base_total_money": 16000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.1
+            },
+            "base_shopping_list": [
+                "FreshCutMeat",
+                "Fruits",
+                "Vegetables",
+                "Milk",
+                "Diapers"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Classic Cooking Grandma",
+            "demographics": {
+                "age": 77,
+                "profession": "Retired Chef",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.4,
+                "base_acceleration": 2.1,
+                "base_avoidance_priority": 70
+            },
+            "base_total_money": 2400,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.06,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "Vegetables",
+                "Fruits",
+                "Bakery",
+                "CookingOil",
+                "Milk"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Meticulous Family Buyer",
+            "demographics": {
+                "age": 48,
+                "profession": "Chef",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.3,
+                "base_acceleration": 2.4,
+                "base_avoidance_priority": 76
+            },
+            "base_total_money": 1500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.03,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "Juice",
+                "Milk",
+                "FrozenMeat",
+                "Fruits",
+                "Vegetables",
+                "Toiletries"
+            ],
+            "base_impulse_favorites": [
+                "Toys",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Rushed Digital Marketer",
+            "demographics": {
+                "age": 31,
+                "profession": "Digital Marketer",
+                "income_level": "High",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.7,
+                "base_acceleration": 4.6,
+                "base_avoidance_priority": 17
+            },
+            "base_total_money": 18500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.01,
+                "base_impulse_probability": 0.04
+            },
+            "base_shopping_list": [
+                "Bakery",
+                "FrozenFoods",
+                "FrozenChicken",
+                "Cereals",
+                "SoftDrink"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "IceCream",
+                "Cosmetics"
+            ]
+        },
+        {
+            "persona_name": "Snack Enthusiast",
+            "demographics": {
+                "age": 22,
+                "profession": "Freelance Designer",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "ImpulseBuyer",
+            "primary_trait": "Impulsive",
+            "baseline_physics": {
+                "base_speed": 4.0,
+                "base_acceleration": 4.0,
+                "base_avoidance_priority": 20
+            },
+            "base_total_money": 1500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.7
+            },
+            "base_shopping_list": [
+                "Chocolates",
+                "IceCream",
+                "SoftDrink",
+                "InstantNoodles"
+            ],
+            "base_impulse_favorites": [
+                "FrozenFoods",
+                "Bakery",
+                "CannedFood",
+                "Juice"
+            ]
+        },
+        {
+            "persona_name": "Pragmatic Family Shopper",
+            "demographics": {
+                "age": 38,
+                "profession": "Web Developer",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.5,
+                "base_acceleration": 2.6,
+                "base_avoidance_priority": 72
+            },
+            "base_total_money": 1500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.04
+            },
+            "base_shopping_list": [
+                "Milk",
+                "CannedFood",
+                "FrozenChicken",
+                "Fruits",
+                "Vegetables",
+                "Detergent"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Swift IT Specialist",
+            "demographics": {
+                "age": 34,
+                "profession": "IT Specialist",
+                "income_level": "High",
+                "gender": "Male"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.3,
+                "base_acceleration": 4.2,
+                "base_avoidance_priority": 18
+            },
+            "base_total_money": 18000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.04
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "OrganicGreen",
+                "Fruits",
+                "Bakery",
+                "CannedFood"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "Chocolates",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Health-Focused Mother",
+            "demographics": {
+                "age": 34,
+                "profession": "Teacher",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 3.0,
+                "base_acceleration": 2.5,
+                "base_avoidance_priority": 55
+            },
+            "base_total_money": 14000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.1,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "OrganicGreen",
+                "Fruits",
+                "Vegetables",
+                "Milk",
+                "Diapers"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "Tea",
+                "CannedFood"
+            ]
+        },
+        {
+            "persona_name": "Quick Fix Shopper",
+            "demographics": {
+                "age": 23,
+                "profession": "Freelance Writer",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.6,
+                "base_acceleration": 4.4,
+                "base_avoidance_priority": 30
+            },
+            "base_total_money": 1600,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "CannedFood",
+                "Bakery",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "SoftDrink",
+                "Fruits"
+            ]
+        },
+        {
+            "persona_name": "Midnight Snack Seeker",
+            "demographics": {
+                "age": 20,
+                "profession": "Undergraduate Student",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "ImpulseBuyer",
+            "primary_trait": "Impulsive",
+            "baseline_physics": {
+                "base_speed": 4.0,
+                "base_acceleration": 4.0,
+                "base_avoidance_priority": 20
+            },
+            "base_total_money": 1400,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.65
+            },
+            "base_shopping_list": [
+                "FrozenMeat",
+                "CannedFood",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "SoftDrink",
+                "Bakery"
+            ]
+        },
+        {
+            "persona_name": "Prudent Family Planner",
+            "demographics": {
+                "age": 44,
+                "profession": "Sales Representative",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.4,
+                "base_acceleration": 2.5,
+                "base_avoidance_priority": 75
+            },
+            "base_total_money": 1400,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.03,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "Milk",
+                "Fruits",
+                "Vegetables",
+                "FrozenMeat",
+                "DogFood",
+                "Diapers"
+            ],
+            "base_impulse_favorites": [
+                "Toys",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Mindful Meal Preparer",
+            "demographics": {
+                "age": 33,
+                "profession": "Chef",
+                "income_level": "High",
+                "gender": "Male"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 3.0,
+                "base_acceleration": 2.8,
+                "base_avoidance_priority": 60
+            },
+            "base_total_money": 19000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "OrganicGreen",
+                "Fruits",
+                "Vegetables",
+                "Milk",
+                "CookingOil"
+            ],
+            "base_impulse_favorites": [
+                "Juice",
+                "Tea",
+                "CannedFood"
+            ]
+        },
+        {
+            "persona_name": "Family Essentials Buyer",
+            "demographics": {
+                "age": 47,
+                "profession": "Sales Manager",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.8,
+                "base_acceleration": 2.9,
+                "base_avoidance_priority": 66
+            },
+            "base_total_money": 1450,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.04,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "Milk",
+                "CannedFood",
+                "FrozenChicken",
+                "Fruits",
+                "Vegetables",
+                "Detergent"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream"
+            ]
+        },
+        {
+            "persona_name": "Urgent Web Developer",
+            "demographics": {
+                "age": 29,
+                "profession": "Web Developer",
+                "income_level": "High",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.6,
+                "base_acceleration": 4.5,
+                "base_avoidance_priority": 19
+            },
+            "base_total_money": 16000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "FrozenMeat",
+                "Bakery",
+                "Rice",
+                "Juice",
+                "Vegetables"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "SoftDrink"
+            ]
+        },
+        {
+            "persona_name": "Convenient Meal Planner",
+            "demographics": {
+                "age": 21,
+                "profession": "Intern",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 3.2,
+                "base_acceleration": 3.0,
+                "base_avoidance_priority": 55
+            },
+            "base_total_money": 1700,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.03,
+                "base_impulse_probability": 0.07
+            },
+            "base_shopping_list": [
+                "FrozenMeat",
+                "Rice",
+                "Juice",
+                "Bakery"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "SoftDrink",
+                "Fruits"
+            ]
+        },
+        {
+            "persona_name": "Stressed-Out IT Consultant",
+            "demographics": {
+                "age": 28,
+                "profession": "IT Consultant",
+                "income_level": "High",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.4,
+                "base_acceleration": 4.3,
+                "base_avoidance_priority": 18
+            },
+            "base_total_money": 16500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.02,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "FrozenMeat",
+                "Milk",
+                "Tea",
+                "Juice",
+                "Rice"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "Cosmetics"
+            ]
+        },
+        {
+            "persona_name": "Outdoor Adventurer",
+            "demographics": {
+                "age": 31,
+                "profession": "Adventure Guide",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.3,
+                "base_acceleration": 4.1,
+                "base_avoidance_priority": 28
+            },
+            "base_total_money": 16500,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.04,
+                "base_impulse_probability": 0.06
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "Fruits",
+                "Vegetables",
+                "FreshCutMeat",
+                "CookingOil"
+            ],
+            "base_impulse_favorites": [
+                "SoftDrink",
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Detail-Oriented Shopper",
+            "demographics": {
+                "age": 36,
+                "profession": "Data Analyst",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.4,
+                "base_acceleration": 2.5,
+                "base_avoidance_priority": 74
+            },
+            "base_total_money": 1550,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.04,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "Juice",
+                "FrozenChicken",
+                "Fruits",
+                "Vegetables",
+                "Diapers",
+                "Cereals",
+                "FreshCutMeat"
+            ],
+            "base_impulse_favorites": [
+                "Books",
+                "Magazines"
+            ]
+        },
+        {
+            "persona_name": "Mindful Family Buyer",
+            "demographics": {
+                "age": 41,
+                "profession": "Research Scientist",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.6,
+                "base_acceleration": 2.7,
+                "base_avoidance_priority": 70
+            },
+            "base_total_money": 1600,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "Juice",
+                "FrozenMeat",
+                "DogFood",
+                "Fruits",
+                "Vegetables",
+                "Diapers"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Simple Living Elder",
+            "demographics": {
+                "age": 73,
+                "profession": "Retired Secretary",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.3,
+                "base_acceleration": 2.0,
+                "base_avoidance_priority": 75
+            },
+            "base_total_money": 1100,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "Rice",
+                "Vegetables",
+                "Fruits",
+                "CannedFood",
+                "Milk",
+                "Bakery"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Quick-Meal Data Scientist",
+            "demographics": {
+                "age": 33,
+                "profession": "Data Scientist",
+                "income_level": "High",
+                "gender": "Male"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.5,
+                "base_acceleration": 4.2,
+                "base_avoidance_priority": 21
+            },
+            "base_total_money": 19000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.03,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "CannedFood",
+                "Juice",
+                "Bakery",
+                "OrganicGreen"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates",
+                "SoftDrink"
+            ]
+        },
+        {
+            "persona_name": "Conscientious Family Shopper",
+            "demographics": {
+                "age": 40,
+                "profession": "HR Specialist",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.5,
+                "base_acceleration": 2.5,
+                "base_avoidance_priority": 73
+            },
+            "base_total_money": 1800,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.06,
+                "base_impulse_probability": 0.04
+            },
+            "base_shopping_list": [
+                "Juice",
+                "FrozenChicken",
+                "Detergent",
+                "Diapers",
+                "BabyCare",
+                "CannedFood"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Family Budget Manager",
+            "demographics": {
+                "age": 39,
+                "profession": "IT Specialist",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "BulkShopper",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 2.6,
+                "base_acceleration": 2.7,
+                "base_avoidance_priority": 68
+            },
+            "base_total_money": 1650,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.05,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "Rice",
+                "CannedFood",
+                "FrozenFoods",
+                "Toiletries",
+                "Diapers",
+                "BabyCare"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Rapid Mobile Developer",
+            "demographics": {
+                "age": 30,
+                "profession": "Mobile Developer",
+                "income_level": "High",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.5,
+                "base_acceleration": 4.3,
+                "base_avoidance_priority": 20
+            },
+            "base_total_money": 20000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.01,
+                "base_impulse_probability": 0.02
+            },
+            "base_shopping_list": [
+                "FrozenFoods",
+                "FreshCutMeat",
+                "Bakery",
+                "Vegetables",
+                "Rice"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "Juice"
+            ]
+        },
+        {
+            "persona_name": "Practical Pensioner",
+            "demographics": {
+                "age": 75,
+                "profession": "Retired Accountant",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.4,
+                "base_acceleration": 2.1,
+                "base_avoidance_priority": 70
+            },
+            "base_total_money": 1300,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.07,
+                "base_impulse_probability": 0.01
+            },
+            "base_shopping_list": [
+                "Seafood",
+                "CookingOil",
+                "FrozenChicken",
+                "Rice",
+                "Vegetables",
+                "Milk",
+                "Detergent",
+                "OralCare"
+            ],
+            "base_impulse_favorites": [
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Study Break Muncher",
+            "demographics": {
+                "age": 22,
+                "profession": "Student",
+                "income_level": "Low",
+                "gender": "Male"
+            },
+            "agent_type": "BargainHunter",
+            "primary_trait": "BudgetConscious",
+            "baseline_physics": {
+                "base_speed": 3.9,
+                "base_acceleration": 3.5,
+                "base_avoidance_priority": 60
+            },
+            "base_total_money": 1550,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.04,
+                "base_impulse_probability": 0.09
+            },
+            "base_shopping_list": [
+                "Rice",
+                "InstantNoodles",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "SoftDrink",
+                "FrozenFoods"
+            ]
+        },
+        {
+            "persona_name": "Aspiring Triathlete",
+            "demographics": {
+                "age": 26,
+                "profession": "Software Developer",
+                "income_level": "Medium",
+                "gender": "Male"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Impulsive",
+            "baseline_physics": {
+                "base_speed": 4.0,
+                "base_acceleration": 3.5,
+                "base_avoidance_priority": 35
+            },
+            "base_total_money": 17000,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.2,
+                "base_impulse_probability": 0.6
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "Fruits",
+                "Vegetables",
+                "Milk",
+                "Cereals"
+            ],
+            "base_impulse_favorites": [
+                "SoftDrink",
+                "IceCream",
+                "Chocolates"
+            ]
+        },
+        {
+            "persona_name": "Late Night Muncher",
+            "demographics": {
+                "age": 22,
+                "profession": "Part-time Employee",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "WindowShopper",
+            "primary_trait": "Indecisive",
+            "baseline_physics": {
+                "base_speed": 3.7,
+                "base_acceleration": 3.3,
+                "base_avoidance_priority": 65
+            },
+            "base_total_money": 1450,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.68,
+                "base_impulse_probability": 0.55
+            },
+            "base_shopping_list": [
+                "FrozenMeat",
+                "Rice",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "SoftDrink",
+                "Bakery"
+            ]
+        },
+        {
+            "persona_name": "Frugal Night Student",
+            "demographics": {
+                "age": 23,
+                "profession": "Part-time Barista and Student",
+                "income_level": "Low",
+                "gender": "Female"
+            },
+            "agent_type": "FocusedShopper",
+            "primary_trait": "TimeSensitive",
+            "baseline_physics": {
+                "base_speed": 4.5,
+                "base_acceleration": 4.5,
+                "base_avoidance_priority": 25
+            },
+            "base_total_money": 1200,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.01,
+                "base_impulse_probability": 0.05
+            },
+            "base_shopping_list": [
+                "Milk",
+                "Cereals",
+                "FrozenChicken",
+                "Juice"
+            ],
+            "base_impulse_favorites": [
+                "Chocolates",
+                "IceCream",
+                "SoftDrink",
+                "Fruits"
+            ]
+        },
+        {
+            "persona_name": "Community-Focused Grandma",
+            "demographics": {
+                "age": 71,
+                "profession": "Retired Community Organizer",
+                "income_level": "Medium",
+                "gender": "Female"
+            },
+            "agent_type": "Regular",
+            "primary_trait": "Cautious",
+            "baseline_physics": {
+                "base_speed": 2.4,
+                "base_acceleration": 2.1,
+                "base_avoidance_priority": 69
+            },
+            "base_total_money": 2600,
+            "psychological_profile": {
+                "base_random_browse_probability": 0.08,
+                "base_impulse_probability": 0.03
+            },
+            "base_shopping_list": [
+                "FrozenChicken",
+                "Fruits",
+                "Vegetables",
+                "Bakery",
+                "CookingOil",
+                "Tea",
+                "CannedFood"
+            ],
+            "base_impulse_favorites": [
+                "GreetingCards",
+                "Chocolates"
+            ]
+        }
+    ]
+}

@@ -643,6 +643,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ToggleFollow"",
+                    ""type"": ""Button"",
+                    ""id"": ""6d4b0a67-6b88-4c1e-9d1c-98a5c2d32f4b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -698,6 +707,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PanScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1ef33b1-4e5a-4c5a-8c4b-b8ce0c5b1f90"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleFollow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -873,6 +893,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Camera_Zoom = m_Camera.FindAction("Zoom", throwIfNotFound: true);
         m_Camera_PanDrag = m_Camera.FindAction("PanDrag", throwIfNotFound: true);
         m_Camera_PanScroll = m_Camera.FindAction("PanScroll", throwIfNotFound: true);
+        m_Camera_ToggleFollow = m_Camera.FindAction("ToggleFollow", throwIfNotFound: true);
         // Simulation
         m_Simulation = asset.FindActionMap("Simulation", throwIfNotFound: true);
         m_Simulation_Spawn = m_Simulation.FindAction("Spawn", throwIfNotFound: true);
@@ -1160,6 +1181,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Camera_Zoom;
     private readonly InputAction m_Camera_PanDrag;
     private readonly InputAction m_Camera_PanScroll;
+    private readonly InputAction m_Camera_ToggleFollow;
     /// <summary>
     /// Provides access to input actions defined in input action map "Camera".
     /// </summary>
@@ -1187,6 +1209,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Camera/PanScroll".
         /// </summary>
         public InputAction @PanScroll => m_Wrapper.m_Camera_PanScroll;
+        /// <summary>
+        /// Provides access to the underlying input action "Camera/ToggleFollow".
+        /// </summary>
+        public InputAction @ToggleFollow => m_Wrapper.m_Camera_ToggleFollow;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1225,6 +1251,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @PanScroll.started += instance.OnPanScroll;
             @PanScroll.performed += instance.OnPanScroll;
             @PanScroll.canceled += instance.OnPanScroll;
+            @ToggleFollow.started += instance.OnToggleFollow;
+            @ToggleFollow.performed += instance.OnToggleFollow;
+            @ToggleFollow.canceled += instance.OnToggleFollow;
         }
 
         /// <summary>
@@ -1248,6 +1277,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @PanScroll.started -= instance.OnPanScroll;
             @PanScroll.performed -= instance.OnPanScroll;
             @PanScroll.canceled -= instance.OnPanScroll;
+            @ToggleFollow.started -= instance.OnToggleFollow;
+            @ToggleFollow.performed -= instance.OnToggleFollow;
+            @ToggleFollow.canceled -= instance.OnToggleFollow;
         }
 
         /// <summary>
@@ -1588,6 +1620,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPanScroll(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleFollow" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleFollow(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Simulation" which allows adding and removing callbacks.

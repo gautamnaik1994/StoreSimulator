@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 
 public class LayoutBaker : MonoBehaviour
 {
@@ -100,6 +102,6 @@ public class LayoutBaker : MonoBehaviour
         UnityEditor.EditorUtility.SetDirty(layoutAsset);
 #endif
         Debug.Log("Nested store layout successfully baked!");
-        Debug.Log($"All product sections: {string.Join(", ", all_product_section)}");
+        Debug.Log($"All product sections: {string.Join(", ", all_product_section.Select(section => $"\"{section}\""))}");
     }
 }

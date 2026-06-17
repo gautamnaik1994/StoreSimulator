@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
     [Header("Input Action Asset Reference")]
@@ -19,17 +18,31 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float mouseZoomSensitivity = 0.05f;
     [SerializeField] private float trackpadZoomSensitivity = 0.01f;
 
-    private Camera cam;
+    [Header("Follow Settings")]
+    [SerializeField] private float followSmoothTime = 0.18f;
+    [SerializeField] private Vector2 followOffset = Vector2.zero;
+
+    public Camera cam;
     private InputAction panDragAction;
     private InputAction panMoveAction;
     private InputAction zoomAction;
-    private InputAction panScrollAction; // New action tracking full 2D scroll stream
+    private InputAction panScrollAction;
+    private InputAction toggleFollowAction;
 
     private bool isMousePanning = false;
 
+    private GameObject selectedAgent;
+
+    private bool isFollowingAgent = false;
+    private Vector3 followVelocity = Vector3.zero;
+
+    private Transform cameraTransform;
+
     private void Awake()
     {
-        cam = GetComponent<Camera>();
+        // cam = GetComponent<Camera>();
+        cameraTransform = cam.transform;
+
 
         if (inputActions == null) return;
         var cameraMap = inputActions.FindActionMap("Camera");
@@ -38,7 +51,9 @@ public class CameraController : MonoBehaviour
         panDragAction = cameraMap.FindAction("PanDrag");
         panMoveAction = cameraMap.FindAction("PanMove");
         zoomAction = cameraMap.FindAction("Zoom");
-        panScrollAction = cameraMap.FindAction("PanScroll"); // Bind new action
+        panScrollAction = cameraMap.FindAction("PanScroll");
+        toggleFollowAction = cameraMap.FindAction("ToggleFollow");
+
     }
 
     private void OnEnable()
@@ -48,8 +63,13 @@ public class CameraController : MonoBehaviour
 
         if (panDragAction != null)
         {
-            panDragAction.started += ctx => isMousePanning = true;
-            panDragAction.canceled += ctx => isMousePanning = false;
+            panDragAction.started += HandlePanDragStarted;
+            panDragAction.canceled += HandlePanDragCanceled;
+        }
+
+        if (toggleFollowAction != null)
+        {
+            toggleFollowAction.performed += HandleToggleFollowPerformed;
         }
     }
 
@@ -60,26 +80,81 @@ public class CameraController : MonoBehaviour
 
         if (panDragAction != null)
         {
-            panDragAction.started -= ctx => isMousePanning = true;
-            panDragAction.canceled -= ctx => isMousePanning = false;
+            panDragAction.started -= HandlePanDragStarted;
+            panDragAction.canceled -= HandlePanDragCanceled;
+        }
+
+        if (toggleFollowAction != null)
+        {
+            toggleFollowAction.performed -= HandleToggleFollowPerformed;
         }
     }
 
     private void LateUpdate()
     {
-        if (panMoveAction == null || zoomAction == null || panScrollAction == null) return;
+        if (isFollowingAgent)
+        {
+            HandleFollow();
+        }
+        else
+        {
+            HandlePan();
+        }
 
-        HandlePan();
         HandleZoom();
+    }
+
+    private void HandlePanDragStarted(InputAction.CallbackContext context)
+    {
+        isMousePanning = true;
+    }
+
+    private void HandlePanDragCanceled(InputAction.CallbackContext context)
+    {
+        isMousePanning = false;
+    }
+
+    private void HandleToggleFollowPerformed(InputAction.CallbackContext context)
+    {
+        ToggleFollowSelectedAgent();
+    }
+
+    private void HandleFollow()
+    {
+        if (selectedAgent == null)
+        {
+            isFollowingAgent = false;
+            followVelocity = Vector3.zero;
+            return;
+        }
+
+        Vector3 targetPosition = selectedAgent.transform.position;
+        targetPosition.x += followOffset.x;
+        targetPosition.y += followOffset.y;
+        targetPosition.z = cameraTransform.position.z;
+
+        cameraTransform.position = Vector3.SmoothDamp(
+            cameraTransform.position,
+            targetPosition,
+            ref followVelocity,
+            followSmoothTime);
+
+        cameraTransform.position = ClampToPanBounds(cameraTransform.position);
     }
 
     private void HandlePan()
     {
+        Debug.Log("HandlePan called");
+        if (panMoveAction == null || panScrollAction == null) return;
+
+        Debug.Log("Pan action is valid");
+
         Vector3 move = Vector3.zero;
 
         // 1. Standard Mouse Drag Pan (Right Click)
         if (isMousePanning)
         {
+            Debug.Log("Mouse panning is active");
             Vector2 mouseDelta = panMoveAction.ReadValue<Vector2>();
             move = new Vector3(-mouseDelta.x, -mouseDelta.y, 0) * mousePanSpeed * cam.orthographicSize * 0.01f;
         }
@@ -103,15 +178,13 @@ public class CameraController : MonoBehaviour
 
         if (move == Vector3.zero) return;
 
-        // Apply and clamp position
-        Vector3 targetPosition = transform.position + move;
-        targetPosition.x = Mathf.Clamp(targetPosition.x, minPanBounds.x, maxPanBounds.x);
-        targetPosition.y = Mathf.Clamp(targetPosition.y, minPanBounds.y, maxPanBounds.y);
-        transform.position = targetPosition;
+        cameraTransform.position = ClampToPanBounds(cameraTransform.position + move);
     }
 
     private void HandleZoom()
     {
+        if (zoomAction == null) return;
+
         // Block zoom completely if Command key is being held for panning
         if (Keyboard.current != null && Keyboard.current.leftMetaKey.isPressed) return;
 
@@ -122,5 +195,50 @@ public class CameraController : MonoBehaviour
         float sensitivity = Mathf.Abs(scrollValue) < 1f ? trackpadZoomSensitivity : mouseZoomSensitivity;
         float newZoom = cam.orthographicSize - (scrollValue * sensitivity);
         cam.orthographicSize = Mathf.Clamp(newZoom, minZoom, maxZoom);
+
     }
+
+    private Vector3 ClampToPanBounds(Vector3 position)
+    {
+        position.x = Mathf.Clamp(position.x, minPanBounds.x, maxPanBounds.x);
+        position.y = Mathf.Clamp(position.y, minPanBounds.y, maxPanBounds.y);
+        return position;
+    }
+
+    public void SetSelectedAgent(GameObject agent)
+    {
+        selectedAgent = agent;
+        if (!isFollowingAgent || selectedAgent == null)
+        {
+            return;
+        }
+
+        followVelocity = Vector3.zero;
+    }
+
+    private void ToggleFollowSelectedAgent()
+    {
+        if (selectedAgent == null)
+        {
+            isFollowingAgent = false;
+            followVelocity = Vector3.zero;
+            return;
+        }
+
+        isFollowingAgent = !isFollowingAgent;
+        followVelocity = Vector3.zero;
+
+        if (!isFollowingAgent)
+        {
+            return;
+        }
+
+        Vector3 targetPosition = selectedAgent.transform.position;
+        targetPosition.x += followOffset.x;
+        targetPosition.y += followOffset.y;
+        targetPosition.z = cameraTransform.position.z;
+        cameraTransform.position = ClampToPanBounds(targetPosition);
+    }
+
+
 }
