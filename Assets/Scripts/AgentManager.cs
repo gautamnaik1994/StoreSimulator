@@ -27,10 +27,13 @@ public class AgentManager : MonoBehaviour
 
     private int agentIDCounter = 0; // To assign unique IDs to agents
 
+    private WorldManager worldManager;
+
     void Start()
     {
 
         cameraController = gameObject.GetComponent<CameraController>();
+        worldManager = gameObject.GetComponent<WorldManager>();
 
         agentDetailsText = uiDocument.rootVisualElement.Q<TextElement>("AgentDetails");
         agentHistoryText = uiDocument.rootVisualElement.Q<TextElement>("AgentHistory");
@@ -46,6 +49,14 @@ public class AgentManager : MonoBehaviour
         updateDetailsButton.clicked += ForceUpdateAgentDetails;
 
         database = Resources.Load<PersonaDatabase>("PersonaDatabase");
+    }
+
+    void LateUpdate()
+    {
+        if (Time.frameCount % 360 == 0)
+        {
+            ForceUpdateAgentDetails();
+        }
     }
 
     void CloseAgentDetails()
@@ -120,8 +131,8 @@ public class AgentManager : MonoBehaviour
             {
                 GameObject obj = Instantiate(agentPrefab, spawnPoint.position, Quaternion.identity);
                 AgentMovementEnhanced agent = obj.GetComponent<AgentMovementEnhanced>();
-                AgentPersonaData randomProfile = database.personas[agentIDCounter % database.personas.Count]; // Loop through personas if we have more agents than profiles
-                agent.InitializeWithPersona(randomProfile);
+                AgentPersonaData profile = database.personas[agentIDCounter % database.personas.Count]; // Loop through personas if we have more agents than profiles
+                agent.InitializeWithPersona(profile);
                 agentIDCounter++;
             }
             yield return new WaitForSeconds(delay);

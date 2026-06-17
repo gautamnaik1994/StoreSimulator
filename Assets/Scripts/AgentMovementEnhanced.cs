@@ -102,45 +102,11 @@ public class AgentMovementEnhanced : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false; // Disable automatic rotation
         agent.updateUpAxis = false;   // Disable automatic up axis adjustment
-        // agent.avoidancePriority = Random.Range(10, 90); // Add a small random value to further reduce ties
-        // agent.speed += Random.Range(-0.5f, 0.5f);
-        // agent.acceleration += Random.Range(-0.5f, 0.5f);
-        // agentStatusRing.SetActive(false);
 
         agentRenderer = GetComponent<SpriteRenderer>();
         statusRingRenderer = agentStatusRing.GetComponent<SpriteRenderer>();
 
-        // shoppingList.Clear();
-        // foreach (var section in layoutData.ProductSections)
-        // {
-        //     if (Random.value < 0.2f) // 30% chance to add each section to the shopping list
-        //     {
-        //         shoppingList.Add(section.SectionName);
-        //     }
-        // }
-        // if (shoppingList.Count == 0) // Ensure at least one item is on the shopping list
-        // {
-        //     shoppingList.Add(layoutData.ProductSections[Random.Range(0, layoutData.ProductSections.Count)].SectionName);
 
-        // }
-
-        // // build a list of impulse favorites from the layout data but make sure it doesn't overlap with the shopping list
-        // impulseFavorites = new List<string>();
-        // foreach (var section in layoutData.ProductSections)
-        // {
-        //     if (!shoppingList.Contains(section.SectionName))
-        //     {
-        //         if (Random.value < 0.2f) // 20% chance to add each section to the impulse favorites
-        //         {
-        //             impulseFavorites.Add(section.SectionName);
-        //         }
-        //     }
-        // }
-
-        ChangeState(AgentState.Evaluating);
-        ChangeMood(AgentMood.Neutral);
-        // write to the agent history that they have been initialized with a shopping list
-        // agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Initialized with shopping list: {string.Join(", ", shoppingList)}", currentMood));
     }
 
     public void InitializeWithPersona(AgentPersonaData persona)
@@ -154,6 +120,9 @@ public class AgentMovementEnhanced : MonoBehaviour
         impulseProbability = persona.psychological_profile.base_impulse_probability;
         randomBrowseProbability = persona.psychological_profile.base_random_browse_probability;
         AgentPersonaName = persona.persona_name;
+
+        ChangeState(AgentState.Evaluating);
+        ChangeMood(AgentMood.Neutral);
 
         // Log the initialization in the agent history
         agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Initialized with persona: {persona.persona_name}, Shopping List: {string.Join(", ", shoppingList)}, Impulse Favorites: {string.Join(", ", impulseFavorites)}, Total Money: {TotalMoney}", currentMood));
@@ -223,7 +192,6 @@ public class AgentMovementEnhanced : MonoBehaviour
             agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "Shopping list completed. Moving to holding area.", currentMood));
 
             nextQueueCheckTime = Time.time;
-            // agentStatusRing.SetActive(false);
             return;
         }
 

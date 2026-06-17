@@ -1621,6 +1621,7 @@ GameObject:
   - component: {fileID: 247899943}
   - component: {fileID: 247899944}
   - component: {fileID: 247899945}
+  - component: {fileID: 247899946}
   m_Layer: 0
   m_Name: ManagerMain
   m_TagString: Untagged
@@ -1726,6 +1727,21 @@ MonoBehaviour:
   followSmoothTime: 0.18
   followOffset: {x: 0, y: 0}
   cam: {fileID: 519420031}
+--- !u!114 &247899946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247899939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb8ff39c7254f299724970190b5190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldManager
+  currentCycle: 0
+  activeEvent: 0
+  currentWeather: 0
 --- !u!1001 &256727210
 PrefabInstance:
   m_ObjectHideFlags: 0

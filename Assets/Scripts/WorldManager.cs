@@ -7,9 +7,12 @@ public class WorldManager : MonoBehaviour
     public enum MacroCycle { Standard, PaydayWeek, EndOfMonth, FestiveSeason }
     public enum StoreEvent { None, FlashSaleActive, PanicBuyingAlert }
 
+    public enum WeatherCondition { Clear, Rainy, Hot, Cold }
+
     [Header("Current Global Settings")]
     public MacroCycle currentCycle = MacroCycle.Standard;
     public StoreEvent activeEvent = StoreEvent.None;
+    public WeatherCondition currentWeather = WeatherCondition.Clear;
 
     void Awake() => Instance = this;
 
@@ -28,4 +31,13 @@ public class WorldManager : MonoBehaviour
         if (activeEvent == StoreEvent.PanicBuyingAlert) return 0.5f; // Grab and go!
         return 1.0f;
     }
+
+    public float GetGlobalPurchaseLikelihoodModifier()
+    {
+        if (currentCycle == MacroCycle.PaydayWeek) return 1.2f; // More disposable income
+        if (activeEvent == StoreEvent.FlashSaleActive) return 1.5f; // Can't miss out on deals!
+        return 1.0f;
+    }
+
+    // 
 }
