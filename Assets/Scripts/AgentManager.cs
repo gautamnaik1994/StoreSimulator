@@ -53,7 +53,7 @@ public class AgentManager : MonoBehaviour
 
     void LateUpdate()
     {
-        if (Time.frameCount % 360 == 0)
+        if (Time.frameCount % 1000 == 0)
         {
             ForceUpdateAgentDetails();
         }
@@ -67,7 +67,7 @@ public class AgentManager : MonoBehaviour
     public void UpdateAgentDetails(Dictionary<string, string> agentData)
     {
         // check if AgentDetailsPanel display is none, if so set it to flex
-        rightDrawer.style.display = DisplayStyle.Flex;
+
         agentDetailsText.text = agentData["details"];
         agentHistoryText.text = agentData["history"];
     }
@@ -109,13 +109,17 @@ public class AgentManager : MonoBehaviour
         // 4. If we found a winner, select it
         if (closestAgent != null)
         {
+            // toggle off previous selection indicator if we had one
+            if (selectedAgent != null)
+            {
+                selectedAgent.ToggleSelectionIndicator(false);
+            }
             selectedAgent = closestAgent;
-            // if (cameraController != null)
-            // {
-            cameraController.SetSelectedAgent(selectedAgent.gameObject);
-            // }
 
+            cameraController.SetSelectedAgent(selectedAgent.gameObject);
+            selectedAgent.ToggleSelectionIndicator(true); // Show the selection indicator on the selected agent
             var agentData = selectedAgent.GetAgentDetails();
+            rightDrawer.style.display = DisplayStyle.Flex;
             UpdateAgentDetails(agentData);
 
         }
@@ -142,11 +146,9 @@ public class AgentManager : MonoBehaviour
     }
     void ForceUpdateAgentDetails()
     {
-        if (selectedAgent != null)
-        {
-            var agentData = selectedAgent.GetAgentDetails();
-            UpdateAgentDetails(agentData);
-        }
+        if (selectedAgent is null) return;
+        var agentData = selectedAgent.GetAgentDetails();
+        UpdateAgentDetails(agentData);
     }
 }
 

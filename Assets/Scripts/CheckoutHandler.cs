@@ -138,10 +138,7 @@ public class CheckoutHandler : MonoBehaviour
             // Perform any periodic checks or updates related to checkout processing here
             Debug.Log($"Slow update check for '{gameObject.name}' with {waitingAgents.Count} agents in line.");
             UpdateLinePositions(); // Ensure agents are in the correct positions, especially if something went wrong
-
-
         }
-
         yield return new WaitForSeconds(1f);
     }
 }

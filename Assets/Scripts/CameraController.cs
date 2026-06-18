@@ -144,17 +144,15 @@ public class CameraController : MonoBehaviour
 
     private void HandlePan()
     {
-        Debug.Log("HandlePan called");
         if (panMoveAction == null || panScrollAction == null) return;
 
-        Debug.Log("Pan action is valid");
+
 
         Vector3 move = Vector3.zero;
 
         // 1. Standard Mouse Drag Pan (Right Click)
         if (isMousePanning)
         {
-            Debug.Log("Mouse panning is active");
             Vector2 mouseDelta = panMoveAction.ReadValue<Vector2>();
             move = new Vector3(-mouseDelta.x, -mouseDelta.y, 0) * mousePanSpeed * cam.orthographicSize * 0.01f;
         }

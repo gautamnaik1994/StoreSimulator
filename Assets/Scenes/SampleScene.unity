@@ -1656,11 +1656,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097e832ba601b401e931a3e33a8fbc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AgentManager
-  agentCount: 50
+  agentCount: 100
   agentPrefab: {fileID: 3713120276510021531, guid: 3883dc2d7857e49afba1ddbf75171c15, type: 3}
   spawnPoint: {fileID: 1763961664}
   delay: 3
-  agentBatchCount: 3
+  agentBatchCount: 5
   uiDocument: {fileID: 691124301}
   cameraController: {fileID: 0}
 --- !u!114 &247899942
@@ -1891,7 +1891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1513868775541690864, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1732030137067711876, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4563,7 +4563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1513868775541690864, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1732030137067711876, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4812,7 +4812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1513868775541690864, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1732030137067711876, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5456,7 +5456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1513868775541690864, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1732030137067711876, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags

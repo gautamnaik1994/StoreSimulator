@@ -29,7 +29,6 @@
 }
 
 .agent-details{
-
     color: white;
     font-size: 20px;
     align-items: auto;
@@ -44,5 +43,5 @@
 }
 
 .update-button{
-    background-color: rgb(0, 45, 247);
+    
 }

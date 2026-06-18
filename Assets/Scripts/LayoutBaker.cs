@@ -8,6 +8,7 @@ public class LayoutBaker : MonoBehaviour
     [SerializeField] private SupermarketLayoutSO layoutAsset;
 
     private List<string> all_product_section = new List<string>();
+    private ProductDatabase productDB;
 
     [ContextMenu("Bake Sections and Slots")]
     public void Bake()
@@ -19,6 +20,8 @@ public class LayoutBaker : MonoBehaviour
         layoutAsset.ExitLocations.Clear();
         layoutAsset.CheckoutCounters.Clear();
         layoutAsset.HoldingAreas.Clear();
+
+        productDB = Resources.Load<ProductDatabase>("ProductDatabase");
 
 
         // Loop through all top-level children of this GameObject (e.g., "Milk Section", "Cereal Isle")
@@ -78,8 +81,9 @@ public class LayoutBaker : MonoBehaviour
             ProductSection newSection = new ProductSection
             {
                 SectionName = sectionTransform.name,
-                Price = Random.Range(50, 500) // Assign a random price for demonstration; you can customize this as needed
+                Price = productDB[sectionTransform.name].price
             };
+            Debug.Log($"Product section '{sectionTransform.name}' price'{productDB[sectionTransform.name].price}'");
 
             all_product_section.Add(sectionTransform.name);
 
@@ -92,7 +96,7 @@ public class LayoutBaker : MonoBehaviour
                     IsOccupied = false
                 };
                 newSection.Slots.Add(newSlot);
-                Debug.Log($"Added product slot {slotTransform.name} at position {newSlot.Position} to section '{newSection.SectionName}'");
+                // Debug.Log($"Added product slot {slotTransform.name} at position {newSlot.Position} to section '{newSection.SectionName}'");
             }
 
             layoutAsset.ProductSections.Add(newSection);

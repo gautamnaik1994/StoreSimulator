@@ -9,7 +9,7 @@ public class AgentMovementEnhanced : MonoBehaviour
     [SerializeField]
     private SupermarketLayoutSO layoutData;
     private NavMeshAgent agent;
-    private List<string> shoppingList = new List<string>() { "Milk", "Chips" };
+    private List<string> shoppingList = new List<string>();
     private SpriteRenderer agentRenderer;
     private float stateTimer = 0f;
     private float shoppingElapsedTime = 0f;
@@ -23,17 +23,19 @@ public class AgentMovementEnhanced : MonoBehaviour
     private bool forceReevaluation = false; // Flag to bypass cooldown if needed
     private ProductSection currentTargetSection;
 
+    public GameObject selectionIndicator;
+
     private ProductSlot currentTargetItem;
     [Header("Detour Settings")]
     [Range(0f, 1f)] public float randomBrowseProbability = 0.15f; // 15% chance to aimlessly wander instead of shopping
 
     public enum AgentState { Evaluating, NavigatingToShelf, BrowsingShelf, Wandering, WaitingToQueue, GoingToCheckout, CheckingOut, Leaving }
-    private Dictionary<AgentState, Color> AgentStateColors;
+    private Dictionary<AgentState, Color> agentStateColors;
     public enum AgentType { Regular, BargainHunter, ImpulseBuyer, WindowShopper, BulkShopper, FocusedShopper }
     public enum AgentBudgetLevel { Low, Medium, High }
     public enum AgentPersonalityTrait { Impulsive, Cautious, BudgetConscious, TimeSensitive, BrandLoyalist, Indecisive }
     public enum AgentMood { Happy, Neutral, Frustrated, Impatient, Lost, Sad }
-    private Dictionary<AgentMood, Color> AgentMoodColors;
+    private Dictionary<AgentMood, Color> agentMoodColors;
     public AgentState currentState = AgentState.Evaluating;
     private float impulseProbability = 0.3f; // 30% chance to make an impulse detour
     private List<string> impulseFavorites;
@@ -48,24 +50,30 @@ public class AgentMovementEnhanced : MonoBehaviour
     private SpriteRenderer statusRingRenderer;
     public int wanderDuration = 10; // Time in seconds the agent will spend wandering before re-evaluating their shopping list
 
-    // create a agent history to track their shopping behavior and decisions and state transitions
+    // Add these fields to your script
+    [Header("Psychological Thresholds")]
+    private float patience = 1.0f;     // Drops when waiting or dealing with full shelves
+    private float frustration = 0.0f;  // Rises when blocked or empty-handed
+    private float fatigue = 0.0f;      // Rises over time based on total shopping duration
+
+    // create an agent history to track their shopping behavior and decisions and state transitions
     private List<AgentHistoryEntry> agentHistory = new List<AgentHistoryEntry>();
     private struct AgentHistoryEntry
     {
         public float timestamp;
         public AgentState state;
         public string actionDescription;
-        public AgentMood agentMood;
+        public AgentMood AgentMood;
 
         public AgentHistoryEntry(float time, AgentState agentState, string description, AgentMood mood = AgentMood.Neutral)
         {
             timestamp = time;
             state = agentState;
             actionDescription = description;
-            agentMood = mood;
+            AgentMood = mood;
         }
     }
-    public int TotalMoney = 10000;
+    private int TotalMoney = 10000;
     private readonly List<ProductSection> cartItems = new List<ProductSection>();
     private int TotalMoneySpent = 0;
     private AgentMood currentMood = AgentMood.Neutral;
@@ -74,9 +82,12 @@ public class AgentMovementEnhanced : MonoBehaviour
 
     private List<ProductSection> CostlyItems = new List<ProductSection>();
 
+    private float baselineSpeed;
+    private float originalImpulseProbability;
+
     void Awake()
     {
-        AgentStateColors = new Dictionary<AgentState, Color>()
+        agentStateColors = new Dictionary<AgentState, Color>()
         {
             { AgentState.Evaluating, ParseColor("#38BDF8") },
             { AgentState.NavigatingToShelf, ParseColor("#34D399") },
@@ -89,7 +100,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         };
 
 
-        AgentMoodColors = new Dictionary<AgentMood, Color>()
+        agentMoodColors = new Dictionary<AgentMood, Color>()
         {
             { AgentMood.Happy, ParseColor("#34D399") },
             { AgentMood.Neutral, ParseColor("#FBBF24") },
@@ -105,8 +116,6 @@ public class AgentMovementEnhanced : MonoBehaviour
 
         agentRenderer = GetComponent<SpriteRenderer>();
         statusRingRenderer = agentStatusRing.GetComponent<SpriteRenderer>();
-
-
     }
 
     public void InitializeWithPersona(AgentPersonaData persona)
@@ -114,12 +123,14 @@ public class AgentMovementEnhanced : MonoBehaviour
         shoppingList = new List<string>(persona.base_shopping_list);
         impulseFavorites = new List<string>(persona.base_impulse_favorites);
         TotalMoney = persona.base_total_money;
-        agent.speed = persona.baseline_physics.base_speed + Random.Range(-0.5f, 0.5f);
-        agent.acceleration = persona.baseline_physics.base_acceleration + Random.Range(-0.5f, 0.5f);
+        agent.speed = persona.baseline_physics.base_speed + Random.Range(-0.2f, 0.2f);
+        agent.acceleration = persona.baseline_physics.base_acceleration + Random.Range(-0.2f, 0.2f);
         agent.avoidancePriority = persona.baseline_physics.base_avoidance_priority + Random.Range(-5, 5);
         impulseProbability = persona.psychological_profile.base_impulse_probability;
         randomBrowseProbability = persona.psychological_profile.base_random_browse_probability;
         AgentPersonaName = persona.persona_name;
+        baselineSpeed = agent.speed;
+        originalImpulseProbability = impulseProbability;
 
         ChangeState(AgentState.Evaluating);
         ChangeMood(AgentMood.Neutral);
@@ -173,6 +184,77 @@ public class AgentMovementEnhanced : MonoBehaviour
             default:
                 break;
         }
+        // Only rotate if the agent is actually moving
+        if (agent.velocity.sqrMagnitude > 0.01f)
+        {
+            // Calculate the angle in degrees from the velocity vector
+            float angle = Mathf.Atan2(agent.velocity.y, agent.velocity.x) * Mathf.Rad2Deg;
+
+            // Subtract 90 degrees if your sprite's "front" faces upwards by default
+            float targetAngle = angle - 90f;
+
+            // Apply the rotation strictly around the Z-axis
+            transform.rotation = Quaternion.Euler(0, 0, targetAngle);
+        }
+    }
+
+    private void DynamicMoodEvaluation()
+    {
+        // Accumulate base fatigue over time
+        fatigue += Time.deltaTime * 0.005f;
+
+        // Determine mood based on state mixtures
+        if (frustration > 0.7f && patience < 0.2f)
+        {
+            ChangeMood(AgentMood.Impatient);
+        }
+        else if (frustration > 0.4f)
+        {
+            ChangeMood(AgentMood.Frustrated);
+        }
+        else if (fatigue > 0.8f)
+        {
+            ChangeMood(AgentMood.Sad); // Simulating exhausted/low energy
+        }
+        else if (cartItems.Count > 3 && frustration < 0.2f)
+        {
+            ChangeMood(AgentMood.Happy);
+        }
+        else
+        {
+            ChangeMood(AgentMood.Neutral);
+        }
+
+        // APPLY BUSINESS/PHYSICS CONSEQUENCES OF MOOD
+        ApplyMoodSideEffects();
+    }
+
+    private void ApplyMoodSideEffects()
+    {
+        switch (currentMood)
+        {
+            case AgentMood.Impatient:
+                // Impatient agents walk faster but drop items from their list early to checkout faster!
+                agent.speed = baselineSpeed * 1.3f;
+                if (shoppingList.Count > 1 && Random.value < 0.01f)
+                {
+                    string abandonedItem = shoppingList[Random.Range(0, shoppingList.Count)];
+                    shoppingList.Remove(abandonedItem);
+                    agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"[Loss of Sale] Abandoned looking for {abandonedItem} due to impatience.", currentMood));
+                }
+                break;
+
+            case AgentMood.Frustrated:
+                // Frustrated agents stop impulse buying completely
+                impulseProbability = 0f;
+                break;
+
+            case AgentMood.Happy:
+                // Happy agents buy more impulses and walk at a leisurely pace
+                agent.speed = baselineSpeed * 0.9f;
+                impulseProbability = originalImpulseProbability * 1.5f;
+                break;
+        }
     }
 
     public void ForceBrainUpdate()
@@ -180,13 +262,22 @@ public class AgentMovementEnhanced : MonoBehaviour
         forceReevaluation = true;
     }
 
+    public void ToggleSelectionIndicator(bool isActive)
+    {
+        if (selectionIndicator != null)
+        {
+            selectionIndicator.SetActive(isActive);
+        }
+    }
+
     private void CentralizeDecisionMaking()
     {
+        DynamicMoodEvaluation();
         // 1. Structural Check: Is the shopper done?
         if (shoppingList.Count == 0)
         {
             ChangeState(AgentState.WaitingToQueue);
-            ChangeMood(AgentMood.Happy);
+            // ChangeMood(AgentMood.Happy);
             Vector2 holdingArea = GetClosestHoldingArea();
             agent.SetDestination(holdingArea);
             agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "Shopping list completed. Moving to holding area.", currentMood));
@@ -212,7 +303,7 @@ public class AgentMovementEnhanced : MonoBehaviour
 
             agent.SetDestination(randomWanderPoint);
             ChangeState(AgentState.Wandering); // Walks over and idles/browses aimlessly 
-            ChangeMood(AgentMood.Neutral);
+            // ChangeMood(AgentMood.Neutral);
             agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Taking a random detour to wander near section: {randomSection.SectionName}", currentMood));
             return;
         }
@@ -261,7 +352,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         if (decisionRoll >= randomBrowseProbability && decisionRoll < (randomBrowseProbability + impulseProbability))
         {
             // Try to pick an impulse item that isn't already on the standard shopping list
-            // List<string> validImpulseChoices = impulseFavorites.FindAll(fav => !shoppingList.Contains(fav));
+            // <string> validImpulseChoices = impulseFavorites.FindAll(fav => !shoppingList.Contains(fav));
             List<string> validImpulseChoices = impulseFavorites;
 
             if (validImpulseChoices.Count > 0)
@@ -303,9 +394,22 @@ public class AgentMovementEnhanced : MonoBehaviour
         {
             Vector2 nextLocation = rankedDestinationsQueue.Dequeue();
             currentTargetSection = layoutData.sectionLookup[nextLocation].section;
+            // check if cuurentTargetSection is present in the shopping list, if not, then skip it and move to the next one in the queue until we find one that is, or we run out of options and have to force a re-evaluation
+
+            while (!shoppingList.Contains(currentTargetSection.SectionName))
+            {
+                if (rankedDestinationsQueue.Count == 0)
+                {
+                    ChangeState(AgentState.Evaluating);
+                    return;
+                }
+
+                nextLocation = rankedDestinationsQueue.Dequeue();
+                currentTargetSection = layoutData.sectionLookup[nextLocation].section;
+            }
 
             ChangeState(AgentState.NavigatingToShelf);
-            ChangeMood(AgentMood.Neutral);
+            // ChangeMood(AgentMood.Neutral);
             agent.SetDestination(nextLocation);
             agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Navigating to shelf: {currentTargetSection.SectionName} at {nextLocation}", currentMood));
         }
@@ -313,7 +417,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         {
             // No more cached routes available, force brain to re-evaluate whole picture
             ChangeState(AgentState.Evaluating);
-            ChangeMood(AgentMood.Neutral);
+            // ChangeMood(AgentMood.Neutral);
             // agentStatusRing.SetActive(true); // Optional: Turn on the status ring to indicate a thinking state
             agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "No more cached targets. Forcing re-evaluation of options.", currentMood)); // Log that we're out of cached options and need
         }
@@ -321,78 +425,76 @@ public class AgentMovementEnhanced : MonoBehaviour
 
     void HandleBrowsingShelf()
     {
-        if (HasReachedDestination(arrivalThreshold: 0.5f))
+        if (!HasReachedDestination(arrivalThreshold: 0.5f)) return;
+        if (currentTargetSection == null)
         {
-            if (currentTargetSection == null)
+            Debug.LogWarning("BrowsingShelf reached without a valid currentTargetSection. Returning to evaluation.");
+            ChangeState(AgentState.Evaluating);
+            return;
+        }
+
+        // Simulate browsing time
+        if (stateTimer >= Random.Range(2f, 5f))
+        {
+            bool itemPurchased = false;
+            string purchasedItemName = currentTargetSection.SectionName;
+            bool wasPlanned = shoppingList.Contains(purchasedItemName);
+            bool wasImpulse = impulseFavorites.Contains(purchasedItemName);
+
+            // compare price to check if the agent can afford it
+            if (currentTargetSection.Price <= TotalMoney)
             {
-                Debug.LogWarning("BrowsingShelf reached without a valid currentTargetSection. Returning to evaluation.");
-                ChangeState(AgentState.Evaluating);
-                return;
+                itemPurchased = true;
             }
 
-            // Simulate browsing time
-            if (stateTimer >= Random.Range(2f, 5f))
+            // 1. Clear it from the lists it belongs to
+            if (wasPlanned)
             {
-                bool itemPurchased = false;
-                string purchasedItemName = currentTargetSection.SectionName;
-                bool wasPlanned = shoppingList.Contains(purchasedItemName);
-                bool wasImpulse = impulseFavorites.Contains(purchasedItemName);
-
-                // compare price to check if the agent can afford it
-                if (currentTargetSection.Price <= TotalMoney)
-                {
-                    itemPurchased = true;
-                }
-
-                // 1. Clear it from the lists it belongs to
-                if (wasPlanned)
-                {
-                    shoppingList.Remove(purchasedItemName);
-                }
-
-                if (wasImpulse)
-                {
-                    // Removing it from favorites ensures they don't repeatedly impulse-buy 
-                    // the exact same item over and over during a single shopping trip.
-                    impulseFavorites.Remove(purchasedItemName);
-                }
-
-                if (itemPurchased)
-                {
-
-                    // 2. Log exact historical behavior for debugging data
-                    string logMessage = $"Finished browsing {purchasedItemName}. ";
-                    if (wasPlanned && wasImpulse) logMessage += "(Cleared from both Shopping and Impulse lists)";
-                    else if (wasPlanned) logMessage += "(Planned item complete)";
-                    else if (wasImpulse) logMessage += "(Spontaneous impulse buy complete)";
-
-                    agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, logMessage, currentMood));
-                    ChangeMood(AgentMood.Happy);
-                    // update the cart with the newly purchased item
-                    UpdateCart(currentTargetSection);
-                }
-                else
-                {
-                    CostlyItems.Add(currentTargetSection);
-                    ChangeMood(AgentMood.Sad);
-                    agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Browsed {purchasedItemName} but couldn't afford it. Needed {currentTargetSection.Price}, had {TotalMoney}.", currentMood));
-                }
-
-
-                // 3. Clean up slot references and state transition
-                if (currentTargetItem != null)
-                {
-                    currentTargetItem.IsOccupied = false; // Free up the physical layout space for other agents
-                }
-
-                currentTargetSection = null;
-                currentTargetItem = null;
-
-                // Shift right back to the central decision hub
-                ChangeState(AgentState.Evaluating);
-                ChangeMood(AgentMood.Neutral);
-                // agentStatusRing.SetActive(true);
+                shoppingList.Remove(purchasedItemName);
             }
+
+            if (wasImpulse)
+            {
+                // Removing it from favorites ensures they don't repeatedly impulse-buy 
+                // the exact same item over and over during a single shopping trip.
+                impulseFavorites.Remove(purchasedItemName);
+            }
+
+            if (itemPurchased)
+            {
+
+                // 2. Log exact historical behavior for debugging data
+                string logMessage = $"Finished browsing {purchasedItemName}. ";
+                if (wasPlanned && wasImpulse) logMessage += "(Cleared from both Shopping and Impulse lists)";
+                else if (wasPlanned) logMessage += "(Planned item complete)";
+                else if (wasImpulse) logMessage += "(Spontaneous impulse buy complete)";
+
+                agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, logMessage, currentMood));
+                // ChangeMood(AgentMood.Happy);
+                // update the cart with the newly purchased item
+                UpdateCart(currentTargetSection);
+            }
+            else
+            {
+                CostlyItems.Add(currentTargetSection);
+                // ChangeMood(AgentMood.Sad);
+                agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Browsed {purchasedItemName} but couldn't afford it. Needed {currentTargetSection.Price}, had {TotalMoney}.", currentMood));
+            }
+
+
+            // 3. Clean up slot references and state transition
+            if (currentTargetItem != null)
+            {
+                currentTargetItem.IsOccupied = false; // Free up the physical layout space for other agents
+            }
+
+            currentTargetSection = null;
+            currentTargetItem = null;
+
+            // Shift right back to the central decision hub
+            ChangeState(AgentState.Evaluating);
+            ChangeMood(AgentMood.Neutral);
+            // agentStatusRing.SetActive(true);
         }
     }
 
@@ -403,7 +505,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         {
             stateTimer = 0f;
             ChangeState(AgentState.Evaluating); // Loop back to brain to reassess target list
-            ChangeMood(AgentMood.Neutral);
+            // ChangeMood(AgentMood.Neutral);
             // agentStatusRing.SetActive(true); // Optional: Turn on the status ring to indicate a thinking state
             agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "Finished wandering. Re-evaluating shopping list and targets.", currentMood)); // Log that we're done wandering and going back to evaluation
         }
@@ -429,7 +531,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         CheckoutHandler handlerWithLeastAgents = GetCheckoutHandlerWithLeastAgents();
 
         // If lines are full, the agent safely stands still and tries again when the interval passes
-        if (handlerWithLeastAgents == null)
+        if (handlerWithLeastAgents is null)
         {
             // Optional: Every few seconds, pick a small micro-adjustment spot 
             // in the holding area to make them look like they are shuffling impatiently
@@ -448,7 +550,7 @@ public class AgentMovementEnhanced : MonoBehaviour
             SetAvoidancePriorityBasedOnQueuePosition(checkoutCurrentQueueIndex);
             agent.SetDestination(assignedPosition);
             ChangeState(AgentState.GoingToCheckout);
-            ChangeMood(AgentMood.Neutral);
+            // ChangeMood(AgentMood.Neutral);
             agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Joining checkout line at position {checkoutCurrentQueueIndex} with assigned spot at {assignedPosition}", currentMood));
         }
     }
@@ -469,7 +571,7 @@ public class AgentMovementEnhanced : MonoBehaviour
                 agent.SetDestination(slotPosition);
 
                 ChangeState(AgentState.BrowsingShelf);
-                ChangeMood(AgentMood.Neutral);
+                // ChangeMood(AgentMood.Neutral);
                 agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Navigating to specific slot at {slotPosition} in section {currentTargetSection.SectionName}", currentMood));
             }
             else
@@ -508,7 +610,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         Vector2 closestExit = FindClosestDestination(layoutData.ExitLocations.ToArray());
         agent.SetDestination(closestExit);
         agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Heading to exit at {closestExit}", currentMood));
-        ChangeMood(AgentMood.Neutral);
+        // ChangeMood(AgentMood.Neutral);
     }
 
     CheckoutHandler GetCheckoutHandlerWithLeastAgents()
@@ -608,18 +710,18 @@ public class AgentMovementEnhanced : MonoBehaviour
     {
         currentState = newState;
         stateTimer = 0f;
-        if (statusRingRenderer != null)
+        if (statusRingRenderer is not null)
         {
-            statusRingRenderer.color = AgentStateColors.ContainsKey(currentState) ? AgentStateColors[currentState] : Color.white;
+            statusRingRenderer.color = agentStateColors.TryGetValue(currentState, out var color) ? color : Color.white;
         }
     }
 
     public void ChangeMood(AgentMood newMood)
     {
         currentMood = newMood;
-        if (agentRenderer != null)
+        if (agentRenderer is not null)
         {
-            agentRenderer.color = AgentMoodColors.ContainsKey(newMood) ? AgentMoodColors[newMood] : Color.white;
+            agentRenderer.color = agentMoodColors.TryGetValue(newMood, out var color) ? color : Color.white;
         }
     }
 
@@ -663,8 +765,8 @@ public class AgentMovementEnhanced : MonoBehaviour
     {
         if (path.corners.Length < 2) return 0f;
 
-        float totalLength = 0f;
-        for (int i = 0; i < path.corners.Length - 1; i++)
+        var totalLength = 0f;
+        for (var i = 0; i < path.corners.Length - 1; i++)
         {
             totalLength += Vector2.Distance(path.corners[i], path.corners[i + 1]);
         }
@@ -710,9 +812,9 @@ public class AgentMovementEnhanced : MonoBehaviour
         return agentData;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        Debug.Log($"Agent '{gameObject.name}' is being disabled. Final shopping list: {string.Join(", ", shoppingList)}. Total money spent: {TotalMoneySpent}. Remaining money: {TotalMoney}.");
+        // Debug.Log($"Agent '{gameObject.name}' is being disabled. Final shopping list: {string.Join(", ", shoppingList)}. Total money spent: {TotalMoneySpent}. Remaining money: {TotalMoney}.");
 
     }
 }

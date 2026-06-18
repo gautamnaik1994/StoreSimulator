@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e398ef5ba7b4d17ad6cf4a0fb95885, type: 3}
+  m_Name: ProductDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::ProductDatabase
+  products:
+  - productName: FrozenFoods
+    price: 150
+  - productName: Juice
+    price: 110
+  - productName: SoftDrink
+    price: 40
+  - productName: Milk
+    price: 33
+  - productName: FrozenChicken
+    price: 280
+  - productName: FrozenMeat
+    price: 450
+  - productName: Gifts
+    price: 350
+  - productName: Toys
+    price: 499
+  - productName: PartySupplies
+    price: 199
+  - productName: PersonalCare
+    price: 120
+  - productName: Cosmetics
+    price: 250
+  - productName: Rice
+    price: 65
+  - productName: Wheat
+    price: 45
+  - productName: OralCare
+    price: 90
+  - productName: IceCream
+    price: 50
+  - productName: Chocolates
+    price: 40
+  - productName: LargeIceCream
+    price: 250
+  - productName: GreetingCards
+    price: 70
+  - productName: FreshCutMeat
+    price: 400
+  - productName: Fruits
+    price: 120
+  - productName: OrganicGreen
+    price: 80
+  - productName: Bakery
+    price: 60
+  - productName: Seafood
+    price: 550
+  - productName: Vegetables
+    price: 50
+  - productName: Grains
+    price: 90
+  - productName: Detergent
+    price: 140
+  - productName: Toiletries
+    price: 85
+  - productName: BabyCare
+    price: 180
+  - productName: MensClothing
+    price: 799
+  - productName: KidsClothing
+    price: 450
+  - productName: Shoes
+    price: 1200
+  - productName: DogFood
+    price: 320
+  - productName: CatFood
+    price: 290
+  - productName: Diapers
+    price: 650
+  - productName: WomensClothing
+    price: 899
+  - productName: Books
+    price: 299
+  - productName: Magazines
+    price: 100
+  - productName: Stationery
+    price: 50
+  - productName: BoardGames
+    price: 599
+  - productName: CookingOil
+    price: 160
+  - productName: CannedFood
+    price: 130
+  - productName: Cereals
+    price: 180
+  - productName: Tea
+    price: 140
+  - productName: Coffee
+    price: 220

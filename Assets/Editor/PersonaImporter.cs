@@ -13,7 +13,6 @@ public class PersonaImporter : EditorWindow
 
         string jsonContent = File.ReadAllText(filePath);
 
-        // 1. Parse into the plain C# wrapper instead of the ScriptableObject directly
         PersonaJsonWrapper wrapper = JsonUtility.FromJson<PersonaJsonWrapper>(jsonContent);
 
         if (wrapper == null || wrapper.personas == null || wrapper.personas.Count == 0)
@@ -30,14 +29,25 @@ public class PersonaImporter : EditorWindow
             Directory.CreateDirectory(assetFolderPath);
         }
 
-        // 2. Safely generate the ScriptableObject instance via Unity's API
-        PersonaDatabase databaseAsset = ScriptableObject.CreateInstance<PersonaDatabase>();
+        PersonaDatabase databaseAsset = AssetDatabase.LoadAssetAtPath<PersonaDatabase>(assetPath);
 
-        // 3. Assign the parsed plain C# list data over to the asset
-        databaseAsset.personas = wrapper.personas;
+        // FIX: If the asset doesn't exist, create it properly. 
+        // If it DOES exist, don't overwrite the file (which breaks the script reference); 
+        // instead, just replace the inner list data!
+        if (databaseAsset == null)
+        {
+            databaseAsset = ScriptableObject.CreateInstance<PersonaDatabase>();
+            databaseAsset.personas = wrapper.personas;
+            AssetDatabase.CreateAsset(databaseAsset, assetPath);
+        }
+        else
+        {
+            databaseAsset.personas = wrapper.personas;
+            // Marks the existing file as modified so Unity knows it needs to be saved
+            EditorUtility.SetDirty(databaseAsset);
+        }
 
-        // 4. Save asset to disk
-        AssetDatabase.CreateAsset(databaseAsset, assetPath);
+        // Force Unity to write the data changes out to the disk safely
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 

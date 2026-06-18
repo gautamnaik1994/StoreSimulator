@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SupermarketLayoutSO
   m_EditorClassIdentifier: Assembly-CSharp::SupermarketLayoutSO
   ProductSections:
-  - Price: 296
+  - Price: 150
     SectionName: FrozenFoods
     Tag: 
     Slots:
@@ -33,7 +33,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -39.229263, y: 27.080011}
       IsOccupied: 0
-  - Price: 214
+  - Price: 110
     SectionName: Juice
     Tag: 
     Slots:
@@ -53,7 +53,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -39.09914, y: 20.141005}
       IsOccupied: 0
-  - Price: 359
+  - Price: 40
     SectionName: SoftDrink
     Tag: 
     Slots:
@@ -73,7 +73,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -43.39048, y: 23.07752}
       IsOccupied: 0
-  - Price: 490
+  - Price: 33
     SectionName: Milk
     Tag: 
     Slots:
@@ -93,7 +93,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -27.257002, y: 27.112751}
       IsOccupied: 0
-  - Price: 445
+  - Price: 280
     SectionName: FrozenChicken
     Tag: 
     Slots:
@@ -113,7 +113,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -10.742094, y: 27.13562}
       IsOccupied: 0
-  - Price: 176
+  - Price: 450
     SectionName: FrozenMeat
     Tag: 
     Slots:
@@ -133,7 +133,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 2.73157, y: 27.133469}
       IsOccupied: 0
-  - Price: 296
+  - Price: 350
     SectionName: Gifts
     Tag: 
     Slots:
@@ -153,7 +153,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 20.195856, y: 27.033468}
       IsOccupied: 0
-  - Price: 181
+  - Price: 499
     SectionName: Toys
     Tag: 
     Slots:
@@ -173,7 +173,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 32.076706, y: 27.033468}
       IsOccupied: 0
-  - Price: 496
+  - Price: 199
     SectionName: PartySupplies
     Tag: 
     Slots:
@@ -193,7 +193,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 44.167145, y: 27.033468}
       IsOccupied: 0
-  - Price: 293
+  - Price: 120
     SectionName: PersonalCare
     Tag: 
     Slots:
@@ -213,7 +213,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 60.244022, y: 27.033468}
       IsOccupied: 0
-  - Price: 133
+  - Price: 250
     SectionName: Cosmetics
     Tag: 
     Slots:
@@ -233,7 +233,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 65.362686, y: 17.90077}
       IsOccupied: 0
-  - Price: 396
+  - Price: 65
     SectionName: Rice
     Tag: 
     Slots:
@@ -253,7 +253,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 65.462685, y: -8.407145}
       IsOccupied: 0
-  - Price: 491
+  - Price: 45
     SectionName: Wheat
     Tag: 
     Slots:
@@ -273,7 +273,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 65.462685, y: -19.507145}
       IsOccupied: 0
-  - Price: 79
+  - Price: 90
     SectionName: OralCare
     Tag: 
     Slots:
@@ -293,7 +293,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 65.41187, y: 6.5013237}
       IsOccupied: 0
-  - Price: 230
+  - Price: 50
     SectionName: IceCream
     Tag: 
     Slots:
@@ -313,7 +313,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -32.537632, y: 21.919449}
       IsOccupied: 0
-  - Price: 413
+  - Price: 40
     SectionName: Chocolates
     Tag: 
     Slots:
@@ -333,7 +333,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -27.418003, y: -17.205}
       IsOccupied: 0
-  - Price: 440
+  - Price: 250
     SectionName: LargeIceCream
     Tag: 
     Slots:
@@ -353,7 +353,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -27.653502, y: 21.951874}
       IsOccupied: 0
-  - Price: 330
+  - Price: 70
     SectionName: GreetingCards
     Tag: 
     Slots:
@@ -373,7 +373,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -20.718002, y: -17.205}
       IsOccupied: 0
-  - Price: 478
+  - Price: 400
     SectionName: FreshCutMeat
     Tag: 
     Slots:
@@ -405,7 +405,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -8.079823, y: 22.952078}
       IsOccupied: 0
-  - Price: 65
+  - Price: 120
     SectionName: Fruits
     Tag: 
     Slots:
@@ -437,7 +437,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 52.4, y: -26.705}
       IsOccupied: 0
-  - Price: 459
+  - Price: 80
     SectionName: OrganicGreen
     Tag: 
     Slots:
@@ -469,7 +469,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 52.4, y: -30.894999}
       IsOccupied: 0
-  - Price: 245
+  - Price: 60
     SectionName: Bakery
     Tag: 
     Slots:
@@ -501,7 +501,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 38, y: -26.705}
       IsOccupied: 0
-  - Price: 349
+  - Price: 550
     SectionName: Seafood
     Tag: 
     Slots:
@@ -533,7 +533,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 3.6201773, y: 22.952078}
       IsOccupied: 0
-  - Price: 368
+  - Price: 50
     SectionName: Vegetables
     Tag: 
     Slots:
@@ -565,7 +565,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 63.9, y: -26.705}
       IsOccupied: 0
-  - Price: 242
+  - Price: 90
     SectionName: Grains
     Tag: 
     Slots:
@@ -597,7 +597,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 61.043785, y: -0.14700592}
       IsOccupied: 0
-  - Price: 465
+  - Price: 140
     SectionName: Detergent
     Tag: 
     Slots:
@@ -629,7 +629,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 60.685097, y: 22.765368}
       IsOccupied: 0
-  - Price: 298
+  - Price: 85
     SectionName: Toiletries
     Tag: 
     Slots:
@@ -661,7 +661,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 60.685097, y: 18.585367}
       IsOccupied: 0
-  - Price: 193
+  - Price: 180
     SectionName: BabyCare
     Tag: 
     Slots:
@@ -693,7 +693,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 19.6, y: 7.6950006}
       IsOccupied: 0
-  - Price: 135
+  - Price: 799
     SectionName: MensClothing
     Tag: 
     Slots:
@@ -725,7 +725,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 2.5, y: 7.6950006}
       IsOccupied: 0
-  - Price: 96
+  - Price: 450
     SectionName: KidsClothing
     Tag: 
     Slots:
@@ -757,7 +757,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 2.5, y: -4.1050005}
       IsOccupied: 0
-  - Price: 67
+  - Price: 1200
     SectionName: Shoes
     Tag: 
     Slots:
@@ -789,7 +789,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 2.5, y: -9.014634}
       IsOccupied: 0
-  - Price: 142
+  - Price: 320
     SectionName: DogFood
     Tag: 
     Slots:
@@ -821,7 +821,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 19.6, y: -15.505}
       IsOccupied: 0
-  - Price: 107
+  - Price: 290
     SectionName: CatFood
     Tag: 
     Slots:
@@ -853,7 +853,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 19.6, y: -11.794634}
       IsOccupied: 0
-  - Price: 338
+  - Price: 650
     SectionName: Diapers
     Tag: 
     Slots:
@@ -885,7 +885,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 19.6, y: 3.0950003}
       IsOccupied: 0
-  - Price: 401
+  - Price: 899
     SectionName: WomensClothing
     Tag: 
     Slots:
@@ -917,7 +917,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 2.5, y: 2.0949998}
       IsOccupied: 0
-  - Price: 350
+  - Price: 299
     SectionName: Books
     Tag: 
     Slots:
@@ -949,7 +949,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 20.499998, y: 23.095001}
       IsOccupied: 0
-  - Price: 118
+  - Price: 100
     SectionName: Magazines
     Tag: 
     Slots:
@@ -981,7 +981,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 20.499998, y: 18.605368}
       IsOccupied: 0
-  - Price: 65
+  - Price: 50
     SectionName: Stationery
     Tag: 
     Slots:
@@ -1013,7 +1013,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 33, y: 23.095001}
       IsOccupied: 0
-  - Price: 383
+  - Price: 599
     SectionName: BoardGames
     Tag: 
     Slots:
@@ -1045,7 +1045,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 33, y: 18.855368}
       IsOccupied: 0
-  - Price: 412
+  - Price: 160
     SectionName: CookingOil
     Tag: 
     Slots:
@@ -1077,7 +1077,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 60.949867, y: -5.8050003}
       IsOccupied: 0
-  - Price: 70
+  - Price: 130
     SectionName: CannedFood
     Tag: 
     Slots:
@@ -1109,7 +1109,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 61.089996, y: -11.295}
       IsOccupied: 0
-  - Price: 211
+  - Price: 180
     SectionName: Cereals
     Tag: 
     Slots:
@@ -1141,7 +1141,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 61.089996, y: -16.744999}
       IsOccupied: 0
-  - Price: 68
+  - Price: 140
     SectionName: Tea
     Tag: 
     Slots:
@@ -1173,7 +1173,7 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 47.174973, y: -10.251307}
       IsOccupied: 0
-  - Price: 130
+  - Price: 220
     SectionName: Coffee
     Tag: 
     Slots:
