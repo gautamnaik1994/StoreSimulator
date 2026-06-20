@@ -1,13 +1,82 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/AgentDetails.uss?fileID=7433441132597879392&amp;guid=f07e6d69aeec5482d8632c412accd80d&amp;type=3#AgentDetails"/>
     <ui:VisualElement name="Main" style="width: 100%; height: 100%;">
-        <ui:VisualElement name="RightDrawer" style="flex-grow: 1; display: none; width: 30%; align-self: flex-end;">
+        <ui:VisualElement name="RightDrawer" style="flex-grow: 1; display: flex; width: 25%; align-self: flex-end;">
             <ui:ScrollView name="DetailPanel" horizontal-scroller-visibility="Hidden" nested-interaction-kind="Default" style="display: flex; width: 100%;">
-                <ui:Label text="Agent Details" name="AgentDetails" emoji-fallback-support="true" class="agent-details"/>
-                <ui:Label text="Agent History" name="AgentHistory" class="agent-details"/>
+                <ui:VisualElement class="TopContainer">
+                    <ui:VisualElement class="AgentIcon">
+                        <ui:Image source="project://database/Assets/Textures/statusring.png?fileID=2800000&amp;guid=4d743009c00c04bb799a97c8d5b2c1d0&amp;type=3#statusring" name="ring"/>
+                        <ui:Image source="project://database/Assets/Textures/agent.png?fileID=2800000&amp;guid=ff0a402ea717d49faabd49b060a75a15&amp;type=3#agent" name="triangle"/>
+                    </ui:VisualElement>
+                    <ui:Label text="Agent Name" name="agentName" class="fw-medium "/>
+                </ui:VisualElement>
+                <ui:VisualElement class="pills-holder">
+                    <ui:VisualElement class="pills">
+                        <ui:VisualElement class="s-icon"/>
+                        <ui:Label text="Navigating" name="agentStatus" emoji-fallback-support="false" class="pill-text fw-semi-bold"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="pills">
+                        <ui:VisualElement class="s-icon"/>
+                        <ui:Label text="Happy" name="agentMood" class="pill-text fw-semi-bold"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement class="horizontal-divider"/>
+                <ui:VisualElement class="details-holder personal-details">
+                    <ui:VisualElement class="detail-value-box">
+                        <ui:Label text="Profession" class="item-label"/>
+                        <ui:Label text="Software Engineer" name="agentProfession" class=""/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="detail-value-box">
+                        <ui:Label text="Age" class="item-label"/>
+                        <ui:Label text="25" name="agentAge" class=""/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="detail-value-box">
+                        <ui:Label text="Gender" class="item-label"/>
+                        <ui:Label text="Male" name="agentGender" class=""/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="detail-value-box">
+                        <ui:Label text="Income Level" class="item-label"/>
+                        <ui:Label text="High" name="agentIncomeLevel" class=""/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement class="money-stats">
+                    <ui:VisualElement class="label-value-box">
+                        <ui:Label text="Money Spent" class="fw-medium lv-label"/>
+                        <ui:Label text="12345" name="moneySpent" class="lv-value fw-bold"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="label-value-box text-right">
+                        <ui:Label text="Money Available" class="fw-medium lv-label"/>
+                        <ui:Label text="12345" name="moneyAvailable" class="lv-value fw-bold"/>
+                    </ui:VisualElement>
+                    <ui:ProgressBar value="544" name="moneySpentBar" high-value="1000" low-value="0"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="horizontal-divider"/>
+                <ui:VisualElement class="details-holder">
+                    <ui:VisualElement class="detail-value-box">
+                        <ui:Label text="Shopping List" class="item-label"/>
+                        <ui:Label text="Chocolate, Milk, Bread" name="shoppingList" class=""/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="detail-value-box">
+                        <ui:Label text="Impulse List" class="item-label"/>
+                        <ui:Label text="Ice Cream, Candy" name="impulseList" class=""/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="detail-value-box">
+                        <ui:Label text="Costly Items" class="item-label"/>
+                        <ui:Label text="Laptop, Phone" name="costlyItems" class=""/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="detail-value-box">
+                        <ui:Label text="Cart Contents" class="item-label"/>
+                        <ui:Label text="Chocolate, Milk, Bread" name="cartContents" class=""/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement class="horizontal-divider"/>
+                <ui:ListView allow-remove="false" header-title="Agent History" item-template="project://database/Assets/UI/AgentHistoryItem.uxml?fileID=9197481963319205126&amp;guid=58112d69df9c9441e97151f6f6630030&amp;type=3#AgentHistoryItem" name="AgentHistoryList"/>
+                <ui:VisualElement class="detail-value-box history-box">
+                    <ui:Label text="Agent History" class="item-label"/>
+                    <ui:Label text="• Some text asdasdsdsdas sdasdsdda dasdasdsd dsad asda dasd asd sdasd&#10;- Anothrr&#10;## tyyt" name="agentHistory" enable-rich-text="true" parse-escape-sequences="true" class="history-content"/>
+                </ui:VisualElement>
             </ui:ScrollView>
-            <ui:Button text="Close" name="Close"/>
-            <ui:Button text="Update" name="Update" class="update-button"/>
+            <ui:Button name="Close" enable-rich-text="false" emoji-fallback-support="false" icon-image="project://database/Assets/Textures/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png?fileID=21300000&amp;guid=dd25b8b3efd57452fb5c8f8caad8583d&amp;type=3#close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

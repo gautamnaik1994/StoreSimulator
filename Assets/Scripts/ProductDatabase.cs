@@ -52,6 +52,7 @@ public class ProductDatabase : ScriptableObject
         new ProductData("Cereals", 180),
         new ProductData("Tea", 140),
         new ProductData("Coffee", 220),
+        new ProductData("InstantNoodles", 90)
 
 
     };

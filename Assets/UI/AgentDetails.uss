@@ -1,35 +1,49 @@
-:root {}
+:root {
+    color: white;
+    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-Regular.ttf");
+}
+
+.fw-semi-bold {
+    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-SemiBold.ttf");
+}
+
+.fw-medium {
+    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-Medium.ttf");
+}
+
+.fw-bold {
+    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-Bold.ttf");
+}
+
+.unity-label{
+    margin: 0;
+    padding: 0;
+}
 
 #DetailPanel {
     padding: 20px;
     border-radius: 10px 0 0 10px;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.98);
     height: 100%;
     width: 30%;
     align-self: flex-end;
-    padding-top: 50px;
 }
 
 #Close {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: auto;
+    top: 20px;
+    right: 20px;
     height: 30px;
-    background-color: rgba(255, 255, 255, 0.12);
-    color: white;
+    background-color: transparent;
     font-size: 18px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    padding: 2px;
+    width: 30px;
+    aspect-ratio: 1;
+    margin: 0;
 }
 
-#Close:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-.agent-details{
-    color: white;
+.agent-details {
     font-size: 20px;
     align-items: auto;
     align-content: auto;
@@ -37,11 +51,173 @@
     white-space: normal;
 }
 
-#AgentHistory {
-   font-size: 18px;
-   margin-top: 20px;
+
+
+.AgentIcon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
 }
 
-.update-button{
-    
+.AgentIcon #ring,
+.AgentIcon #triangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+
+
+.AgentIcon #triangle {
+    scale: 0.8;
+}
+
+.TopContainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+#AgentPersonaName {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.horizontal-divider {
+    height: 1px;
+    background-color: #404040;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.pills-holder {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.pills {
+    border-width: 1px;
+    border-color: #909090;
+    border-radius: 15px;
+    flex-basis: auto;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 8px;
+    padding-right: 12px;
+    border-color: #7C7C7C;
+    font-size: 14px;
+}
+
+.s-icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+}
+
+
+
+.money-stats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 12px;
+    background-color: red;
+    border-radius: 6px;
+    background-color: rgba(53, 53, 53, 0.66);
+    margin-bottom: 10px;
+    /* margin-top: 5px; */
+}
+
+.label-value-box {
+    flex: 0 0 50%;
+    padding-bottom: 10px;
+}
+
+
+
+.label-value-box .lv-label {
+
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.label-value-box .lv-value {
+    /* padding:0;
+    margin:0; */
+    font-size: 14px;
+}
+
+.unity-progress-bar {
+    flex: 0 0 100%;
+    margin: 0px;
+    height: 14px;
+}
+
+.unity-progress-bar__container {
+    min-height: 14px;
+}
+
+.unity-progress-bar__background {
+    background-color: white;
+    border-radius: 4px;
+    padding: 0;
+
+}
+
+.unity-progress-bar__progress {
+    background-color: #00E676;
+    border-radius: 3px;
+    margin: 0;
+
+}
+
+.text-right {
+    align-items: flex-end;
+}
+.details-holder{
+    margin-top: 10px;
+}
+.detail-value-box{
+
+    margin-bottom: 15px;
+}
+.personal-details{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.personal-details .detail-value-box{
+    flex: 0 0 50%;
+    margin-bottom: 15px;
+}
+
+.item-label{
+  font-size: 12px;
+  color:#909090;
+  margin-bottom: 6px;
+}
+
+.history-box{
+    margin-top: 15px;
+}
+
+.history-content{
+    margin-top: 5px;
+    font-size: 14px;
+    white-space: normal;
+  -unity-paragraph-spacing:50px;
 }

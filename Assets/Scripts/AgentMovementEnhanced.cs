@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AgentMovementEnhanced : MonoBehaviour
@@ -22,10 +23,10 @@ public class AgentMovementEnhanced : MonoBehaviour
     private float nextEvaluationTime = 0f;
     private bool forceReevaluation = false; // Flag to bypass cooldown if needed
     private ProductSection currentTargetSection;
+    private ProductSlot currentTargetItem;
 
     public GameObject selectionIndicator;
 
-    private ProductSlot currentTargetItem;
     [Header("Detour Settings")]
     [Range(0f, 1f)] public float randomBrowseProbability = 0.15f; // 15% chance to aimlessly wander instead of shopping
 
@@ -41,8 +42,7 @@ public class AgentMovementEnhanced : MonoBehaviour
     private List<string> impulseFavorites;
 
     // Tracks the current ranked destinations chosen by the brain for this execution cycle
-    private Queue<Vector2> rankedDestinationsQueue = new Queue<Vector2>();
-
+    private Queue<ShoppingTarget> rankedDestinationsQueue = new Queue<ShoppingTarget>();
     // Tracks sections that were full, allowing us to penalize them temporarily during evaluation
     private Dictionary<string, float> sectionCooldowns = new Dictionary<string, float>();
     [SerializeField] private float fullShelfCooldownDuration = 15.0f;
@@ -58,6 +58,8 @@ public class AgentMovementEnhanced : MonoBehaviour
 
     // create an agent history to track their shopping behavior and decisions and state transitions
     private List<AgentHistoryEntry> agentHistory = new List<AgentHistoryEntry>();
+
+    int maxRandomDetours = 4;
     private struct AgentHistoryEntry
     {
         public float timestamp;
@@ -73,12 +75,29 @@ public class AgentMovementEnhanced : MonoBehaviour
             AgentMood = mood;
         }
     }
+
+    private struct ShoppingTarget
+    {
+        public ProductSection Section;
+        public ProductSlot Slot;
+        public Vector2 Position => Slot.Position;
+        public ShoppingTarget(ProductSection section, ProductSlot slot)
+        {
+            Section = section;
+            Slot = slot;
+        }
+    }
     private int TotalMoney = 10000;
+    private int BaselineTotalMoney = 10000;
     private readonly List<ProductSection> cartItems = new List<ProductSection>();
     private int TotalMoneySpent = 0;
     private AgentMood currentMood = AgentMood.Neutral;
 
     private string AgentPersonaName = "Default Persona";
+    private int AgentAge = 30;
+    private string AgentIncomeLevel = "Medium";
+    private string AgentGender = "Unspecified";
+    private string AgentProfession = "Unemployed";
 
     private List<ProductSection> CostlyItems = new List<ProductSection>();
 
@@ -123,6 +142,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         shoppingList = new List<string>(persona.base_shopping_list);
         impulseFavorites = new List<string>(persona.base_impulse_favorites);
         TotalMoney = persona.base_total_money;
+        BaselineTotalMoney = TotalMoney;
         agent.speed = persona.baseline_physics.base_speed + Random.Range(-0.2f, 0.2f);
         agent.acceleration = persona.baseline_physics.base_acceleration + Random.Range(-0.2f, 0.2f);
         agent.avoidancePriority = persona.baseline_physics.base_avoidance_priority + Random.Range(-5, 5);
@@ -131,6 +151,10 @@ public class AgentMovementEnhanced : MonoBehaviour
         AgentPersonaName = persona.persona_name;
         baselineSpeed = agent.speed;
         originalImpulseProbability = impulseProbability;
+        AgentAge = persona.demographics.age;
+        AgentGender = persona.demographics.gender;
+        AgentIncomeLevel = persona.demographics.income_level;
+        AgentProfession = persona.demographics.profession;
 
         ChangeState(AgentState.Evaluating);
         ChangeMood(AgentMood.Neutral);
@@ -212,7 +236,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         {
             ChangeMood(AgentMood.Frustrated);
         }
-        else if (fatigue > 0.8f)
+        else if (fatigue > 0.8f || CostlyItems.Count > 0) // If the agent is exhausted or has too many costly items
         {
             ChangeMood(AgentMood.Sad); // Simulating exhausted/low energy
         }
@@ -290,7 +314,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         float decisionRoll = Random.value;
 
         // CASE A: Random Detour / Wandering (Simulating aimless window shopping)
-        if (decisionRoll < randomBrowseProbability)
+        if (decisionRoll < randomBrowseProbability && maxRandomDetours > 0) // Only take a random detour if we have any left in the tank
         {
             rankedDestinationsQueue.Clear(); // Drop the queue plans
             currentTargetSection = null;
@@ -303,13 +327,16 @@ public class AgentMovementEnhanced : MonoBehaviour
 
             agent.SetDestination(randomWanderPoint);
             ChangeState(AgentState.Wandering); // Walks over and idles/browses aimlessly 
+            // reduce the chance of taking another random detour immediately after by scaling down the probability and setting a hard limit on consecutive detours
+            // randomBrowseProbability *= 0.7f;
+            maxRandomDetours--; // Reduce the number of available random detours
             // ChangeMood(AgentMood.Neutral);
             agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Taking a random detour to wander near section: {randomSection.SectionName}", currentMood));
             return;
         }
 
         // CASE B: Core Shopping List & Impulse Calculations
-        List<Vector2> potentialTargets = new List<Vector2>();
+        List<ShoppingTarget> potentialTargets = new List<ShoppingTarget>();
 
         // Step 1: Add regular shopping list items (Your existing logic)
         foreach (string item in shoppingList)
@@ -323,7 +350,7 @@ public class AgentMovementEnhanced : MonoBehaviour
             if (section != null)
             {
                 int randomSlotIndex = Random.Range(0, section.Slots.Count);
-                potentialTargets.Add(section.Slots[randomSlotIndex].Position);
+                potentialTargets.Add(new ShoppingTarget(section, section.Slots[randomSlotIndex]));
             }
         }
 
@@ -334,15 +361,22 @@ public class AgentMovementEnhanced : MonoBehaviour
             foreach (string item in shoppingList)
             {
                 ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == item);
-                if (section != null) potentialTargets.Add(section.Slots[0].Position);
+                // AI added code below to prevent null reference exceptions if the section or its slots are missing
+                if (section == null || section.Slots == null || section.Slots.Count == 0)
+                {
+                    continue;
+                }
+
+                int randomSlotIndex = Random.Range(0, section.Slots.Count);
+                potentialTargets.Add(new ShoppingTarget(section, section.Slots[randomSlotIndex]));
             }
         }
 
         // Step 2: Query nearest options out of our valid targets
-        Vector2[] sortedTargets = FindClosestDestinations(potentialTargets.ToArray(), 3);
+        ShoppingTarget[] sortedTargets = FindClosestDestinations(potentialTargets.ToArray(), 3);
 
         rankedDestinationsQueue.Clear();
-        foreach (Vector2 target in sortedTargets)
+        foreach (ShoppingTarget target in sortedTargets)
         {
             rankedDestinationsQueue.Enqueue(target);
         }
@@ -362,10 +396,10 @@ public class AgentMovementEnhanced : MonoBehaviour
 
                 if (impulseSection != null)
                 {
-                    Vector2 impulseSlotPos = impulseSection.Slots[Random.Range(0, impulseSection.Slots.Count)].Position;
+                    ShoppingTarget impulseSlotPos = new ShoppingTarget(impulseSection, impulseSection.Slots[Random.Range(0, impulseSection.Slots.Count)]);
 
                     // CRITICAL DESIGN MOVE: Re-create the queue to put impulse at the absolute FRONT
-                    Queue<Vector2> interceptQueue = new Queue<Vector2>();
+                    Queue<ShoppingTarget> interceptQueue = new Queue<ShoppingTarget>();
                     interceptQueue.Enqueue(impulseSlotPos); // Impulse is Destination #1!
 
                     // Append the remaining regular targets back behind it
@@ -392,11 +426,11 @@ public class AgentMovementEnhanced : MonoBehaviour
     {
         if (rankedDestinationsQueue.Count > 0)
         {
-            Vector2 nextLocation = rankedDestinationsQueue.Dequeue();
-            currentTargetSection = layoutData.sectionLookup[nextLocation].section;
-            // check if cuurentTargetSection is present in the shopping list, if not, then skip it and move to the next one in the queue until we find one that is, or we run out of options and have to force a re-evaluation
+            ShoppingTarget nextTarget = rankedDestinationsQueue.Dequeue();
+            currentTargetSection = nextTarget.Section;
+            // check if cuurentTargetSection is present in the shopping list or impulse favorites, if not, then skip it and move to the next one in the queue until we find one that is, or we run out of options and have to force a re-evaluation
 
-            while (!shoppingList.Contains(currentTargetSection.SectionName))
+            while (!shoppingList.Contains(currentTargetSection.SectionName) && !impulseFavorites.Contains(currentTargetSection.SectionName))
             {
                 if (rankedDestinationsQueue.Count == 0)
                 {
@@ -404,14 +438,14 @@ public class AgentMovementEnhanced : MonoBehaviour
                     return;
                 }
 
-                nextLocation = rankedDestinationsQueue.Dequeue();
-                currentTargetSection = layoutData.sectionLookup[nextLocation].section;
+                nextTarget = rankedDestinationsQueue.Dequeue();
+                currentTargetSection = nextTarget.Section;
             }
 
             ChangeState(AgentState.NavigatingToShelf);
             // ChangeMood(AgentMood.Neutral);
-            agent.SetDestination(nextLocation);
-            agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Navigating to shelf: {currentTargetSection.SectionName} at {nextLocation}", currentMood));
+            agent.SetDestination(nextTarget.Position);
+            agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Navigating to shelf: {currentTargetSection.SectionName} at {nextTarget.Position}", currentMood));
         }
         else
         {
@@ -494,7 +528,6 @@ public class AgentMovementEnhanced : MonoBehaviour
             // Shift right back to the central decision hub
             ChangeState(AgentState.Evaluating);
             ChangeMood(AgentMood.Neutral);
-            // agentStatusRing.SetActive(true);
         }
     }
 
@@ -506,7 +539,6 @@ public class AgentMovementEnhanced : MonoBehaviour
             stateTimer = 0f;
             ChangeState(AgentState.Evaluating); // Loop back to brain to reassess target list
             // ChangeMood(AgentMood.Neutral);
-            // agentStatusRing.SetActive(true); // Optional: Turn on the status ring to indicate a thinking state
             agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "Finished wandering. Re-evaluating shopping list and targets.", currentMood)); // Log that we're done wandering and going back to evaluation
         }
     }
@@ -607,9 +639,9 @@ public class AgentMovementEnhanced : MonoBehaviour
             return; // Keep heading to exit until we arrive
         }
 
-        Vector2 closestExit = FindClosestDestination(layoutData.ExitLocations.ToArray());
-        agent.SetDestination(closestExit);
-        agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Heading to exit at {closestExit}", currentMood));
+        // Vector2 closestExit = FindClosestDestination(layoutData.ExitLocations.ToArray());
+        agent.SetDestination(layoutData.ExitLocations[0]); // For simplicity, just head to the first exit
+        agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Heading to exit at {layoutData.ExitLocations[0]}", currentMood));
         // ChangeMood(AgentMood.Neutral);
     }
 
@@ -639,17 +671,15 @@ public class AgentMovementEnhanced : MonoBehaviour
 
     Vector2 GetClosestHoldingArea()
     {
-        // Vector2 closestHolding = FindClosestDestination(layoutData.HoldingAreas.ConvertAll(holding => holding.CenterPosition).ToArray());
         Holding targetHolding = layoutData.HoldingAreas[0];
         return targetHolding.GetRandomPositionInHoldingArea();
     }
 
 
-    public Vector2 FindClosestDestination(Vector2[] destinations)
+    private ShoppingTarget? FindClosestDestination(ShoppingTarget[] destinations)
     {
-        Vector2[] closestDestinations = FindClosestDestinations(destinations, 1);
-        return closestDestinations.Length > 0 ? closestDestinations[0] : Vector2.zero;
-
+        ShoppingTarget[] closestDestinations = FindClosestDestinations(destinations, 1);
+        return closestDestinations.Length > 0 ? closestDestinations[0] : null;
     }
 
     void SetAvoidancePriorityBasedOnQueuePosition(int queuePosition)
@@ -659,21 +689,21 @@ public class AgentMovementEnhanced : MonoBehaviour
         agent.avoidancePriority = priority;
     }
 
-    private Vector2[] FindClosestDestinations(Vector2[] destinations, int maxResults)
+    private ShoppingTarget[] FindClosestDestinations(ShoppingTarget[] destinations, int maxResults)
     {
         if (destinations == null || destinations.Length == 0 || maxResults <= 0)
         {
-            return System.Array.Empty<Vector2>();
+            return System.Array.Empty<ShoppingTarget>();
         }
 
-        List<(Vector2 destination, float pathLength)> rankedDestinations = new();
+        List<(ShoppingTarget destination, float pathLength)> rankedDestinations = new();
         NavMeshPath path = new();
 
         for (int i = 0; i < destinations.Length; i++)
         {
-            Vector2 target = destinations[i];
+            ShoppingTarget target = destinations[i];
 
-            if (agent.CalculatePath(target, path) && path.status == NavMeshPathStatus.PathComplete)
+            if (agent.CalculatePath(target.Position, path) && path.status == NavMeshPathStatus.PathComplete)
             {
                 rankedDestinations.Add((target, GetPathLength(path)));
             }
@@ -682,7 +712,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         if (rankedDestinations.Count == 0)
         {
             int fallbackCount = Mathf.Min(maxResults, destinations.Length);
-            Vector2[] fallbackDestinations = new Vector2[fallbackCount];
+            ShoppingTarget[] fallbackDestinations = new ShoppingTarget[fallbackCount];
             System.Array.Copy(destinations, fallbackDestinations, fallbackCount);
             return fallbackDestinations;
         }
@@ -690,7 +720,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         rankedDestinations.Sort((left, right) => left.pathLength.CompareTo(right.pathLength));
 
         int resultCount = Mathf.Min(maxResults, rankedDestinations.Count);
-        Vector2[] closestDestinations = new Vector2[resultCount];
+        ShoppingTarget[] closestDestinations = new ShoppingTarget[resultCount];
 
         for (int i = 0; i < resultCount; i++)
         {
@@ -783,33 +813,43 @@ public class AgentMovementEnhanced : MonoBehaviour
         return Vector2.Distance(transform.position, target) * 1.5f;
     }
 
-    public Dictionary<string, string> GetAgentDetails()
+    public AgentDetails GetAgentDetails()
     {
-        string details = $"Agent Persona: {AgentPersonaName}\n" +
-                         $"Position: {transform.position}\n" +
-                         $"Current State: {currentState}\n" +
-                         $"Current Mood: {currentMood}\n" +
-                         $"Shopping List: {string.Join(", ", shoppingList)}\n" +
-                         $"Impulse Favorites: {string.Join(", ", impulseFavorites)}\n" +
-                         $"Costly Items: {string.Join(", ", CostlyItems)}\n" +
-                         $"Cart Items: {string.Join(", ", cartItems.ConvertAll(item => item.SectionName))}\n" +
-                         $"Total Money Spent: {TotalMoneySpent}\n" +
-                         $"Remaining Money: {TotalMoney}\n" +
-                         $"Agent History:\n";
 
         string historyDetails = "";
+        var historyEntries = new List<AgentHistoryEntryData>(agentHistory.Count);
         foreach (var entry in agentHistory)
         {
             historyDetails += $"- [{entry.timestamp:F2}s] State: {entry.state}, Action: {entry.actionDescription}\n";
+            historyEntries.Add(new AgentHistoryEntryData
+            {
+                Timestamp = entry.timestamp,
+                State = entry.state.ToString(),
+                ActionDescription = entry.actionDescription,
+                Mood = entry.AgentMood.ToString()
+            });
         }
 
-        var agentData = new Dictionary<string, string>
+        return new AgentDetails
         {
-            { "details", details },
-            { "history", historyDetails }
+            AgentName = AgentPersonaName,
+            Position = transform.position.ToString(),
+            AgentAge = AgentAge,
+            AgentGender = AgentGender,
+            AgentIncomeLevel = AgentIncomeLevel,
+            AgentProfession = AgentProfession,
+            CurrentState = currentState.ToString(),
+            CurrentMood = currentMood.ToString(),
+            ShoppingList = string.Join(", ", shoppingList),
+            ImpulseFavorites = string.Join(", ", impulseFavorites),
+            CostlyItems = string.Join(", ", CostlyItems.ConvertAll(item => item.SectionName)),
+            CartItems = string.Join(", ", cartItems.ConvertAll(item => item.SectionName)),
+            TotalMoneySpent = TotalMoneySpent,
+            RemainingMoney = TotalMoney,
+            BaselineMoney = BaselineTotalMoney,
+            History = historyDetails,
+            HistoryEntries = historyEntries
         };
-
-        return agentData;
     }
 
     private void OnDisable()

@@ -1205,6 +1205,38 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 47.174973, y: -0.42000675}
       IsOccupied: 0
+  - Price: 0
+    SectionName: InstantNoodles
+    Tag: 
+    Slots:
+    - Position: {x: -44.120026, y: 14.241307}
+      IsOccupied: 0
+    - Position: {x: -44.130016, y: 12.955593}
+      IsOccupied: 0
+    - Position: {x: -46.069992, y: 9.098436}
+      IsOccupied: 0
+    - Position: {x: -46.070015, y: 12.95558}
+      IsOccupied: 0
+    - Position: {x: -46.05, y: 10.384151}
+      IsOccupied: 0
+    - Position: {x: -44.15701, y: 11.669878}
+      IsOccupied: 0
+    - Position: {x: -44.157, y: 10.384164}
+      IsOccupied: 0
+    - Position: {x: -44.15699, y: 9.09845}
+      IsOccupied: 0
+    - Position: {x: -46.056984, y: 7.812722}
+      IsOccupied: 0
+    - Position: {x: -46.056973, y: 6.527008}
+      IsOccupied: 0
+    - Position: {x: -44.156982, y: 7.8127346}
+      IsOccupied: 0
+    - Position: {x: -44.156975, y: 6.5270205}
+      IsOccupied: 0
+    - Position: {x: -46.055008, y: 11.669866}
+      IsOccupied: 0
+    - Position: {x: -46.065025, y: 14.241295}
+      IsOccupied: 0
   ExitLocations:
   - {x: -24.2, y: -40.105}
   - {x: -43.7, y: -40.095005}

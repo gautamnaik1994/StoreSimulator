@@ -13,13 +13,13 @@ public class AgentManager : MonoBehaviour
 
     public UIDocument uiDocument;
     [SerializeField] private CameraController cameraController;
-    private TextElement agentDetailsText, agentHistoryText;
+    private TextElement agentName, agentMood, agentStatus, agentProfession, agentAge, agentGender, agentIncomeLevel, moneySpent, moneyAvailable, shoppingList, impulseList, costlyItems, cartContents, agentHistory;
 
     private VisualElement rightDrawer;
 
-    private Button closeButton;
+    private ProgressBar moneySpentBar;
 
-    private Button updateDetailsButton;
+    private Button closeButton;
 
     private AgentMovementEnhanced selectedAgent;
 
@@ -29,34 +29,57 @@ public class AgentManager : MonoBehaviour
 
     private WorldManager worldManager;
 
+    private float timer = 0f;
+    private float interval = 5.0f; // Run code every 5 seconds
+
+    void GetTextElementByID(string id, out TextElement textElement)
+    {
+        textElement = uiDocument.rootVisualElement.Q<TextElement>(id);
+        if (textElement == null)
+        {
+            Debug.LogError($"TextElement with ID '{id}' not found in the UI Document.");
+        }
+    }
+
     void Start()
     {
 
         cameraController = gameObject.GetComponent<CameraController>();
         worldManager = gameObject.GetComponent<WorldManager>();
 
-        agentDetailsText = uiDocument.rootVisualElement.Q<TextElement>("AgentDetails");
-        agentHistoryText = uiDocument.rootVisualElement.Q<TextElement>("AgentHistory");
-        agentDetailsText.text = "Click on an agent to see details here.";
-        agentHistoryText.text = "Agent History will be displayed here.";
 
+        GetTextElementByID("agentHistory", out agentHistory);
+        GetTextElementByID("agentName", out agentName);
+        GetTextElementByID("agentMood", out agentMood);
+        GetTextElementByID("agentStatus", out agentStatus);
+        GetTextElementByID("agentProfession", out agentProfession);
+        GetTextElementByID("agentAge", out agentAge);
+        GetTextElementByID("agentGender", out agentGender);
+        GetTextElementByID("agentIncomeLevel", out agentIncomeLevel);
+        GetTextElementByID("moneySpent", out moneySpent);
+        GetTextElementByID("moneyAvailable", out moneyAvailable);
+        GetTextElementByID("shoppingList", out shoppingList);
+        GetTextElementByID("impulseList", out impulseList);
+        GetTextElementByID("costlyItems", out costlyItems);
+        GetTextElementByID("cartContents", out cartContents);
 
         rightDrawer = uiDocument.rootVisualElement.Q<VisualElement>("RightDrawer");
         closeButton = uiDocument.rootVisualElement.Q<Button>("Close");
-        updateDetailsButton = uiDocument.rootVisualElement.Q<Button>("Update");
-
         closeButton.clicked += CloseAgentDetails;
-        updateDetailsButton.clicked += ForceUpdateAgentDetails;
-
         database = Resources.Load<PersonaDatabase>("PersonaDatabase");
+        moneySpentBar = uiDocument.rootVisualElement.Q<ProgressBar>("moneySpentBar");
     }
 
     void LateUpdate()
     {
-        if (Time.frameCount % 1000 == 0)
+        timer += Time.deltaTime;
+        if (timer >= interval && selectedAgent != null && rightDrawer.style.display == DisplayStyle.Flex)
         {
+            timer = 0f;
             ForceUpdateAgentDetails();
+
         }
+
     }
 
     void CloseAgentDetails()
@@ -64,12 +87,33 @@ public class AgentManager : MonoBehaviour
         rightDrawer.style.display = DisplayStyle.None;
     }
 
-    public void UpdateAgentDetails(Dictionary<string, string> agentData)
+    public void UpdateAgentDetails(AgentDetails agentData)
     {
         // check if AgentDetailsPanel display is none, if so set it to flex
+        agentName.text = agentData.AgentName;
+        agentMood.text = agentData.CurrentMood;
+        agentStatus.text = agentData.CurrentState;
+        agentProfession.text = agentData.AgentProfession;
+        agentAge.text = agentData.AgentAge.ToString();
+        agentGender.text = agentData.AgentGender;
+        agentIncomeLevel.text = agentData.AgentIncomeLevel;
+        moneySpent.text = agentData.TotalMoneySpent.ToString();
+        moneyAvailable.text = agentData.RemainingMoney.ToString();
+        shoppingList.text = agentData.ShoppingList;
+        impulseList.text = agentData.ImpulseFavorites;
+        costlyItems.text = agentData.CostlyItems;
+        cartContents.text = agentData.CartItems;
+        moneySpentBar.highValue = agentData.BaselineMoney;
+        moneySpentBar.value = agentData.TotalMoneySpent;
+        if (agentData.HistoryEntries != null && agentData.HistoryEntries.Count > 0)
+        {
+            agentHistory.text = string.Join("\n", agentData.HistoryEntries.ConvertAll(entry => $"- [{entry.Timestamp:F2}s] State: {entry.State}, Mood: {entry.Mood}, Action: {entry.ActionDescription}"));
+        }
+        else
+        {
+            agentHistory.text = agentData.History;
+        }
 
-        agentDetailsText.text = agentData["details"];
-        agentHistoryText.text = agentData["history"];
     }
 
     public void SpawnAgents()
