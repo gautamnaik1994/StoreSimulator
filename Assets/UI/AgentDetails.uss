@@ -1,5 +1,5 @@
 :root {
-    color: white;
+    color: rgb(225, 225, 225);
     -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-Regular.ttf");
 }
 
@@ -21,12 +21,17 @@
 }
 
 #DetailPanel {
-    padding: 20px;
+    /* padding: 15px; */
     border-radius: 10px 0 0 10px;
     background-color: rgba(0, 0, 0, 0.98);
     height: 100%;
     width: 30%;
     align-self: flex-end;
+}
+
+.wrapper {
+   
+    padding: 15px;
 }
 
 #Close {
@@ -212,12 +217,98 @@
 }
 
 .history-box{
+    flex-grow: 1;
     margin-top: 15px;
 }
 
-.history-content{
-    margin-top: 5px;
-    font-size: 14px;
+.history-item{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+    padding: 10px 0;
+    border-color:  #404040;
+    border-style: solid;
+    border-bottom-width: 1px 0;
+}
+
+.history-item:horizontal {
+    background-color: transparent;
+}
+
+.history-item .history-item-description{
+    flex: 0 0 100%;
+
     white-space: normal;
-  -unity-paragraph-spacing:50px;
+    margin-bottom: 4px;
+}
+
+.history-item .history-item-timestamp,
+.history-item .history-item-agentState,
+.history-item .history-item-agentMood{
+    flex: 0 0 33.33%;
+}
+
+
+
+/* ==========================================
+   macOS Dark Mode Scrollbar for UI Toolkit
+   ========================================== */
+
+/* 1. Container & Scroller Track Layout */
+.my-custom-scroll .unity-scroller--vertical {
+    width: 8px; /* macOS scrollbars are quite thin */
+    background-color: transparent;
+    border-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Hide the top and bottom arrow buttons entirely */
+.my-custom-scroll .unity-scroller__low-button,
+.my-custom-scroll .unity-scroller__high-button {
+    display: none;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+
+/* 3. Style the background track line (Slider Container) */
+.my-custom-scroll .unity-scroller--vertical .unity-base-slider__tracker {
+    background-color: transparent; /* macOS hides the track by default */
+    border-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* 4. The Draggable Handle (The Capsule) */
+.my-custom-scroll .unity-scroller--vertical .unity-base-slider__dragger {
+    /* macOS dark scrollbar color with transparency */
+    background-color: rgba(255, 255, 255, 0.25); 
+    border-radius: 4px; /* Fully rounded capsule look */
+    border-width: 0;
+    
+    /* Crucial for UI Toolkit alignment quirks */
+    left: 0;
+    width: 6px; 
+    align-self: center; 
+    
+    min-height: 20px;
+    transition-property: background-color;
+    transition-duration: 0.15s;
+}
+
+/* 5. Hover and Active States */
+.my-custom-scroll .unity-scroller--vertical .unity-base-slider__dragger:hover {
+    background-color: rgba(255, 255, 255, 0.45); /* Becomes more visible on hover */
+    width: 8px; /* Optional: slightly widens on hover like modern macOS */
+}
+
+/* When the user is actively dragging it */
+.my-custom-scroll .unity-scroller--vertical .unity-base-slider__dragger:active {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Optional: Show a subtle track background only when hovering over the whole scroller area */
+.my-custom-scroll .unity-scroller--vertical:hover .unity-base-slider__tracker {
+    background-color: rgba(255, 255, 255, 0.05);
 }

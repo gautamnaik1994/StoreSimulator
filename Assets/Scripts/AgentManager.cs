@@ -29,6 +29,8 @@ public class AgentManager : MonoBehaviour
 
     private WorldManager worldManager;
 
+    private ListView agentHistoryListView;
+
     private float timer = 0f;
     private float interval = 5.0f; // Run code every 5 seconds
 
@@ -68,6 +70,7 @@ public class AgentManager : MonoBehaviour
         closeButton.clicked += CloseAgentDetails;
         database = Resources.Load<PersonaDatabase>("PersonaDatabase");
         moneySpentBar = uiDocument.rootVisualElement.Q<ProgressBar>("moneySpentBar");
+        agentHistoryListView = uiDocument.rootVisualElement.Q<ListView>("AgentHistoryList");
     }
 
     void LateUpdate()
@@ -89,7 +92,7 @@ public class AgentManager : MonoBehaviour
 
     public void UpdateAgentDetails(AgentDetails agentData)
     {
-        // check if AgentDetailsPanel display is none, if so set it to flex
+        var historyEntries = agentData.HistoryEntries ?? new List<AgentHistoryEntryData>();
         agentName.text = agentData.AgentName;
         agentMood.text = agentData.CurrentMood;
         agentStatus.text = agentData.CurrentState;
@@ -105,14 +108,39 @@ public class AgentManager : MonoBehaviour
         cartContents.text = agentData.CartItems;
         moneySpentBar.highValue = agentData.BaselineMoney;
         moneySpentBar.value = agentData.TotalMoneySpent;
-        if (agentData.HistoryEntries != null && agentData.HistoryEntries.Count > 0)
+        // if (historyEntries.Count > 0)
+        // {
+        //     agentHistory.text = string.Join("\n", historyEntries.ConvertAll(entry => $"- [{entry.Timestamp:F2}s] State: {entry.State}, Mood: {entry.Mood}, Action: {entry.ActionDescription}"));
+        // }
+        // else
+        // {
+        //     agentHistory.text = agentData.History;
+        // }
+
+        agentHistoryListView.bindItem = (element, index) =>
         {
-            agentHistory.text = string.Join("\n", agentData.HistoryEntries.ConvertAll(entry => $"- [{entry.Timestamp:F2}s] State: {entry.State}, Mood: {entry.Mood}, Action: {entry.ActionDescription}"));
-        }
-        else
-        {
-            agentHistory.text = agentData.History;
-        }
+            if (index < 0 || index >= historyEntries.Count)
+            {
+                return;
+            }
+
+            var entryData = historyEntries[index];
+            var descriptionLabel = element.Q<Label>("description");
+            var timestampLabel = element.Q<Label>("timestamp");
+            var agentStateLabel = element.Q<Label>("agentState");
+            var agentMoodLabel = element.Q<Label>("agentMood");
+
+            descriptionLabel.text = entryData.ActionDescription;
+            timestampLabel.text = $"[{entryData.Timestamp:F2}s]";
+            agentStateLabel.text = entryData.State;
+            agentMoodLabel.text = entryData.Mood;
+            // var label = element.Q<Label>("history_item");
+            // label.text = $"[{entryData.Timestamp:F2}s] State: {entryData.State}, Mood: {entryData.Mood}, Action: {entryData.ActionDescription}";
+        };
+
+        agentHistoryListView.itemsSource = historyEntries;
+        agentHistoryListView.Rebuild();
+
 
     }
 

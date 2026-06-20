@@ -1,5 +1,16 @@
-<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1;">
-        <ui:Label text="Label" name="history_item"/>
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements"
+    xmlns:uie="UnityEditor.UIElements"
+    noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+
+    <ui:VisualElement style="" class="history-item">
+        <ui:Label
+            text="Agent did something interesting in the store. Agent did something interesting in the store."
+            class="history-item-description"
+            name="description" />
+        <ui:Label text="2 hours ago" class="history-item-timestamp"
+            name="timestamp" />
+        <ui:Label text="Navigating" name="agentState"
+            class="history-item-agentState" />
+        <ui:Label text="Happy" name="agentMood" class="history-item-agentMood" />
     </ui:VisualElement>
 </ui:UXML>
