@@ -826,7 +826,9 @@ public class AgentMovementEnhanced : MonoBehaviour
                 Timestamp = entry.timestamp,
                 State = entry.state.ToString(),
                 ActionDescription = entry.actionDescription,
-                Mood = entry.AgentMood.ToString()
+                Mood = entry.AgentMood.ToString(),
+                MoodColor = agentMoodColors.TryGetValue(entry.AgentMood, out var _moodColor) ? _moodColor : Color.white,
+                StateColor = agentStateColors.TryGetValue(entry.state, out var _stateColor) ? _stateColor : Color.white
             });
         }
 
@@ -848,7 +850,9 @@ public class AgentMovementEnhanced : MonoBehaviour
             RemainingMoney = TotalMoney,
             BaselineMoney = BaselineTotalMoney,
             History = historyDetails,
-            HistoryEntries = historyEntries
+            HistoryEntries = historyEntries,
+            MoodColor = agentMoodColors.TryGetValue(currentMood, out var moodColor) ? moodColor : Color.white,
+            StateColor = agentStateColors.TryGetValue(currentState, out var stateColor) ? stateColor : Color.white
         };
     }
 

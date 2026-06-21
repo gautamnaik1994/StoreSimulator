@@ -15,6 +15,7 @@
     -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-Bold.ttf");
 }
 
+
 .unity-label{
     margin: 0;
     padding: 0;
@@ -94,8 +95,8 @@
 }
 
 .horizontal-divider {
-    height: 1px;
-    background-color: #404040;
+    height: 2px;
+    background-color: #272727;
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -143,7 +144,7 @@
     border-radius: 6px;
     background-color: rgba(53, 53, 53, 0.66);
     margin-bottom: 10px;
-    /* margin-top: 5px; */
+    margin-top: 15px;
 }
 
 .label-value-box {
@@ -223,31 +224,53 @@
 
 .history-item{
    display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
+   flex-direction: column;
+   
     padding: 10px 0;
-    border-color:  #404040;
+    border-color:  #1a1a1a;
     border-style: solid;
     border-bottom-width: 1px 0;
+    /* background-color: #333333; */
 }
 
-.history-item:horizontal {
+.history-item:hover {
     background-color: transparent;
 }
 
 .history-item .history-item-description{
-    flex: 0 0 100%;
+
 
     white-space: normal;
     margin-bottom: 4px;
+    margin-top: 4px;
+    color: rgb(201, 201, 201);
+    /* -unity-paragraph-spacing:100px; */
 }
 
-.history-item .history-item-timestamp,
-.history-item .history-item-agentState,
-.history-item .history-item-agentMood{
-    flex: 0 0 33.33%;
+.history-item .s-pill{
+    width:auto;
+    padding: 4px 10px;
+    font-size: 12px;
+    margin-right: 8px;
+    border-width: 1px;
+    border-color: #7C7C7C;
+    border-radius: 12px;
+    
 }
 
+.history-item .history-item-header{
+    margin-bottom: 6px;
+}
+
+.history-item .history-item-timestamp{
+  font-size: 12px;
+  color:#909090;
+}
+
+.d-flex{
+    display: flex;
+    flex-direction: row;
+}
 
 
 /* ==========================================
@@ -311,4 +334,8 @@
 /* Optional: Show a subtle track background only when hovering over the whole scroller area */
 .my-custom-scroll .unity-scroller--vertical:hover .unity-base-slider__tracker {
     background-color: rgba(255, 255, 255, 0.05);
+}
+
+.unity-list-view__item:hover {
+    background-color: transparent;
 }

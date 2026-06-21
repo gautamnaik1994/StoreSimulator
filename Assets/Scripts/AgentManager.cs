@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -15,7 +16,7 @@ public class AgentManager : MonoBehaviour
     [SerializeField] private CameraController cameraController;
     private TextElement agentName, agentMood, agentStatus, agentProfession, agentAge, agentGender, agentIncomeLevel, moneySpent, moneyAvailable, shoppingList, impulseList, costlyItems, cartContents, agentHistory;
 
-    private VisualElement rightDrawer;
+    private VisualElement rightDrawer, statusIcon, moodIcon;
 
     private ProgressBar moneySpentBar;
 
@@ -34,6 +35,8 @@ public class AgentManager : MonoBehaviour
     private float timer = 0f;
     private float interval = 5.0f; // Run code every 5 seconds
 
+    private Image agentIconStatusRing, agentIcon;
+
     void GetTextElementByID(string id, out TextElement textElement)
     {
         textElement = uiDocument.rootVisualElement.Q<TextElement>(id);
@@ -50,7 +53,7 @@ public class AgentManager : MonoBehaviour
         worldManager = gameObject.GetComponent<WorldManager>();
 
 
-        GetTextElementByID("agentHistory", out agentHistory);
+        // GetTextElementByID("agentHistory", out agentHistory);
         GetTextElementByID("agentName", out agentName);
         GetTextElementByID("agentMood", out agentMood);
         GetTextElementByID("agentStatus", out agentStatus);
@@ -71,6 +74,10 @@ public class AgentManager : MonoBehaviour
         database = Resources.Load<PersonaDatabase>("PersonaDatabase");
         moneySpentBar = uiDocument.rootVisualElement.Q<ProgressBar>("moneySpentBar");
         agentHistoryListView = uiDocument.rootVisualElement.Q<ListView>("AgentHistoryList");
+        statusIcon = uiDocument.rootVisualElement.Q<VisualElement>("statusIcon");
+        moodIcon = uiDocument.rootVisualElement.Q<VisualElement>("moodIcon");
+        agentIconStatusRing = uiDocument.rootVisualElement.Q<Image>("ring");
+        agentIcon = uiDocument.rootVisualElement.Q<Image>("triangle");
     }
 
     void LateUpdate()
@@ -108,6 +115,10 @@ public class AgentManager : MonoBehaviour
         cartContents.text = agentData.CartItems;
         moneySpentBar.highValue = agentData.BaselineMoney;
         moneySpentBar.value = agentData.TotalMoneySpent;
+        statusIcon.style.backgroundColor = agentData.StateColor;
+        moodIcon.style.backgroundColor = agentData.MoodColor;
+        agentIconStatusRing.tintColor = agentData.StateColor;
+        agentIcon.tintColor = agentData.MoodColor;
         // if (historyEntries.Count > 0)
         // {
         //     agentHistory.text = string.Join("\n", historyEntries.ConvertAll(entry => $"- [{entry.Timestamp:F2}s] State: {entry.State}, Mood: {entry.Mood}, Action: {entry.ActionDescription}"));
@@ -131,9 +142,12 @@ public class AgentManager : MonoBehaviour
             var agentMoodLabel = element.Q<Label>("agentMood");
 
             descriptionLabel.text = entryData.ActionDescription;
-            timestampLabel.text = $"[{entryData.Timestamp:F2}s]";
+            timestampLabel.text = $"Time: {entryData.Timestamp:F2}s";
             agentStateLabel.text = entryData.State;
             agentMoodLabel.text = entryData.Mood;
+            SetBorderColor(agentStateLabel, entryData.StateColor);
+            SetBorderColor(agentMoodLabel, entryData.MoodColor);
+
             // var label = element.Q<Label>("history_item");
             // label.text = $"[{entryData.Timestamp:F2}s] State: {entryData.State}, Mood: {entryData.Mood}, Action: {entryData.ActionDescription}";
         };
@@ -215,6 +229,14 @@ public class AgentManager : MonoBehaviour
         }
 
 
+    }
+
+    private void SetBorderColor(VisualElement element, Color color)
+    {
+        element.style.borderBottomColor = color;
+        element.style.borderTopColor = color;
+        element.style.borderLeftColor = color;
+        element.style.borderRightColor = color;
     }
     void ForceUpdateAgentDetails()
     {

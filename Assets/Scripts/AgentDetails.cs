@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class AgentDetails
@@ -20,6 +21,9 @@ public class AgentDetails
     public int RemainingMoney;
     public int BaselineMoney;
     public string History;
+
+    public Color MoodColor; // New field for mood color
+    public Color StateColor; // New field for state color
     public List<AgentHistoryEntryData> HistoryEntries;
 }
 
@@ -30,5 +34,7 @@ public class AgentHistoryEntryData
     public string State;
     public string ActionDescription;
     public string Mood;
+    public Color MoodColor;
+    public Color StateColor;
 
 }

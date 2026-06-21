@@ -3,14 +3,17 @@
     noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
 
     <ui:VisualElement style="" class="history-item">
+        <ui:VisualElement class="history-item-header d-flex">
+            <ui:Label text="Navigating" name="agentState"
+                class="history-item-agentState s-pill" />
+            <ui:Label text="Happy" name="agentMood"
+                class="history-item-agentMood s-pill" />
+        </ui:VisualElement>
         <ui:Label
             text="Agent did something interesting in the store. Agent did something interesting in the store."
             class="history-item-description"
             name="description" />
-        <ui:Label text="2 hours ago" class="history-item-timestamp"
+        <ui:Label text="2 hours ago" class="history-item-timestamp "
             name="timestamp" />
-        <ui:Label text="Navigating" name="agentState"
-            class="history-item-agentState" />
-        <ui:Label text="Happy" name="agentMood" class="history-item-agentMood" />
     </ui:VisualElement>
 </ui:UXML>
