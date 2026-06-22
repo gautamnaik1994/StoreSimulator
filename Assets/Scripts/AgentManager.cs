@@ -222,7 +222,7 @@ public class AgentManager : MonoBehaviour
                 GameObject obj = Instantiate(agentPrefab, spawnPoint.position, Quaternion.identity);
                 AgentMovementEnhanced agent = obj.GetComponent<AgentMovementEnhanced>();
                 AgentPersonaData profile = database.personas[agentIDCounter % database.personas.Count]; // Loop through personas if we have more agents than profiles
-                agent.InitializeWithPersona(profile);
+                agent.InitializeWithPersona(profile, agentIDCounter);
                 agentIDCounter++;
             }
             yield return new WaitForSeconds(delay);

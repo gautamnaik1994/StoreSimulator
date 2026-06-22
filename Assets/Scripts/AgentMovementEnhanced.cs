@@ -3,6 +3,7 @@ using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AgentMovementEnhanced : MonoBehaviour
@@ -30,12 +31,12 @@ public class AgentMovementEnhanced : MonoBehaviour
     [Header("Detour Settings")]
     [Range(0f, 1f)] public float randomBrowseProbability = 0.15f; // 15% chance to aimlessly wander instead of shopping
 
-    public enum AgentState { Evaluating, NavigatingToShelf, BrowsingShelf, Wandering, WaitingToQueue, GoingToCheckout, CheckingOut, Leaving }
+    public enum AgentState { Evaluating, NavigatingToShelf, BrowsingShelf, Wandering, WaitingToQueue, GoingToCheckout, CheckingOut, Leaving, Distracted }
     private Dictionary<AgentState, Color> agentStateColors;
     public enum AgentType { Regular, BargainHunter, ImpulseBuyer, WindowShopper, BulkShopper, FocusedShopper }
     public enum AgentBudgetLevel { Low, Medium, High }
     public enum AgentPersonalityTrait { Impulsive, Cautious, BudgetConscious, TimeSensitive, BrandLoyalist, Indecisive }
-    public enum AgentMood { Happy, Neutral, Frustrated, Impatient, Lost, Sad }
+    public enum AgentMood { Happy, Neutral, Frustrated, Impatient, Lost, Sad, Confused }
     private Dictionary<AgentMood, Color> agentMoodColors;
     public AgentState currentState = AgentState.Evaluating;
     private float impulseProbability = 0.3f; // 30% chance to make an impulse detour
@@ -58,6 +59,8 @@ public class AgentMovementEnhanced : MonoBehaviour
 
     // create an agent history to track their shopping behavior and decisions and state transitions
     private List<AgentHistoryEntry> agentHistory = new List<AgentHistoryEntry>();
+
+    public List<string> poiProductsInteractedWith = new List<string>(); // Track products purchased from POIs
 
     int maxRandomDetours = 4;
     private struct AgentHistoryEntry
@@ -104,6 +107,8 @@ public class AgentMovementEnhanced : MonoBehaviour
     private float baselineSpeed;
     private float originalImpulseProbability;
 
+    public int agentID; // Unique identifier for the agent, can be set in the Inspector or assigned programmatically
+
     void Awake()
     {
         agentStateColors = new Dictionary<AgentState, Color>()
@@ -115,7 +120,8 @@ public class AgentMovementEnhanced : MonoBehaviour
             { AgentState.WaitingToQueue, ParseColor("#A855F7") },
             { AgentState.GoingToCheckout, ParseColor("#FBBF24") },
             { AgentState.CheckingOut,ParseColor("#F43F5E") },
-            { AgentState.Leaving, ParseColor("#94A3B8") }
+            { AgentState.Leaving, ParseColor("#94A3B8") },
+            { AgentState.Distracted, ParseColor("#F87171") }
         };
 
 
@@ -126,7 +132,8 @@ public class AgentMovementEnhanced : MonoBehaviour
             { AgentMood.Frustrated, ParseColor("#F43F5E") },
             { AgentMood.Impatient, ParseColor("#FB7185") },
             {AgentMood.Sad, ParseColor("#3B82F6") },
-            { AgentMood.Lost, ParseColor("#94A3B8") }
+            { AgentMood.Lost, ParseColor("#94A3B8") },
+            { AgentMood.Confused, ParseColor("#FBBF24") }
         };
 
         agent = GetComponent<NavMeshAgent>();
@@ -137,8 +144,9 @@ public class AgentMovementEnhanced : MonoBehaviour
         statusRingRenderer = agentStatusRing.GetComponent<SpriteRenderer>();
     }
 
-    public void InitializeWithPersona(AgentPersonaData persona)
+    public void InitializeWithPersona(AgentPersonaData persona, int uniqueID)
     {
+        agentID = uniqueID;
         shoppingList = new List<string>(persona.base_shopping_list);
         impulseFavorites = new List<string>(persona.base_impulse_favorites);
         TotalMoney = persona.base_total_money;
@@ -730,6 +738,33 @@ public class AgentMovementEnhanced : MonoBehaviour
         return closestDestinations;
 
     }
+
+    // function to buy random Point of Interest (POI) products that are not on the shopping list or impulse favorites based on a probability roll, and update the cart and total money spent accordingly
+    public void BuyRandomPOIProduct(string poiSectionName, int poiPrice)
+    {
+        float probabilityRoll = Random.value; // Generate a random float between 0 and 1
+        if (probabilityRoll < impulseProbability)
+        {
+            // Check if the agent can afford the product
+            if (poiPrice <= TotalMoney)
+            {
+                UpdateCart(new ProductSection { SectionName = poiSectionName, Price = poiPrice });
+                agentHistory.Add(new AgentHistoryEntry(Time.time, AgentState.Distracted, $"Impulse bought POI product: {poiSectionName} for {poiPrice}.", AgentMood.Happy));
+                poiProductsInteractedWith.Add(poiSectionName);
+            }
+            else
+            {
+                agentHistory.Add(new AgentHistoryEntry(Time.time, AgentState.Distracted, $"Could not afford POI product: {poiSectionName} priced at {poiPrice}. Remaining money: {TotalMoney}.", AgentMood.Sad));
+                poiProductsInteractedWith.Add(poiSectionName);
+            }
+        }
+        else
+        {
+            agentHistory.Add(new AgentHistoryEntry(Time.time, AgentState.Distracted, $"Decided not to buy POI product: {poiSectionName} priced at {poiPrice}.", AgentMood.Confused));
+        }
+    }
+
+
     private void UpdateCart(ProductSection section)
     {
         cartItems.Add(section);
@@ -854,6 +889,29 @@ public class AgentMovementEnhanced : MonoBehaviour
             MoodColor = agentMoodColors.TryGetValue(currentMood, out var moodColor) ? moodColor : Color.white,
             StateColor = agentStateColors.TryGetValue(currentState, out var stateColor) ? stateColor : Color.white
         };
+    }
+
+    public void PauseAgent()
+    {
+        if (!agent.isStopped)
+        {
+            agent.isStopped = true;
+            agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "Agent paused and stopped movement.", currentMood));
+        }
+    }
+
+    public void UnPauseAgent()
+    {
+        if (agent.isStopped)
+        {
+            agent.isStopped = false;
+            agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "Agent unpaused and resumed movement.", currentMood));
+        }
+    }
+
+    public bool IsOnNavMesh()
+    {
+        return agent.isActiveAndEnabled && agent.isOnNavMesh;
     }
 
     private void OnDisable()

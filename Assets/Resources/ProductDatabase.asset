@@ -101,3 +101,25 @@ MonoBehaviour:
     price: 140
   - productName: Coffee
     price: 220
+  - productName: Butter
+    price: 105
+  - productName: Paneer
+    price: 120
+  - productName: SmallAppliances
+    price: 1800
+  - productName: LargeAppliances
+    price: 10000
+  - productName: MobilePhones
+    price: 3000
+  - productName: Eat_ChickenPuff
+    price: 50
+  - productName: Eat_Samosa
+    price: 50
+  - productName: Drink_Tea
+    price: 25
+  - productName: Drink_Coffee
+    price: 40
+  - productName: Eat_Panipuri
+    price: 70
+  - productName: Eat_Bhelpuri
+    price: 70

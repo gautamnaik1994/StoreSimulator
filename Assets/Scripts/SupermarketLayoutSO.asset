@@ -17,121 +17,161 @@ MonoBehaviour:
     SectionName: FrozenFoods
     Tag: 
     Slots:
-    - Position: {x: -42.086407, y: 27.080011}
+    - Position: {x: -46.87334, y: 27.079975}
       IsOccupied: 0
-    - Position: {x: -36.37212, y: 27.080011}
+    - Position: {x: -40.187626, y: 27.079975}
       IsOccupied: 0
-    - Position: {x: -46.37212, y: 27.080011}
+    - Position: {x: -42.416195, y: 27.079975}
       IsOccupied: 0
-    - Position: {x: -43.514977, y: 27.080011}
+    - Position: {x: -45.759052, y: 27.079975}
       IsOccupied: 0
-    - Position: {x: -37.80069, y: 27.080011}
+    - Position: {x: -43.530483, y: 27.079975}
       IsOccupied: 0
-    - Position: {x: -40.657833, y: 27.080011}
+    - Position: {x: -44.644768, y: 27.079975}
       IsOccupied: 0
-    - Position: {x: -44.94355, y: 27.080011}
+    - Position: {x: -39.073338, y: 27.079975}
       IsOccupied: 0
-    - Position: {x: -39.229263, y: 27.080011}
+    - Position: {x: -41.30191, y: 27.079975}
       IsOccupied: 0
   - Price: 110
     SectionName: Juice
     Tag: 
     Slots:
-    - Position: {x: -41.956284, y: 20.140999}
+    - Position: {x: -46.743217, y: 19.720955}
       IsOccupied: 0
-    - Position: {x: -36.242, y: 20.14101}
+    - Position: {x: -40.057503, y: 19.720968}
       IsOccupied: 0
-    - Position: {x: -46.242, y: 20.14099}
+    - Position: {x: -42.286076, y: 19.720964}
       IsOccupied: 0
-    - Position: {x: -43.384857, y: 20.140995}
+    - Position: {x: -45.628933, y: 19.720959}
       IsOccupied: 0
-    - Position: {x: -37.67057, y: 20.141006}
+    - Position: {x: -43.40036, y: 19.720963}
       IsOccupied: 0
-    - Position: {x: -40.527714, y: 20.141}
+    - Position: {x: -44.51465, y: 19.72096}
       IsOccupied: 0
-    - Position: {x: -44.813427, y: 20.140993}
+    - Position: {x: -38.94322, y: 19.72097}
       IsOccupied: 0
-    - Position: {x: -39.09914, y: 20.141005}
+    - Position: {x: -41.17179, y: 19.720966}
+      IsOccupied: 0
+  - Price: 120
+    SectionName: Paneer
+    Tag: 
+    Slots:
+    - Position: {x: -35.604374, y: 19.718477}
+      IsOccupied: 0
+    - Position: {x: -28.91866, y: 19.71849}
+      IsOccupied: 0
+    - Position: {x: -31.147232, y: 19.718487}
+      IsOccupied: 0
+    - Position: {x: -34.49009, y: 19.718481}
+      IsOccupied: 0
+    - Position: {x: -32.261517, y: 19.718485}
+      IsOccupied: 0
+    - Position: {x: -33.375805, y: 19.718483}
+      IsOccupied: 0
+    - Position: {x: -27.804375, y: 19.718493}
+      IsOccupied: 0
+    - Position: {x: -30.032946, y: 19.718489}
       IsOccupied: 0
   - Price: 40
     SectionName: SoftDrink
     Tag: 
     Slots:
-    - Position: {x: -40.533337, y: 23.07751}
+    - Position: {x: -38.94884, y: 22.657467}
       IsOccupied: 0
-    - Position: {x: -46.24762, y: 23.077528}
+    - Position: {x: -45.634556, y: 22.657486}
       IsOccupied: 0
-    - Position: {x: -36.24762, y: 23.0775}
+    - Position: {x: -43.405983, y: 22.657478}
       IsOccupied: 0
-    - Position: {x: -39.104763, y: 23.077507}
+    - Position: {x: -40.063126, y: 22.657469}
       IsOccupied: 0
-    - Position: {x: -44.81905, y: 23.077524}
+    - Position: {x: -42.2917, y: 22.657476}
       IsOccupied: 0
-    - Position: {x: -41.961906, y: 23.077517}
+    - Position: {x: -41.17741, y: 22.657473}
       IsOccupied: 0
-    - Position: {x: -37.676193, y: 23.077503}
+    - Position: {x: -46.74884, y: 22.65749}
       IsOccupied: 0
-    - Position: {x: -43.39048, y: 23.07752}
+    - Position: {x: -44.520267, y: 22.657482}
+      IsOccupied: 0
+  - Price: 105
+    SectionName: Butter
+    Tag: 
+    Slots:
+    - Position: {x: -27.809998, y: 22.65499}
+      IsOccupied: 0
+    - Position: {x: -34.495712, y: 22.655008}
+      IsOccupied: 0
+    - Position: {x: -32.26714, y: 22.655}
+      IsOccupied: 0
+    - Position: {x: -28.924282, y: 22.654991}
+      IsOccupied: 0
+    - Position: {x: -31.152853, y: 22.654999}
+      IsOccupied: 0
+    - Position: {x: -30.038568, y: 22.654995}
+      IsOccupied: 0
+    - Position: {x: -35.609997, y: 22.655012}
+      IsOccupied: 0
+    - Position: {x: -33.381424, y: 22.655005}
       IsOccupied: 0
   - Price: 33
     SectionName: Milk
     Tag: 
     Slots:
-    - Position: {x: -30.114143, y: 27.112751}
+    - Position: {x: -35.52857, y: 27.11288}
       IsOccupied: 0
-    - Position: {x: -24.399858, y: 27.112751}
+    - Position: {x: -28.842852, y: 27.11288}
       IsOccupied: 0
-    - Position: {x: -34.399857, y: 27.112751}
+    - Position: {x: -31.071424, y: 27.11288}
       IsOccupied: 0
-    - Position: {x: -31.542715, y: 27.112751}
+    - Position: {x: -34.41428, y: 27.11288}
       IsOccupied: 0
-    - Position: {x: -25.82843, y: 27.112751}
+    - Position: {x: -32.18571, y: 27.11288}
       IsOccupied: 0
-    - Position: {x: -28.685574, y: 27.112751}
+    - Position: {x: -33.299995, y: 27.11288}
       IsOccupied: 0
-    - Position: {x: -32.971287, y: 27.112751}
+    - Position: {x: -27.728567, y: 27.11288}
       IsOccupied: 0
-    - Position: {x: -27.257002, y: 27.112751}
+    - Position: {x: -29.957138, y: 27.11288}
       IsOccupied: 0
   - Price: 280
     SectionName: FrozenChicken
     Tag: 
     Slots:
-    - Position: {x: -13.5992365, y: 27.13562}
+    - Position: {x: -46.9772, y: -4.8002377}
       IsOccupied: 0
-    - Position: {x: -7.8849506, y: 27.13562}
+    - Position: {x: -46.977173, y: 1.8854764}
       IsOccupied: 0
-    - Position: {x: -17.88495, y: 27.13562}
+    - Position: {x: -46.977184, y: -0.34309506}
       IsOccupied: 0
-    - Position: {x: -15.027807, y: 27.13562}
+    - Position: {x: -46.977196, y: -3.6859524}
       IsOccupied: 0
-    - Position: {x: -9.313522, y: 27.13562}
+    - Position: {x: -46.97719, y: -1.4573808}
       IsOccupied: 0
-    - Position: {x: -12.170665, y: 27.13562}
+    - Position: {x: -46.977192, y: -2.5716665}
       IsOccupied: 0
-    - Position: {x: -16.456379, y: 27.13562}
+    - Position: {x: -46.97717, y: 2.999762}
       IsOccupied: 0
-    - Position: {x: -10.742094, y: 27.13562}
+    - Position: {x: -46.977177, y: 0.77119064}
       IsOccupied: 0
   - Price: 450
     SectionName: FrozenMeat
     Tag: 
     Slots:
-    - Position: {x: -0.1255728, y: 27.133469}
+    - Position: {x: -46.975014, y: 5.989997}
       IsOccupied: 0
-    - Position: {x: 5.5887127, y: 27.133469}
+    - Position: {x: -46.974987, y: 12.675712}
       IsOccupied: 0
-    - Position: {x: -4.4112873, y: 27.133469}
+    - Position: {x: -46.975, y: 10.44714}
       IsOccupied: 0
-    - Position: {x: -1.5541441, y: 27.133469}
+    - Position: {x: -46.97501, y: 7.1042824}
       IsOccupied: 0
-    - Position: {x: 4.1601415, y: 27.133469}
+    - Position: {x: -46.975002, y: 9.332854}
       IsOccupied: 0
-    - Position: {x: 1.3029987, y: 27.133469}
+    - Position: {x: -46.975006, y: 8.218569}
       IsOccupied: 0
-    - Position: {x: -2.9827156, y: 27.133469}
+    - Position: {x: -46.974983, y: 13.789997}
       IsOccupied: 0
-    - Position: {x: 2.73157, y: 27.133469}
+    - Position: {x: -46.97499, y: 11.561426}
       IsOccupied: 0
   - Price: 350
     SectionName: Gifts
@@ -173,6 +213,26 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 32.076706, y: 27.033468}
       IsOccupied: 0
+  - Price: 1800
+    SectionName: SmallAppliances
+    Tag: 
+    Slots:
+    - Position: {x: -12.654286, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: -9.968572, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: -5.9400005, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: -15.34, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: -13.997143, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: -8.625714, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: -11.311429, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: -7.2828574, y: 27.033468}
+      IsOccupied: 0
   - Price: 199
     SectionName: PartySupplies
     Tag: 
@@ -192,6 +252,26 @@ MonoBehaviour:
     - Position: {x: 40.138573, y: 27.033468}
       IsOccupied: 0
     - Position: {x: 44.167145, y: 27.033468}
+      IsOccupied: 0
+  - Price: 10000
+    SectionName: LargeAppliances
+    Tag: 
+    Slots:
+    - Position: {x: -0.56385016, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: 2.1218643, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: 6.1504354, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: -3.2495642, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: -1.9067073, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: 3.4647214, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: 0.7790071, y: 27.033468}
+      IsOccupied: 0
+    - Position: {x: 4.8075786, y: 27.033468}
       IsOccupied: 0
   - Price: 120
     SectionName: PersonalCare
@@ -237,81 +317,61 @@ MonoBehaviour:
     SectionName: Rice
     Tag: 
     Slots:
-    - Position: {x: 65.462685, y: -3.035715}
+    - Position: {x: 65.462685, y: 3.2742865}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -5.72143}
+    - Position: {x: 65.462685, y: 0.58857197}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -9.750001}
+    - Position: {x: 65.462685, y: -3.4399993}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -0.35000086}
+    - Position: {x: 65.462685, y: 5.960001}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -1.6928577}
+    - Position: {x: 65.462685, y: 4.6171436}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -7.064287}
+    - Position: {x: 65.462685, y: -0.7542856}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -4.3785725}
+    - Position: {x: 65.462685, y: 1.9314291}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -8.407145}
+    - Position: {x: 65.462685, y: -2.0971427}
       IsOccupied: 0
   - Price: 45
     SectionName: Wheat
     Tag: 
     Slots:
-    - Position: {x: 65.462685, y: -14.1357155}
+    - Position: {x: 65.462685, y: -7.825714}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -16.82143}
+    - Position: {x: 65.462685, y: -10.511429}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -20.850002}
+    - Position: {x: 65.462685, y: -14.54}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -11.450001}
+    - Position: {x: 65.462685, y: -5.14}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -12.792858}
+    - Position: {x: 65.462685, y: -6.4828568}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -18.164288}
+    - Position: {x: 65.462685, y: -11.854286}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -15.478573}
+    - Position: {x: 65.462685, y: -9.168571}
       IsOccupied: 0
-    - Position: {x: 65.462685, y: -19.507145}
-      IsOccupied: 0
-  - Price: 90
-    SectionName: OralCare
-    Tag: 
-    Slots:
-    - Position: {x: 65.41187, y: 11.872753}
-      IsOccupied: 0
-    - Position: {x: 65.41187, y: 9.187038}
-      IsOccupied: 0
-    - Position: {x: 65.41187, y: 5.1584673}
-      IsOccupied: 0
-    - Position: {x: 65.41187, y: 14.558468}
-      IsOccupied: 0
-    - Position: {x: 65.41187, y: 13.2156105}
-      IsOccupied: 0
-    - Position: {x: 65.41187, y: 7.844181}
-      IsOccupied: 0
-    - Position: {x: 65.41187, y: 10.529896}
-      IsOccupied: 0
-    - Position: {x: 65.41187, y: 6.5013237}
+    - Position: {x: 65.462685, y: -13.197144}
       IsOccupied: 0
   - Price: 50
     SectionName: IceCream
     Tag: 
     Slots:
-    - Position: {x: -30.592634, y: 20.722443}
+    - Position: {x: -23.987438, y: 24.914133}
       IsOccupied: 0
-    - Position: {x: -30.60263, y: 21.917442}
+    - Position: {x: -22.792437, y: 24.924133}
       IsOccupied: 0
-    - Position: {x: -31.942638, y: 19.885448}
+    - Position: {x: -24.824436, y: 26.264133}
       IsOccupied: 0
-    - Position: {x: -31.142637, y: 19.885445}
+    - Position: {x: -24.824438, y: 25.464134}
       IsOccupied: 0
-    - Position: {x: -31.922628, y: 22.869446}
+    - Position: {x: -21.840437, y: 26.244133}
       IsOccupied: 0
-    - Position: {x: -31.12963, y: 22.858444}
+    - Position: {x: -21.851437, y: 25.451134}
       IsOccupied: 0
-    - Position: {x: -32.527634, y: 20.697449}
+    - Position: {x: -24.012438, y: 26.849134}
       IsOccupied: 0
-    - Position: {x: -32.537632, y: 21.919449}
+    - Position: {x: -22.790438, y: 26.859135}
       IsOccupied: 0
   - Price: 40
     SectionName: Chocolates
@@ -333,25 +393,81 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -27.418003, y: -17.205}
       IsOccupied: 0
+  - Price: 25
+    SectionName: Drink_Tea
+    Tag: 
+    Slots:
+    - Position: {x: -41.906, y: -12.901999}
+      IsOccupied: 0
+    - Position: {x: -41.253, y: -12.878}
+      IsOccupied: 0
+    - Position: {x: -42.672997, y: -11.59}
+      IsOccupied: 0
+    - Position: {x: -42.683, y: -12.143}
+      IsOccupied: 0
+    - Position: {x: -40.387997, y: -11.49}
+      IsOccupied: 0
+    - Position: {x: -42.581997, y: -12.688}
+      IsOccupied: 0
+    - Position: {x: -40.386997, y: -12.149}
+      IsOccupied: 0
+    - Position: {x: -42.578, y: -11.071}
+      IsOccupied: 0
+    - Position: {x: -42.043, y: -10.839}
+      IsOccupied: 0
+    - Position: {x: -41.307, y: -10.823}
+      IsOccupied: 0
+    - Position: {x: -40.616997, y: -10.93}
+      IsOccupied: 0
+    - Position: {x: -40.600998, y: -12.74}
+      IsOccupied: 0
+  - Price: 40
+    SectionName: Drink_Coffee
+    Tag: 
+    Slots:
+    - Position: {x: -42.026, y: -18.652}
+      IsOccupied: 0
+    - Position: {x: -41.373, y: -18.628}
+      IsOccupied: 0
+    - Position: {x: -42.793, y: -17.34}
+      IsOccupied: 0
+    - Position: {x: -42.803, y: -17.893002}
+      IsOccupied: 0
+    - Position: {x: -40.508, y: -17.240002}
+      IsOccupied: 0
+    - Position: {x: -42.702, y: -18.438002}
+      IsOccupied: 0
+    - Position: {x: -40.507, y: -17.899}
+      IsOccupied: 0
+    - Position: {x: -42.698, y: -16.821001}
+      IsOccupied: 0
+    - Position: {x: -42.163002, y: -16.589}
+      IsOccupied: 0
+    - Position: {x: -41.427002, y: -16.573}
+      IsOccupied: 0
+    - Position: {x: -40.737, y: -16.68}
+      IsOccupied: 0
+    - Position: {x: -40.721, y: -18.490002}
+      IsOccupied: 0
   - Price: 250
     SectionName: LargeIceCream
     Tag: 
     Slots:
-    - Position: {x: -25.708504, y: 20.754868}
+    - Position: {x: -23.955002, y: 20.199999}
       IsOccupied: 0
-    - Position: {x: -25.7185, y: 21.949867}
+    - Position: {x: -22.76, y: 20.21}
       IsOccupied: 0
-    - Position: {x: -27.058508, y: 19.917873}
+    - Position: {x: -24.792, y: 21.55}
       IsOccupied: 0
-    - Position: {x: -26.258507, y: 19.91787}
+    - Position: {x: -24.792002, y: 20.75}
       IsOccupied: 0
-    - Position: {x: -27.038498, y: 22.90187}
+    - Position: {x: -21.808, y: 21.529999}
       IsOccupied: 0
-    - Position: {x: -26.245499, y: 22.89087}
+    - Position: {x: -21.819, y: 20.737}
       IsOccupied: 0
-    - Position: {x: -27.643505, y: 20.729874}
+    - Position: {x: -23.980001, y: 22.135}
       IsOccupied: 0
-    - Position: {x: -27.653502, y: 21.951874}
+    - Position: {x: -22.758001, y: 22.145}
       IsOccupied: 0
   - Price: 70
     SectionName: GreetingCards
@@ -377,225 +493,257 @@ MonoBehaviour:
     SectionName: FreshCutMeat
     Tag: 
     Slots:
-    - Position: {x: -8.079823, y: 21.007076}
+    - Position: {x: -40.838623, y: 2.9173963}
       IsOccupied: 0
-    - Position: {x: -9.365537, y: 21.017076}
+    - Position: {x: -40.848637, y: -0.38260353}
       IsOccupied: 0
-    - Position: {x: -13.222679, y: 22.957077}
+    - Position: {x: -42.788643, y: -2.5825958}
       IsOccupied: 0
-    - Position: {x: -9.365537, y: 22.957077}
+    - Position: {x: -42.788628, y: 1.8174043}
       IsOccupied: 0
-    - Position: {x: -11.936965, y: 22.937077}
+    - Position: {x: -42.76864, y: -1.4825959}
       IsOccupied: 0
-    - Position: {x: -10.651251, y: 21.044077}
+    - Position: {x: -40.87565, y: -3.6826034}
       IsOccupied: 0
-    - Position: {x: -11.936965, y: 21.044077}
+    - Position: {x: -40.87563, y: 0.7173966}
       IsOccupied: 0
-    - Position: {x: -13.222679, y: 21.044077}
+    - Position: {x: -40.87564, y: -1.4826034}
       IsOccupied: 0
-    - Position: {x: -14.508394, y: 22.944077}
+    - Position: {x: -42.775646, y: -3.6825957}
       IsOccupied: 0
-    - Position: {x: -15.794108, y: 22.944077}
+    - Position: {x: -42.77563, y: 0.7174041}
       IsOccupied: 0
-    - Position: {x: -14.508394, y: 21.044077}
+    - Position: {x: -40.875626, y: 1.8173966}
       IsOccupied: 0
-    - Position: {x: -15.794108, y: 21.044077}
+    - Position: {x: -40.875645, y: -2.5826035}
       IsOccupied: 0
-    - Position: {x: -10.651251, y: 22.942078}
+    - Position: {x: -42.773636, y: -0.38259596}
       IsOccupied: 0
-    - Position: {x: -8.079823, y: 22.952078}
+    - Position: {x: -42.783623, y: 2.9174042}
       IsOccupied: 0
   - Price: 120
     SectionName: Fruits
     Tag: 
     Slots:
-    - Position: {x: 52.4, y: -28.650002}
+    - Position: {x: 53.737396, y: -24.85717}
       IsOccupied: 0
-    - Position: {x: 51.114285, y: -28.640001}
+    - Position: {x: 50.437397, y: -24.84717}
       IsOccupied: 0
-    - Position: {x: 47.25714, y: -26.7}
+    - Position: {x: 48.237396, y: -22.90717}
       IsOccupied: 0
-    - Position: {x: 51.114285, y: -26.7}
+    - Position: {x: 52.637398, y: -22.90717}
       IsOccupied: 0
-    - Position: {x: 48.54286, y: -26.720001}
+    - Position: {x: 49.3374, y: -22.92717}
       IsOccupied: 0
-    - Position: {x: 49.82857, y: -28.613}
+    - Position: {x: 47.137398, y: -24.82017}
       IsOccupied: 0
-    - Position: {x: 48.54286, y: -28.613}
+    - Position: {x: 51.537395, y: -24.82017}
       IsOccupied: 0
-    - Position: {x: 47.25714, y: -28.613}
+    - Position: {x: 49.3374, y: -24.82017}
       IsOccupied: 0
-    - Position: {x: 45.971428, y: -26.713001}
+    - Position: {x: 47.137398, y: -22.92017}
       IsOccupied: 0
-    - Position: {x: 44.685715, y: -26.713001}
+    - Position: {x: 51.537395, y: -22.92017}
       IsOccupied: 0
-    - Position: {x: 45.971428, y: -28.613}
+    - Position: {x: 52.637398, y: -24.82017}
       IsOccupied: 0
-    - Position: {x: 44.685715, y: -28.613}
+    - Position: {x: 48.237396, y: -24.82017}
       IsOccupied: 0
-    - Position: {x: 49.82857, y: -26.715}
+    - Position: {x: 50.437397, y: -22.922169}
       IsOccupied: 0
-    - Position: {x: 52.4, y: -26.705}
+    - Position: {x: 53.737396, y: -22.912169}
       IsOccupied: 0
   - Price: 80
     SectionName: OrganicGreen
     Tag: 
     Slots:
-    - Position: {x: 52.4, y: -32.84}
+    - Position: {x: 65.124405, y: -29.65717}
       IsOccupied: 0
-    - Position: {x: 51.114285, y: -32.829998}
+    - Position: {x: 61.8244, y: -29.64717}
       IsOccupied: 0
-    - Position: {x: 47.25714, y: -30.89}
+    - Position: {x: 59.6244, y: -27.707169}
       IsOccupied: 0
-    - Position: {x: 51.114285, y: -30.89}
+    - Position: {x: 64.0244, y: -27.707169}
       IsOccupied: 0
-    - Position: {x: 48.54286, y: -30.91}
+    - Position: {x: 60.724403, y: -27.727169}
       IsOccupied: 0
-    - Position: {x: 49.82857, y: -32.802998}
+    - Position: {x: 58.524403, y: -29.620169}
       IsOccupied: 0
-    - Position: {x: 48.54286, y: -32.802998}
+    - Position: {x: 62.9244, y: -29.620169}
       IsOccupied: 0
-    - Position: {x: 47.25714, y: -32.802998}
+    - Position: {x: 60.724403, y: -29.620169}
       IsOccupied: 0
-    - Position: {x: 45.971428, y: -30.903}
+    - Position: {x: 58.524403, y: -27.72017}
       IsOccupied: 0
-    - Position: {x: 44.685715, y: -30.903}
+    - Position: {x: 62.9244, y: -27.72017}
       IsOccupied: 0
-    - Position: {x: 45.971428, y: -32.802998}
+    - Position: {x: 64.0244, y: -29.620169}
       IsOccupied: 0
-    - Position: {x: 44.685715, y: -32.802998}
+    - Position: {x: 59.6244, y: -29.620169}
       IsOccupied: 0
-    - Position: {x: 49.82857, y: -30.904999}
+    - Position: {x: 61.8244, y: -27.722168}
       IsOccupied: 0
-    - Position: {x: 52.4, y: -30.894999}
+    - Position: {x: 65.124405, y: -27.712168}
       IsOccupied: 0
   - Price: 60
     SectionName: Bakery
     Tag: 
     Slots:
-    - Position: {x: 38, y: -28.650002}
+    - Position: {x: 43.149998, y: -24.78}
       IsOccupied: 0
-    - Position: {x: 36.714287, y: -28.640001}
+    - Position: {x: 39.85, y: -24.77}
       IsOccupied: 0
-    - Position: {x: 32.857143, y: -26.7}
+    - Position: {x: 37.649998, y: -22.83}
       IsOccupied: 0
-    - Position: {x: 36.714287, y: -26.7}
+    - Position: {x: 42.05, y: -22.83}
       IsOccupied: 0
-    - Position: {x: 34.14286, y: -26.720001}
+    - Position: {x: 38.75, y: -22.85}
       IsOccupied: 0
-    - Position: {x: 35.428574, y: -28.613}
+    - Position: {x: 36.55, y: -24.743}
       IsOccupied: 0
-    - Position: {x: 34.14286, y: -28.613}
+    - Position: {x: 40.949997, y: -24.743}
       IsOccupied: 0
-    - Position: {x: 32.857143, y: -28.613}
+    - Position: {x: 38.75, y: -24.743}
       IsOccupied: 0
-    - Position: {x: 31.57143, y: -26.713001}
+    - Position: {x: 36.55, y: -22.843}
       IsOccupied: 0
-    - Position: {x: 30.285717, y: -26.713001}
+    - Position: {x: 40.949997, y: -22.843}
       IsOccupied: 0
-    - Position: {x: 31.57143, y: -28.613}
+    - Position: {x: 42.05, y: -24.743}
       IsOccupied: 0
-    - Position: {x: 30.285717, y: -28.613}
+    - Position: {x: 37.649998, y: -24.743}
       IsOccupied: 0
-    - Position: {x: 35.428574, y: -26.715}
+    - Position: {x: 39.85, y: -22.845}
       IsOccupied: 0
-    - Position: {x: 38, y: -26.705}
+    - Position: {x: 43.149998, y: -22.835}
       IsOccupied: 0
   - Price: 550
     SectionName: Seafood
     Tag: 
     Slots:
-    - Position: {x: 3.6201773, y: 21.007076}
+    - Position: {x: -40.838593, y: 13.403196}
       IsOccupied: 0
-    - Position: {x: 2.334463, y: 21.017076}
+    - Position: {x: -40.848606, y: 10.103196}
       IsOccupied: 0
-    - Position: {x: -1.5226798, y: 22.957077}
+    - Position: {x: -42.788612, y: 7.903204}
       IsOccupied: 0
-    - Position: {x: 2.334463, y: 22.957077}
+    - Position: {x: -42.788597, y: 12.303204}
       IsOccupied: 0
-    - Position: {x: -0.2369656, y: 22.937077}
+    - Position: {x: -42.76861, y: 9.003204}
       IsOccupied: 0
-    - Position: {x: 1.0487487, y: 21.044077}
+    - Position: {x: -40.875618, y: 6.8031964}
       IsOccupied: 0
-    - Position: {x: -0.2369656, y: 21.044077}
+    - Position: {x: -40.8756, y: 11.203197}
       IsOccupied: 0
-    - Position: {x: -1.5226798, y: 21.044077}
+    - Position: {x: -40.87561, y: 9.003197}
       IsOccupied: 0
-    - Position: {x: -2.8083942, y: 22.944077}
+    - Position: {x: -42.775616, y: 6.803204}
       IsOccupied: 0
-    - Position: {x: -4.0941086, y: 22.944077}
+    - Position: {x: -42.7756, y: 11.203204}
       IsOccupied: 0
-    - Position: {x: -2.8083942, y: 21.044077}
+    - Position: {x: -40.875595, y: 12.303196}
       IsOccupied: 0
-    - Position: {x: -4.0941086, y: 21.044077}
+    - Position: {x: -40.875614, y: 7.9031963}
       IsOccupied: 0
-    - Position: {x: 1.0487487, y: 22.942078}
+    - Position: {x: -42.773605, y: 10.103204}
       IsOccupied: 0
-    - Position: {x: 3.6201773, y: 22.952078}
+    - Position: {x: -42.783592, y: 13.403204}
+      IsOccupied: 0
+  - Price: 3000
+    SectionName: MobilePhones
+    Tag: 
+    Slots:
+    - Position: {x: -7.972831, y: 21.12283}
+      IsOccupied: 0
+    - Position: {x: -11.272831, y: 21.13283}
+      IsOccupied: 0
+    - Position: {x: -13.472831, y: 23.07283}
+      IsOccupied: 0
+    - Position: {x: -9.072831, y: 23.07283}
+      IsOccupied: 0
+    - Position: {x: -12.372831, y: 23.05283}
+      IsOccupied: 0
+    - Position: {x: -14.572831, y: 21.15983}
+      IsOccupied: 0
+    - Position: {x: -10.172831, y: 21.15983}
+      IsOccupied: 0
+    - Position: {x: -12.372831, y: 21.15983}
+      IsOccupied: 0
+    - Position: {x: -14.572831, y: 23.05983}
+      IsOccupied: 0
+    - Position: {x: -10.172831, y: 23.05983}
+      IsOccupied: 0
+    - Position: {x: -9.072831, y: 21.15983}
+      IsOccupied: 0
+    - Position: {x: -13.472831, y: 21.15983}
+      IsOccupied: 0
+    - Position: {x: -11.272831, y: 23.05783}
+      IsOccupied: 0
+    - Position: {x: -7.972831, y: 23.06783}
       IsOccupied: 0
   - Price: 50
     SectionName: Vegetables
     Tag: 
     Slots:
-    - Position: {x: 63.9, y: -28.650002}
+    - Position: {x: 65.0769, y: -24.980001}
       IsOccupied: 0
-    - Position: {x: 62.614285, y: -28.640001}
+    - Position: {x: 61.776897, y: -24.970001}
       IsOccupied: 0
-    - Position: {x: 58.75714, y: -26.7}
+    - Position: {x: 59.576897, y: -23.03}
       IsOccupied: 0
-    - Position: {x: 62.614285, y: -26.7}
+    - Position: {x: 63.9769, y: -23.03}
       IsOccupied: 0
-    - Position: {x: 60.04286, y: -26.720001}
+    - Position: {x: 60.6769, y: -23.050001}
       IsOccupied: 0
-    - Position: {x: 61.32857, y: -28.613}
+    - Position: {x: 58.4769, y: -24.943}
       IsOccupied: 0
-    - Position: {x: 60.04286, y: -28.613}
+    - Position: {x: 62.876896, y: -24.943}
       IsOccupied: 0
-    - Position: {x: 58.75714, y: -28.613}
+    - Position: {x: 60.6769, y: -24.943}
       IsOccupied: 0
-    - Position: {x: 57.471428, y: -26.713001}
+    - Position: {x: 58.4769, y: -23.043001}
       IsOccupied: 0
-    - Position: {x: 56.185715, y: -26.713001}
+    - Position: {x: 62.876896, y: -23.043001}
       IsOccupied: 0
-    - Position: {x: 57.471428, y: -28.613}
+    - Position: {x: 63.9769, y: -24.943}
       IsOccupied: 0
-    - Position: {x: 56.185715, y: -28.613}
+    - Position: {x: 59.576897, y: -24.943}
       IsOccupied: 0
-    - Position: {x: 61.32857, y: -26.715}
+    - Position: {x: 61.776897, y: -23.045}
       IsOccupied: 0
-    - Position: {x: 63.9, y: -26.705}
+    - Position: {x: 65.0769, y: -23.035}
       IsOccupied: 0
   - Price: 90
     SectionName: Grains
     Tag: 
     Slots:
-    - Position: {x: 61.043785, y: -2.092006}
+    - Position: {x: 60.995102, y: -0.31963402}
       IsOccupied: 0
-    - Position: {x: 59.758068, y: -2.082006}
+    - Position: {x: 59.709385, y: -0.30963403}
       IsOccupied: 0
-    - Position: {x: 55.900925, y: -0.14200556}
+    - Position: {x: 55.85224, y: 1.6303663}
       IsOccupied: 0
-    - Position: {x: 59.758068, y: -0.14200628}
+    - Position: {x: 59.709385, y: 1.6303656}
       IsOccupied: 0
-    - Position: {x: 57.18664, y: -0.16200554}
+    - Position: {x: 57.13796, y: 1.6103663}
       IsOccupied: 0
-    - Position: {x: 58.472355, y: -2.055006}
+    - Position: {x: 58.42367, y: -0.28263402}
       IsOccupied: 0
-    - Position: {x: 57.18664, y: -2.055006}
+    - Position: {x: 57.13796, y: -0.28263402}
       IsOccupied: 0
-    - Position: {x: 55.900925, y: -2.055006}
+    - Position: {x: 55.85224, y: -0.28263402}
       IsOccupied: 0
-    - Position: {x: 54.61521, y: -0.15500629}
+    - Position: {x: 54.56653, y: 1.6173656}
       IsOccupied: 0
-    - Position: {x: 53.3295, y: -0.15500629}
+    - Position: {x: 53.280815, y: 1.6173656}
       IsOccupied: 0
-    - Position: {x: 54.61521, y: -2.055006}
+    - Position: {x: 54.56653, y: -0.28263402}
       IsOccupied: 0
-    - Position: {x: 53.3295, y: -2.055006}
+    - Position: {x: 53.280815, y: -0.28263402}
       IsOccupied: 0
-    - Position: {x: 58.472355, y: -0.1570059}
+    - Position: {x: 58.42367, y: 1.615366}
       IsOccupied: 0
-    - Position: {x: 61.043785, y: -0.14700592}
+    - Position: {x: 60.995102, y: 1.625366}
       IsOccupied: 0
   - Price: 140
     SectionName: Detergent
@@ -631,6 +779,38 @@ MonoBehaviour:
       IsOccupied: 0
   - Price: 85
     SectionName: Toiletries
+    Tag: 
+    Slots:
+    - Position: {x: 60.685097, y: 12.07}
+      IsOccupied: 0
+    - Position: {x: 59.399384, y: 12.08}
+      IsOccupied: 0
+    - Position: {x: 55.54224, y: 14.0199995}
+      IsOccupied: 0
+    - Position: {x: 59.399384, y: 14.0199995}
+      IsOccupied: 0
+    - Position: {x: 56.827957, y: 14}
+      IsOccupied: 0
+    - Position: {x: 58.11367, y: 12.106999}
+      IsOccupied: 0
+    - Position: {x: 56.827957, y: 12.106999}
+      IsOccupied: 0
+    - Position: {x: 55.54224, y: 12.106999}
+      IsOccupied: 0
+    - Position: {x: 54.256527, y: 14.006999}
+      IsOccupied: 0
+    - Position: {x: 52.970814, y: 14.006999}
+      IsOccupied: 0
+    - Position: {x: 54.256527, y: 12.106999}
+      IsOccupied: 0
+    - Position: {x: 52.970814, y: 12.106999}
+      IsOccupied: 0
+    - Position: {x: 58.11367, y: 14.004999}
+      IsOccupied: 0
+    - Position: {x: 60.685097, y: 14.014999}
+      IsOccupied: 0
+  - Price: 90
+    SectionName: OralCare
     Tag: 
     Slots:
     - Position: {x: 60.685097, y: 16.640366}
@@ -793,65 +973,65 @@ MonoBehaviour:
     SectionName: DogFood
     Tag: 
     Slots:
-    - Position: {x: 19.6, y: -17.45}
+    - Position: {x: 19.6, y: -10.179634}
       IsOccupied: 0
-    - Position: {x: 18.314285, y: -17.44}
+    - Position: {x: 18.314285, y: -10.169634}
       IsOccupied: 0
-    - Position: {x: 14.457144, y: -15.5}
+    - Position: {x: 14.457144, y: -8.229634}
       IsOccupied: 0
-    - Position: {x: 18.314285, y: -15.5}
+    - Position: {x: 18.314285, y: -8.229634}
       IsOccupied: 0
-    - Position: {x: 15.742858, y: -15.5199995}
+    - Position: {x: 15.742858, y: -8.249634}
       IsOccupied: 0
-    - Position: {x: 17.028572, y: -17.413}
+    - Position: {x: 17.028572, y: -10.142634}
       IsOccupied: 0
-    - Position: {x: 15.742858, y: -17.413}
+    - Position: {x: 15.742858, y: -10.142634}
       IsOccupied: 0
-    - Position: {x: 14.457144, y: -17.413}
+    - Position: {x: 14.457144, y: -10.142634}
       IsOccupied: 0
-    - Position: {x: 13.171429, y: -15.5130005}
+    - Position: {x: 13.171429, y: -8.242635}
       IsOccupied: 0
-    - Position: {x: 11.885715, y: -15.5130005}
+    - Position: {x: 11.885715, y: -8.242635}
       IsOccupied: 0
-    - Position: {x: 13.171429, y: -17.413}
+    - Position: {x: 13.171429, y: -10.142634}
       IsOccupied: 0
-    - Position: {x: 11.885715, y: -17.413}
+    - Position: {x: 11.885715, y: -10.142634}
       IsOccupied: 0
-    - Position: {x: 17.028572, y: -15.515}
+    - Position: {x: 17.028572, y: -8.244635}
       IsOccupied: 0
-    - Position: {x: 19.6, y: -15.505}
+    - Position: {x: 19.6, y: -8.234634}
       IsOccupied: 0
   - Price: 290
     SectionName: CatFood
     Tag: 
     Slots:
-    - Position: {x: 19.6, y: -13.739634}
+    - Position: {x: 19.6, y: -6.469268}
       IsOccupied: 0
-    - Position: {x: 18.314285, y: -13.729633}
+    - Position: {x: 18.314285, y: -6.459268}
       IsOccupied: 0
-    - Position: {x: 14.457144, y: -11.789634}
+    - Position: {x: 14.457144, y: -4.5192676}
       IsOccupied: 0
-    - Position: {x: 18.314285, y: -11.789634}
+    - Position: {x: 18.314285, y: -4.5192685}
       IsOccupied: 0
-    - Position: {x: 15.742858, y: -11.809633}
+    - Position: {x: 15.742858, y: -4.5392675}
       IsOccupied: 0
-    - Position: {x: 17.028572, y: -13.702634}
+    - Position: {x: 17.028572, y: -6.432268}
       IsOccupied: 0
-    - Position: {x: 15.742858, y: -13.702634}
+    - Position: {x: 15.742858, y: -6.432268}
       IsOccupied: 0
-    - Position: {x: 14.457144, y: -13.702634}
+    - Position: {x: 14.457144, y: -6.432268}
       IsOccupied: 0
-    - Position: {x: 13.171429, y: -11.802634}
+    - Position: {x: 13.171429, y: -4.5322685}
       IsOccupied: 0
-    - Position: {x: 11.885715, y: -11.802634}
+    - Position: {x: 11.885715, y: -4.5322685}
       IsOccupied: 0
-    - Position: {x: 13.171429, y: -13.702634}
+    - Position: {x: 13.171429, y: -6.432268}
       IsOccupied: 0
-    - Position: {x: 11.885715, y: -13.702634}
+    - Position: {x: 11.885715, y: -6.432268}
       IsOccupied: 0
-    - Position: {x: 17.028572, y: -11.804634}
+    - Position: {x: 17.028572, y: -4.534268}
       IsOccupied: 0
-    - Position: {x: 19.6, y: -11.794634}
+    - Position: {x: 19.6, y: -4.524268}
       IsOccupied: 0
   - Price: 650
     SectionName: Diapers
@@ -1049,197 +1229,304 @@ MonoBehaviour:
     SectionName: CookingOil
     Tag: 
     Slots:
-    - Position: {x: 60.949867, y: -7.75}
+    - Position: {x: 60.949867, y: -5.3}
       IsOccupied: 0
-    - Position: {x: 59.664154, y: -7.7400002}
+    - Position: {x: 59.664154, y: -5.2900004}
       IsOccupied: 0
-    - Position: {x: 55.80701, y: -5.7999997}
+    - Position: {x: 55.80701, y: -3.35}
       IsOccupied: 0
-    - Position: {x: 59.664154, y: -5.8000007}
+    - Position: {x: 59.664154, y: -3.3500009}
       IsOccupied: 0
-    - Position: {x: 57.092728, y: -5.8199997}
+    - Position: {x: 57.092728, y: -3.37}
       IsOccupied: 0
-    - Position: {x: 58.37844, y: -7.7130003}
+    - Position: {x: 58.37844, y: -5.2630005}
       IsOccupied: 0
-    - Position: {x: 57.092728, y: -7.7130003}
+    - Position: {x: 57.092728, y: -5.2630005}
       IsOccupied: 0
-    - Position: {x: 55.80701, y: -7.7130003}
+    - Position: {x: 55.80701, y: -5.2630005}
       IsOccupied: 0
-    - Position: {x: 54.521297, y: -5.8130007}
+    - Position: {x: 54.521297, y: -3.3630009}
       IsOccupied: 0
-    - Position: {x: 53.235584, y: -5.8130007}
+    - Position: {x: 53.235584, y: -3.3630009}
       IsOccupied: 0
-    - Position: {x: 54.521297, y: -7.7130003}
+    - Position: {x: 54.521297, y: -5.2630005}
       IsOccupied: 0
-    - Position: {x: 53.235584, y: -7.7130003}
+    - Position: {x: 53.235584, y: -5.2630005}
       IsOccupied: 0
-    - Position: {x: 58.37844, y: -5.815}
+    - Position: {x: 58.37844, y: -3.3650002}
       IsOccupied: 0
-    - Position: {x: 60.949867, y: -5.8050003}
+    - Position: {x: 60.949867, y: -3.3550005}
       IsOccupied: 0
   - Price: 130
     SectionName: CannedFood
     Tag: 
     Slots:
-    - Position: {x: 61.089996, y: -13.24}
+    - Position: {x: 61.089996, y: -10.79}
       IsOccupied: 0
-    - Position: {x: 59.804283, y: -13.23}
+    - Position: {x: 59.804283, y: -10.78}
       IsOccupied: 0
-    - Position: {x: 55.94714, y: -11.29}
+    - Position: {x: 55.94714, y: -8.84}
       IsOccupied: 0
-    - Position: {x: 59.804283, y: -11.29}
+    - Position: {x: 59.804283, y: -8.84}
       IsOccupied: 0
-    - Position: {x: 57.232857, y: -11.309999}
+    - Position: {x: 57.232857, y: -8.86}
       IsOccupied: 0
-    - Position: {x: 58.51857, y: -13.203}
+    - Position: {x: 58.51857, y: -10.753}
       IsOccupied: 0
-    - Position: {x: 57.232857, y: -13.203}
+    - Position: {x: 57.232857, y: -10.753}
       IsOccupied: 0
-    - Position: {x: 55.94714, y: -13.203}
+    - Position: {x: 55.94714, y: -10.753}
       IsOccupied: 0
-    - Position: {x: 54.661427, y: -11.303}
+    - Position: {x: 54.661427, y: -8.853001}
       IsOccupied: 0
-    - Position: {x: 53.375713, y: -11.303}
+    - Position: {x: 53.375713, y: -8.853001}
       IsOccupied: 0
-    - Position: {x: 54.661427, y: -13.203}
+    - Position: {x: 54.661427, y: -10.753}
       IsOccupied: 0
-    - Position: {x: 53.375713, y: -13.203}
+    - Position: {x: 53.375713, y: -10.753}
       IsOccupied: 0
-    - Position: {x: 58.51857, y: -11.305}
+    - Position: {x: 58.51857, y: -8.8550005}
       IsOccupied: 0
-    - Position: {x: 61.089996, y: -11.295}
+    - Position: {x: 61.089996, y: -8.845}
       IsOccupied: 0
   - Price: 180
     SectionName: Cereals
     Tag: 
     Slots:
-    - Position: {x: 61.089996, y: -18.69}
+    - Position: {x: 61.089996, y: -16.24}
       IsOccupied: 0
-    - Position: {x: 59.804283, y: -18.68}
+    - Position: {x: 59.804283, y: -16.23}
       IsOccupied: 0
-    - Position: {x: 55.94714, y: -16.74}
+    - Position: {x: 55.94714, y: -14.29}
       IsOccupied: 0
-    - Position: {x: 59.804283, y: -16.74}
+    - Position: {x: 59.804283, y: -14.29}
       IsOccupied: 0
-    - Position: {x: 57.232857, y: -16.76}
+    - Position: {x: 57.232857, y: -14.309999}
       IsOccupied: 0
-    - Position: {x: 58.51857, y: -18.653}
+    - Position: {x: 58.51857, y: -16.203}
       IsOccupied: 0
-    - Position: {x: 57.232857, y: -18.653}
+    - Position: {x: 57.232857, y: -16.203}
       IsOccupied: 0
-    - Position: {x: 55.94714, y: -18.653}
+    - Position: {x: 55.94714, y: -16.203}
       IsOccupied: 0
-    - Position: {x: 54.661427, y: -16.753}
+    - Position: {x: 54.661427, y: -14.303}
       IsOccupied: 0
-    - Position: {x: 53.375713, y: -16.753}
+    - Position: {x: 53.375713, y: -14.303}
       IsOccupied: 0
-    - Position: {x: 54.661427, y: -18.653}
+    - Position: {x: 54.661427, y: -16.203}
       IsOccupied: 0
-    - Position: {x: 53.375713, y: -18.653}
+    - Position: {x: 53.375713, y: -16.203}
       IsOccupied: 0
-    - Position: {x: 58.51857, y: -16.755}
+    - Position: {x: 58.51857, y: -14.305}
       IsOccupied: 0
-    - Position: {x: 61.089996, y: -16.744999}
+    - Position: {x: 61.089996, y: -14.295}
+      IsOccupied: 0
+  - Price: 50
+    SectionName: Eat_Samosa
+    Tag: 
+    Slots:
+    - Position: {x: -46.979992, y: -9.534287}
+      IsOccupied: 0
+    - Position: {x: -46.08999, y: -9.020004}
+      IsOccupied: 0
+    - Position: {x: -46.975002, y: -12.277145}
+      IsOccupied: 0
+    - Position: {x: -46.09, y: -11.870005}
+      IsOccupied: 0
+    - Position: {x: -46.97499, y: -8.620002}
+      IsOccupied: 0
+    - Position: {x: -46.089996, y: -10.920005}
+      IsOccupied: 0
+    - Position: {x: -46.975002, y: -13.191431}
+      IsOccupied: 0
+    - Position: {x: -46.090004, y: -13.770005}
+      IsOccupied: 0
+    - Position: {x: -46.97501, y: -15.020002}
+      IsOccupied: 0
+    - Position: {x: -46.090008, y: -14.720005}
+      IsOccupied: 0
+    - Position: {x: -46.975, y: -11.36286}
+      IsOccupied: 0
+    - Position: {x: -46.089993, y: -9.970005}
+      IsOccupied: 0
+    - Position: {x: -46.969994, y: -10.448573}
+      IsOccupied: 0
+    - Position: {x: -46.08, y: -12.820005}
+      IsOccupied: 0
+    - Position: {x: -46.975006, y: -14.105717}
+      IsOccupied: 0
+  - Price: 50
+    SectionName: Eat_ChickenPuff
+    Tag: 
+    Slots:
+    - Position: {x: -46.979992, y: -18.794289}
+      IsOccupied: 0
+    - Position: {x: -46.08999, y: -18.280005}
+      IsOccupied: 0
+    - Position: {x: -46.975002, y: -21.537146}
+      IsOccupied: 0
+    - Position: {x: -46.09, y: -21.130005}
+      IsOccupied: 0
+    - Position: {x: -46.97499, y: -17.880001}
+      IsOccupied: 0
+    - Position: {x: -46.089996, y: -20.180004}
+      IsOccupied: 0
+    - Position: {x: -46.975002, y: -22.451431}
+      IsOccupied: 0
+    - Position: {x: -46.090004, y: -23.030006}
+      IsOccupied: 0
+    - Position: {x: -46.97501, y: -24.280003}
+      IsOccupied: 0
+    - Position: {x: -46.090008, y: -23.980005}
+      IsOccupied: 0
+    - Position: {x: -46.975, y: -20.62286}
+      IsOccupied: 0
+    - Position: {x: -46.089993, y: -19.230005}
+      IsOccupied: 0
+    - Position: {x: -46.969994, y: -19.708574}
+      IsOccupied: 0
+    - Position: {x: -46.08, y: -22.080006}
+      IsOccupied: 0
+    - Position: {x: -46.975006, y: -23.365717}
+      IsOccupied: 0
+  - Price: 70
+    SectionName: Eat_Panipuri
+    Tag: 
+    Slots:
+    - Position: {x: -45.713997, y: -27.144009}
+      IsOccupied: 0
+    - Position: {x: -46.461998, y: -27.677006}
+      IsOccupied: 0
+    - Position: {x: -45.724995, y: -26.214008}
+      IsOccupied: 0
+    - Position: {x: -46.462, y: -28.591007}
+      IsOccupied: 0
+    - Position: {x: -45.733, y: -28.94701}
+      IsOccupied: 0
+    - Position: {x: -46.461998, y: -26.763006}
+      IsOccupied: 0
+    - Position: {x: -46.456993, y: -25.849007}
+      IsOccupied: 0
+    - Position: {x: -45.733, y: -28.033009}
+      IsOccupied: 0
+  - Price: 70
+    SectionName: Eat_Bhelpuri
+    Tag: 
+    Slots:
+    - Position: {x: -40.253998, y: -27.304005}
+      IsOccupied: 0
+    - Position: {x: -41.002, y: -27.837002}
+      IsOccupied: 0
+    - Position: {x: -40.264996, y: -26.374004}
+      IsOccupied: 0
+    - Position: {x: -41.002003, y: -28.751003}
+      IsOccupied: 0
+    - Position: {x: -40.273003, y: -29.107006}
+      IsOccupied: 0
+    - Position: {x: -41.002, y: -26.923002}
+      IsOccupied: 0
+    - Position: {x: -40.996994, y: -26.009003}
+      IsOccupied: 0
+    - Position: {x: -40.273003, y: -28.193005}
       IsOccupied: 0
   - Price: 140
     SectionName: Tea
     Tag: 
     Slots:
-    - Position: {x: 49.119972, y: -10.251294}
+    - Position: {x: 49.119972, y: -7.5141935}
       IsOccupied: 0
-    - Position: {x: 49.10998, y: -11.537008}
+    - Position: {x: 49.10998, y: -8.799908}
       IsOccupied: 0
-    - Position: {x: 47.170006, y: -15.394165}
+    - Position: {x: 47.170006, y: -12.657064}
       IsOccupied: 0
-    - Position: {x: 47.169983, y: -11.537022}
+    - Position: {x: 47.169983, y: -8.799921}
       IsOccupied: 0
-    - Position: {x: 47.19, y: -14.10845}
+    - Position: {x: 47.19, y: -11.371349}
       IsOccupied: 0
-    - Position: {x: 49.08299, y: -12.822723}
+    - Position: {x: 49.08299, y: -10.085623}
       IsOccupied: 0
-    - Position: {x: 49.082996, y: -14.108438}
+    - Position: {x: 49.082996, y: -11.371337}
       IsOccupied: 0
-    - Position: {x: 49.083008, y: -15.394152}
+    - Position: {x: 49.083008, y: -12.657051}
       IsOccupied: 0
-    - Position: {x: 47.183014, y: -16.679878}
+    - Position: {x: 47.183014, y: -13.942779}
       IsOccupied: 0
-    - Position: {x: 47.183025, y: -17.965593}
+    - Position: {x: 47.183025, y: -15.228493}
       IsOccupied: 0
-    - Position: {x: 49.083015, y: -16.679867}
+    - Position: {x: 49.083015, y: -13.942766}
       IsOccupied: 0
-    - Position: {x: 49.083023, y: -17.96558}
+    - Position: {x: 49.083023, y: -15.22848}
       IsOccupied: 0
-    - Position: {x: 47.18499, y: -12.822736}
+    - Position: {x: 47.18499, y: -10.085635}
       IsOccupied: 0
-    - Position: {x: 47.174973, y: -10.251307}
+    - Position: {x: 47.174973, y: -7.5142064}
       IsOccupied: 0
   - Price: 220
     SectionName: Coffee
     Tag: 
     Slots:
-    - Position: {x: 49.119972, y: -0.41999388}
+    - Position: {x: 49.119972, y: 2.6564064}
       IsOccupied: 0
-    - Position: {x: 49.10998, y: -1.7057085}
+    - Position: {x: 49.10998, y: 1.3706917}
       IsOccupied: 0
-    - Position: {x: 47.170006, y: -5.5628643}
+    - Position: {x: 47.170006, y: -2.4864643}
       IsOccupied: 0
-    - Position: {x: 47.169983, y: -1.7057214}
+    - Position: {x: 47.169983, y: 1.3706788}
       IsOccupied: 0
-    - Position: {x: 47.19, y: -4.27715}
+    - Position: {x: 47.19, y: -1.2007498}
       IsOccupied: 0
-    - Position: {x: 49.08299, y: -2.991423}
+    - Position: {x: 49.08299, y: 0.08497727}
       IsOccupied: 0
-    - Position: {x: 49.082996, y: -4.2771373}
+    - Position: {x: 49.082996, y: -1.2007372}
       IsOccupied: 0
-    - Position: {x: 49.083008, y: -5.562852}
+    - Position: {x: 49.083008, y: -2.4864516}
       IsOccupied: 0
-    - Position: {x: 47.183014, y: -6.848579}
+    - Position: {x: 47.183014, y: -3.7721786}
       IsOccupied: 0
-    - Position: {x: 47.183025, y: -8.134293}
+    - Position: {x: 47.183025, y: -5.057893}
       IsOccupied: 0
-    - Position: {x: 49.083015, y: -6.848566}
+    - Position: {x: 49.083015, y: -3.7721663}
       IsOccupied: 0
-    - Position: {x: 49.083023, y: -8.13428}
+    - Position: {x: 49.083023, y: -5.0578804}
       IsOccupied: 0
-    - Position: {x: 47.18499, y: -2.9914355}
+    - Position: {x: 47.18499, y: 0.08496463}
       IsOccupied: 0
-    - Position: {x: 47.174973, y: -0.42000675}
+    - Position: {x: 47.174973, y: 2.6563935}
       IsOccupied: 0
   - Price: 0
     SectionName: InstantNoodles
     Tag: 
     Slots:
-    - Position: {x: -44.120026, y: 14.241307}
+    - Position: {x: 53.079998, y: 6.3299932}
       IsOccupied: 0
-    - Position: {x: -44.130016, y: 12.955593}
+    - Position: {x: 54.36571, y: 6.3199954}
       IsOccupied: 0
-    - Position: {x: -46.069992, y: 9.098436}
+    - Position: {x: 58.22286, y: 4.380002}
       IsOccupied: 0
-    - Position: {x: -46.070015, y: 12.95558}
+    - Position: {x: 54.365715, y: 4.379996}
       IsOccupied: 0
-    - Position: {x: -46.05, y: 10.384151}
+    - Position: {x: 56.937145, y: 4.3999996}
       IsOccupied: 0
-    - Position: {x: -44.15701, y: 11.669878}
+    - Position: {x: 55.65143, y: 6.292998}
       IsOccupied: 0
-    - Position: {x: -44.157, y: 10.384164}
+    - Position: {x: 56.93714, y: 6.293}
       IsOccupied: 0
-    - Position: {x: -44.15699, y: 9.09845}
+    - Position: {x: 58.222855, y: 6.293002}
       IsOccupied: 0
-    - Position: {x: -46.056984, y: 7.812722}
+    - Position: {x: 59.50857, y: 4.393005}
       IsOccupied: 0
-    - Position: {x: -46.056973, y: 6.527008}
+    - Position: {x: 60.79429, y: 4.3930073}
       IsOccupied: 0
-    - Position: {x: -44.156982, y: 7.8127346}
+    - Position: {x: 59.508568, y: 6.2930045}
       IsOccupied: 0
-    - Position: {x: -44.156975, y: 6.5270205}
+    - Position: {x: 60.794285, y: 6.293007}
       IsOccupied: 0
-    - Position: {x: -46.055008, y: 11.669866}
+    - Position: {x: 55.651432, y: 4.3949976}
       IsOccupied: 0
-    - Position: {x: -46.065025, y: 14.241295}
+    - Position: {x: 53.08, y: 4.384993}
       IsOccupied: 0
   ExitLocations:
   - {x: -24.2, y: -40.105}
-  - {x: -43.7, y: -40.095005}
   CheckoutCounters:
   - QueueSlots:
     - Position: {x: -29.158283, y: -32.33}
