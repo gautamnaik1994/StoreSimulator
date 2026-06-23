@@ -69,8 +69,6 @@ MonoBehaviour:
     price: 85
   - productName: BabyCare
     price: 180
-  - productName: MensClothing
-    price: 799
   - productName: KidsClothing
     price: 450
   - productName: Shoes
@@ -81,8 +79,6 @@ MonoBehaviour:
     price: 290
   - productName: Diapers
     price: 650
-  - productName: WomensClothing
-    price: 899
   - productName: Books
     price: 299
   - productName: Magazines
@@ -123,3 +119,25 @@ MonoBehaviour:
     price: 70
   - productName: Eat_Bhelpuri
     price: 70
+  - productName: KitchenUtensils
+    price: 350
+  - productName: WaterBottles
+    price: 150
+  - productName: InstantNoodles
+    price: 50
+  - productName: MensTshirt
+    price: 400
+  - productName: Activewear
+    price: 1100
+  - productName: MensJeans
+    price: 1200
+  - productName: MensFormals
+    price: 1500
+  - productName: WomensKurti
+    price: 600
+  - productName: WomensJeans
+    price: 1200
+  - productName: Saree
+    price: 800
+  - productName: WomensEthnicSet
+    price: 1600

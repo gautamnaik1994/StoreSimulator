@@ -12,9 +12,9 @@ NavMeshProjectSettings:
   - name: Jump
     cost: 2
   - name: Shortcut
-    cost: 10
-  - name: 
-    cost: 1
+    cost: 15
+  - name: Divert
+    cost: 4
   - name: 
     cost: 1
   - name: 

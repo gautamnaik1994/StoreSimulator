@@ -22,6 +22,11 @@ public class LayoutBaker : MonoBehaviour
         layoutAsset.HoldingAreas.Clear();
 
         productDB = Resources.Load<ProductDatabase>("ProductDatabase");
+        // print out all product names and prices in the database to verify it's loading correctly
+        Debug.Log("Loaded Product Database:");
+        string productList = string.Join(", ", productDB.products.Select(p => $"\"{p.productName}\" (Price: {p.price})"));
+        Debug.Log(productList);
+
 
 
         // Loop through all top-level children of this GameObject (e.g., "Milk Section", "Cereal Isle")

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.Audio;
 public class CameraController : MonoBehaviour
 {
     [Header("Input Action Asset Reference")]
@@ -28,6 +28,9 @@ public class CameraController : MonoBehaviour
     private InputAction zoomAction;
     private InputAction panScrollAction;
     private InputAction toggleFollowAction;
+
+    [Header("Audio Setup")]
+    [SerializeField] private AudioMixer audioMixer;
 
     private bool isMousePanning = false;
 
@@ -193,6 +196,25 @@ public class CameraController : MonoBehaviour
         float sensitivity = Mathf.Abs(scrollValue) < 1f ? trackpadZoomSensitivity : mouseZoomSensitivity;
         float newZoom = cam.orthographicSize - (scrollValue * sensitivity);
         cam.orthographicSize = Mathf.Clamp(newZoom, minZoom, maxZoom);
+
+
+
+        // 1. Get the current camera zoom ratio (0 = fully zoomed in, 1 = fully zoomed out)
+        float currentZoomFactor = (cam.orthographicSize - minZoom) / (maxZoom - minZoom);
+        currentZoomFactor = Mathf.Clamp01(currentZoomFactor);
+
+        // 2. Calculate Decibel values 
+        // Logarithmic scaling is mathematically required because audio volume in decibels (dB) isn't linear.
+        // -80f is completely silent, 0f is full volume.
+
+        // When zoomed OUT (factor -> 1), Music is full (0dB), Crowd is quiet (-20dB)
+        // When zoomed IN (factor -> 0), Music ducks (-12dB), Crowd is full (0dB)
+        float musicTargetDb = Mathf.Lerp(-25f, 0f, currentZoomFactor);
+        float crowdTargetDb = Mathf.Lerp(0f, -40f, currentZoomFactor);
+
+        // 3. Apply to the Mixer exposed parameters
+        audioMixer.SetFloat("MusicVol", musicTargetDb);
+        audioMixer.SetFloat("EnvVol", crowdTargetDb);
 
     }
 

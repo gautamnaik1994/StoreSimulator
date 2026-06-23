@@ -55,19 +55,19 @@
                     <ui:VisualElement class="details-holder">
                         <ui:VisualElement class="detail-value-box">
                             <ui:Label text="Shopping List" class="item-label"/>
-                            <ui:Label text="Chocolate, Milk, Bread" name="shoppingList" class=""/>
+                            <ui:Label text="Chocolate, Milk, Bread" name="shoppingList" class="white-space-normal"/>
                         </ui:VisualElement>
                         <ui:VisualElement class="detail-value-box">
                             <ui:Label text="Impulse List" class="item-label"/>
-                            <ui:Label text="Ice Cream, Candy" name="impulseList" class=""/>
+                            <ui:Label text="Ice Cream, Candy" name="impulseList" class="white-space-normal"/>
                         </ui:VisualElement>
                         <ui:VisualElement class="detail-value-box">
                             <ui:Label text="Costly Items" class="item-label"/>
-                            <ui:Label text="Laptop, Phone" name="costlyItems" class=""/>
+                            <ui:Label text="Laptop, Phone" name="costlyItems" class="white-space-normal"/>
                         </ui:VisualElement>
                         <ui:VisualElement class="detail-value-box">
                             <ui:Label text="Cart Contents" class="item-label"/>
-                            <ui:Label text="Chocolate, Milk, Bread" name="cartContents" class=""/>
+                            <ui:Label text="Chocolate, Milk, Bread" name="cartContents" class="white-space-normal"/>
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement class="horizontal-divider"/>

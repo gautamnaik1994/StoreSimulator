@@ -339,3 +339,7 @@
 .unity-list-view__item:hover {
     background-color: transparent;
 }
+
+.white-space-normal {
+    white-space: normal;
+}
