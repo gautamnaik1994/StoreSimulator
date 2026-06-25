@@ -109,6 +109,8 @@ public class AgentMovementEnhanced : MonoBehaviour
 
     public int agentID; // Unique identifier for the agent, can be set in the Inspector or assigned programmatically
 
+    private List<ProductSection> shoppingListBackup = new List<ProductSection>(); // Backup of the original shopping list for reference
+
     void Awake()
     {
         agentStateColors = new Dictionary<AgentState, Color>()
@@ -163,6 +165,16 @@ public class AgentMovementEnhanced : MonoBehaviour
         AgentGender = persona.demographics.gender;
         AgentIncomeLevel = persona.demographics.income_level;
         AgentProfession = persona.demographics.profession;
+
+        shoppingListBackup = new List<ProductSection>();
+        foreach (string itemName in shoppingList)
+        {
+            ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == itemName);
+            if (section != null)
+            {
+                shoppingListBackup.Add(section);
+            }
+        }
 
         ChangeState(AgentState.Evaluating);
         ChangeMood(AgentMood.Neutral);
@@ -740,9 +752,32 @@ public class AgentMovementEnhanced : MonoBehaviour
     }
 
     // function to buy random Point of Interest (POI) products that are not on the shopping list or impulse favorites based on a probability roll, and update the cart and total money spent accordingly
-    public void BuyRandomPOIProduct(string poiSectionName, int poiPrice)
+    public void BuyRandomPOIProduct(string poiSectionName, string poiTag, int poiPrice)
     {
         float probabilityRoll = Random.value; // Generate a random float between 0 and 1
+        // check if product in Cart has a tag that matches the POI tag so that user can buy the related POI product
+
+        // search for ProductSection in ShoppingList that has a tag that matches the POI tag so that user can buy the related POI product
+        // foreach (string item in shoppingList)
+        // {
+        //     ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == item);
+        //     if (section != null && section.ProductCategory == poiTag)
+        //     {
+        //         probabilityRoll *= 0.5f; // Reduce the probability of buying the POI product if a related product is already in the shopping list
+        //         break;
+        //     }
+        // }
+
+        if (shoppingListBackup.Exists(item => item.ProductCategory == poiTag))
+        {
+            probabilityRoll *= 0.5f; // Reduce the probability of buying the POI product if a related product is already in the shopping list
+        }
+
+        if (cartItems.Exists(item => item.ProductCategory == poiTag))
+        {
+            probabilityRoll *= 0.2f; // Reduce the probability of buying the POI product if a related product is already in the cart
+        }
+
         if (probabilityRoll < impulseProbability)
         {
             // Check if the agent can afford the product

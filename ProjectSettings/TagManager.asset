@@ -8,6 +8,17 @@ TagManager:
   - Exit
   - Checkout
   - Holding
+  - Frozen
+  - FreshProduce
+  - DairyChilled
+  - MeatSeafood
+  - GroceryPantry
+  - Beverages
+  - PersonalCare
+  - Household
+  - Apparel
+  - EntertainmentHome
+  - ImmediateFood
   layers:
   - Default
   - TransparentFX

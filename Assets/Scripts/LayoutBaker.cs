@@ -86,7 +86,8 @@ public class LayoutBaker : MonoBehaviour
             ProductSection newSection = new ProductSection
             {
                 SectionName = sectionTransform.name,
-                Price = productDB[sectionTransform.name].price
+                Price = productDB[sectionTransform.name].price,
+                ProductCategory = sectionTransform.tag // Use the tag as the product category
             };
             Debug.Log($"Product section '{sectionTransform.name}' price'{productDB[sectionTransform.name].price}'");
 

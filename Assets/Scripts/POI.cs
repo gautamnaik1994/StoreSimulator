@@ -13,6 +13,8 @@ public class POI : MonoBehaviour
     public float pauseDuration = 5f;
     public float radiusControlInfluence = 0.15f;
 
+    private string poiTag;
+
     [Header("Smoothness")]
     [Tooltip("Higher numbers mean faster transitions. Try values between 2 and 10.")]
     public float shrinkGrowSpeed = 5f;
@@ -40,6 +42,7 @@ public class POI : MonoBehaviour
 
         originalVisualScaleX = visualSpriteChild.localScale.x;
         targetScale = originalVisualScaleX; // Start at full size
+        poiTag = gameObject.tag; // Store the tag for later use
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -129,7 +132,7 @@ public class POI : MonoBehaviour
     private System.Collections.IEnumerator PauseAgent(AgentMovementEnhanced agent)
     {
         agent.PauseAgent(); // Use the new method to safely pause movement
-        agent.BuyRandomPOIProduct(POIName, price); // Trigger the purchase action
+        agent.BuyRandomPOIProduct(POIName, poiTag, price); // Trigger the purchase action
         yield return new WaitForSeconds(pauseDuration);
         agent.UnPauseAgent(); // Use the new method to safely resume movement
     }

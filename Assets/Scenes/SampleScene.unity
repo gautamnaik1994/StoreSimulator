@@ -712,6 +712,10 @@ PrefabInstance:
       value: Fruits
       objectReference: {fileID: 0}
     - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
+      propertyPath: m_TagString
+      value: FreshProduce
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -760,6 +764,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: Stationery
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -858,6 +866,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
       value: SmallPoi (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: m_TagString
+      value: Frozen
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
@@ -1051,7 +1063,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: m_Name
-      value: Latest_Phone
+      value: New_Oven
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
@@ -1418,6 +1434,10 @@ PrefabInstance:
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_Name
       value: SoftDrink
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
+      propertyPath: m_TagString
+      value: Beverages
       objectReference: {fileID: 0}
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1822,6 +1842,10 @@ PrefabInstance:
       value: Cereals
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: GroceryPantry
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2067,6 +2091,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: m_Name
       value: Special Basmati Rice
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: GroceryPantry
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
@@ -2513,6 +2541,10 @@ PrefabInstance:
       value: Activewear
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Apparel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2746,6 +2778,10 @@ PrefabInstance:
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_Name
       value: Toys
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
       objectReference: {fileID: 0}
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3332,6 +3368,10 @@ PrefabInstance:
       value: Vegetables
       objectReference: {fileID: 0}
     - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
+      propertyPath: m_TagString
+      value: FreshProduce
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -3587,6 +3627,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: m_Name
       value: New Raincoat
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: Household
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
@@ -3973,6 +4017,10 @@ PrefabInstance:
       value: Wheat
       objectReference: {fileID: 0}
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
+      propertyPath: m_TagString
+      value: GroceryPantry
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -4335,6 +4383,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: Tea
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Beverages
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5361,6 +5413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Special_Strawberries
       objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: FreshProduce
+      objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
       value: 250
@@ -5803,6 +5859,10 @@ PrefabInstance:
       value: Shoes
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Apparel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6001,6 +6061,10 @@ PrefabInstance:
       value: Seafood
       objectReference: {fileID: 0}
     - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
+      propertyPath: m_TagString
+      value: MeatSeafood
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6049,6 +6113,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: Toiletries
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: PersonalCare
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6605,6 +6673,10 @@ PrefabInstance:
       value: CookingOil
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: GroceryPantry
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6857,6 +6929,10 @@ PrefabInstance:
     - target: {fileID: 9129503139910842316, guid: 8c88aac56cb394325bef7b39604f0dc8, type: 3}
       propertyPath: m_Name
       value: LargeIceCream
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129503139910842316, guid: 8c88aac56cb394325bef7b39604f0dc8, type: 3}
+      propertyPath: m_TagString
+      value: Frozen
       objectReference: {fileID: 0}
     - target: {fileID: 9129503139910842316, guid: 8c88aac56cb394325bef7b39604f0dc8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7333,6 +7409,10 @@ PrefabInstance:
       value: CatFood
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7652,6 +7732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: New Clothing Lauch
       objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
       value: 1500
@@ -7741,6 +7825,10 @@ PrefabInstance:
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_Name
       value: Juice
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
+      propertyPath: m_TagString
+      value: Beverages
       objectReference: {fileID: 0}
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8033,6 +8121,10 @@ PrefabInstance:
       value: FrozenMeat
       objectReference: {fileID: 0}
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
+      propertyPath: m_TagString
+      value: Frozen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -8182,6 +8274,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: m_Name
       value: New_Biscuit_Launch (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: ImmediateFood
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
@@ -10315,6 +10411,10 @@ PrefabInstance:
       value: MensJeans
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Apparel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10606,6 +10706,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
       value: SmallPoi (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: m_TagString
+      value: PersonalCare
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
@@ -10973,6 +11077,10 @@ PrefabInstance:
       value: WaterBottles
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Beverages
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11069,6 +11177,10 @@ PrefabInstance:
     - target: {fileID: 448549451127669782, guid: a01922f73831b48e19db2dcd91e49781, type: 3}
       propertyPath: m_Name
       value: Eat_ChickenPuff
+      objectReference: {fileID: 0}
+    - target: {fileID: 448549451127669782, guid: a01922f73831b48e19db2dcd91e49781, type: 3}
+      propertyPath: m_TagString
+      value: ImmediateFood
       objectReference: {fileID: 0}
     - target: {fileID: 1497307913297907505, guid: a01922f73831b48e19db2dcd91e49781, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11205,6 +11317,10 @@ PrefabInstance:
       value: Rice
       objectReference: {fileID: 0}
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
+      propertyPath: m_TagString
+      value: GroceryPantry
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11237,6 +11353,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: m_Name
       value: 'New Umbrella '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: Household
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
@@ -11401,6 +11521,10 @@ PrefabInstance:
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_Name
       value: FrozenChicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
+      propertyPath: m_TagString
+      value: Frozen
       objectReference: {fileID: 0}
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11578,6 +11702,10 @@ PrefabInstance:
       value: Books
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11744,6 +11872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallPoi (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: m_TagString
+      value: ImmediateFood
+      objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
       value: Chewing Gum
@@ -11885,6 +12017,10 @@ PrefabInstance:
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_Name
       value: Cosmetics
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
+      propertyPath: m_TagString
+      value: PersonalCare
       objectReference: {fileID: 0}
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12279,6 +12415,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
       value: SmallPoi (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
@@ -12770,6 +12910,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: MensTshirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Apparel
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13729,6 +13873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallPoi (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
       value: 50
@@ -13806,6 +13954,10 @@ PrefabInstance:
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_Name
       value: Milk
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
+      propertyPath: m_TagString
+      value: DairyChilled
       objectReference: {fileID: 0}
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14193,6 +14345,10 @@ PrefabInstance:
     - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
       propertyPath: m_Name
       value: Bakery
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
+      propertyPath: m_TagString
+      value: GroceryPantry
       objectReference: {fileID: 0}
     - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14637,6 +14793,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: m_Name
       value: New Shoes Launch
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
@@ -15631,6 +15791,10 @@ PrefabInstance:
       value: KitchenUtensils
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Household
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -15751,6 +15915,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: Grains
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: GroceryPantry
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16101,7 +16269,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: m_Name
-      value: Latest_Phone (1)
+      value: Latest_Phone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
@@ -16109,7 +16281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
-      value: New_Phone_Launch
+      value: New_Phone
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: pauseDuration
@@ -16375,6 +16547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drink_Coffee
       objectReference: {fileID: 0}
+    - target: {fileID: 5011788911316123932, guid: f41c5f91632724790ad1f3f0ab369c34, type: 3}
+      propertyPath: m_TagString
+      value: ImmediateFood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16396,6 +16572,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
       value: SmallPoi
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
@@ -16683,6 +16863,10 @@ PrefabInstance:
       value: BoardGames
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -16853,6 +17037,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: m_Name
       value: Electric_Tooth_Brush
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: PersonalCare
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
@@ -17162,6 +17350,10 @@ PrefabInstance:
       value: Diapers
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: PersonalCare
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -17253,6 +17445,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
       value: SmallPoi (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: m_TagString
+      value: Frozen
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
@@ -18448,6 +18644,10 @@ PrefabInstance:
       value: LargeAppliances
       objectReference: {fileID: 0}
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -18593,6 +18793,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
       value: SmallPoi (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
@@ -19133,6 +19337,10 @@ PrefabInstance:
       value: Saree
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Apparel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -19615,6 +19823,10 @@ PrefabInstance:
       value: MensFormals
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Apparel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -19735,6 +19947,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: WomensJeans
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Apparel
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20020,6 +20236,10 @@ PrefabInstance:
       value: GreetingCards
       objectReference: {fileID: 0}
     - target: {fileID: 9129503139910842316, guid: 8c88aac56cb394325bef7b39604f0dc8, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129503139910842316, guid: 8c88aac56cb394325bef7b39604f0dc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -20112,6 +20332,10 @@ PrefabInstance:
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_Name
       value: PartySupplies
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
       objectReference: {fileID: 0}
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20841,6 +21065,10 @@ PrefabInstance:
       value: Chocolates
       objectReference: {fileID: 0}
     - target: {fileID: 9129503139910842316, guid: 8c88aac56cb394325bef7b39604f0dc8, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129503139910842316, guid: 8c88aac56cb394325bef7b39604f0dc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -20933,6 +21161,10 @@ PrefabInstance:
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_Name
       value: SmallAppliances
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
       objectReference: {fileID: 0}
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21151,6 +21383,10 @@ PrefabInstance:
     - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
       propertyPath: m_Name
       value: OrganicGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
+      propertyPath: m_TagString
+      value: FreshProduce
       objectReference: {fileID: 0}
     - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21563,6 +21799,10 @@ PrefabInstance:
       value: DogFood
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -21846,6 +22086,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
       value: SmallPoi (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: m_TagString
+      value: Frozen
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
@@ -22592,6 +22836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eat_Samosa
       objectReference: {fileID: 0}
+    - target: {fileID: 448549451127669782, guid: a01922f73831b48e19db2dcd91e49781, type: 3}
+      propertyPath: m_TagString
+      value: ImmediateFood
+      objectReference: {fileID: 0}
     - target: {fileID: 1497307913297907505, guid: a01922f73831b48e19db2dcd91e49781, type: 3}
       propertyPath: m_LocalPosition.x
       value: -47.8
@@ -23047,6 +23295,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: Detergent
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Household
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -23605,6 +23857,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eat_Bhelpuri
       objectReference: {fileID: 0}
+    - target: {fileID: 3583875602480735055, guid: 1089f92c4bdc24b74801a1c698197108, type: 3}
+      propertyPath: m_TagString
+      value: ImmediateFood
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23923,6 +24179,10 @@ PrefabInstance:
       value: MobilePhones
       objectReference: {fileID: 0}
     - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -23947,6 +24207,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
       value: SmallPoi (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: m_TagString
+      value: DairyChilled
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
@@ -24045,6 +24309,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: WomensKurti
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Apparel
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -24209,6 +24477,10 @@ PrefabInstance:
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_Name
       value: Paneer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
+      propertyPath: m_TagString
+      value: DairyChilled
       objectReference: {fileID: 0}
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25010,6 +25282,10 @@ PrefabInstance:
       value: Magazines
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -25480,6 +25756,10 @@ PrefabInstance:
       value: PersonalCare
       objectReference: {fileID: 0}
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
+      propertyPath: m_TagString
+      value: PersonalCare
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -25717,6 +25997,10 @@ PrefabInstance:
       value: BabyCare
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: PersonalCare
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -25837,6 +26121,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: InstantNoodles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: GroceryPantry
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25962,6 +26250,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: KidsClothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Apparel
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26293,6 +26585,10 @@ PrefabInstance:
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_Name
       value: Butter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
+      propertyPath: m_TagString
+      value: DairyChilled
       objectReference: {fileID: 0}
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26724,6 +27020,10 @@ PrefabInstance:
       value: OralCare
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: PersonalCare
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -26952,6 +27252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: New Babywear Lauch
       objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
       value: 700
@@ -27061,6 +27365,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: CannedFood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: GroceryPantry
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27743,6 +28051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScentedCandles
       objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
+      objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
       value: 250
@@ -27902,6 +28214,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
       value: SmallPoi (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: m_TagString
+      value: PersonalCare
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
@@ -28217,6 +28533,10 @@ PrefabInstance:
       value: WomensEthnicSet
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Apparel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -28337,6 +28657,10 @@ PrefabInstance:
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_Name
       value: Coffee
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
+      propertyPath: m_TagString
+      value: Beverages
       objectReference: {fileID: 0}
     - target: {fileID: 4256056041380409319, guid: bf1521f365b204bd7bdbd2dcc8f2e280, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29871,6 +30195,10 @@ PrefabInstance:
       value: FreshCutMeat
       objectReference: {fileID: 0}
     - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
+      propertyPath: m_TagString
+      value: MeatSeafood
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003345483991861119, guid: e68a7d7908fa14c3d94518f0ca0ca301, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -29958,6 +30286,10 @@ PrefabInstance:
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_Name
       value: Gifts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
+      propertyPath: m_TagString
+      value: EntertainmentHome
       objectReference: {fileID: 0}
     - target: {fileID: 6140991211772556991, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -30058,6 +30390,10 @@ PrefabInstance:
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_Name
       value: FrozenFoods
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
+      propertyPath: m_TagString
+      value: Frozen
       objectReference: {fileID: 0}
     - target: {fileID: 3537137508201750275, guid: 85af58e701a454fe9ae16b0e09bba3d3, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -30221,6 +30557,10 @@ PrefabInstance:
       value: IceCream
       objectReference: {fileID: 0}
     - target: {fileID: 9129503139910842316, guid: 8c88aac56cb394325bef7b39604f0dc8, type: 3}
+      propertyPath: m_TagString
+      value: Frozen
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129503139910842316, guid: 8c88aac56cb394325bef7b39604f0dc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -30240,6 +30580,10 @@ PrefabInstance:
     - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: m_Name
       value: New_Biscuits
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185938543593234654, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: m_TagString
+      value: GroceryPantry
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
@@ -30361,6 +30705,10 @@ PrefabInstance:
     - target: {fileID: 3583875602480735055, guid: 1089f92c4bdc24b74801a1c698197108, type: 3}
       propertyPath: m_Name
       value: Eat_Panipuri
+      objectReference: {fileID: 0}
+    - target: {fileID: 3583875602480735055, guid: 1089f92c4bdc24b74801a1c698197108, type: 3}
+      propertyPath: m_TagString
+      value: ImmediateFood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30533,6 +30881,10 @@ PrefabInstance:
     - target: {fileID: 5011788911316123932, guid: f41c5f91632724790ad1f3f0ab369c34, type: 3}
       propertyPath: m_Name
       value: Drink_Tea
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011788911316123932, guid: f41c5f91632724790ad1f3f0ab369c34, type: 3}
+      propertyPath: m_TagString
+      value: ImmediateFood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
