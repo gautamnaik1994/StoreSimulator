@@ -10,6 +10,8 @@ public class LayoutBaker : MonoBehaviour
     private List<string> all_product_section = new List<string>();
     private ProductDatabase productDB;
 
+    private ProductSectionInfo sectionInfo;
+
     [ContextMenu("Bake Sections and Slots")]
     public void Bake()
     {
@@ -76,20 +78,22 @@ public class LayoutBaker : MonoBehaviour
                         IsOccupied = false
                     };
                     newCounter.QueueSlots.Add(newSlot);
-                    Debug.Log($"Added checkout slot {slotTransform.name} at position {newSlot.Position} to counter '{sectionTransform.name}'");
+                    // Debug.Log($"Added checkout slot {slotTransform.name} at position {newSlot.Position} to counter '{sectionTransform.name}'");
                 }
 
                 layoutAsset.CheckoutCounters.Add(newCounter);
                 continue; // Skip the rest of the loop for this iteration since it's a checkout counter, not a product section
             }
 
+            sectionInfo = sectionTransform.gameObject.GetComponent<ProductSectionInfo>();
+            Debug.Log($"Section '{sectionTransform.name}' has price '{sectionInfo.Price}'");
             ProductSection newSection = new ProductSection
             {
                 SectionName = sectionTransform.name,
                 Price = productDB[sectionTransform.name].price,
                 ProductCategory = sectionTransform.tag // Use the tag as the product category
             };
-            Debug.Log($"Product section '{sectionTransform.name}' price'{productDB[sectionTransform.name].price}'");
+            // Debug.Log($"Product section '{sectionTransform.name}' price'{productDB[sectionTransform.name].price}'");
 
             all_product_section.Add(sectionTransform.name);
 

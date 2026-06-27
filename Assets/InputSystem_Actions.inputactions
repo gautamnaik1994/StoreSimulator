@@ -676,6 +676,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Heatmap",
+                    "type": "Button",
+                    "id": "542d3e4f-41b7-4377-846a-eca33eea0e89",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RestartScene",
+                    "type": "Button",
+                    "id": "c2494e54-2c07-4f31-83b8-1e25ecd81087",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GetReport",
+                    "type": "Button",
+                    "id": "5e872474-3d48-4237-b8cc-e71354e6fa99",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -720,6 +747,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "AgentDetails",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e11a72b2-9975-4e99-9911-29bc3596a8d9",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Heatmap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4adbf2bf-3c20-4c8c-a2b6-b07095150073",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RestartScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8e042b7c-a388-4643-8343-73e295dfd209",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GetReport",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

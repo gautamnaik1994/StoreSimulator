@@ -58,6 +58,10 @@ public class CameraController : MonoBehaviour
         toggleFollowAction = cameraMap.FindAction("ToggleFollow");
 
     }
+    void Start()
+    {
+        AdjustSound();
+    }
 
     private void OnEnable()
     {
@@ -198,7 +202,13 @@ public class CameraController : MonoBehaviour
         cam.orthographicSize = Mathf.Clamp(newZoom, minZoom, maxZoom);
 
 
+        AdjustSound();
 
+
+    }
+
+    void AdjustSound()
+    {
         // 1. Get the current camera zoom ratio (0 = fully zoomed in, 1 = fully zoomed out)
         float currentZoomFactor = (cam.orthographicSize - minZoom) / (maxZoom - minZoom);
         currentZoomFactor = Mathf.Clamp01(currentZoomFactor);
@@ -215,7 +225,6 @@ public class CameraController : MonoBehaviour
         // 3. Apply to the Mixer exposed parameters
         audioMixer.SetFloat("MusicVol", musicTargetDb);
         audioMixer.SetFloat("EnvVol", crowdTargetDb);
-
     }
 
     private Vector3 ClampToPanBounds(Vector3 position)

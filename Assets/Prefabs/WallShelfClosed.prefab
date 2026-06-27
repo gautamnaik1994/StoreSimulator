@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6435627892699232323}
   - component: {fileID: 1154185063329420151}
+  - component: {fileID: 534989453943178414}
   m_Layer: 0
   m_Name: WallShelfClosed
   m_TagString: Untagged
@@ -130,6 +131,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &534989453943178414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3537137508201750275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8bd003ced7e43809f3f1b92fd3990d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProductSectionInfo
+  Price: 0
 --- !u!1 &3709114202376416527
 GameObject:
   m_ObjectHideFlags: 0

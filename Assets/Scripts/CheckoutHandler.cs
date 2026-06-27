@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System;
 
 public class CheckoutHandler : MonoBehaviour
 {
@@ -20,6 +21,23 @@ public class CheckoutHandler : MonoBehaviour
     public bool IsFull => associatedCounter != null && waitingAgents.Count >= associatedCounter.QueueSlots.Count;
     [SerializeField]
     private bool isProcessingCheckout = false;
+
+
+
+    // Static event means the SimulationAnalyticsManager can listen to ALL counters 
+    // simultaneously without needing a reference to individual counter instances.
+    public static event EventHandler<PurchaseEventArgs> OnItemProcessed;
+
+    /// <summary>
+    /// Call this when a customer scans an item at this specific counter.
+    /// </summary>
+    public void ProcessItem(string productId, string productName, decimal price, PurchaseType type)
+    {
+        // Execute checkout logic (animations, sounds, etc.)
+
+        // Trigger the event safely if there are listeners
+        OnItemProcessed?.Invoke(this, new PurchaseEventArgs(productId, productName, price, type));
+    }
 
     private void OnEnable()
     {
@@ -95,6 +113,12 @@ public class CheckoutHandler : MonoBehaviour
             frontAgent.MoveToLocation(associatedCounter.QueueSlots[0].Position); // Ensure they are moving to the front spot
             yield return new WaitUntil(() => HasAgentArrivedAtFront(frontAgent));
             frontAgent.ChangeState(AgentMovementEnhanced.AgentState.CheckingOut); // Change state to waiting in line, which should trigger their waiting behavior
+
+            // Process the items
+            foreach (var item in frontAgent.cartItems)
+            {
+                ProcessItem(item.SectionName, item.SectionName, item.Price, PurchaseType.Standard); // Assuming standard purchase for simplicity
+            }
 
             // Simulate scanning items
             yield return new WaitForSeconds(CheckoutSpeedSeconds);

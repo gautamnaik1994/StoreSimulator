@@ -57,10 +57,9 @@ public class AgentMovementEnhanced : MonoBehaviour
     private float frustration = 0.0f;  // Rises when blocked or empty-handed
     private float fatigue = 0.0f;      // Rises over time based on total shopping duration
 
+    public List<string> poiProductsInteractedWith = new List<string>(); // Track products purchased from POIs
     // create an agent history to track their shopping behavior and decisions and state transitions
     private List<AgentHistoryEntry> agentHistory = new List<AgentHistoryEntry>();
-
-    public List<string> poiProductsInteractedWith = new List<string>(); // Track products purchased from POIs
 
     int maxRandomDetours = 4;
     private struct AgentHistoryEntry
@@ -92,7 +91,7 @@ public class AgentMovementEnhanced : MonoBehaviour
     }
     private int TotalMoney = 10000;
     private int BaselineTotalMoney = 10000;
-    private readonly List<ProductSection> cartItems = new List<ProductSection>();
+    public readonly List<ProductSection> cartItems = new List<ProductSection>();
     private int TotalMoneySpent = 0;
     private AgentMood currentMood = AgentMood.Neutral;
 
@@ -110,6 +109,8 @@ public class AgentMovementEnhanced : MonoBehaviour
     public int agentID; // Unique identifier for the agent, can be set in the Inspector or assigned programmatically
 
     private List<ProductSection> shoppingListBackup = new List<ProductSection>(); // Backup of the original shopping list for reference
+
+
 
     void Awake()
     {
@@ -146,18 +147,18 @@ public class AgentMovementEnhanced : MonoBehaviour
         statusRingRenderer = agentStatusRing.GetComponent<SpriteRenderer>();
     }
 
-    public void InitializeWithPersona(AgentPersonaData persona, int uniqueID)
+    public void InitializeWithPersona(AgentPersonaData persona, int uniqueID, AgentModifiers modifiers = null)
     {
         agentID = uniqueID;
         shoppingList = new List<string>(persona.base_shopping_list);
         impulseFavorites = new List<string>(persona.base_impulse_favorites);
-        TotalMoney = persona.base_total_money;
+        TotalMoney = (int)(persona.base_total_money * modifiers.BudgetModifier);
         BaselineTotalMoney = TotalMoney;
-        agent.speed = persona.baseline_physics.base_speed + Random.Range(-0.2f, 0.2f);
-        agent.acceleration = persona.baseline_physics.base_acceleration + Random.Range(-0.2f, 0.2f);
+        agent.speed = persona.baseline_physics.base_speed * modifiers.SpeedModifier + Random.Range(-0.2f, 0.2f);
+        agent.acceleration = persona.baseline_physics.base_acceleration * modifiers.SpeedModifier + Random.Range(-0.2f, 0.2f);
         agent.avoidancePriority = persona.baseline_physics.base_avoidance_priority + Random.Range(-5, 5);
-        impulseProbability = persona.psychological_profile.base_impulse_probability;
-        randomBrowseProbability = persona.psychological_profile.base_random_browse_probability;
+        impulseProbability = persona.psychological_profile.base_impulse_probability * modifiers.PurchaseLikelihoodModifier;
+        randomBrowseProbability = persona.psychological_profile.base_random_browse_probability * modifiers.PurchaseLikelihoodModifier;
         AgentPersonaName = persona.persona_name;
         baselineSpeed = agent.speed;
         originalImpulseProbability = impulseProbability;
@@ -290,6 +291,7 @@ public class AgentMovementEnhanced : MonoBehaviour
 
             case AgentMood.Frustrated:
                 // Frustrated agents stop impulse buying completely
+                agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"[Impulse Block] Impulse buying disabled due to frustration.", currentMood));
                 impulseProbability = 0f;
                 break;
 
@@ -297,6 +299,7 @@ public class AgentMovementEnhanced : MonoBehaviour
                 // Happy agents buy more impulses and walk at a leisurely pace
                 agent.speed = baselineSpeed * 0.9f;
                 impulseProbability = originalImpulseProbability * 1.5f;
+                agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"[Impulse Boost] Increased impulse buying probability to {impulseProbability} due to happiness.", currentMood));
                 break;
         }
     }
@@ -329,6 +332,29 @@ public class AgentMovementEnhanced : MonoBehaviour
             nextQueueCheckTime = Time.time;
             return;
         }
+        // if the agent spent more than 80% of their baseline money, and shopping list is not empty, then they should leave the store and go to checkout
+        if (TotalMoney <= BaselineTotalMoney * 0.2f && shoppingList.Count > 0)
+        {
+            ChangeState(AgentState.WaitingToQueue);
+            ChangeMood(AgentMood.Sad);
+            Vector2 holdingArea = GetClosestHoldingArea();
+            agent.SetDestination(holdingArea);
+            agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "Budget threshold reached. Moving to holding area.", currentMood));
+
+            nextQueueCheckTime = Time.time;
+            return;
+        }
+
+        // if agent has spent more than 60% of their baseline money, they should decrease the impulse probability to avoid overspending. Also 
+        // add another condition to prevent this code from running if the agent has already spent more than 80% of their baseline money, since that case is handled above
+        if (TotalMoney <= BaselineTotalMoney * 0.4f && TotalMoney > BaselineTotalMoney * 0.2f)
+        {
+            impulseProbability = impulseProbability * 0.5f;
+            ChangeMood(AgentMood.Sad);
+            agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, "Budget threshold reached. Reducing impulse buying probability.", currentMood));
+            Debug.Log($"[Agent {agentID}] Budget threshold reached. Reducing impulse buying probability to {impulseProbability}");
+        }
+
 
         // --- DETOUR DETERMINATION PHASE ---
         float decisionRoll = Random.value;
@@ -888,8 +914,11 @@ public class AgentMovementEnhanced : MonoBehaviour
 
         string historyDetails = "";
         var historyEntries = new List<AgentHistoryEntryData>(agentHistory.Count);
-        foreach (var entry in agentHistory)
+
+        // can the history be populated in reverse order so that the most recent events are at the top of the list? This would make it easier to read the history in a chronological manner, with the latest actions first.
+        for (int i = agentHistory.Count - 1; i >= 0; i--)
         {
+            var entry = agentHistory[i];
             historyDetails += $"- [{entry.timestamp:F2}s] State: {entry.state}, Action: {entry.actionDescription}\n";
             historyEntries.Add(new AgentHistoryEntryData
             {

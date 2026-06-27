@@ -762,6 +762,33 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Heatmap"",
+                    ""type"": ""Button"",
+                    ""id"": ""542d3e4f-41b7-4377-846a-eca33eea0e89"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RestartScene"",
+                    ""type"": ""Button"",
+                    ""id"": ""c2494e54-2c07-4f31-83b8-1e25ecd81087"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GetReport"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e872474-3d48-4237-b8cc-e71354e6fa99"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -806,6 +833,39 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""AgentDetails"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e11a72b2-9975-4e99-9911-29bc3596a8d9"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Heatmap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4adbf2bf-3c20-4c8c-a2b6-b07095150073"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RestartScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e042b7c-a388-4643-8343-73e295dfd209"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GetReport"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -900,6 +960,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Simulation_Speed = m_Simulation.FindAction("Speed", throwIfNotFound: true);
         m_Simulation_CrowdBuster = m_Simulation.FindAction("CrowdBuster", throwIfNotFound: true);
         m_Simulation_AgentDetails = m_Simulation.FindAction("AgentDetails", throwIfNotFound: true);
+        m_Simulation_Heatmap = m_Simulation.FindAction("Heatmap", throwIfNotFound: true);
+        m_Simulation_RestartScene = m_Simulation.FindAction("RestartScene", throwIfNotFound: true);
+        m_Simulation_GetReport = m_Simulation.FindAction("GetReport", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1321,6 +1384,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Simulation_Speed;
     private readonly InputAction m_Simulation_CrowdBuster;
     private readonly InputAction m_Simulation_AgentDetails;
+    private readonly InputAction m_Simulation_Heatmap;
+    private readonly InputAction m_Simulation_RestartScene;
+    private readonly InputAction m_Simulation_GetReport;
     /// <summary>
     /// Provides access to input actions defined in input action map "Simulation".
     /// </summary>
@@ -1348,6 +1414,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Simulation/AgentDetails".
         /// </summary>
         public InputAction @AgentDetails => m_Wrapper.m_Simulation_AgentDetails;
+        /// <summary>
+        /// Provides access to the underlying input action "Simulation/Heatmap".
+        /// </summary>
+        public InputAction @Heatmap => m_Wrapper.m_Simulation_Heatmap;
+        /// <summary>
+        /// Provides access to the underlying input action "Simulation/RestartScene".
+        /// </summary>
+        public InputAction @RestartScene => m_Wrapper.m_Simulation_RestartScene;
+        /// <summary>
+        /// Provides access to the underlying input action "Simulation/GetReport".
+        /// </summary>
+        public InputAction @GetReport => m_Wrapper.m_Simulation_GetReport;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1386,6 +1464,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @AgentDetails.started += instance.OnAgentDetails;
             @AgentDetails.performed += instance.OnAgentDetails;
             @AgentDetails.canceled += instance.OnAgentDetails;
+            @Heatmap.started += instance.OnHeatmap;
+            @Heatmap.performed += instance.OnHeatmap;
+            @Heatmap.canceled += instance.OnHeatmap;
+            @RestartScene.started += instance.OnRestartScene;
+            @RestartScene.performed += instance.OnRestartScene;
+            @RestartScene.canceled += instance.OnRestartScene;
+            @GetReport.started += instance.OnGetReport;
+            @GetReport.performed += instance.OnGetReport;
+            @GetReport.canceled += instance.OnGetReport;
         }
 
         /// <summary>
@@ -1409,6 +1496,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @AgentDetails.started -= instance.OnAgentDetails;
             @AgentDetails.performed -= instance.OnAgentDetails;
             @AgentDetails.canceled -= instance.OnAgentDetails;
+            @Heatmap.started -= instance.OnHeatmap;
+            @Heatmap.performed -= instance.OnHeatmap;
+            @Heatmap.canceled -= instance.OnHeatmap;
+            @RestartScene.started -= instance.OnRestartScene;
+            @RestartScene.performed -= instance.OnRestartScene;
+            @RestartScene.canceled -= instance.OnRestartScene;
+            @GetReport.started -= instance.OnGetReport;
+            @GetReport.performed -= instance.OnGetReport;
+            @GetReport.canceled -= instance.OnGetReport;
         }
 
         /// <summary>
@@ -1663,5 +1759,26 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAgentDetails(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Heatmap" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHeatmap(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "RestartScene" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRestartScene(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "GetReport" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGetReport(InputAction.CallbackContext context);
     }
 }

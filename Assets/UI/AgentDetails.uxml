@@ -1,83 +1,166 @@
-<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/AgentDetails.uss?fileID=7433441132597879392&amp;guid=f07e6d69aeec5482d8632c412accd80d&amp;type=3#AgentDetails"/>
-    <ui:VisualElement name="Main" style="width: 100%; height: 100%;">
-        <ui:VisualElement name="RightDrawer" style="flex-grow: 1; display: none; width: 25%; align-self: flex-end;">
-            <ui:ScrollView name="DetailPanel" horizontal-scroller-visibility="Hidden" nested-interaction-kind="Default" class="my-custom-scroll " style="display: flex; width: 100%;">
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements"
+    xmlns:uie="UnityEditor.UIElements"
+    noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style
+        src="project://database/Assets/UI/AgentDetails.uss?fileID=7433441132597879392&amp;guid=f07e6d69aeec5482d8632c412accd80d&amp;type=3#AgentDetails" />
+    <ui:VisualElement name="Main" style="width: 100%; height: 100%; postion: relative;">
+        <ui:VisualElement name="navbar" class="navbar"
+            style="background-image: url(&quot;project://database/Assets/Textures/navbar_bg.svg?fileID=7388822144124034973&amp;guid=f27aacc21c740491aa1a89dcb3f5189c&amp;type=3#navbar_bg&quot;);">
+            <ui:Label text="SALES: ₹0" name="totalSales" class="fw-medium" />
+        </ui:VisualElement>
+        <ui:VisualElement name="worldSettings" class="world-settings">
+            <ui:Label text="World Settings" class="fw-bold box-header" />
+            <ui:EnumField label="Macro Cycle" name="macroCycle" class="custom-enum-field" />
+            <ui:EnumField label="Store Event" name="storeEvent" class="custom-enum-field" />
+            <ui:EnumField label="Weather Condition" name="weatherCondition"
+                class="custom-enum-field" />
+            <ui:Button name="startSimulation" text="Start Simulation" class="btn-primary fw-medium" />
+        </ui:VisualElement>
+        <ui:VisualElement name="RightDrawer" class="drawer" style="display: none;">
+            <ui:ScrollView name="DetailPanel" horizontal-scroller-visibility="Hidden"
+                nested-interaction-kind="Default" class="my-custom-scroll "
+                style="display: flex; width: 100%;">
                 <ui:VisualElement class="wrapper">
                     <ui:VisualElement class="TopContainer">
                         <ui:VisualElement class="AgentIcon">
-                            <ui:Image source="project://database/Assets/Textures/statusring.png?fileID=2800000&amp;guid=4d743009c00c04bb799a97c8d5b2c1d0&amp;type=3#statusring" name="ring"/>
-                            <ui:Image source="project://database/Assets/Textures/agent.png?fileID=2800000&amp;guid=ff0a402ea717d49faabd49b060a75a15&amp;type=3#agent" name="triangle"/>
+                            <ui:Image
+                                source="project://database/Assets/Textures/statusring.png?fileID=2800000&amp;guid=4d743009c00c04bb799a97c8d5b2c1d0&amp;type=3#statusring"
+                                name="ring" />
+                            <ui:Image
+                                source="project://database/Assets/Textures/agent.png?fileID=2800000&amp;guid=ff0a402ea717d49faabd49b060a75a15&amp;type=3#agent"
+                                name="triangle" />
                         </ui:VisualElement>
-                        <ui:Label text="Agent Name" name="agentName" class="fw-medium "/>
+                        <ui:Label text="Agent Name" name="agentName" class="fw-medium " />
                     </ui:VisualElement>
                     <ui:VisualElement class="pills-holder">
                         <ui:VisualElement class="pills">
-                            <ui:VisualElement name="statusIcon" class="s-icon"/>
-                            <ui:Label text="Navigating" name="agentStatus" emoji-fallback-support="false" class="pill-text fw-semi-bold"/>
+                            <ui:VisualElement name="statusIcon" class="s-icon" />
+                            <ui:Label text="Navigating" name="agentStatus"
+                                emoji-fallback-support="false" class="pill-text fw-semi-bold" />
                         </ui:VisualElement>
                         <ui:VisualElement class="pills">
-                            <ui:VisualElement name="moodIcon" class="s-icon"/>
-                            <ui:Label text="Happy" name="agentMood" class="pill-text fw-semi-bold"/>
+                            <ui:VisualElement name="moodIcon" class="s-icon" />
+                            <ui:Label text="Happy" name="agentMood" class="pill-text fw-semi-bold" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement class="horizontal-divider"/>
+                    <ui:VisualElement class="horizontal-divider" />
                     <ui:VisualElement class="details-holder personal-details">
                         <ui:VisualElement class="detail-value-box">
-                            <ui:Label text="Profession" class="item-label"/>
-                            <ui:Label text="Software Engineer" name="agentProfession" class=""/>
+                            <ui:Label text="Profession" class="item-label" />
+                            <ui:Label text="Software Engineer" name="agentProfession" class="" />
                         </ui:VisualElement>
                         <ui:VisualElement class="detail-value-box">
-                            <ui:Label text="Age" class="item-label"/>
-                            <ui:Label text="25" name="agentAge" class=""/>
+                            <ui:Label text="Age" class="item-label" />
+                            <ui:Label text="25" name="agentAge" class="" />
                         </ui:VisualElement>
                         <ui:VisualElement class="detail-value-box">
-                            <ui:Label text="Gender" class="item-label"/>
-                            <ui:Label text="Male" name="agentGender" class=""/>
+                            <ui:Label text="Gender" class="item-label" />
+                            <ui:Label text="Male" name="agentGender" class="" />
                         </ui:VisualElement>
                         <ui:VisualElement class="detail-value-box">
-                            <ui:Label text="Income Level" class="item-label"/>
-                            <ui:Label text="High" name="agentIncomeLevel" class=""/>
+                            <ui:Label text="Income Level" class="item-label" />
+                            <ui:Label text="High" name="agentIncomeLevel" class="" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement class="horizontal-divider"/>
+                    <ui:VisualElement class="horizontal-divider" />
                     <ui:VisualElement class="money-stats">
                         <ui:VisualElement class="label-value-box">
-                            <ui:Label text="Money Spent" class="fw-medium lv-label"/>
-                            <ui:Label text="12345" name="moneySpent" class="lv-value fw-bold"/>
+                            <ui:Label text="Money Spent" class="fw-medium lv-label" />
+                            <ui:Label text="12345" name="moneySpent" class="lv-value fw-bold" />
                         </ui:VisualElement>
                         <ui:VisualElement class="label-value-box text-right">
-                            <ui:Label text="Money Available" class="fw-medium lv-label"/>
-                            <ui:Label text="12345" name="moneyAvailable" class="lv-value fw-bold"/>
+                            <ui:Label text="Money Available" class="fw-medium lv-label" />
+                            <ui:Label text="12345" name="moneyAvailable" class="lv-value fw-bold" />
                         </ui:VisualElement>
-                        <ui:ProgressBar value="544" name="moneySpentBar" high-value="1000" low-value="0"/>
+                        <ui:ProgressBar value="544" name="moneySpentBar" high-value="1000"
+                            low-value="0" />
                     </ui:VisualElement>
                     <ui:VisualElement class="details-holder">
                         <ui:VisualElement class="detail-value-box">
-                            <ui:Label text="Shopping List" class="item-label"/>
-                            <ui:Label text="Chocolate, Milk, Bread" name="shoppingList" class="white-space-normal"/>
+                            <ui:Label text="Shopping List" class="item-label" />
+                            <ui:Label text="Chocolate, Milk, Bread" name="shoppingList"
+                                class="white-space-normal" />
                         </ui:VisualElement>
                         <ui:VisualElement class="detail-value-box">
-                            <ui:Label text="Impulse List" class="item-label"/>
-                            <ui:Label text="Ice Cream, Candy" name="impulseList" class="white-space-normal"/>
+                            <ui:Label text="Impulse List" class="item-label" />
+                            <ui:Label text="Ice Cream, Candy" name="impulseList"
+                                class="white-space-normal" />
                         </ui:VisualElement>
                         <ui:VisualElement class="detail-value-box">
-                            <ui:Label text="Costly Items" class="item-label"/>
-                            <ui:Label text="Laptop, Phone" name="costlyItems" class="white-space-normal"/>
+                            <ui:Label text="Costly Items" class="item-label" />
+                            <ui:Label text="Laptop, Phone" name="costlyItems"
+                                class="white-space-normal" />
                         </ui:VisualElement>
                         <ui:VisualElement class="detail-value-box">
-                            <ui:Label text="Cart Contents" class="item-label"/>
-                            <ui:Label text="Chocolate, Milk, Bread" name="cartContents" class="white-space-normal"/>
+                            <ui:Label text="Cart Contents" class="item-label" />
+                            <ui:Label text="Chocolate, Milk, Bread" name="cartContents"
+                                class="white-space-normal" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement class="horizontal-divider"/>
+                    <ui:VisualElement class="horizontal-divider" />
                     <ui:VisualElement class="detail-value-box history-box">
-                        <ui:Label text="Agent History" class="item-label"/>
-                        <ui:ListView allow-remove="false" header-title="Agent History" item-template="project://database/Assets/UI/AgentHistoryItem.uxml?fileID=9197481963319205126&amp;guid=58112d69df9c9441e97151f6f6630030&amp;type=3#AgentHistoryItem" name="AgentHistoryList" focusable="false" selection-type="None" virtualization-method="DynamicHeight"/>
+                        <ui:Label text="Agent History" class="item-label" />
+                        <ui:ListView allow-remove="false" header-title="Agent History"
+                            item-template="project://database/Assets/UI/AgentHistoryItem.uxml?fileID=9197481963319205126&amp;guid=58112d69df9c9441e97151f6f6630030&amp;type=3#AgentHistoryItem"
+                            name="AgentHistoryList" focusable="false" selection-type="None"
+                            virtualization-method="DynamicHeight" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:ScrollView>
-            <ui:Button name="Close" enable-rich-text="false" emoji-fallback-support="false" icon-image="project://database/Assets/Textures/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png?fileID=21300000&amp;guid=dd25b8b3efd57452fb5c8f8caad8583d&amp;type=3#close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24"/>
+            <ui:Button name="Close" enable-rich-text="false" emoji-fallback-support="false"
+                class="close-btn"
+                icon-image="project://database/Assets/Textures/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png?fileID=21300000&amp;guid=dd25b8b3efd57452fb5c8f8caad8583d&amp;type=3#close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24" />
+        </ui:VisualElement>
+        <ui:VisualElement name="salesReport" class="salesReport" style="display: none;">
+            <ui:Label text="Sales Report" class=" salesReportLabel fw-bold" />
+            <ui:VisualElement style=""
+                class="sales-report-table-header fw-medium">
+                <ui:Label text="Product Name" class="sales-item-content" />
+                <ui:Label text="Quantity Sold" class="sales-item-content" />
+                <ui:Label text="Price Per Unit" class="sales-item-content" />
+                <ui:Label text="Total Revenue" class="sales-item-content" />
+                <ui:Label text="Purchase Type" class="sales-item-content last" />
+            </ui:VisualElement>
+            <ui:ListView allow-remove="false" header-title="Sales Report"
+                item-template="project://database/Assets/UI/SalesReportItem.uxml?fileID=9197481963319205126&amp;guid=9277efbd7a12841ca929c8485edacbfa&amp;type=3#SalesReportItem"
+                name="SalesReportList" focusable="false" selection-type="None"
+                class="my-custom-scroll " />
+            <!-- <ui:VisualElement style=""
+                class=" sales-item-row">
+                <ui:Label text="Prod tName" name="productName" class="sales-item-content" />
+                <ui:Label text="QuantitySold" name="quantitySold" class="sales-item-content" />
+                <ui:Label text="Pri Per Unit" name="pricePerUnit" class="sales-item-content" />
+                <ui:Label text="TotalRev enue" name="totalRevenue" class="sales-item-content" />
+                <ui:Label text="Purc haseType" name="purchaseType" class="sales-item-content last" />
+            </ui:VisualElement>
+            <ui:VisualElement style=""
+                class=" sales-item-row">
+                <ui:Label text="oductName" name="productName" class="sales-item-content" />
+                <ui:Label text="QuanSold" name="quantitySold" class="sales-item-content" />
+                <ui:Label text="PricePnit" name="pricePerUnit" class="sales-item-content" />
+                <ui:Label text="Totenue" name="totalRevenue" class="sales-item-content" />
+                <ui:Label text="PurchaseType" name="purchaseType" class="sales-item-content last" />
+            </ui:VisualElement>
+            <ui:VisualElement style=""
+                class=" sales-item-row">
+                <ui:Label text="Prod tName" name="productName" class="sales-item-content" />
+                <ui:Label text="QuantitySold" name="quantitySold" class="sales-item-content" />
+                <ui:Label text="Pit" name="pricePerUnit" class="sales-item-content" />
+                <ui:Label text="TotalRev enue" name="totalRevenue" class="sales-item-content" />
+                <ui:Label text="Purc haseType" name="purchaseType" class="sales-item-content last" />
+            </ui:VisualElement>
+            <ui:VisualElement style=""
+                class=" sales-item-row">
+                <ui:Label text="ame" name="productName" class="sales-item-content" />
+                <ui:Label text="QuanSold" name="quantitySold" class="sales-item-content" />
+                <ui:Label text="PricePnit" name="pricePerUnit" class="sales-item-content" />
+                <ui:Label text="Totenue" name="totalRevenue" class="sales-item-content" />
+                <ui:Label text="PurchaseType" name="purchaseType" class="sales-item-content last" />
+            </ui:VisualElement> -->
+            <ui:Button name="CloseReport" enable-rich-text="false" emoji-fallback-support="false"
+                class="close-btn"
+                icon-image="project://database/Assets/Textures/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png?fileID=21300000&amp;guid=dd25b8b3efd57452fb5c8f8caad8583d&amp;type=3#close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24" />
+
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

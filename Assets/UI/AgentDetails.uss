@@ -16,9 +16,17 @@
 }
 
 
-.unity-label{
+.unity-label {
     margin: 0;
     padding: 0;
+}
+
+.drawer {
+    width: 25%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
 }
 
 #DetailPanel {
@@ -31,11 +39,11 @@
 }
 
 .wrapper {
-   
+
     padding: 15px;
 }
 
-#Close {
+.close-btn {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -193,43 +201,46 @@
 .text-right {
     align-items: flex-end;
 }
-.details-holder{
+
+.details-holder {
     margin-top: 10px;
 }
-.detail-value-box{
+
+.detail-value-box {
 
     margin-bottom: 15px;
 }
-.personal-details{
+
+.personal-details {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.personal-details .detail-value-box{
+.personal-details .detail-value-box {
     flex: 0 0 50%;
     margin-bottom: 15px;
 }
 
-.item-label{
-  font-size: 12px;
-  color:#909090;
-  margin-bottom: 6px;
+.item-label {
+    font-size: 12px;
+    color: #909090;
+    margin-bottom: 6px;
 }
 
-.history-box{
+.history-box {
     flex-grow: 1;
     margin-top: 15px;
 }
 
-.history-item{
-   display: flex;
-   flex-direction: column;
-   
-    padding: 10px 0;
-    border-color:  #1a1a1a;
-    border-style: solid;
-    border-bottom-width: 1px 0;
+.history-item {
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px 0px;
+    border-color: #1a1a1a;
+    /* border-style: solid; */
+    border-bottom-width: 1px 0px;
     /* background-color: #333333; */
 }
 
@@ -237,7 +248,7 @@
     background-color: transparent;
 }
 
-.history-item .history-item-description{
+.history-item .history-item-description {
 
 
     white-space: normal;
@@ -247,31 +258,38 @@
     /* -unity-paragraph-spacing:100px; */
 }
 
-.history-item .s-pill{
-    width:auto;
+.history-item .s-pill {
+    width: auto;
     padding: 4px 10px;
     font-size: 12px;
     margin-right: 8px;
     border-width: 1px;
     border-color: #7C7C7C;
     border-radius: 12px;
-    
+
 }
 
-.history-item .history-item-header{
+.history-item .history-item-header {
     margin-bottom: 6px;
 }
 
-.history-item .history-item-timestamp{
-  font-size: 12px;
-  color:#909090;
+.history-item .history-item-timestamp {
+    font-size: 12px;
+    color: #909090;
 }
 
-.d-flex{
+.d-flex {
     display: flex;
     flex-direction: row;
 }
 
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
 
 /* ==========================================
    macOS Dark Mode Scrollbar for UI Toolkit
@@ -279,7 +297,8 @@
 
 /* 1. Container & Scroller Track Layout */
 .my-custom-scroll .unity-scroller--vertical {
-    width: 8px; /* macOS scrollbars are quite thin */
+    width: 8px;
+    /* macOS scrollbars are quite thin */
     background-color: transparent;
     border-width: 0;
     margin: 0;
@@ -297,7 +316,8 @@
 
 /* 3. Style the background track line (Slider Container) */
 .my-custom-scroll .unity-scroller--vertical .unity-base-slider__tracker {
-    background-color: transparent; /* macOS hides the track by default */
+    background-color: transparent;
+    /* macOS hides the track by default */
     border-width: 0;
     margin: 0;
     padding: 0;
@@ -306,15 +326,16 @@
 /* 4. The Draggable Handle (The Capsule) */
 .my-custom-scroll .unity-scroller--vertical .unity-base-slider__dragger {
     /* macOS dark scrollbar color with transparency */
-    background-color: rgba(255, 255, 255, 0.25); 
-    border-radius: 4px; /* Fully rounded capsule look */
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    /* Fully rounded capsule look */
     border-width: 0;
-    
+
     /* Crucial for UI Toolkit alignment quirks */
     left: 0;
-    width: 6px; 
-    align-self: center; 
-    
+    width: 6px;
+    align-self: center;
+
     min-height: 20px;
     transition-property: background-color;
     transition-duration: 0.15s;
@@ -322,8 +343,10 @@
 
 /* 5. Hover and Active States */
 .my-custom-scroll .unity-scroller--vertical .unity-base-slider__dragger:hover {
-    background-color: rgba(255, 255, 255, 0.45); /* Becomes more visible on hover */
-    width: 8px; /* Optional: slightly widens on hover like modern macOS */
+    background-color: rgba(255, 255, 255, 0.45);
+    /* Becomes more visible on hover */
+    width: 8px;
+    /* Optional: slightly widens on hover like modern macOS */
 }
 
 /* When the user is actively dragging it */
@@ -342,4 +365,146 @@
 
 .white-space-normal {
     white-space: normal;
+}
+
+.world-settings {
+    width: 400px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background-color: rgba(0, 0, 0, 0.98);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.custom-enum-field {
+    margin: 8px 4px;
+    padding: 0px;
+    align-items: center;
+}
+
+/* 2. Style the Label text on the left */
+.custom-enum-field>.unity-label {
+    color: #E0E0E0;
+    /* Off-white text for readability */
+    font-size: 14px;
+    /* -unity-font-style: bold; */
+    /* min-width: 120px; Aligns label nicely */
+}
+
+/* 3. Style the actual Dropdown Button box */
+.custom-enum-field>.unity-enum-field__input {
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Subtle translucent white layer */
+    border-color: rgba(255, 255, 255, 0.15);
+    /* Subtle border line */
+    border-width: 1px;
+    border-radius: 4px;
+    padding: 6px 12px;
+    color: #FFFFFF;
+    /* High contrast text inside dropdown */
+    font-size: 13px;
+}
+
+/* 4. Hover effect for the Dropdown Box */
+.custom-enum-field>.unity-enum-field__input:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Brightens slightly on hover */
+    border-color: rgba(255, 255, 255, 0.3);
+    /* Highlights border */
+}
+
+/* 5. Style the internal Arrow icon */
+.custom-enum-field .unity-enum-field__arrow {
+    -unity-background-image-tint-color: #E0E0E0;
+    /* Makes the arrow icon clean white */
+    width: 10px;
+    height: 10px;
+}
+
+.box-header {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #34D399;
+    color: black;
+    border-color: #34D399;
+    padding: 10px 20px;
+    font-size: 16px;
+
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.navbar {
+    padding: 16px 8px;
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+
+.salesReport {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    left: 10%;
+    bottom: 10%;
+    background-color: rgba(0, 0, 0, 0.98);
+    padding: 16px 0px;
+    border-radius: 10px;
+}
+
+.salesReportLabel {
+    font-size: 20px;
+    /* margin-bottom: 10px; */
+    padding: 16px;
+}
+
+.sales-report-table-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom-width: 1px;
+    border-color: #1a1a1a;
+    border-style: solid;
+    font-size: 16px;
+    /*
+   
+    align-items: flex-start; */
+
+}
+
+.sales-report-table-header .sales-item-content {
+    flex-basis: 20%;
+    color: #E0E0E0;
+}
+
+.sales-item-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 4px 16px;
+
+    border-bottom-width: 1px;
+    border-color: #1a1a1a;
+    border-style: solid;
+
+}
+
+.sales-item-row .sales-item-content {
+    flex-basis: 20%;
+    -unity-text-align: middle-left;
+}
+
+.sales-report-table-header .sales-item-content.last,
+.sales-item-row .sales-item-content.last {
+    -unity-text-align: middle-right;
 }

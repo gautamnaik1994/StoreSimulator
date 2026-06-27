@@ -444,6 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1517705818124003662}
   - component: {fileID: 4369384430566951721}
+  - component: {fileID: 7910363047042336022}
   m_Layer: 0
   m_Name: LongDisplay
   m_TagString: Untagged
@@ -539,3 +540,16 @@ SpriteRenderer:
   m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &7910363047042336022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5003345483991861119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8bd003ced7e43809f3f1b92fd3990d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProductSectionInfo
+  Price: 0

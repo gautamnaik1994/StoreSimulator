@@ -196,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3623364960887830173}
   - component: {fileID: 1513868775541690864}
+  - component: {fileID: 6303750824299602277}
   m_Layer: 0
   m_Name: WallOpenShelf
   m_TagString: Untagged
@@ -285,6 +286,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &6303750824299602277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140991211772556991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8bd003ced7e43809f3f1b92fd3990d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProductSectionInfo
+  Price: 0
 --- !u!1 &7823693581159119758
 GameObject:
   m_ObjectHideFlags: 0

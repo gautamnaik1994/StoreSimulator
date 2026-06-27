@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement; // Required for scene handling
+
 
 public class SimulationManager : MonoBehaviour
 {
@@ -42,5 +44,11 @@ public class SimulationManager : MonoBehaviour
             SimulationSpeed.FastForward => 2f,
             _ => 1f
         };
+    }
+
+    public void RestartScene()
+    {
+        // Reloads the currently active level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

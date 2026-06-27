@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements"
+    xmlns:uie="UnityEditor.UIElements"
+    noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+
+    <ui:VisualElement style=""
+        class=" sales-item-row">
+        <ui:Label text="" name="productName" class="sales-item-content" />
+        <ui:Label text="" name="quantitySold" class="sales-item-content" />
+        <ui:Label text="" name="pricePerUnit" class="sales-item-content" />
+        <ui:Label text="" name="totalRevenue" class="sales-item-content" />
+        <ui:Label text="" name="purchaseType" class="sales-item-content last" />
+    </ui:VisualElement>
+</ui:UXML>

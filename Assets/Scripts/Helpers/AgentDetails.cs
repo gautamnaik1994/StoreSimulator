@@ -38,3 +38,11 @@ public class AgentHistoryEntryData
     public Color StateColor;
 
 }
+[Serializable]
+public class AgentModifiers
+{
+    public float BudgetModifier;
+    public float PurchaseLikelihoodModifier;
+    public float BrowseTimeModifier;
+    public float SpeedModifier;
+}

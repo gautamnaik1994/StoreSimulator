@@ -37,6 +37,15 @@ public class AgentManager : MonoBehaviour
 
     private Image agentIconStatusRing, agentIcon;
 
+    private Button spawnAgentsButton;
+
+    private VisualElement worldSettingsContainer;
+
+    public AudioSource crowdAudioSource;
+
+
+    public List<AgentMovementEnhanced> allAgentList = new List<AgentMovementEnhanced>();
+
     void GetTextElementByID(string id, out TextElement textElement)
     {
         textElement = uiDocument.rootVisualElement.Q<TextElement>(id);
@@ -78,6 +87,15 @@ public class AgentManager : MonoBehaviour
         moodIcon = uiDocument.rootVisualElement.Q<VisualElement>("moodIcon");
         agentIconStatusRing = uiDocument.rootVisualElement.Q<Image>("ring");
         agentIcon = uiDocument.rootVisualElement.Q<Image>("triangle");
+        spawnAgentsButton = uiDocument.rootVisualElement.Q<Button>("startSimulation");
+        worldSettingsContainer = uiDocument.rootVisualElement.Q<VisualElement>("worldSettings");
+        spawnAgentsButton.clicked += () =>
+        {
+            // hide the container
+            SpawnAgents();
+            crowdAudioSource.Play();
+            worldSettingsContainer.style.display = DisplayStyle.None;
+        };
     }
 
     void LateUpdate()
@@ -119,14 +137,7 @@ public class AgentManager : MonoBehaviour
         moodIcon.style.backgroundColor = agentData.MoodColor;
         agentIconStatusRing.tintColor = agentData.StateColor;
         agentIcon.tintColor = agentData.MoodColor;
-        // if (historyEntries.Count > 0)
-        // {
-        //     agentHistory.text = string.Join("\n", historyEntries.ConvertAll(entry => $"- [{entry.Timestamp:F2}s] State: {entry.State}, Mood: {entry.Mood}, Action: {entry.ActionDescription}"));
-        // }
-        // else
-        // {
-        //     agentHistory.text = agentData.History;
-        // }
+
 
         agentHistoryListView.bindItem = (element, index) =>
         {
@@ -211,8 +222,23 @@ public class AgentManager : MonoBehaviour
         }
     }
 
+
+
     private System.Collections.IEnumerator BatchSpawnCoroutine()
     {
+        float budgetModifier = worldManager.GetBudgetModifier();
+        float purchaseLikelihoodModifier = worldManager.GetGlobalPurchaseLikelihoodModifier();
+        float browseTimeModifier = worldManager.GetGlobalBrowseTimeModifier();
+        float speedModifier = worldManager.GetGlobalSpeedModifier();
+
+        AgentModifiers modifiers = new AgentModifiers
+        {
+            BudgetModifier = budgetModifier,
+            PurchaseLikelihoodModifier = purchaseLikelihoodModifier,
+            BrowseTimeModifier = browseTimeModifier,
+            SpeedModifier = speedModifier
+        };
+
         int batches = Mathf.CeilToInt((float)agentCount / agentBatchCount);
         for (int i = 0; i < batches; i++)
         {
@@ -221,8 +247,9 @@ public class AgentManager : MonoBehaviour
             {
                 GameObject obj = Instantiate(agentPrefab, spawnPoint.position, Quaternion.identity);
                 AgentMovementEnhanced agent = obj.GetComponent<AgentMovementEnhanced>();
+                allAgentList.Add(agent); // Add the agent to the list of all agents
                 AgentPersonaData profile = database.personas[agentIDCounter % database.personas.Count]; // Loop through personas if we have more agents than profiles
-                agent.InitializeWithPersona(profile, agentIDCounter);
+                agent.InitializeWithPersona(profile, agentIDCounter, modifiers);
                 agentIDCounter++;
             }
             yield return new WaitForSeconds(delay);

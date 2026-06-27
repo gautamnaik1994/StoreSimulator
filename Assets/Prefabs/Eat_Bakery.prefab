@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1497307913297907505}
   - component: {fileID: 8753066114357940620}
+  - component: {fileID: 9192655731010884766}
   m_Layer: 0
   m_Name: Eat_Bakery
   m_TagString: Untagged
@@ -137,6 +138,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &9192655731010884766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448549451127669782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8bd003ced7e43809f3f1b92fd3990d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProductSectionInfo
+  Price: 0
 --- !u!1 &796007465602320958
 GameObject:
   m_ObjectHideFlags: 0

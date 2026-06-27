@@ -13,1086 +13,32 @@ MonoBehaviour:
   m_Name: PersonaDatabase
   m_EditorClassIdentifier: Assembly-CSharp::PersonaDatabase
   personas:
-  - persona_name: Comfort Food Lover
-    demographics:
-      age: 73
-      profession: Retired Executive
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.6
-      base_acceleration: 5.6
-      base_avoidance_priority: 75
-    base_total_money: 3600
-    psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Butter
-    - Paneer
-    - FrozenMeat
-    - Rice
-    - CannedFood
-    base_impulse_favorites:
-    - InstantNoodles
-    - Chocolates
-  - persona_name: Family Meal Planner
-    demographics:
-      age: 41
-      profession: Marketing Executive
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.1
-      base_acceleration: 8
-      base_avoidance_priority: 25
-    base_total_money: 4000
-    psychological_profile:
-      base_random_browse_probability: 0.03
-      base_impulse_probability: 0.02
-    base_shopping_list:
-    - FrozenMeat
-    - Milk
-    - Diapers
-    - Toiletries
-    - CannedFood
-    - Rice
-    - Bakery
-    - Vegetables
-    - InstantNoodles
-    - CookingOil
-    base_impulse_favorites:
-    - Eat_Bhelpuri
-  - persona_name: Careful Bulk Buyer
-    demographics:
-      age: 45
-      profession: Accountant
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.3
-      base_acceleration: 5.01
-      base_avoidance_priority: 70
-    base_total_money: 2800
-    psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.07
-    base_shopping_list:
-    - FrozenMeat
-    - Rice
-    - Detergent
-    - CannedFood
-    - Milk
-    - Toiletries
-    - InstantNoodles
-    - Fruits
-    - Bakery
-    - CookingOil
-    base_impulse_favorites:
-    - BoardGames
-  - persona_name: Careful Planner
-    demographics:
-      age: 73
-      profession: Retired Engineer
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.6
-      base_acceleration: 5.2
-      base_avoidance_priority: 80
-    base_total_money: 4000
-    psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - FrozenMeat
-    - CookingOil
-    - Tea
-    - Vegetables
-    - Rice
-    base_impulse_favorites:
-    - BoardGames
-    - Magazines
-  - persona_name: Health-Conscious Senior
-    demographics:
-      age: 75
-      profession: Retired Nurse
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.4
-      base_acceleration: 5.5
-      base_avoidance_priority: 80
-    base_total_money: 3200
-    psychological_profile:
-      base_random_browse_probability: 0.2
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - FreshCutMeat
-    - FrozenFoods
-    - Juice
-    - Tea
-    - Vegetables
-    - Cereals
-    base_impulse_favorites:
-    - Coffee
-    - Chocolates
-  - persona_name: Digital Product Manager
-    demographics:
-      age: 30
-      profession: Digital Product Manager
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.3
-      base_acceleration: 8.9
-      base_avoidance_priority: 20
-    base_total_money: 18500
-    psychological_profile:
-      base_random_browse_probability: 0.01
-      base_impulse_probability: 0.03
-    base_shopping_list:
-    - Rice
-    - FrozenChicken
-    - CannedFood
-    - Bakery
-    - Fruits
-    base_impulse_favorites:
-    - Eat_Bhelpuri
-    - Chocolates
-    - Toys
-  - persona_name: Trendy Young Professional
-    demographics:
-      age: 28
-      profession: Content Creator
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.2
-      base_acceleration: 8.5
-      base_avoidance_priority: 21
-    base_total_money: 18200
-    psychological_profile:
-      base_random_browse_probability: 0.67
-      base_impulse_probability: 0.74
-    base_shopping_list:
-    - WomensKurti
-    - Fruits
-    - Bakery
-    - FrozenMeat
-    - Cosmetics
-    base_impulse_favorites:
-    - IceCream
-    - Chocolates
-    - Drink_Tea
-    - PartySupplies
-    - BoardGames
-  - persona_name: Family Meal Master
-    demographics:
-      age: 39
-      profession: IT Specialist
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.9
-      base_acceleration: 8.5
-      base_avoidance_priority: 30
-    base_total_money: 3200
-    psychological_profile:
-      base_random_browse_probability: 0.04
-      base_impulse_probability: 0.02
-    base_shopping_list:
-    - FrozenChicken
-    - Rice
-    - Milk
-    - CannedFood
-    - Bakery
-    - Vegetables
-    - InstantNoodles
-    - Detergent
-    - Diapers
-    - Toiletries
-    base_impulse_favorites:
-    - Drink_Coffee
-  - persona_name: Charming Community Leader
-    demographics:
-      age: 36
-      profession: Non-Profit Director
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 8
-      base_avoidance_priority: 22
-    base_total_money: 19000
-    psychological_profile:
-      base_random_browse_probability: 0.66
-      base_impulse_probability: 0.79
-    base_shopping_list:
-    - GreetingCards
-    - Bakery
-    - Fruits
-    - FrozenFoods
-    - Cosmetics
-    base_impulse_favorites:
-    - IceCream
-    - Chocolates
-    - Drink_Tea
-    - PartySupplies
-    - BoardGames
-  - persona_name: Savoring Senior
-    demographics:
-      age: 76
-      profession: Retired Pharmacist
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.5
-      base_acceleration: 5.3
-      base_avoidance_priority: 70
-    base_total_money: 3500
-    psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Milk
-    - FrozenChicken
-    - Rice
-    - Butter
-    - Vegetables
-    base_impulse_favorites:
-    - IceCream
-    - Chocolates
-  - persona_name: Starving Student
-    demographics:
-      age: 19
-      profession: Undergraduate Student
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.1
-      base_acceleration: 7
-      base_avoidance_priority: 35
-    base_total_money: 800
-    psychological_profile:
-      base_random_browse_probability: 0.75
-      base_impulse_probability: 0.7
-    base_shopping_list:
-    - InstantNoodles
-    - Chocolates
-    - FrozenFoods
-    - SoftDrink
-    - Fruits
-    base_impulse_favorites:
-    - Eat_ChickenPuff
-    - Eat_Samosa
-  - persona_name: Value-Oriented Shopper
-    demographics:
-      age: 44
-      profession: Warehouse Worker
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.8
-      base_acceleration: 6
-      base_avoidance_priority: 75
-    base_total_money: 1100
-    psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - FrozenMeat
-    - InstantNoodles
-    - Tea
-    - CannedFood
-    base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Samosa
-  - persona_name: Gentle Retiree
+  - persona_name: Herbal Tea Lover
     demographics:
       age: 72
-      profession: Retired Teacher
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.3
-      base_acceleration: 5.021
-      base_avoidance_priority: 75
-    base_total_money: 1500
-    psychological_profile:
-      base_random_browse_probability: 0.15
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Rice
-    - Vegetables
-    - Milk
-    - Butter
-    - Tea
-    - CannedFood
-    base_impulse_favorites:
-    - FrozenChicken
-    - Books
-    - GreetingCards
-  - persona_name: Morning Bargain Hunter
-    demographics:
-      age: 65
-      profession: Retired Farmer
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.6
-      base_acceleration: 5.5
-      base_avoidance_priority: 65
-    base_total_money: 2800
-    psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - FrozenFoods
-    - Milk
-    - Butter
-    - Vegetables
-    - Rice
-    base_impulse_favorites:
-    - MensJeans
-    - FrozenChicken
-  - persona_name: Young Urban Professional
-    demographics:
-      age: 27
-      profession: Marketing Specialist
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.3
-      base_acceleration: 8.5
-      base_avoidance_priority: 30
-    base_total_money: 17000
-    psychological_profile:
-      base_random_browse_probability: 0.6
-      base_impulse_probability: 0.7
-    base_shopping_list:
-    - FrozenMeat
-    - OrganicGreen
-    - Vegetables
-    - Fruits
-    - Juice
-    base_impulse_favorites:
-    - Eat_ChickenPuff
-    - Drink_Coffee
-  - persona_name: Senior Software Engineer
-    demographics:
-      age: 34
-      profession: Senior Software Engineer
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.1
-      base_acceleration: 8.1
-      base_avoidance_priority: 22
-    base_total_money: 16000
-    psychological_profile:
-      base_random_browse_probability: 0.02
-      base_impulse_probability: 0.06
-    base_shopping_list:
-    - FrozenMeat
-    - Bakery
-    - Fruits
-    - OrganicGreen
-    - Milk
-    base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_Samosa
-    - GreetingCards
-  - persona_name: Busy College Athlete
-    demographics:
-      age: 20
-      profession: Student Athlete
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.4
-      base_acceleration: 8.5
-      base_avoidance_priority: 25
-    base_total_money: 2000
-    psychological_profile:
-      base_random_browse_probability: 0.01
-      base_impulse_probability: 0.02
-    base_shopping_list:
-    - Activewear
-    - Milk
-    - FrozenChicken
-    - Rice
-    - InstantNoodles
-    - Tea
-    base_impulse_favorites:
-    - IceCream
-    - Drink_Coffee
-  - persona_name: Family Essentials Shopper
-    demographics:
-      age: 30
-      profession: HR Manager
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 8
-      base_avoidance_priority: 25
-    base_total_money: 3600
-    psychological_profile:
-      base_random_browse_probability: 0.02
-      base_impulse_probability: 0.02
-    base_shopping_list:
-    - FrozenMeat
-    - CannedFood
-    - Rice
-    - Milk
-    - Bakery
-    - Diapers
-    - Vegetables
-    - Detergent
-    - InstantNoodles
-    - Toiletries
-    base_impulse_favorites:
-    - Eat_Samosa
-  - persona_name: Socially Active Young Adult
-    demographics:
-      age: 24
-      profession: Public Relations Specialist
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 8
-      base_avoidance_priority: 20
-    base_total_money: 16500
-    psychological_profile:
-      base_random_browse_probability: 0.65
-      base_impulse_probability: 0.75
-    base_shopping_list:
-    - WomensEthnicSet
-    - Bakery
-    - Fruits
-    - FrozenFoods
-    - Cosmetics
-    base_impulse_favorites:
-    - IceCream
-    - Chocolates
-    - Drink_Coffee
-    - PartySupplies
-    - BoardGames
-  - persona_name: Budget Family Navigator
-    demographics:
-      age: 46
-      profession: Construction Worker
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.9
-      base_acceleration: 6.2
-      base_avoidance_priority: 70
-    base_total_money: 1400
-    psychological_profile:
-      base_random_browse_probability: 0.08
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - CannedFood
-    - Milk
-    - Fruits
-    - FrozenMeat
-    - Rice
-    - Diapers
-    - Bakery
-    - Detergent
-    - Vegetables
-    - InstantNoodles
-    base_impulse_favorites:
-    - IceCream
-  - persona_name: Eco-Friendly Shopper
-    demographics:
-      age: 32
-      profession: Environmental Scientist
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.5
-      base_acceleration: 7.5
-      base_avoidance_priority: 50
-    base_total_money: 15000
-    psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - OrganicGreen
-    - Fruits
-    - Vegetables
-    - Juice
-    - Milk
-    base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Samosa
-  - persona_name: IT Consultant
-    demographics:
-      age: 35
-      profession: IT Consultant
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.4
-      base_acceleration: 8.6
-      base_avoidance_priority: 19
-    base_total_money: 17000
-    psychological_profile:
-      base_random_browse_probability: 0.01
-      base_impulse_probability: 0.03
-    base_shopping_list:
-    - MensJeans
-    - FrozenMeat
-    - Bakery
-    - Fruits
-    - OrganicGreen
-    base_impulse_favorites:
-    - Eat_Bhelpuri
-    - IceCream
-    - Magazines
-  - persona_name: Discount Seeker
-    demographics:
-      age: 28
-      profession: Retail Worker
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3
-      base_acceleration: 7
-      base_avoidance_priority: 65
-    base_total_money: 1500
-    psychological_profile:
-      base_random_browse_probability: 0.2
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - MensJeans
-    - InstantNoodles
-    - FrozenFoods
-    - Tea
-    - Wheat
-    - Toiletries
-    base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_Samosa
-  - persona_name: Budget-Conscious College Grad
-    demographics:
-      age: 25
-      profession: Recent Graduate
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.5
-      base_acceleration: 8.5
-      base_avoidance_priority: 60
-    base_total_money: 950
-    psychological_profile:
-      base_random_browse_probability: 0.2
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Cereals
-    - InstantNoodles
-    - FrozenFoods
-    - Fruits
-    base_impulse_favorites:
-    - Eat_Panipuri
-    - Chocolates
-  - persona_name: Mindful Mom
-    demographics:
-      age: 40
-      profession: Stay-at-home Mom
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.8
-      base_acceleration: 6
-      base_avoidance_priority: 60
-    base_total_money: 3000
-    psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Fruits
-    - Vegetables
-    - Milk
-    - CannedFood
-    - Rice
-    base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Bhelpuri
-  - persona_name: Casual Gamer
-    demographics:
-      age: 22
-      profession: Part-time Retail Worker
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.5
-      base_acceleration: 6
-      base_avoidance_priority: 50
-    base_total_money: 1000
-    psychological_profile:
-      base_random_browse_probability: 0.4
-      base_impulse_probability: 0.25
-    base_shopping_list:
-    - BoardGames
-    - Cereals
-    - FrozenFoods
-    - Chocolates
-    - SoftDrink
-    base_impulse_favorites:
-    - Eat_Panipuri
-    - Drink_Tea
-  - persona_name: Savvy Student
-    demographics:
-      age: 21
-      profession: College Student
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.5
-      base_acceleration: 8
-      base_avoidance_priority: 60
-    base_total_money: 800
-    psychological_profile:
-      base_random_browse_probability: 0.3
-      base_impulse_probability: 0.1
-    base_shopping_list:
-    - Cereals
-    - FrozenChicken
-    - Juice
-    - Books
-    - Stationery
-    base_impulse_favorites:
-    - Eat_ChickenPuff
-    - Chocolates
-  - persona_name: Heritage Cook
-    demographics:
-      age: 80
-      profession: Retired Home Economist
+      profession: Retired Herbalist
       income_level: Medium
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 2.4
-      base_acceleration: 5.3
-      base_avoidance_priority: 80
-    base_total_money: 3000
-    psychological_profile:
-      base_random_browse_probability: 0.15
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Wheat
-    - Butter
-    - Paneer
-    - Rice
-    - FrozenMeat
-    base_impulse_favorites:
-    - Chocolates
-    - GreetingCards
-  - persona_name: Traditional Chef
-    demographics:
-      age: 68
-      profession: Retired Chef
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.5
       base_acceleration: 6
       base_avoidance_priority: 70
-    base_total_money: 3500
+    base_total_money: 2700
     psychological_profile:
-      base_random_browse_probability: 0.1
+      base_random_browse_probability: 0.2
       base_impulse_probability: 0.05
     base_shopping_list:
-    - Wheat
-    - Paneer
-    - CookingOil
-    - FrozenMeat
+    - Tea
+    - Vegetables
     - Fruits
     - OrganicGreen
-    base_impulse_favorites:
-    - IceCream
-    - PartySupplies
-  - persona_name: Data Analyst on the Go
-    demographics:
-      age: 26
-      profession: Data Analyst
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.4
-      base_acceleration: 9
-      base_avoidance_priority: 22
-    base_total_money: 17500
-    psychological_profile:
-      base_random_browse_probability: 0.02
-      base_impulse_probability: 0.08
-    base_shopping_list:
-    - Detergent
-    - CannedFood
-    - Vegetables
-    - Rice
-    - Butter
-    base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Panipuri
-    - Toys
-  - persona_name: Fashion-Forward College Student
-    demographics:
-      age: 22
-      profession: Student
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 9
-      base_avoidance_priority: 25
-    base_total_money: 16000
-    psychological_profile:
-      base_random_browse_probability: 0.7
-      base_impulse_probability: 0.8
-    base_shopping_list:
-    - WomensKurti
-    - MensJeans
-    - Tea
-    - Toys
-    - Diapers
-    base_impulse_favorites:
-    - IceCream
-    - MobilePhones
-    - FrozenMeat
-    - Chocolates
-    - Drink_Coffee
-  - persona_name: Software Developer
-    demographics:
-      age: 32
-      profession: Software Developer
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.1
-      base_acceleration: 8
-      base_avoidance_priority: 23
-    base_total_money: 15000
-    psychological_profile:
-      base_random_browse_probability: 0.02
-      base_impulse_probability: 0.06
-    base_shopping_list:
-    - Wheat
-    - Rice
-    - Butter
-    - Tea
-    - FrozenChicken
-    base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Panipuri
-    - Toys
-  - persona_name: Classic Grocer
-    demographics:
-      age: 78
-      profession: Retired Accountant
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.3
-      base_acceleration: 5.008
-      base_avoidance_priority: 70
-    base_total_money: 1800
-    psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Rice
-    - CannedFood
-    - FrozenMeat
     - CookingOil
-    - Butter
     base_impulse_favorites:
-    - Detergent
-    - DogFood
-  - persona_name: Cloud Engineer
-    demographics:
-      age: 31
-      profession: Cloud Engineer
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.3
-      base_acceleration: 8.8
-      base_avoidance_priority: 21
-    base_total_money: 16500
-    psychological_profile:
-      base_random_browse_probability: 0.01
-      base_impulse_probability: 0.02
-    base_shopping_list:
-    - Milk
-    - FrozenChicken
-    - CannedFood
-    - Rice
-    - Coffee
-    base_impulse_favorites:
-    - Eat_ChickenPuff
     - Chocolates
-    - Magazines
-  - persona_name: Value Seeking Retiree
-    demographics:
-      age: 68
-      profession: Retired Engineer
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.3
-      base_acceleration: 5.03
-      base_avoidance_priority: 75
-    base_total_money: 1100
-    psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.03
-    base_shopping_list:
-    - Books
     - GreetingCards
-    - FrozenMeat
-    - Tea
-    base_impulse_favorites:
-    - Drink_Tea
-    - PartySupplies
-  - persona_name: Fitness-Centric Blogger
-    demographics:
-      age: 26
-      profession: Lifestyle Blogger
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 7.5
-      base_avoidance_priority: 30
-    base_total_money: 15000
-    psychological_profile:
-      base_random_browse_probability: 0.5
-      base_impulse_probability: 0.8
-    base_shopping_list:
-    - Fruits
-    - Vegetables
-    - Milk
-    - Juice
-    - Butter
-    base_impulse_favorites:
-    - Eat_ChickenPuff
-    - Drink_Tea
-  - persona_name: Trendy Young Professional
-    demographics:
-      age: 29
-      profession: Marketing Manager
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.2
-      base_acceleration: 8
-      base_avoidance_priority: 20
-    base_total_money: 18500
-    psychological_profile:
-      base_random_browse_probability: 0.65
-      base_impulse_probability: 0.75
-    base_shopping_list:
-    - WomensJeans
-    - IceCream
-    - Fruits
-    - Cosmetics
-    - Bakery
-    base_impulse_favorites:
-    - Chocolates
-    - BoardGames
-    - GreetingCards
-    - LargeIceCream
-    - PartySupplies
-  - persona_name: Budget-Conscious Family Planner
-    demographics:
-      age: 35
-      profession: Homemaker
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.5
-      base_acceleration: 6
-      base_avoidance_priority: 70
-    base_total_money: 1500
-    psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Rice
-    - CannedFood
-    - Diapers
-    - Milk
-    - Vegetables
-    - FrozenMeat
-    - Toiletries
-    - Detergent
-    - FrozenFoods
-    - InstantNoodles
-    base_impulse_favorites:
-    - IceCream
-    - Chocolates
-  - persona_name: Busy Urban Professional
-    demographics:
-      age: 33
-      profession: Corporate Lawyer
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.3
-      base_acceleration: 8.5
-      base_avoidance_priority: 22
-    base_total_money: 19000
-    psychological_profile:
-      base_random_browse_probability: 0.64
-      base_impulse_probability: 0.76
-    base_shopping_list:
-    - MensFormals
-    - Fruits
-    - Toiletries
-    - Bakery
-    - FrozenMeat
-    base_impulse_favorites:
-    - IceCream
-    - Chocolates
-    - Drink_Coffee
-    - GreetingCards
-    - PartySupplies
-  - persona_name: Trendy Homeowner
-    demographics:
-      age: 35
-      profession: Interior Designer
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 8
-      base_avoidance_priority: 21
-    base_total_money: 16000
-    psychological_profile:
-      base_random_browse_probability: 0.6
-      base_impulse_probability: 0.75
-    base_shopping_list:
-    - LargeAppliances
-    - KitchenUtensils
-    - Toiletries
-    - WomensEthnicSet
-    - Bakery
-    base_impulse_favorites:
-    - Chocolates
-    - IceCream
-    - GreetingCards
-    - Drink_Tea
-    - PartySupplies
-  - persona_name: Friendly Neighbor
-    demographics:
-      age: 69
-      profession: Retired Social Worker
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.2
-      base_acceleration: 5.025
-      base_avoidance_priority: 85
-    base_total_money: 1500
-    psychological_profile:
-      base_random_browse_probability: 0.6
-      base_impulse_probability: 0.1
-    base_shopping_list:
-    - Rice
-    - Vegetables
-    - Bakery
-    - Tea
-    base_impulse_favorites:
-    - Magazines
-    - IceCream
-  - persona_name: Social Butterfly
+  - persona_name: Socialite Entertainer
     demographics:
       age: 30
       profession: Event Planner
@@ -1103,1238 +49,176 @@ MonoBehaviour:
     baseline_physics:
       base_speed: 4.4
       base_acceleration: 9
-      base_avoidance_priority: 18
-    base_total_money: 18000
+      base_avoidance_priority: 20
+    base_total_money: 2000
     psychological_profile:
-      base_random_browse_probability: 0.68
-      base_impulse_probability: 0.78
+      base_random_browse_probability: 0.75
+      base_impulse_probability: 0.8
     base_shopping_list:
-    - GreetingCards
     - PartySupplies
+    - Chocolates
     - Bakery
-    - Cosmetics
-    - FrozenFoods
+    - FreshCutMeat
+    - Juice
     base_impulse_favorites:
     - IceCream
-    - BoardGames
-    - Chocolates
-    - Drink_Coffee
-    - WomensEthnicSet
-  - persona_name: Budget Conscious Scholar
+    - GreetingCards
+    - Toys
+    - SoftDrink
+  - persona_name: Holistic Wellness Advocate
     demographics:
-      age: 24
-      profession: Student Teacher
-      income_level: Low
+      age: 38
+      profession: Wellness Coach
+      income_level: High
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 3.2
-      base_acceleration: 5.5
-      base_avoidance_priority: 62
-    base_total_money: 1700
+      base_speed: 3.8
+      base_acceleration: 7.5
+      base_avoidance_priority: 35
+    base_total_money: 15000
     psychological_profile:
-      base_random_browse_probability: 0.09
-      base_impulse_probability: 0.11
+      base_random_browse_probability: 0.6
+      base_impulse_probability: 0.5
     base_shopping_list:
-    - Books
-    - FrozenFoods
-    - InstantNoodles
-    - Chocolates
-    base_impulse_favorites:
-    - Eat_Bhelpuri
-    - Drink_Tea
-  - persona_name: Runner and Nutrition Advocate
-    demographics:
-      age: 33
-      profession: Athletic Coach
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.5
-      base_acceleration: 6.5
-      base_avoidance_priority: 50
-    base_total_money: 16000
-    psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.05
-    base_shopping_list:
+    - OrganicGreen
     - Fruits
     - Vegetables
-    - Milk
-    - Juice
     - Cereals
+    - Milk
     base_impulse_favorites:
+    - Eat_Panipuri
     - Drink_Tea
-    - Eat_Samosa
-  - persona_name: Smart Shopper
+  - persona_name: Stylish Office Worker
     demographics:
-      age: 34
-      profession: Project Manager
+      age: 32
+      profession: HR Manager
       income_level: Medium
-      gender: Male
+      gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 3.5
+      base_speed: 4.1
       base_acceleration: 7.5
-      base_avoidance_priority: 55
-    base_total_money: 1800
+      base_avoidance_priority: 30
+    base_total_money: 1600
     psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.08
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.1
     base_shopping_list:
+    - WomensJeans
     - MensFormals
-    - Rice
-    - FrozenMeat
-    - Detergent
+    - Cosmetics
     base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_ChickenPuff
-  - persona_name: Nostalgic Shopper
+    - Chocolates
+    - IceCream
+    - GreetingCards
+  - persona_name: Leisurely Senior Explorer
     demographics:
-      age: 69
-      profession: Retired Writer
+      age: 71
+      profession: Retired Artist
       income_level: Medium
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 2.2
-      base_acceleration: 5.003
-      base_avoidance_priority: 85
-    base_total_money: 2800
-    psychological_profile:
-      base_random_browse_probability: 0.6
-      base_impulse_probability: 0.1
-    base_shopping_list:
-    - Bakery
-    - Fruits
-    - Tea
-    - Vegetables
-    base_impulse_favorites:
-    - Books
-    - GreetingCards
-  - persona_name: DevOps Engineer
-    demographics:
-      age: 32
-      profession: DevOps Engineer
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.2
-      base_acceleration: 8.4
-      base_avoidance_priority: 23
-    base_total_money: 17500
-    psychological_profile:
-      base_random_browse_probability: 0.02
-      base_impulse_probability: 0.04
-    base_shopping_list:
-    - FrozenFoods
-    - CannedFood
-    - FrozenChicken
-    - Milk
-    - Coffee
-    base_impulse_favorites:
-    - Eat_ChickenPuff
-    - Chocolates
-    - Magazines
-  - persona_name: Busy Software Engineer
-    demographics:
-      age: 28
-      profession: Software Engineer
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.3
-      base_acceleration: 8.5
-      base_avoidance_priority: 25
-    base_total_money: 18000
-    psychological_profile:
-      base_random_browse_probability: 0.02
-      base_impulse_probability: 0.1
-    base_shopping_list:
-    - FrozenMeat
-    - FrozenFoods
-    - InstantNoodles
-    - Milk
-    - Coffee
-    base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_ChickenPuff
-    - Chocolates
-  - persona_name: Fitness Trainer
-    demographics:
-      age: 34
-      profession: Personal Trainer
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.1
-      base_acceleration: 8.5
-      base_avoidance_priority: 25
-    base_total_money: 16000
-    psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.08
-    base_shopping_list:
-    - FrozenChicken
-    - Fruits
-    - Vegetables
-    - Juice
-    - Butter
-    base_impulse_favorites:
-    - Eat_Bhelpuri
-    - Drink_Coffee
-  - persona_name: Cost-Conscious Consumer
-    demographics:
-      age: 31
-      profession: Customer Service Representative
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.2
-      base_acceleration: 7.5
-      base_avoidance_priority: 65
-    base_total_money: 1600
-    psychological_profile:
-      base_random_browse_probability: 0.2
-      base_impulse_probability: 0.08
-    base_shopping_list:
-    - Toiletries
-    - FrozenFoods
-    - Rice
-    - Detergent
-    base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_Bhelpuri
-  - persona_name: Bargain-Minded Family
-    demographics:
-      age: 44
-      profession: Warehouse Manager
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.7
       base_acceleration: 5.5
-      base_avoidance_priority: 65
-    base_total_money: 1600
+      base_avoidance_priority: 75
+    base_total_money: 2600
     psychological_profile:
-      base_random_browse_probability: 0.09
-      base_impulse_probability: 0.04
-    base_shopping_list:
-    - Rice
-    - CannedFood
-    - BabyCare
-    - Detergent
-    - Milk
-    - FrozenFoods
-    - Vegetables
-    - InstantNoodles
-    - Toiletries
-    - Bakery
-    base_impulse_favorites:
-    - Chocolates
-  - persona_name: Snack Enthusiast
-    demographics:
-      age: 20
-      profession: University Student
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.1
-      base_acceleration: 5.8
-      base_avoidance_priority: 65
-    base_total_money: 950
-    psychological_profile:
-      base_random_browse_probability: 0.12
+      base_random_browse_probability: 0.5
       base_impulse_probability: 0.1
     base_shopping_list:
-    - Cereals
-    - InstantNoodles
-    - Chocolates
+    - OrganicGreen
     - Fruits
-    base_impulse_favorites:
-    - Eat_Panipuri
-    - Drink_Coffee
-  - persona_name: Health-Conscious Yogi
-    demographics:
-      age: 30
-      profession: Yoga Instructor
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.2
-      base_acceleration: 8
-      base_avoidance_priority: 20
-    base_total_money: 15000
-    psychological_profile:
-      base_random_browse_probability: 0.02
-      base_impulse_probability: 0.05
-    base_shopping_list:
     - Vegetables
-    - Fruits
-    - Milk
-    - Paneer
-    - Juice
-    base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Samosa
-  - persona_name: Health-Driven Artist
-    demographics:
-      age: 31
-      profession: Graphic Designer
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.3
-      base_acceleration: 8
-      base_avoidance_priority: 20
-    base_total_money: 14500
-    psychological_profile:
-      base_random_browse_probability: 0.03
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Vegetables
-    - Fruits
-    - Juice
-    - Milk
+    - Tea
     - Butter
     base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_ChickenPuff
-  - persona_name: Diet-Conscious Student
-    demographics:
-      age: 22
-      profession: University Student
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3
-      base_acceleration: 6
-      base_avoidance_priority: 65
-    base_total_money: 800
-    psychological_profile:
-      base_random_browse_probability: 0.2
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Fruits
-    - Vegetables
-    - Cereals
-    - Milk
-    - Juice
-    base_impulse_favorites:
-    - Eat_Panipuri
-    - Drink_Tea
-  - persona_name: Cautious Family Budgeter
-    demographics:
-      age: 50
-      profession: Retired
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.4
-      base_acceleration: 5.01
-      base_avoidance_priority: 75
-    base_total_money: 1200
-    psychological_profile:
-      base_random_browse_probability: 0.06
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - FrozenChicken
-    - CannedFood
-    - Milk
-    - Rice
-    - Bakery
-    - Detergent
-    - Fruits
-    - Toiletries
-    - InstantNoodles
-    - Vegetables
-    base_impulse_favorites:
-    - IceCream
-  - persona_name: Vibrant Lifestyle Influencer
-    demographics:
-      age: 29
-      profession: Social Media Manager
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.2
-      base_acceleration: 8
-      base_avoidance_priority: 20
-    base_total_money: 17000
-    psychological_profile:
-      base_random_browse_probability: 0.65
-      base_impulse_probability: 0.78
-    base_shopping_list:
-    - WomensEthnicSet
-    - Fruits
-    - Bakery
-    - Cosmetics
-    - FrozenFoods
-    base_impulse_favorites:
-    - IceCream
     - Chocolates
-    - Drink_Tea
-    - PartySupplies
-    - BoardGames
-  - persona_name: Adventurous Foodie
-    demographics:
-      age: 31
-      profession: Chef
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 7
-      base_avoidance_priority: 28
-    base_total_money: 15500
-    psychological_profile:
-      base_random_browse_probability: 0.62
-      base_impulse_probability: 0.73
-    base_shopping_list:
-    - FrozenMeat
-    - CookingOil
-    - Fruits
-    - Seafood
-    - FreshCutMeat
-    base_impulse_favorites:
-    - Chocolates
-    - IceCream
-    - Drink_Coffee
-    - PartySupplies
-    - BoardGames
-  - persona_name: Corporate Marketing Manager
-    demographics:
-      age: 34
-      profession: Marketing Manager
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.1
-      base_acceleration: 7.5
-      base_avoidance_priority: 20
-    base_total_money: 16000
-    psychological_profile:
-      base_random_browse_probability: 0.01
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Seafood
-    - FreshCutMeat
-    - Bakery
-    - Fruits
-    - OrganicGreen
-    base_impulse_favorites:
-    - Eat_Samosa
-    - IceCream
-    - Magazines
-  - persona_name: Midnight Cravings
-    demographics:
-      age: 20
-      profession: Student
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.2
-      base_acceleration: 7.5
-      base_avoidance_priority: 30
-    base_total_money: 950
-    psychological_profile:
-      base_random_browse_probability: 0.65
-      base_impulse_probability: 0.7
-    base_shopping_list:
-    - FrozenFoods
-    - InstantNoodles
-    - Chocolates
-    - SoftDrink
-    base_impulse_favorites:
-    - Eat_Samosa
-    - Drink_Tea
-  - persona_name: Frugal Family Shopper
+    - GreetingCards
+  - persona_name: Tech Executive
     demographics:
       age: 35
-      profession: Stay-at-home Parent
-      income_level: Low
+      profession: CTO
+      income_level: High
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 2.5
-      base_acceleration: 6
-      base_avoidance_priority: 70
-    base_total_money: 1200
-    psychological_profile:
-      base_random_browse_probability: 0.15
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Rice
-    - Milk
-    - Diapers
-    - FrozenMeat
-    - Fruits
-    - CannedFood
-    - Detergent
-    base_impulse_favorites:
-    - IceCream
-    - Chocolates
-    - PartySupplies
-  - persona_name: Finance Executive
-    demographics:
-      age: 36
-      profession: Finance Executive
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
       base_speed: 4.3
-      base_acceleration: 8.2
+      base_acceleration: 8.5
       base_avoidance_priority: 21
     base_total_money: 2000
     psychological_profile:
-      base_random_browse_probability: 0.01
-      base_impulse_probability: 0.02
-    base_shopping_list:
-    - InstantNoodles
-    - FrozenFoods
-    - CannedFood
-    - Milk
-    - Seafood
-    base_impulse_favorites:
-    - Eat_ChickenPuff
-    - Chocolates
-    - Magazines
-  - persona_name: Late Night Researcher
-    demographics:
-      age: 23
-      profession: Graduate Student
-      income_level: Low
-      gender: Non-binary
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.3
-      base_acceleration: 8
-      base_avoidance_priority: 20
-    base_total_money: 1800
-    psychological_profile:
       base_random_browse_probability: 0.02
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Books
-    - InstantNoodles
-    - Coffee
-    - Fruits
-    - Tea
-    - Bakery
-    base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_Bhelpuri
-  - persona_name: Nighttime Snack Seeker
-    demographics:
-      age: 21
-      profession: Online Tutor
-      income_level: Low
-      gender: Non-binary
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3
-      base_acceleration: 6
-      base_avoidance_priority: 70
-    base_total_money: 1100
-    psychological_profile:
-      base_random_browse_probability: 0.15
-      base_impulse_probability: 0.12
-    base_shopping_list:
-    - Cereals
-    - FrozenMeat
-    - Chocolates
-    - Bakery
-    base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_Panipuri
-  - persona_name: Cautious Spender
-    demographics:
-      age: 29
-      profession: Accountant
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.6
-      base_acceleration: 6
-      base_avoidance_priority: 75
-    base_total_money: 1200
-    psychological_profile:
-      base_random_browse_probability: 0.05
       base_impulse_probability: 0.03
     base_shopping_list:
-    - Books
-    - Tea
-    - CannedFood
-    - FrozenMeat
-    base_impulse_favorites:
+    - FrozenChicken
+    - Seafood
+    - OrganicGreen
+    - Bakery
     - Drink_Tea
-    - Eat_Panipuri
-  - persona_name: Gadget Enthusiast
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+    - Magazines
+  - persona_name: Quick Shopping Engineer
     demographics:
-      age: 34
+      age: 32
       profession: Software Engineer
       income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.3
-      base_acceleration: 7.5
-      base_avoidance_priority: 15
-    base_total_money: 17500
-    psychological_profile:
-      base_random_browse_probability: 0.6
-      base_impulse_probability: 0.7
-    base_shopping_list:
-    - MobilePhones
-    - LargeAppliances
-    - Stationery
-    - CookingOil
-    - Cereals
-    base_impulse_favorites:
-    - SmallAppliances
-    - IceCream
-    - PartySupplies
-    - MensTshirt
-    - Drink_Tea
-  - persona_name: Frugal Nighttime Shopper
-    demographics:
-      age: 23
-      profession: Part-time Barista
-      income_level: Low
       gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.4
-      base_acceleration: 6.2
-      base_avoidance_priority: 58
-    base_total_money: 1400
-    psychological_profile:
-      base_random_browse_probability: 0.06
-      base_impulse_probability: 0.07
-    base_shopping_list:
-    - CannedFood
-    - Fruits
-    - Chocolates
-    - Bakery
-    base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Samosa
-  - persona_name: Remote UX Designer
-    demographics:
-      age: 29
-      profession: UX Designer
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 7
-      base_avoidance_priority: 24
-    base_total_money: 16500
-    psychological_profile:
-      base_random_browse_probability: 0.03
-      base_impulse_probability: 0.07
-    base_shopping_list:
-    - Cosmetics
-    - Toiletries
-    - Fruits
-    - Bakery
-    - FrozenChicken
-    base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_Samosa
-    - GreetingCards
-  - persona_name: Busy Professional
-    demographics:
-      age: 38
-      profession: Financial Analyst
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.1
-      base_acceleration: 8
-      base_avoidance_priority: 25
-    base_total_money: 18000
-    psychological_profile:
-      base_random_browse_probability: 0.62
-      base_impulse_probability: 0.72
-    base_shopping_list:
-    - FrozenMeat
-    - Fruits
-    - Bakery
-    - Cereals
-    - Milk
-    base_impulse_favorites:
-    - IceCream
-    - Chocolates
-    - Drink_Coffee
-    - PartySupplies
-    - BoardGames
-  - persona_name: Frugal Grocery Strategist
-    demographics:
-      age: 42
-      profession: Teacher
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.8
-      base_acceleration: 5.5
-      base_avoidance_priority: 65
-    base_total_money: 1800
-    psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Fruits
-    - Cereals
-    - CookingOil
-    - BabyCare
-    - Wheat
-    - DogFood
-    - PartySupplies
-    - WaterBottles
-    - Juice
-    - FreshCutMeat
-    base_impulse_favorites:
-    - Drink_Coffee
-  - persona_name: Night Owl Scholar
-    demographics:
-      age: 22
-      profession: Graduate Student
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.2
-      base_acceleration: 7.8
-      base_avoidance_priority: 22
-    base_total_money: 1750
-    psychological_profile:
-      base_random_browse_probability: 0.03
-      base_impulse_probability: 0.04
-    base_shopping_list:
-    - Books
-    - Coffee
-    - InstantNoodles
-    - Bakery
-    base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_ChickenPuff
-  - persona_name: Thrifty Grandparent
-    demographics:
-      age: 65
-      profession: Retired Teacher
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.2
-      base_acceleration: 5.5
-      base_avoidance_priority: 80
-    base_total_money: 1000
-    psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - GreetingCards
-    - Tea
-    - Vegetables
-    - Butter
-    - FrozenMeat
-    base_impulse_favorites:
-    - Drink_Tea
-    - PartySupplies
-  - persona_name: Late Night Snack Fiend
-    demographics:
-      age: 19
-      profession: Full-time Student
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 6.9
-      base_avoidance_priority: 34
-    base_total_money: 800
-    psychological_profile:
-      base_random_browse_probability: 0.72
-      base_impulse_probability: 0.78
-    base_shopping_list:
-    - SoftDrink
-    - InstantNoodles
-    - Chocolates
-    - Bakery
-    base_impulse_favorites:
-    - Eat_Samosa
-    - Drink_Tea
-  - persona_name: Vegan Foodie
-    demographics:
-      age: 28
-      profession: Food Blogger
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.5
-      base_acceleration: 7
-      base_avoidance_priority: 30
-    base_total_money: 12000
-    psychological_profile:
-      base_random_browse_probability: 0.65
-      base_impulse_probability: 0.75
-    base_shopping_list:
-    - Vegetables
-    - Fruits
-    - Wheat
-    - Cereals
-    - Milk
-    base_impulse_favorites:
-    - Eat_Panipuri
-    - Drink_Tea
-  - persona_name: Simple Taster
-    demographics:
-      age: 77
-      profession: Retired Civil Servant
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.5
-      base_acceleration: 5.5
-      base_avoidance_priority: 75
-    base_total_money: 1600
-    psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Milk
-    - Rice
-    - CannedFood
-    - Vegetables
-    - Butter
-    base_impulse_favorites:
-    - Coffee
-    - InstantNoodles
-  - persona_name: Tech-Savvy Shopper
-    demographics:
-      age: 25
-      profession: IT Consultant
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 8
-      base_avoidance_priority: 27
-    base_total_money: 16200
-    psychological_profile:
-      base_random_browse_probability: 0.61
-      base_impulse_probability: 0.74
-    base_shopping_list:
-    - MobilePhones
-    - SmallAppliances
-    - Cereals
-    - FrozenChicken
-    - Bakery
-    base_impulse_favorites:
-    - IceCream
-    - Chocolates
-    - Drink_Coffee
-    - PartySupplies
-    - BoardGames
-  - persona_name: Thrifty Homemaker
-    demographics:
-      age: 38
-      profession: Home Maker
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.5
-      base_acceleration: 5.5
-      base_avoidance_priority: 75
-    base_total_money: 950
-    psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Diapers
-    - Fruits
-    - FrozenChicken
-    - Detergent
-    base_impulse_favorites:
-    - Chocolates
-    - Eat_Bhelpuri
-  - persona_name: Family Budget Planner
-    demographics:
-      age: 48
-      profession: Teacher
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.7
-      base_acceleration: 5.8
-      base_avoidance_priority: 70
-    base_total_money: 3000
-    psychological_profile:
-      base_random_browse_probability: 0.06
-      base_impulse_probability: 0.04
-    base_shopping_list:
-    - FrozenChicken
-    - CannedFood
-    - Rice
-    - Milk
-    - Bakery
-    - Diapers
-    - Vegetables
-    - Detergent
-    - InstantNoodles
-    - Toiletries
-    base_impulse_favorites:
-    - Eat_Panipuri
-  - persona_name: Economical Evening Shopper
-    demographics:
-      age: 23
-      profession: Graduate Student
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.5
-      base_acceleration: 6.1
-      base_avoidance_priority: 59
-    base_total_money: 1250
-    psychological_profile:
-      base_random_browse_probability: 0.04
-      base_impulse_probability: 0.06
-    base_shopping_list:
-    - CannedFood
-    - Chocolates
-    - FrozenFoods
-    - InstantNoodles
-    base_impulse_favorites:
-    - Eat_Bhelpuri
-    - Drink_Tea
-  - persona_name: Early Morning Grocer
-    demographics:
-      age: 78
-      profession: Retired Salesman
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.2
-      base_acceleration: 5.4
-      base_avoidance_priority: 80
-    base_total_money: 1200
-    psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Rice
-    - Butter
-    - CannedFood
-    - FrozenChicken
-    - Tea
-    base_impulse_favorites:
-    - Magazines
-    - Chocolates
-  - persona_name: Budget-Friendly Parent
-    demographics:
-      age: 39
-      profession: Teacher
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.9
-      base_acceleration: 6.5
-      base_avoidance_priority: 65
-    base_total_money: 1300
-    psychological_profile:
-      base_random_browse_probability: 0.15
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Diapers
-    - Fruits
-    - BabyCare
-    - CannedFood
-    base_impulse_favorites:
-    - IceCream
-    - Eat_Panipuri
-  - persona_name: Quick Shopper
-    demographics:
-      age: 22
-      profession: Part-time Student
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.1
-      base_acceleration: 7.2
-      base_avoidance_priority: 28
-    base_total_money: 1300
-    psychological_profile:
-      base_random_browse_probability: 0.02
-      base_impulse_probability: 0.03
-    base_shopping_list:
-    - InstantNoodles
-    - Chocolates
-    - Bakery
-    - Tea
-    base_impulse_favorites:
-    - Eat_ChickenPuff
-    - Drink_Coffee
-  - persona_name: Family Grocery Commander
-    demographics:
-      age: 43
-      profession: Logistics Coordinator
-      income_level: Medium
-      gender: Male
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 4.1
       base_acceleration: 8.5
-      base_avoidance_priority: 25
-    base_total_money: 5000
+      base_avoidance_priority: 24
+    base_total_money: 17000
     psychological_profile:
-      base_random_browse_probability: 0.03
-      base_impulse_probability: 0.01
+      base_random_browse_probability: 0.02
+      base_impulse_probability: 0.04
     base_shopping_list:
-    - FrozenMeat
-    - CannedFood
     - Rice
-    - Milk
-    - Bakery
-    - Diapers
-    - Vegetables
-    - Detergent
-    - InstantNoodles
-    - Toiletries
-    base_impulse_favorites:
-    - Drink_Tea
-  - persona_name: Gamer on a Budget
-    demographics:
-      age: 21
-      profession: Student
-      income_level: Low
-      gender: Non-binary
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.6
-      base_acceleration: 6.5
-      base_avoidance_priority: 55
-    base_total_money: 1000
-    psychological_profile:
-      base_random_browse_probability: 0.08
-      base_impulse_probability: 0.1
-    base_shopping_list:
-    - InstantNoodles
+    - FrozenFoods
     - CannedFood
-    - Chocolates
-    - Fruits
+    - Seafood
+    - Drink_Coffee
     base_impulse_favorites:
-    - Eat_Bhelpuri
-    - Drink_Tea
-  - persona_name: Frugal Family Shopper
+    - Chocolates
+    - PartySupplies
+    - BoardGames
+  - persona_name: Eager Fashion Shopper
     demographics:
-      age: 40
-      profession: Administrative Assistant
+      age: 29
+      profession: Event Planner
       income_level: Medium
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 2.6
-      base_acceleration: 5.5
-      base_avoidance_priority: 65
-    base_total_money: 2000
-    psychological_profile:
-      base_random_browse_probability: 0.07
-      base_impulse_probability: 0.03
-    base_shopping_list:
-    - FrozenChicken
-    - Milk
-    - CannedFood
-    - Rice
-    - Diapers
-    - Bakery
-    - Vegetables
-    - InstantNoodles
-    - Detergent
-    - Toiletries
-    base_impulse_favorites:
-    - Chocolates
-  - persona_name: Supermarket Explorer
-    demographics:
-      age: 33
-      profession: IT Consultant
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.6
+      base_speed: 3.7
       base_acceleration: 6.5
-      base_avoidance_priority: 60
-    base_total_money: 4500
+      base_avoidance_priority: 35
+    base_total_money: 1300
     psychological_profile:
       base_random_browse_probability: 0.75
-      base_impulse_probability: 0.4
+      base_impulse_probability: 0.7
     base_shopping_list:
-    - WomensKurti
-    - MensTshirt
+    - WomensJeans
     - Shoes
     - Cosmetics
-    - GreetingCards
-    - FrozenFoods
-    - Tea
-    - Chocolates
-    - Toys
-    - Vegetables
     base_impulse_favorites:
-    - Eat_ChickenPuff
-    - Drink_Tea
-  - persona_name: Outdoor Adventure Enthusiast
+    - IceCream
+    - PartySupplies
+    - Books
+  - persona_name: Time-Savvy Consultant
     demographics:
-      age: 29
-      profession: Adventure Guide
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 8
-      base_avoidance_priority: 25
-    base_total_money: 12000
-    psychological_profile:
-      base_random_browse_probability: 0.03
-      base_impulse_probability: 0.02
-    base_shopping_list:
-    - FrozenChicken
-    - Vegetables
-    - Juice
-    - Milk
-    - Fruits
-    base_impulse_favorites:
-    - Eat_Bhelpuri
-    - Drink_Coffee
-  - persona_name: Economical Shopper
-    demographics:
-      age: 29
-      profession: Graphic Designer
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.4
-      base_acceleration: 8
-      base_avoidance_priority: 60
-    base_total_money: 1400
-    psychological_profile:
-      base_random_browse_probability: 0.15
-      base_impulse_probability: 0.07
-    base_shopping_list:
-    - WomensEthnicSet
-    - Cosmetics
-    - Tea
-    - Fruits
-    base_impulse_favorites:
-    - Drink_Coffee
-    - Chocolates
-  - persona_name: Holistic Nutritionist
-    demographics:
-      age: 38
-      profession: Nutrition Consultant
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3
-      base_acceleration: 6
-      base_avoidance_priority: 40
-    base_total_money: 2000
-    psychological_profile:
-      base_random_browse_probability: 0.15
-      base_impulse_probability: 0.1
-    base_shopping_list:
-    - OrganicGreen
-    - Juice
-    - Milk
-    - Fruits
-    - Vegetables
-    base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Panipuri
-  - persona_name: Busy Corporate Executive
-    demographics:
-      age: 45
-      profession: Finance Manager
+      age: 35
+      profession: Business Consultant
       income_level: High
       gender: Male
     agent_type: 0
@@ -2342,193 +226,889 @@ MonoBehaviour:
     baseline_physics:
       base_speed: 4.4
       base_acceleration: 9
-      base_avoidance_priority: 15
-    base_total_money: 18000
+      base_avoidance_priority: 21
+    base_total_money: 19500
     psychological_profile:
       base_random_browse_probability: 0.01
       base_impulse_probability: 0.03
     base_shopping_list:
-    - FreshCutMeat
-    - OrganicGreen
-    - CookingOil
-    - Coffee
-    - Butter
+    - Bakery
+    - FrozenChicken
+    - Vegetables
+    - Fruits
+    - Drink_Tea
     base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_ChickenPuff
-  - persona_name: Thrifty Techie
+    - IceCream
+    - Chocolates
+    - Magazines
+  - persona_name: Swift Tech Guru
     demographics:
-      age: 27
+      age: 31
+      profession: Software Engineer
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.4
+      base_acceleration: 9
+      base_avoidance_priority: 20
+    base_total_money: 18000
+    psychological_profile:
+      base_random_browse_probability: 0.02
+      base_impulse_probability: 0.03
+    base_shopping_list:
+    - FrozenChicken
+    - CannedFood
+    - OrganicGreen
+    - InstantNoodles
+    - Drink_Tea
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+    - Magazines
+  - persona_name: Time-Saving Dad
+    demographics:
+      age: 40
+      profession: IT Consultant
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 9
+      base_avoidance_priority: 25
+    base_total_money: 18000
+    psychological_profile:
+      base_random_browse_probability: 0.02
+      base_impulse_probability: 0.03
+    base_shopping_list:
+    - FrozenMeat
+    - MensFormals
+    - Milk
+    - Rice
+    - Bakery
+    - Seafood
+    - Toiletries
+    - SoftDrink
+    - KidsClothing
+    - Juice
+    base_impulse_favorites:
+    - Eat_ChickenPuff
+    - BoardGames
+    - Chocolates
+  - persona_name: Health-Conscious Senior
+    demographics:
+      age: 68
+      profession: Retired Nurse
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.5
+      base_acceleration: 5.5
+      base_avoidance_priority: 75
+    base_total_money: 3000
+    psychological_profile:
+      base_random_browse_probability: 0.15
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - OrganicGreen
+    - Fruits
+    - Tea
+    - Grains
+    - Milk
+    - Vegetables
+    base_impulse_favorites:
+    - Books
+    - Chocolates
+  - persona_name: Careful Budgeter
+    demographics:
+      age: 34
+      profession: Full-time Parent
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.5
+      base_acceleration: 5.8
+      base_avoidance_priority: 74
+    base_total_money: 750
+    psychological_profile:
+      base_random_browse_probability: 0.08
+      base_impulse_probability: 0.06
+    base_shopping_list:
+    - Vegetables
+    - Detergent
+    - CannedFood
+    - Rice
+    - Fruits
+    - Milk
+    - FrozenFoods
+    - Diapers
+    - Grains
+    - SoftDrink
+    base_impulse_favorites:
+    - Eat_Bhelpuri
+    - GreetingCards
+    - Toys
+  - persona_name: Casual Weekend Shopper
+    demographics:
+      age: 33
+      profession: Sales Consultant
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.1
+      base_acceleration: 8.2
+      base_avoidance_priority: 27
+    base_total_money: 18000
+    psychological_profile:
+      base_random_browse_probability: 0.67
+      base_impulse_probability: 0.78
+    base_shopping_list:
+    - MensJeans
+    - SoftDrink
+    - Bakery
+    - FreshCutMeat
+    - PartySupplies
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+    - GreetingCards
+    - Toys
+  - persona_name: Modern Urban Professional
+    demographics:
+      age: 31
       profession: Software Developer
       income_level: Medium
       gender: Male
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 3.6
-      base_acceleration: 8
-      base_avoidance_priority: 60
-    base_total_money: 1500
+      base_speed: 4.4
+      base_acceleration: 8.5
+      base_avoidance_priority: 25
+    base_total_money: 1400
     psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.06
+      base_random_browse_probability: 0.03
+      base_impulse_probability: 0.1
     base_shopping_list:
-    - MobilePhones
-    - FrozenChicken
-    - InstantNoodles
-    - Cereals
-    - Tea
-    base_impulse_favorites:
+    - MensFormals
+    - Shoes
+    - OralCare
     - Drink_Tea
-    - Chocolates
-  - persona_name: Prudent Family Buyer
-    demographics:
-      age: 34
-      profession: Civil Engineer
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.8
-      base_acceleration: 6
-      base_avoidance_priority: 60
-    base_total_money: 2700
-    psychological_profile:
-      base_random_browse_probability: 0.07
-      base_impulse_probability: 0.06
-    base_shopping_list:
-    - FrozenFoods
-    - CannedFood
-    - Milk
-    - Diapers
-    - Rice
-    - Bakery
-    - Vegetables
-    - InstantNoodles
-    - Detergent
-    - Toiletries
     base_impulse_favorites:
-    - LargeIceCream
-  - persona_name: Dynamic Young Entrepreneur
+    - IceCream
+    - PartySupplies
+    - Magazines
+  - persona_name: On-the-Go Developer
     demographics:
-      age: 32
-      profession: Startup Founder
+      age: 29
+      profession: Software Engineer
       income_level: High
       gender: Male
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 4.3
-      base_acceleration: 8.5
-      base_avoidance_priority: 24
-    base_total_money: 18700
+      base_acceleration: 8
+      base_avoidance_priority: 21
+    base_total_money: 16500
     psychological_profile:
-      base_random_browse_probability: 0.68
-      base_impulse_probability: 0.78
+      base_random_browse_probability: 0.03
+      base_impulse_probability: 0.04
     base_shopping_list:
-    - MobilePhones
+    - FrozenFoods
     - Bakery
-    - Fruits
-    - FrozenChicken
-    - Cosmetics
+    - Vegetables
+    - InstantNoodles
+    - Drink_Coffee
     base_impulse_favorites:
     - IceCream
     - Chocolates
-    - Drink_Coffee
     - PartySupplies
+  - persona_name: Discount-Seeking Student
+    demographics:
+      age: 21
+      profession: University Student
+      income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.5
+      base_acceleration: 8
+      base_avoidance_priority: 50
+    base_total_money: 800
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - InstantNoodles
+    - SoftDrink
+    - Bakery
+    - Fruits
+    - Magazines
+    base_impulse_favorites:
+    - Eat_ChickenPuff
     - BoardGames
-  - persona_name: Nocturnal Snack Lover
+    - Toys
+  - persona_name: Student Snack Enthusiast
     demographics:
       age: 19
-      profession: Community College Student
+      profession: College Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.5
+      base_acceleration: 8
+      base_avoidance_priority: 30
+    base_total_money: 800
+    psychological_profile:
+      base_random_browse_probability: 0.15
+      base_impulse_probability: 0.55
+    base_shopping_list:
+    - FrozenChicken
+    - Bakery
+    - Fruits
+    - SoftDrink
+    - InstantNoodles
+    base_impulse_favorites:
+    - Eat_ChickenPuff
+    - Chocolates
+  - persona_name: Budget-Conscious Student
+    demographics:
+      age: 21
+      profession: University Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3
+      base_acceleration: 7
+      base_avoidance_priority: 60
+    base_total_money: 1500
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.08
+    base_shopping_list:
+    - InstantNoodles
+    - CannedFood
+    - Bakery
+    - SoftDrink
+    - Milk
+    base_impulse_favorites:
+    - Chocolates
+    - IceCream
+  - persona_name: Budget-Conscious Grandparent
+    demographics:
+      age: 75
+      profession: Retired Accountant
+      income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.1
+      base_acceleration: 5
+      base_avoidance_priority: 80
+    base_total_money: 1200
+    psychological_profile:
+      base_random_browse_probability: 0.1
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - CannedFood
+    - Rice
+    - FrozenChicken
+    - Vegetables
+    - Butter
+    base_impulse_favorites:
+    - GreetingCards
+    - InstantNoodles
+  - persona_name: Creative Marketing Specialist
+    demographics:
+      age: 29
+      profession: Marketing Specialist
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 8
+      base_avoidance_priority: 22
+    base_total_money: 16000
+    psychological_profile:
+      base_random_browse_probability: 0.65
+      base_impulse_probability: 0.75
+    base_shopping_list:
+    - MensJeans
+    - Bakery
+    - Seafood
+    - Milk
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+    - GreetingCards
+    - PartySupplies
+  - persona_name: Efficient Software Engineer
+    demographics:
+      age: 33
+      profession: Software Engineer
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.4
+      base_acceleration: 9
+      base_avoidance_priority: 20
+    base_total_money: 19000
+    psychological_profile:
+      base_random_browse_probability: 0.02
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - FrozenChicken
+    - Seafood
+    - Fruits
+    - InstantNoodles
+    - Drink_Coffee
+    base_impulse_favorites:
+    - IceCream
+    - SoftDrink
+    - Chocolates
+  - persona_name: Morning Routine Planner
+    demographics:
+      age: 73
+      profession: Retired Pharmacist
+      income_level: Medium
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.5
+      base_acceleration: 6
+      base_avoidance_priority: 70
+    base_total_money: 2900
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - Rice
+    - Fruits
+    - Milk
+    - Tea
+    - Vegetables
+    base_impulse_favorites:
+    - BoardGames
+    - IceCream
+  - persona_name: Nocturnal Snacker
+    demographics:
+      age: 22
+      profession: Software Engineering Student
       income_level: Low
       gender: Male
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 4
-      base_acceleration: 7.5
-      base_avoidance_priority: 30
-    base_total_money: 1200
+      base_acceleration: 8
+      base_avoidance_priority: 25
+    base_total_money: 1300
     psychological_profile:
-      base_random_browse_probability: 0.7
-      base_impulse_probability: 0.65
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.6
     base_shopping_list:
-    - FrozenMeat
-    - InstantNoodles
+    - Bakery
     - SoftDrink
-    - Chocolates
-    - Cereals
     - FrozenFoods
+    - InstantNoodles
+    - Fruits
     base_impulse_favorites:
-    - Eat_ChickenPuff
     - Eat_Samosa
-  - persona_name: Chic Urban Dweller
+    - BoardGames
+  - persona_name: Instant Food Lover
     demographics:
-      age: 30
-      profession: Fashion Blogger
+      age: 22
+      profession: Digital Media Student
+      income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.8
+      base_acceleration: 8
+      base_avoidance_priority: 35
+    base_total_money: 900
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.45
+    base_shopping_list:
+    - InstantNoodles
+    - CannedFood
+    - SoftDrink
+    - Fruits
+    - Bakery
+    base_impulse_favorites:
+    - Chocolates
+    - Eat_Panipuri
+  - persona_name: Social Media Influencer
+    demographics:
+      age: 25
+      profession: Content Creator
       income_level: High
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 4.1
-      base_acceleration: 8
-      base_avoidance_priority: 23
+      base_speed: 4.4
+      base_acceleration: 9
+      base_avoidance_priority: 15
     base_total_money: 17500
     psychological_profile:
-      base_random_browse_probability: 0.66
-      base_impulse_probability: 0.79
+      base_random_browse_probability: 0.68
+      base_impulse_probability: 0.75
     base_shopping_list:
-    - WomensJeans
+    - Chocolates
+    - PartySupplies
+    - Bakery
+    - Juice
+    - IceCream
+    base_impulse_favorites:
+    - GreetingCards
+    - Toys
+    - SoftDrink
+  - persona_name: Budget Foodie
+    demographics:
+      age: 23
+      profession: Hospitality Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3
+      base_acceleration: 6.5
+      base_avoidance_priority: 65
+    base_total_money: 1400
+    psychological_profile:
+      base_random_browse_probability: 0.1
+      base_impulse_probability: 0.07
+    base_shopping_list:
+    - CannedFood
+    - FrozenMeat
+    - Bakery
+    - Rice
+    - SoftDrink
+    base_impulse_favorites:
+    - Chocolates
+    - Eat_Panipuri
+  - persona_name: Quick-Paced Analyst
+    demographics:
+      age: 32
+      profession: Data Analyst
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.1
+      base_acceleration: 7.5
+      base_avoidance_priority: 22
+    base_total_money: 17500
+    psychological_profile:
+      base_random_browse_probability: 0.03
+      base_impulse_probability: 0.04
+    base_shopping_list:
+    - FrozenMeat
     - Bakery
     - Fruits
-    - Cosmetics
-    - FrozenFoods
+    - Seafood
+    - Drink_Coffee
     base_impulse_favorites:
     - IceCream
     - Chocolates
-    - Drink_Tea
     - PartySupplies
-    - BoardGames
-  - persona_name: Morning Stroller
+  - persona_name: Quick Shopper
+    demographics:
+      age: 23
+      profession: Nursing Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.4
+      base_acceleration: 9
+      base_avoidance_priority: 20
+    base_total_money: 1800
+    psychological_profile:
+      base_random_browse_probability: 0.02
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - Vegetables
+    - Fruits
+    - Bakery
+    - Milk
+    - InstantNoodles
+    base_impulse_favorites:
+    - Eat_Samosa
+    - Drink_Coffee
+  - persona_name: Casual Breakfast Planner
+    demographics:
+      age: 69
+      profession: Retired Engineer
+      income_level: Medium
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.6
+      base_acceleration: 6
+      base_avoidance_priority: 70
+    base_total_money: 2200
+    psychological_profile:
+      base_random_browse_probability: 0.3
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - Milk
+    - Cereals
+    - Fruits
+    - Coffee
+    - Bakery
+    base_impulse_favorites:
+    - IceCream
+    - PartySupplies
+  - persona_name: Gourmet Ingredient Seeker
     demographics:
       age: 70
+      profession: Retired Food Critic
+      income_level: Medium
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.4
+      base_acceleration: 6.3
+      base_avoidance_priority: 68
+    base_total_money: 3100
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - Seafood
+    - FreshCutMeat
+    - CookingOil
+    - Vegetables
+    - Paneer
+    base_impulse_favorites:
+    - Chocolates
+    - IceCream
+  - persona_name: Keto Diet Enthusiast
+    demographics:
+      age: 31
+      profession: Software Developer
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 8
+      base_avoidance_priority: 30
+    base_total_money: 17000
+    psychological_profile:
+      base_random_browse_probability: 0.03
+      base_impulse_probability: 0.04
+    base_shopping_list:
+    - FrozenChicken
+    - FreshCutMeat
+    - Butter
+    - Milk
+    - Vegetables
+    base_impulse_favorites:
+    - Drink_Coffee
+    - Eat_ChickenPuff
+  - persona_name: Fashion-Obsessed Executive
+    demographics:
+      age: 34
+      profession: Business Analyst
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.3
+      base_acceleration: 9
+      base_avoidance_priority: 20
+    base_total_money: 19000
+    psychological_profile:
+      base_random_browse_probability: 0.02
+      base_impulse_probability: 0.1
+    base_shopping_list:
+    - WomensJeans
+    - MensFormals
+    - Cosmetics
+    - Drink_Coffee
+    base_impulse_favorites:
+    - IceCream
+    - Gifts
+    - Magazines
+  - persona_name: Economical Young Adult
+    demographics:
+      age: 22
+      profession: Part-time Barista
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.6
+      base_acceleration: 7.5
+      base_avoidance_priority: 45
+    base_total_money: 700
+    psychological_profile:
+      base_random_browse_probability: 0.25
+      base_impulse_probability: 0.55
+    base_shopping_list:
+    - Bakery
+    - Fruits
+    - InstantNoodles
+    - SoftDrink
+    - Stationery
+    base_impulse_favorites:
+    - Eat_Panipuri
+    - Toys
+    - Magazines
+  - persona_name: Conscious Young Adult
+    demographics:
+      age: 23
+      profession: Intern
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.4
+      base_acceleration: 7.2
+      base_avoidance_priority: 55
+    base_total_money: 750
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.04
+    base_shopping_list:
+    - FrozenFoods
+    - Rice
+    - Milk
+    - Diapers
+    - Bakery
+    base_impulse_favorites:
+    - Drink_Coffee
+    - Toys
+    - Magazines
+  - persona_name: Yoga Enthusiast
+    demographics:
+      age: 26
+      profession: Yoga Instructor
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.5
+      base_acceleration: 7
+      base_avoidance_priority: 50
+    base_total_money: 2500
+    psychological_profile:
+      base_random_browse_probability: 0.7
+      base_impulse_probability: 0.65
+    base_shopping_list:
+    - Fruits
+    - Vegetables
+    - Milk
+    - Tea
+    base_impulse_favorites:
+    - Eat_Bhelpuri
+    - Drink_Coffee
+  - persona_name: The Party Planner
+    demographics:
+      age: 24
+      profession: Event Management Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.3
+      base_acceleration: 9
+      base_avoidance_priority: 15
+    base_total_money: 1600
+    psychological_profile:
+      base_random_browse_probability: 0.04
+      base_impulse_probability: 0.7
+    base_shopping_list:
+    - PartySupplies
+    - FrozenFoods
+    - Bakery
+    - SoftDrink
+    - CannedFood
+    base_impulse_favorites:
+    - Eat_Bhelpuri
+    - Chocolates
+  - persona_name: Trendy Young Man
+    demographics:
+      age: 25
+      profession: Graphic Designer
+      income_level: Medium
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.8
+      base_acceleration: 7.5
+      base_avoidance_priority: 45
+    base_total_money: 1300
+    psychological_profile:
+      base_random_browse_probability: 0.75
+      base_impulse_probability: 0.6
+    base_shopping_list:
+    - MensTshirt
+    - Shoes
+    - WomensKurti
+    - Drink_Tea
+    base_impulse_favorites:
+    - IceCream
+    - PartySupplies
+    - Books
+  - persona_name: Bargain-Hunting Teen
+    demographics:
+      age: 19
+      profession: High School Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.8
+      base_acceleration: 8.5
+      base_avoidance_priority: 40
+    base_total_money: 600
+    psychological_profile:
+      base_random_browse_probability: 0.3
+      base_impulse_probability: 0.6
+    base_shopping_list:
+    - Toys
+    - SoftDrink
+    - Chocolates
+    - Stationery
+    - FrozenFoods
+    base_impulse_favorites:
+    - Eat_Samosa
+    - PartySupplies
+    - Magazines
+  - persona_name: Nostalgic Shopper
+    demographics:
+      age: 80
       profession: Retired Librarian
       income_level: Low
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 2.1
-      base_acceleration: 5.2
+      base_speed: 2
+      base_acceleration: 5
       base_avoidance_priority: 85
-    base_total_money: 1200
+    base_total_money: 800
     psychological_profile:
-      base_random_browse_probability: 0.65
-      base_impulse_probability: 0.15
+      base_random_browse_probability: 0.6
+      base_impulse_probability: 0.1
     base_shopping_list:
+    - FrozenFoods
+    - Rice
     - Bakery
-    - Tea
+    - Cereals
+    - Vegetables
+    base_impulse_favorites:
+    - Magazines
+    - Toys
+  - persona_name: Spontaneous Night Out Planner
+    demographics:
+      age: 29
+      profession: Graphic Designer
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 8
+      base_avoidance_priority: 20
+    base_total_money: 19000
+    psychological_profile:
+      base_random_browse_probability: 0.7
+      base_impulse_probability: 0.8
+    base_shopping_list:
+    - WomensKurti
+    - Chocolates
+    - Bakery
+    - Juice
+    base_impulse_favorites:
+    - IceCream
+    - PartySupplies
+    - GreetingCards
+    - Toys
+  - persona_name: Savvy Family Buyer
+    demographics:
+      age: 37
+      profession: Sales Executive
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.2
+      base_acceleration: 9.5
+      base_avoidance_priority: 30
+    base_total_money: 19000
+    psychological_profile:
+      base_random_browse_probability: 0.02
+      base_impulse_probability: 0.02
+    base_shopping_list:
+    - SoftDrink
+    - FrozenMeat
     - Fruits
     - Vegetables
-    - Books
+    - Milk
+    - CannedFood
+    - Rice
+    - Bakery
+    - Toiletries
+    - FrozenChicken
     base_impulse_favorites:
-    - BoardGames
-    - GreetingCards
-  - persona_name: Dedicated Dietician
+    - Eat_ChickenPuff
+    - Toys
+    - Magazines
+  - persona_name: Sustainable Shopper
     demographics:
-      age: 36
-      profession: Registered Dietitian
+      age: 29
+      profession: Environmental Scientist
       income_level: High
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 3.2
-      base_acceleration: 6.5
-      base_avoidance_priority: 50
+      base_acceleration: 7
+      base_avoidance_priority: 30
     base_total_money: 19000
     psychological_profile:
       base_random_browse_probability: 0.1
@@ -2537,62 +1117,333 @@ MonoBehaviour:
     - OrganicGreen
     - Fruits
     - Vegetables
-    - Juice
     - Milk
+    - Paneer
     base_impulse_favorites:
     - Drink_Tea
-    - Eat_Samosa
-  - persona_name: Marketing Strategist
+    - Eat_Bhelpuri
+  - persona_name: Executive Planner
     demographics:
-      age: 29
-      profession: Marketing Strategist
+      age: 34
+      profession: Project Manager
       income_level: High
       gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.3
+      base_acceleration: 9
+      base_avoidance_priority: 20
+    base_total_money: 19000
+    psychological_profile:
+      base_random_browse_probability: 0.01
+      base_impulse_probability: 0.04
+    base_shopping_list:
+    - Bakery
+    - FrozenMeat
+    - Rice
+    - Fruits
+    - Milk
+    - Drink_Tea
+    base_impulse_favorites:
+    - PartySupplies
+    - BoardGames
+    - Magazines
+  - persona_name: Early Morning Baker
+    demographics:
+      age: 74
+      profession: Retired Baker
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.4
+      base_acceleration: 5.5
+      base_avoidance_priority: 75
+    base_total_money: 2800
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - Bakery
+    - Butter
+    - Milk
+    - Fruits
+    - Vegetables
+    base_impulse_favorites:
+    - Chocolates
+    - GreetingCards
+  - persona_name: Classic Recipe Follower
+    demographics:
+      age: 74
+      profession: Retired Caterer
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.5
+      base_acceleration: 5.8
+      base_avoidance_priority: 75
+    base_total_money: 3200
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - Rice
+    - Paneer
+    - Vegetables
+    - Butter
+    - CookingOil
+    base_impulse_favorites:
+    - Toys
+    - Magazines
+  - persona_name: Grocery Organizer
+    demographics:
+      age: 33
+      profession: Administrative Assistant
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.3
+      base_acceleration: 5.2
+      base_avoidance_priority: 75
+    base_total_money: 5000
+    psychological_profile:
+      base_random_browse_probability: 0.1
+      base_impulse_probability: 0.08
+    base_shopping_list:
+    - FrozenFoods
+    - Diapers
+    - CannedFood
+    - Vegetables
+    - Milk
+    - Fruits
+    - Rice
+    - Detergent
+    - OrganicGreen
+    - Bakery
+    base_impulse_favorites:
+    - Eat_Panipuri
+    - BoardGames
+    - Toys
+  - persona_name: Nutritional Advocate
+    demographics:
+      age: 30
+      profession: Dietitian
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3
+      base_acceleration: 6
+      base_avoidance_priority: 40
+    base_total_money: 16000
+    psychological_profile:
+      base_random_browse_probability: 0.15
+      base_impulse_probability: 0.1
+    base_shopping_list:
+    - OrganicGreen
+    - Fruits
+    - Vegetables
+    - Milk
+    - Butter
+    - CannedFood
+    base_impulse_favorites:
+    - Eat_Panipuri
+    - Drink_Tea
+  - persona_name: Social Media Influencer
+    demographics:
+      age: 26
+      profession: Content Creator
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.2
+      base_acceleration: 7
+      base_avoidance_priority: 65
+    base_total_money: 18000
+    psychological_profile:
+      base_random_browse_probability: 0.8
+      base_impulse_probability: 0.7
+    base_shopping_list:
+    - WomensEthnicSet
+    - Shoes
+    - Cosmetics
+    - Drink_Tea
+    base_impulse_favorites:
+    - IceCream
+    - PartySupplies
+    - Magazines
+  - persona_name: Fitness Event Coordinator
+    demographics:
+      age: 29
+      profession: Event Planner
+      income_level: High
+      gender: Male
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 4.1
       base_acceleration: 8
       base_avoidance_priority: 20
-    base_total_money: 18000
+    base_total_money: 16000
     psychological_profile:
-      base_random_browse_probability: 0.01
+      base_random_browse_probability: 0.02
       base_impulse_probability: 0.05
     base_shopping_list:
-    - Fruits
     - Vegetables
-    - FrozenMeat
-    - Bakery
-    - OrganicGreen
+    - Fruits
+    - Milk
+    - FrozenChicken
     base_impulse_favorites:
     - Drink_Coffee
+    - Eat_Samosa
+  - persona_name: Frugal Family Shopper
+    demographics:
+      age: 45
+      profession: Part-time Teacher
+      income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.3
+      base_acceleration: 5.8
+      base_avoidance_priority: 70
+    base_total_money: 800
+    psychological_profile:
+      base_random_browse_probability: 0.1
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - Grains
+    - FrozenFoods
+    - OrganicGreen
+    - PartySupplies
+    - Bakery
+    - FreshCutMeat
+    - CookingOil
+    - WaterBottles
+    - Vegetables
+    - Tea
+    base_impulse_favorites:
     - Eat_Bhelpuri
     - GreetingCards
-  - persona_name: Mindful Dad
+    - Books
+  - persona_name: Practical Family Shopper
+    demographics:
+      age: 39
+      profession: Construction Worker
+      income_level: Medium
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.7
+      base_acceleration: 6
+      base_avoidance_priority: 67
+    base_total_money: 1100
+    psychological_profile:
+      base_random_browse_probability: 0.06
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - FrozenMeat
+    - Rice
+    - Milk
+    - Vegetables
+    - Detergent
+    - Fruits
+    - SoftDrink
+    - InstantNoodles
+    - CannedFood
+    - Wheat
+    base_impulse_favorites:
+    - Eat_Bhelpuri
+    - BoardGames
+    - Books
+  - persona_name: Savvy Developer
+    demographics:
+      age: 28
+      profession: Software Engineer
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.3
+      base_acceleration: 7
+      base_avoidance_priority: 23
+    base_total_money: 16000
+    psychological_profile:
+      base_random_browse_probability: 0.02
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - FrozenMeat
+    - OrganicGreen
+    - InstantNoodles
+    - FreshCutMeat
+    - Juice
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+    - Toys
+  - persona_name: Dietary Supplement Researcher
     demographics:
       age: 42
-      profession: Software Engineer
+      profession: Nutritional Scientist
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.1
+      base_acceleration: 8
+      base_avoidance_priority: 25
+    base_total_money: 2000
+    psychological_profile:
+      base_random_browse_probability: 0.01
+      base_impulse_probability: 0.02
+    base_shopping_list:
+    - OrganicGreen
+    - Vegetables
+    - Milk
+    - Fruits
+    - Cereals
+    base_impulse_favorites:
+    - Drink_Tea
+    - Eat_Panipuri
+  - persona_name: Budget-Conscious Parent
+    demographics:
+      age: 35
+      profession: Teacher
       income_level: Medium
       gender: Male
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 3
-      base_acceleration: 6
+      base_acceleration: 5.07
       base_avoidance_priority: 60
-    base_total_money: 3000
+    base_total_money: 1400
     psychological_profile:
-      base_random_browse_probability: 0.1
+      base_random_browse_probability: 0.05
       base_impulse_probability: 0.05
     base_shopping_list:
-    - Fruits
-    - Vegetables
-    - CannedFood
-    - Rice
-    - Milk
+    - KidsClothing
+    - Diapers
+    - MensTshirt
+    - WomensKurti
+    - Drink_Coffee
     base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Bhelpuri
+    - CannedFood
+    - Chocolates
+    - Toys
   - persona_name: Active Retiree
     demographics:
       age: 65
@@ -2605,130 +1456,230 @@ MonoBehaviour:
       base_speed: 2.5
       base_acceleration: 5
       base_avoidance_priority: 70
-    base_total_money: 2500
+    base_total_money: 4500
     psychological_profile:
       base_random_browse_probability: 0.2
-      base_impulse_probability: 0.05
+      base_impulse_probability: 0.06
     base_shopping_list:
-    - Fruits
     - Vegetables
+    - Fruits
     - Milk
     - Butter
     - Cereals
     base_impulse_favorites:
-    - Eat_Samosa
+    - Eat_Bhelpuri
     - Drink_Tea
-  - persona_name: Leisurely Shopper
+  - persona_name: Frugal Night Owl
     demographics:
-      age: 74
-      profession: Retired Secretary
+      age: 19
+      profession: Engineering Student
       income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.5
+      base_acceleration: 7
+      base_avoidance_priority: 55
+    base_total_money: 1100
+    psychological_profile:
+      base_random_browse_probability: 0.09
+      base_impulse_probability: 0.04
+    base_shopping_list:
+    - CannedFood
+    - FrozenFoods
+    - Rice
+    - Bakery
+    - Milk
+    base_impulse_favorites:
+    - Chocolates
+    - IceCream
+  - persona_name: Bargain-Seeking Young Couple
+    demographics:
+      age: 26
+      profession: Graphic Designer
+      income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.3
+      base_acceleration: 7
+      base_avoidance_priority: 55
+    base_total_money: 1300
+    psychological_profile:
+      base_random_browse_probability: 0.15
+      base_impulse_probability: 0.06
+    base_shopping_list:
+    - MensFormals
+    - WomensKurti
+    - FrozenMeat
+    - CookingOil
+    - Milk
+    base_impulse_favorites:
+    - Drink_Tea
+    - Books
+    - PartySupplies
+  - persona_name: Stressed Developer
+    demographics:
+      age: 27
+      profession: Software Engineer
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.4
+      base_acceleration: 7.5
+      base_avoidance_priority: 22
+    base_total_money: 17500
+    psychological_profile:
+      base_random_browse_probability: 0.03
+      base_impulse_probability: 0.06
+    base_shopping_list:
+    - FrozenChicken
+    - Vegetables
+    - InstantNoodles
+    - Butter
+    - Coffee
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+    - SoftDrink
+  - persona_name: Fashion-Forward Student
+    demographics:
+      age: 22
+      profession: University Student
+      income_level: High
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 2.2
-      base_acceleration: 5.029
-      base_avoidance_priority: 90
-    base_total_money: 1300
+      base_speed: 4.1
+      base_acceleration: 9
+      base_avoidance_priority: 15
+    base_total_money: 16000
     psychological_profile:
       base_random_browse_probability: 0.7
-      base_impulse_probability: 0.2
+      base_impulse_probability: 0.8
     base_shopping_list:
-    - Tea
-    - Fruits
-    - Bakery
+    - WomensKurti
     - Vegetables
+    - FreshCutMeat
+    - Detergent
+    - Coffee
     base_impulse_favorites:
-    - Magazines
-    - IceCream
-  - persona_name: Project Manager
+    - MobilePhones
+    - Books
+    - SoftDrink
+    - FrozenFoods
+  - persona_name: Smart Shopper Grandfather
     demographics:
-      age: 33
-      profession: Project Manager
+      age: 72
+      profession: Retired Engineer
+      income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.5
+      base_acceleration: 5.5
+      base_avoidance_priority: 80
+    base_total_money: 900
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.02
+    base_shopping_list:
+    - CannedFood
+    - Toiletries
+    - Tea
+    - Bakery
+    - Grains
+    base_impulse_favorites:
+    - Eat_Panipuri
+    - GreetingCards
+    - Books
+  - persona_name: Busy Executive
+    demographics:
+      age: 36
+      profession: Marketing Director
       income_level: High
       gender: Male
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 4.2
-      base_acceleration: 8.3
+      base_acceleration: 8
       base_avoidance_priority: 22
-    base_total_money: 15500
+    base_total_money: 18500
     psychological_profile:
-      base_random_browse_probability: 0.02
-      base_impulse_probability: 0.04
+      base_random_browse_probability: 0.03
+      base_impulse_probability: 0.05
     base_shopping_list:
-    - FrozenFoods
-    - Seafood
-    - InstantNoodles
-    - Milk
-    - CannedFood
-    base_impulse_favorites:
-    - Eat_Samosa
-    - Chocolates
-    - Toys
-  - persona_name: Gourmet Snack Seeker
-    demographics:
-      age: 28
-      profession: Marketing Executive
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.3
-      base_acceleration: 8.5
-      base_avoidance_priority: 24
-    base_total_money: 17800
-    psychological_profile:
-      base_random_browse_probability: 0.66
-      base_impulse_probability: 0.77
-    base_shopping_list:
-    - Cereals
-    - FrozenFoods
-    - Milk
-    - Fruits
+    - FrozenMeat
     - Bakery
+    - OrganicGreen
+    - Fruits
+    - Drink_Tea
     base_impulse_favorites:
     - IceCream
     - Chocolates
-    - Drink_Coffee
-    - BoardGames
-    - PartySupplies
-  - persona_name: Organized Family Shopper
+    - Magazines
+  - persona_name: Athletic Fashion Enthusiast
     demographics:
-      age: 38
-      profession: Nurse
+      age: 27
+      profession: Fitness Trainer
       income_level: Medium
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 3.8
+      base_speed: 4
       base_acceleration: 8
       base_avoidance_priority: 25
-    base_total_money: 3500
+    base_total_money: 1600
     psychological_profile:
-      base_random_browse_probability: 0.03
+      base_random_browse_probability: 0.1
+      base_impulse_probability: 0.2
+    base_shopping_list:
+    - Activewear
+    - Shoes
+    - OralCare
+    - Drink_Tea
+    base_impulse_favorites:
+    - PartySupplies
+    - IceCream
+    - Cosmetics
+  - persona_name: Efficient Analyst
+    demographics:
+      age: 31
+      profession: Data Analyst
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 8
+      base_avoidance_priority: 25
+    base_total_money: 15000
+    psychological_profile:
+      base_random_browse_probability: 0.05
       base_impulse_probability: 0.02
     base_shopping_list:
-    - BabyCare
-    - Toys
-    - Diapers
-    - SoftDrink
-    - Bakery
-    - FrozenChicken
-    - MensJeans
-    - Detergent
-    - IceCream
-    - Vegetables
+    - Grains
+    - CannedFood
+    - FrozenFoods
+    - Seafood
+    - Drink_Coffee
     base_impulse_favorites:
-    - Eat_Samosa
-  - persona_name: Health-Conscious Trendsetter
+    - IceCream
+    - Chocolates
+    - PartySupplies
+  - persona_name: Health-Conscious Engineer
     demographics:
-      age: 27
-      profession: Fitness Trainer
+      age: 30
+      profession: Software Engineer
       income_level: High
       gender: Female
     agent_type: 0
@@ -2736,102 +1687,53 @@ MonoBehaviour:
     baseline_physics:
       base_speed: 4.1
       base_acceleration: 8.5
-      base_avoidance_priority: 30
-    base_total_money: 19000
+      base_avoidance_priority: 24
+    base_total_money: 16500
     psychological_profile:
-      base_random_browse_probability: 0.65
-      base_impulse_probability: 0.75
+      base_random_browse_probability: 0.04
+      base_impulse_probability: 0.03
     base_shopping_list:
-    - Activewear
     - OrganicGreen
+    - FreshCutMeat
     - Fruits
-    - Vegetables
+    - Cereals
     - Milk
     base_impulse_favorites:
-    - Chocolates
-    - IceCream
-    - InstantNoodles
-    - Drink_Coffee
-    - PartySupplies
-  - persona_name: Frugal Gamer
-    demographics:
-      age: 20
-      profession: Student
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.3
-      base_acceleration: 6.5
-      base_avoidance_priority: 55
-    base_total_money: 900
-    psychological_profile:
-      base_random_browse_probability: 0.07
-      base_impulse_probability: 0.09
-    base_shopping_list:
-    - Cereals
-    - InstantNoodles
-    - Fruits
-    - Chocolates
-    - Tea
-    base_impulse_favorites:
-    - Eat_Bhelpuri
     - Drink_Tea
-  - persona_name: Smart Saver
+    - Juice
+    - Bakery
+  - persona_name: Busy Techie
     demographics:
-      age: 33
-      profession: Data Analyst
-      income_level: Medium
+      age: 29
+      profession: Software Engineer
+      income_level: High
       gender: Male
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 3.4
-      base_acceleration: 7.8
-      base_avoidance_priority: 60
-    base_total_money: 1500
+      base_speed: 4.2
+      base_acceleration: 8
+      base_avoidance_priority: 25
+    base_total_money: 18000
     psychological_profile:
-      base_random_browse_probability: 0.15
-      base_impulse_probability: 0.07
+      base_random_browse_probability: 0.02
+      base_impulse_probability: 0.05
     base_shopping_list:
-    - MensTshirt
-    - InstantNoodles
     - FrozenFoods
-    - Rice
-    base_impulse_favorites:
+    - OrganicGreen
+    - CannedFood
+    - InstantNoodles
+    - Seafood
     - Drink_Coffee
-    - Eat_ChickenPuff
-  - persona_name: Budget-Conscious Night Owl
+    base_impulse_favorites:
+    - IceCream
+    - SoftDrink
+    - Chocolates
+  - persona_name: Night Owl Gamer
     demographics:
-      age: 24
+      age: 22
       profession: Freelance Graphic Designer
       income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3
-      base_acceleration: 5.5
-      base_avoidance_priority: 65
-    base_total_money: 1300
-    psychological_profile:
-      base_random_browse_probability: 0.1
-      base_impulse_probability: 0.08
-    base_shopping_list:
-    - CannedFood
-    - Chocolates
-    - Bakery
-    - InstantNoodles
-    - Fruits
-    base_impulse_favorites:
-    - Eat_Bhelpuri
-    - Drink_Tea
-  - persona_name: Practical Family Organizer
-    demographics:
-      age: 37
-      profession: Project Manager
-      income_level: High
       gender: Male
     agent_type: 0
     primary_trait: 0
@@ -2839,491 +1741,1607 @@ MonoBehaviour:
       base_speed: 4
       base_acceleration: 9
       base_avoidance_priority: 20
-    base_total_money: 18000
+    base_total_money: 1200
     psychological_profile:
       base_random_browse_probability: 0.02
-      base_impulse_probability: 0.03
+      base_impulse_probability: 0.65
     base_shopping_list:
-    - FrozenMeat
+    - FrozenFoods
     - Rice
-    - Diapers
     - Vegetables
-    - Toiletries
-    - CannedFood
-    - Detergent
-    - InstantNoodles
-    - Milk
-    - CookingOil
+    - Tea
+    - PartySupplies
     base_impulse_favorites:
+    - BoardGames
     - Drink_Coffee
-  - persona_name: Cybersecurity Analyst
+  - persona_name: Chic Trendsetter
+    demographics:
+      age: 24
+      profession: Fashion Blogger
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.5
+      base_acceleration: 6
+      base_avoidance_priority: 55
+    base_total_money: 1300
+    psychological_profile:
+      base_random_browse_probability: 0.8
+      base_impulse_probability: 0.5
+    base_shopping_list:
+    - WomensJeans
+    - Cosmetics
+    - Saree
+    base_impulse_favorites:
+    - IceCream
+    - PartySupplies
+    - Books
+  - persona_name: Cultural Explorer
     demographics:
       age: 31
-      profession: Cybersecurity Analyst
+      profession: Travel Blogger
       income_level: High
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 4.4
-      base_acceleration: 8.5
-      base_avoidance_priority: 21
-    base_total_money: 17000
+      base_speed: 4.2
+      base_acceleration: 8
+      base_avoidance_priority: 22
+    base_total_money: 16500
     psychological_profile:
-      base_random_browse_probability: 0.02
-      base_impulse_probability: 0.04
+      base_random_browse_probability: 0.66
+      base_impulse_probability: 0.74
     base_shopping_list:
-    - FrozenFoods
+    - Magazines
+    - Books
+    - Fruits
     - Bakery
     - Seafood
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+    - GreetingCards
+    - Toys
+  - persona_name: Luxury Grooming Enthusiast
+    demographics:
+      age: 34
+      profession: Brand Manager
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 7.5
+      base_avoidance_priority: 20
+    base_total_money: 17500
+    psychological_profile:
+      base_random_browse_probability: 0.58
+      base_impulse_probability: 0.72
+    base_shopping_list:
+    - Toiletries
+    - MensFormals
+    - PersonalCare
+    - Milk
+    - Coffee
+    base_impulse_favorites:
+    - Chocolates
+    - IceCream
+    - PartySupplies
+    - Toys
+  - persona_name: Supermarket Strategist
+    demographics:
+      age: 36
+      profession: Marketing Manager
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.8
+      base_acceleration: 7
+      base_avoidance_priority: 65
+    base_total_money: 1200
+    psychological_profile:
+      base_random_browse_probability: 0.07
+      base_impulse_probability: 0.08
+    base_shopping_list:
+    - Wheat
+    - Cereals
+    - FrozenFoods
+    - Diapers
+    - Vegetables
+    - Detergent
     - Fruits
+    - InstantNoodles
+    - CookingOil
     - Milk
     base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Samosa
-    - GreetingCards
-  - persona_name: Frugal Single Mom
+    - Eat_Panipuri
+    - Toys
+    - Magazines
+  - persona_name: Gourmet Food Lover
     demographics:
-      age: 32
+      age: 35
+      profession: Food Blogger
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 7.5
+      base_avoidance_priority: 25
+    base_total_money: 19000
+    psychological_profile:
+      base_random_browse_probability: 0.6
+      base_impulse_probability: 0.65
+    base_shopping_list:
+    - Seafood
+    - OrganicGreen
+    - FrozenMeat
+    - Tea
+    - Rice
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+    - PartySupplies
+    - Bakery
+  - persona_name: Bargain-Hunting Aunt
+    demographics:
+      age: 45
+      profession: Administrative Assistant
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.8
+      base_acceleration: 6
+      base_avoidance_priority: 65
+    base_total_money: 1500
+    psychological_profile:
+      base_random_browse_probability: 0.1
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - WomensEthnicSet
+    - FreshCutMeat
+    - Rice
+    - Bakery
+    - Vegetables
+    base_impulse_favorites:
+    - Drink_Coffee
+    - Chocolates
+    - Gifts
+  - persona_name: Time-Conscious Shopper
+    demographics:
+      age: 41
+      profession: Logistics Coordinator
+      income_level: Medium
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.1
+      base_acceleration: 8.5
+      base_avoidance_priority: 28
+    base_total_money: 16000
+    psychological_profile:
+      base_random_browse_probability: 0.01
+      base_impulse_probability: 0.02
+    base_shopping_list:
+    - FrozenChicken
+    - Bakery
+    - Milk
+    - Rice
+    - Vegetables
+    - CannedFood
+    - Detergent
+    - Fruits
+    - OrganicGreen
+    - InstantNoodles
+    base_impulse_favorites:
+    - Eat_Panipuri
+    - BoardGames
+    - Chocolates
+  - persona_name: Organized Family Planner
+    demographics:
+      age: 42
       profession: Nurse
       income_level: Medium
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 3
-      base_acceleration: 7
-      base_avoidance_priority: 65
-    base_total_money: 1600
-    psychological_profile:
-      base_random_browse_probability: 0.2
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Diapers
-    - BabyCare
-    - FrozenMeat
-    - Cereals
-    - Fruits
-    base_impulse_favorites:
-    - IceCream
-    - Eat_Samosa
-  - persona_name: Value-Seeking Parent
-    demographics:
-      age: 39
-      profession: Sales Manager
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.5
-      base_acceleration: 5.8
-      base_avoidance_priority: 75
-    base_total_money: 2300
-    psychological_profile:
-      base_random_browse_probability: 0.08
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - KidsClothing
-    - Milk
-    - FrozenChicken
-    - Fruits
-    - CannedFood
-    - InstantNoodles
-    - Diapers
-    - WaterBottles
-    - Bakery
-    - SoftDrink
-    base_impulse_favorites:
-    - LargeIceCream
-  - persona_name: Tech Startup Founder
-    demographics:
-      age: 30
-      profession: Startup Founder
-      income_level: High
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4.2
-      base_acceleration: 8
-      base_avoidance_priority: 18
-    base_total_money: 19000
-    psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.65
-    base_shopping_list:
-    - MensFormals
-    - MobilePhones
-    - LargeAppliances
-    - Chocolates
-    - Juice
-    base_impulse_favorites:
-    - Eat_Bhelpuri
-    - IceCream
-    - BoardGames
-  - persona_name: Cautious Buyer
-    demographics:
-      age: 45
-      profession: Office Manager
-      income_level: Medium
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.7
-      base_acceleration: 6
-      base_avoidance_priority: 75
+      base_speed: 2.6
+      base_acceleration: 6.2
+      base_avoidance_priority: 68
     base_total_money: 1400
     psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.03
+      base_random_browse_probability: 0.04
+      base_impulse_probability: 0.06
     base_shopping_list:
-    - FrozenMeat
-    - Milk
+    - OrganicGreen
+    - BabyCare
+    - Diapers
+    - FreshCutMeat
+    - Rice
+    - Vegetables
     - Toiletries
-    - Detergent
+    - Milk
+    - CannedFood
+    - FrozenChicken
     base_impulse_favorites:
     - Drink_Tea
-    - Eat_Bhelpuri
-  - persona_name: Thoughtful Buyer
+    - PartySupplies
+    - Books
+  - persona_name: Daring Trendsetter
     demographics:
-      age: 71
-      profession: Retired Architect
+      age: 29
+      profession: Fashion Designer
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.4
+      base_acceleration: 6
+      base_avoidance_priority: 50
+    base_total_money: 17500
+    psychological_profile:
+      base_random_browse_probability: 0.85
+      base_impulse_probability: 0.6
+    base_shopping_list:
+    - WomensEthnicSet
+    - Shoes
+    - Cosmetics
+    base_impulse_favorites:
+    - IceCream
+    - PartySupplies
+    - Magazines
+  - persona_name: Eco-Conscious Fashionista
+    demographics:
+      age: 30
+      profession: Sustainability Consultant
       income_level: Medium
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 2.5
-      base_acceleration: 5.1
-      base_avoidance_priority: 70
-    base_total_money: 3300
+      base_speed: 3
+      base_acceleration: 5.06
+      base_avoidance_priority: 60
+    base_total_money: 1200
     psychological_profile:
       base_random_browse_probability: 0.1
       base_impulse_probability: 0.05
     base_shopping_list:
-    - FrozenMeat
-    - Paneer
-    - Tea
-    - Vegetables
-    - Milk
+    - WomensKurti
+    - OrganicGreen
+    - Shoes
+    - Fruits
     base_impulse_favorites:
-    - Books
-    - Chocolates
-  - persona_name: Deal Hunter
-    demographics:
-      age: 26
-      profession: Sales Associate
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.2
-      base_acceleration: 7.5
-      base_avoidance_priority: 65
-    base_total_money: 1300
-    psychological_profile:
-      base_random_browse_probability: 0.25
-      base_impulse_probability: 0.1
-    base_shopping_list:
-    - MensJeans
-    - InstantNoodles
-    - Tea
-    - FrozenChicken
-    base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Bhelpuri
-  - persona_name: Lazy Evening Snacker
-    demographics:
-      age: 19
-      profession: Community College Student
-      income_level: Low
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 7
-      base_avoidance_priority: 40
-    base_total_money: 850
-    psychological_profile:
-      base_random_browse_probability: 0.68
-      base_impulse_probability: 0.75
-    base_shopping_list:
     - FrozenFoods
-    - Chocolates
-    - InstantNoodles
-    - SoftDrink
-    base_impulse_favorites:
-    - Eat_Bhelpuri
-    - Drink_Tea
-  - persona_name: Economical Family Shopper
+    - Gifts
+    - Books
+  - persona_name: Budget-Friendly Foodie
     demographics:
-      age: 52
-      profession: Retired
+      age: 21
+      profession: Marketing Student
       income_level: Low
-      gender: Female
+      gender: Male
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 2.3
-      base_acceleration: 5.01
-      base_avoidance_priority: 75
-    base_total_money: 1100
+      base_speed: 3
+      base_acceleration: 7
+      base_avoidance_priority: 60
+    base_total_money: 1000
     psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.03
-    base_shopping_list:
-    - CannedFood
-    - Milk
-    - Rice
-    - FrozenMeat
-    - Bakery
-    - Detergent
-    - Vegetables
-    - InstantNoodles
-    - Diapers
-    - Toiletries
-    base_impulse_favorites:
-    - IceCream
-  - persona_name: Morning Routine Planner
-    demographics:
-      age: 74
-      profession: Retired School Principal
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.4
-      base_acceleration: 5.011
-      base_avoidance_priority: 78
-    base_total_money: 1400
-    psychological_profile:
-      base_random_browse_probability: 0.15
+      base_random_browse_probability: 0.08
       base_impulse_probability: 0.05
     base_shopping_list:
+    - Grains
+    - Bakery
     - CannedFood
-    - Milk
-    - Rice
-    - Butter
-    - Vegetables
+    - FrozenMeat
+    - InstantNoodles
     base_impulse_favorites:
-    - DogFood
-    - GreetingCards
-  - persona_name: Luxury Lifestyle Enthusiast
+    - Drink_Coffee
+    - Magazines
+  - persona_name: Health-Conscious Millennial
     demographics:
-      age: 32
-      profession: Real Estate Agent
+      age: 28
+      profession: Personal Trainer
       income_level: High
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
-      base_speed: 4.4
-      base_acceleration: 9
-      base_avoidance_priority: 19
-    base_total_money: 18500
+      base_speed: 4.3
+      base_acceleration: 8.5
+      base_avoidance_priority: 20
+    base_total_money: 18000
     psychological_profile:
-      base_random_browse_probability: 0.63
-      base_impulse_probability: 0.72
+      base_random_browse_probability: 0.02
+      base_impulse_probability: 0.05
     base_shopping_list:
-    - WomensKurti
-    - Cosmetics
-    - MensJeans
+    - Vegetables
+    - OrganicGreen
+    - Milk
     - Fruits
-    - Bakery
+    - Paneer
+    - FreshCutMeat
+    - Juice
+    - Tea
     base_impulse_favorites:
-    - IceCream
-    - Chocolates
     - Drink_Tea
-    - GreetingCards
-    - PartySupplies
-  - persona_name: Stylish Young Professional
+    - Eat_Samosa
+  - persona_name: Social Butterfly
     demographics:
-      age: 26
-      profession: Fashion Consultant
+      age: 20
+      profession: Communications Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 8
+      base_avoidance_priority: 20
+    base_total_money: 1400
+    psychological_profile:
+      base_random_browse_probability: 0.12
+      base_impulse_probability: 0.75
+    base_shopping_list:
+    - Bakery
+    - PartySupplies
+    - InstantNoodles
+    - SoftDrink
+    - Fruits
+    base_impulse_favorites:
+    - Eat_Bhelpuri
+    - BoardGames
+  - persona_name: Home Decor Aficionado
+    demographics:
+      age: 32
+      profession: Interior Designer
       income_level: High
       gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 4.1
-      base_acceleration: 8
-      base_avoidance_priority: 22
-    base_total_money: 16500
+      base_acceleration: 7.8
+      base_avoidance_priority: 25
+    base_total_money: 15500
     psychological_profile:
-      base_random_browse_probability: 0.64
-      base_impulse_probability: 0.76
+      base_random_browse_probability: 0.68
+      base_impulse_probability: 0.75
     base_shopping_list:
-    - WomensJeans
-    - Cosmetics
-    - MensFormals
-    - Bakery
-    - FrozenChicken
-    base_impulse_favorites:
-    - Chocolates
-    - IceCream
-    - CannedFood
-    - Drink_Tea
-    - WomensKurti
-  - persona_name: Budget Student
-    demographics:
-      age: 21
-      profession: University Student
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.2
-      base_acceleration: 6.5
-      base_avoidance_priority: 60
-    base_total_money: 1500
-    psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.08
-    base_shopping_list:
-    - InstantNoodles
-    - CannedFood
-    - Fruits
-    - Milk
-    - Chocolates
-    - Bakery
+    - KitchenUtensils
+    - WomensEthnicSet
     - FrozenFoods
-    - Tea
-    base_impulse_favorites:
-    - IceCream
-    - Drink_Tea
-  - persona_name: Penny Pincher Parent
-    demographics:
-      age: 40
-      profession: Office Administrator
-      income_level: Low
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 2.7
-      base_acceleration: 6.5
-      base_avoidance_priority: 70
-    base_total_money: 900
-    psychological_profile:
-      base_random_browse_probability: 0.15
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - BabyCare
-    - Rice
-    - Fruits
-    - Toiletries
-    - Detergent
+    - Bakery
     base_impulse_favorites:
     - IceCream
     - Chocolates
-  - persona_name: Frugal Young Professional
+    - GreetingCards
+    - PartySupplies
+  - persona_name: Late Night Study Buddy
     demographics:
-      age: 30
-      profession: Marketing Specialist
-      income_level: Medium
-      gender: Male
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 3.8
-      base_acceleration: 9
-      base_avoidance_priority: 55
-    base_total_money: 1700
-    psychological_profile:
-      base_random_browse_probability: 0.05
-      base_impulse_probability: 0.08
-    base_shopping_list:
-    - MensTshirt
-    - CookingOil
-    - FreshCutMeat
-    - FrozenFoods
-    - Milk
-    base_impulse_favorites:
-    - Drink_Coffee
-    - Eat_Panipuri
-  - persona_name: AI Specialist
-    demographics:
-      age: 27
-      profession: AI Specialist
-      income_level: High
-      gender: Female
-    agent_type: 0
-    primary_trait: 0
-    baseline_physics:
-      base_speed: 4
-      base_acceleration: 7.5
-      base_avoidance_priority: 24
-    base_total_money: 19000
-    psychological_profile:
-      base_random_browse_probability: 0.02
-      base_impulse_probability: 0.05
-    base_shopping_list:
-    - Seafood
-    - Bakery
-    - FrozenMeat
-    - Vegetables
-    - Fruits
-    base_impulse_favorites:
-    - Drink_Tea
-    - Eat_Panipuri
-    - BoardGames
-  - persona_name: Family Food Planner
-    demographics:
-      age: 36
-      profession: Chef
-      income_level: Medium
+      age: 20
+      profession: Biology Student
+      income_level: Low
       gender: Male
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 4.2
       base_acceleration: 8.5
-      base_avoidance_priority: 30
-    base_total_money: 5000
+      base_avoidance_priority: 25
+    base_total_money: 1800
     psychological_profile:
-      base_random_browse_probability: 0.04
-      base_impulse_probability: 0.01
+      base_random_browse_probability: 0.01
+      base_impulse_probability: 0.05
     base_shopping_list:
-    - FrozenMeat
-    - FreshCutMeat
-    - Vegetables
+    - Grains
     - Milk
-    - CookingOil
+    - InstantNoodles
+    - Vegetables
+    - Juice
+    base_impulse_favorites:
+    - Eat_Samosa
+    - Magazines
+  - persona_name: Busy Family Manager
+    demographics:
+      age: 38
+      profession: Stay-at-home Parent
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.5
+      base_acceleration: 6.5
+      base_avoidance_priority: 60
+    base_total_money: 1500
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.05
+    base_shopping_list:
     - Rice
+    - Milk
     - Diapers
-    - Bakery
+    - Vegetables
     - Detergent
+    - FrozenChicken
+    - CannedFood
+    - Fruits
+    - SoftDrink
     - InstantNoodles
     base_impulse_favorites:
-    - Eat_Panipuri
-  - persona_name: Weekend Cook
+    - Eat_Samosa
+    - Toys
+    - Chocolates
+  - persona_name: Fashion Enthusiast Retiree
     demographics:
-      age: 72
-      profession: Retired Mechanic
+      age: 68
+      profession: Retired Teacher
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.4
+      base_acceleration: 5.05
+      base_avoidance_priority: 75
+    base_total_money: 1000
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - WomensEthnicSet
+    - Cosmetics
+    - GreetingCards
+    base_impulse_favorites:
+    - Chocolates
+    - Books
+    - Gifts
+  - persona_name: Value-Seeking Grandmother
+    demographics:
+      age: 68
+      profession: Retired Teacher
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.4
+      base_acceleration: 5.8
+      base_avoidance_priority: 70
+    base_total_money: 950
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.03
+    base_shopping_list:
+    - Vegetables
+    - Fruits
+    - CannedFood
+    - Tea
+    - Bakery
+    base_impulse_favorites:
+    - Eat_Bhelpuri
+    - Gifts
+    - Cosmetics
+  - persona_name: Community Fitness Organizer
+    demographics:
+      age: 37
+      profession: Community Organizer
       income_level: Medium
-      gender: Male
+      gender: Female
     agent_type: 0
     primary_trait: 0
     baseline_physics:
       base_speed: 2.7
-      base_acceleration: 5.7
-      base_avoidance_priority: 65
-    base_total_money: 3900
+      base_acceleration: 5.5
+      base_avoidance_priority: 60
+    base_total_money: 3800
     psychological_profile:
-      base_random_browse_probability: 0.1
+      base_random_browse_probability: 0.15
+      base_impulse_probability: 0.04
+    base_shopping_list:
+    - Vegetables
+    - Fruits
+    - Milk
+    - Butter
+    - Grains
+    base_impulse_favorites:
+    - Drink_Coffee
+    - Eat_Samosa
+  - persona_name: Chill Student
+    demographics:
+      age: 23
+      profession: Psychology Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.8
+      base_acceleration: 5.5
+      base_avoidance_priority: 70
+    base_total_money: 850
+    psychological_profile:
+      base_random_browse_probability: 0.65
+      base_impulse_probability: 0.2
+    base_shopping_list:
+    - Bakery
+    - Fruits
+    - SoftDrink
+    - InstantNoodles
+    - Tea
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+  - persona_name: Diligent Grocery Planner
+    demographics:
+      age: 43
+      profession: Accountant
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.6
+      base_acceleration: 6
+      base_avoidance_priority: 69
+    base_total_money: 1400
+    psychological_profile:
+      base_random_browse_probability: 0.04
       base_impulse_probability: 0.05
     base_shopping_list:
-    - Paneer
+    - FrozenFoods
+    - Diapers
+    - Milk
+    - CannedFood
+    - Rice
+    - Vegetables
+    - Detergent
+    - Fruits
+    - OrganicGreen
+    - Bakery
+    base_impulse_favorites:
+    - Eat_Samosa
+    - BoardGames
+    - Chocolates
+  - persona_name: Organic Food Advocate
+    demographics:
+      age: 33
+      profession: Chef
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 8
+      base_avoidance_priority: 20
+    base_total_money: 15000
+    psychological_profile:
+      base_random_browse_probability: 0.04
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - OrganicGreen
+    - Fruits
+    - Vegetables
+    - Milk
+    - Butter
+    base_impulse_favorites:
+    - Drink_Tea
+    - Eat_Bhelpuri
+  - persona_name: Family Feast Planner
+    demographics:
+      age: 46
+      profession: Chef
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.9
+      base_acceleration: 7.2
+      base_avoidance_priority: 65
+    base_total_money: 17500
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.04
+    base_shopping_list:
     - FrozenMeat
+    - Diapers
+    - CannedFood
+    - Vegetables
+    - Milk
+    - Bakery
+    - Fruits
+    - OrganicGreen
+    - Rice
+    - Detergent
+    base_impulse_favorites:
+    - Eat_ChickenPuff
+    - Toys
+    - GreetingCards
+  - persona_name: Traditional Cook
+    demographics:
+      age: 70
+      profession: Retired Chef
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.4
+      base_acceleration: 6.5
+      base_avoidance_priority: 65
+    base_total_money: 2500
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.1
+    base_shopping_list:
+    - Butter
+    - CookingOil
+    - Paneer
+    - Rice
+    - Vegetables
+    - FreshCutMeat
+    base_impulse_favorites:
+    - BoardGames
+    - Tea
+  - persona_name: Cautious Shopper
+    demographics:
+      age: 45
+      profession: Accountant
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.5
+      base_acceleration: 5.06
+      base_avoidance_priority: 70
+    base_total_money: 1100
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - WomensJeans
+    - MensTshirt
+    - Toiletries
+    - Drink_Tea
+    base_impulse_favorites:
+    - FrozenFoods
+    - Chocolates
+    - Gifts
+  - persona_name: Eco-Conscious Shopper
+    demographics:
+      age: 27
+      profession: Environmental Scientist
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 8
+      base_avoidance_priority: 25
+    base_total_money: 15000
+    psychological_profile:
+      base_random_browse_probability: 0.62
+      base_impulse_probability: 0.76
+    base_shopping_list:
+    - OrganicGreen
     - CookingOil
     - Vegetables
     - Fruits
     base_impulse_favorites:
     - IceCream
+    - Chocolates
+    - PartySupplies
+    - GreetingCards
+  - persona_name: Frugal Foodie
+    demographics:
+      age: 27
+      profession: Chef
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.5
+      base_acceleration: 8
+      base_avoidance_priority: 50
+    base_total_money: 1100
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - OrganicGreen
+    - FrozenChicken
+    - Rice
+    - Vegetables
+    - Milk
+    base_impulse_favorites:
+    - Drink_Coffee
+    - PartySupplies
+    - Gifts
+  - persona_name: Trendy Young Professional
+    demographics:
+      age: 28
+      profession: Marketing Specialist
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.2
+      base_acceleration: 8
+      base_avoidance_priority: 30
+    base_total_money: 1500
+    psychological_profile:
+      base_random_browse_probability: 0.02
+      base_impulse_probability: 0.15
+    base_shopping_list:
+    - WomensKurti
+    - WomensJeans
+    - Shoes
+    - Cosmetics
+    - Drink_Coffee
+    base_impulse_favorites:
+    - Chocolates
+    - IceCream
+    - Magazines
+  - persona_name: Large Family Planner
+    demographics:
+      age: 44
+      profession: Teacher
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.5
+      base_acceleration: 6.5
+      base_avoidance_priority: 63
+    base_total_money: 1300
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.04
+    base_shopping_list:
+    - FrozenChicken
+    - Diapers
+    - CannedFood
+    - Fruits
+    - Vegetables
+    - Milk
+    - Detergent
+    - Rice
+    - OrganicGreen
+    - Bakery
+    base_impulse_favorites:
+    - Eat_Panipuri
+    - GreetingCards
+    - Chocolates
+  - persona_name: Frugal Family Planner
+    demographics:
+      age: 35
+      profession: Stay-at-home Parent
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.5
+      base_acceleration: 6
+      base_avoidance_priority: 65
+    base_total_money: 1500
+    psychological_profile:
+      base_random_browse_probability: 0.1
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - Vegetables
+    - Rice
+    - Milk
+    - Diapers
+    - CannedFood
+    base_impulse_favorites:
+    - Eat_Samosa
+    - Books
+    - Chocolates
+  - persona_name: Essential Goods Collector
+    demographics:
+      age: 48
+      profession: Retail Manager
+      income_level: Medium
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.4
+      base_acceleration: 5.6
+      base_avoidance_priority: 66
+    base_total_money: 1300
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.03
+    base_shopping_list:
+    - FrozenChicken
+    - Bakery
+    - Vegetables
+    - Milk
+    - Detergent
+    - Fruits
+    - CannedFood
+    - Rice
+    - OrganicGreen
+    - Toiletries
+    base_impulse_favorites:
+    - Eat_Samosa
+    - Magazines
+    - Chocolates
+  - persona_name: Classic Meal Planner
+    demographics:
+      age: 78
+      profession: Retired Chef
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.4
+      base_acceleration: 5.7
+      base_avoidance_priority: 75
+    base_total_money: 900
+    psychological_profile:
+      base_random_browse_probability: 0.15
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - FrozenMeat
+    - Rice
+    - Vegetables
+    - CookingOil
+    - Milk
+    base_impulse_favorites:
+    - Magazines
     - Toys
+  - persona_name: Budget-Conscious Mom
+    demographics:
+      age: 35
+      profession: Full-time Parent
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.4
+      base_acceleration: 5.5
+      base_avoidance_priority: 72
+    base_total_money: 600
+    psychological_profile:
+      base_random_browse_probability: 0.09
+      base_impulse_probability: 0.07
+    base_shopping_list:
+    - Fruits
+    - Vegetables
+    - Detergent
+    - CannedFood
+    - Rice
+    - Milk
+    - FrozenFoods
+    - Diapers
+    - Grains
+    - SoftDrink
+    base_impulse_favorites:
+    - Eat_Samosa
+    - Chocolates
+    - Toys
+  - persona_name: Tech-Savvy Millennial
+    demographics:
+      age: 26
+      profession: Software Developer
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 8
+      base_avoidance_priority: 30
+    base_total_money: 17000
+    psychological_profile:
+      base_random_browse_probability: 0.62
+      base_impulse_probability: 0.7
+    base_shopping_list:
+    - MobilePhones
+    - MensTshirt
+    - WomensJeans
+    - Vegetables
+    - InstantNoodles
+    base_impulse_favorites:
+    - IceCream
+    - PartySupplies
+    - Chocolates
+    - Toys
+  - persona_name: Classic Breakfast Enthusiast
+    demographics:
+      age: 79
+      profession: Retired Banker
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.3
+      base_acceleration: 5.5
+      base_avoidance_priority: 80
+    base_total_money: 800
+    psychological_profile:
+      base_random_browse_probability: 0.1
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - Cereals
+    - Milk
+    - Fruits
+    - Tea
+    - Bakery
+    base_impulse_favorites:
+    - GreetingCards
+    - BoardGames
+  - persona_name: Frugal Ingredient Collector
+    demographics:
+      age: 77
+      profession: Retired Farmer
+      income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.3
+      base_acceleration: 5.2
+      base_avoidance_priority: 80
+    base_total_money: 1000
+    psychological_profile:
+      base_random_browse_probability: 0.1
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - Wheat
+    - Rice
+    - Vegetables
+    - CookingOil
+    - CannedFood
+    base_impulse_favorites:
+    - Books
+    - Magazines
+  - persona_name: Budget-Conscious New Dad
+    demographics:
+      age: 30
+      profession: Sales Associate
+      income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3
+      base_acceleration: 6.5
+      base_avoidance_priority: 60
+    base_total_money: 1200
+    psychological_profile:
+      base_random_browse_probability: 0.1
+      base_impulse_probability: 0.07
+    base_shopping_list:
+    - Diapers
+    - Fruits
+    - SoftDrink
+    - Toiletries
+    - CannedFood
+    base_impulse_favorites:
+    - Eat_ChickenPuff
+    - Toys
+    - GreetingCards
+  - persona_name: Busy Executive
+    demographics:
+      age: 35
+      profession: Corporate Manager
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.4
+      base_acceleration: 9
+      base_avoidance_priority: 18
+    base_total_money: 19000
+    psychological_profile:
+      base_random_browse_probability: 0.01
+      base_impulse_probability: 0.03
+    base_shopping_list:
+    - Seafood
+    - FrozenChicken
+    - Butter
+    - Milk
+    - Cereals
+    - Vegetables
+    - Grains
+    base_impulse_favorites:
+    - Drink_Coffee
+    - Eat_ChickenPuff
+  - persona_name: Midnight Craver
+    demographics:
+      age: 20
+      profession: Chemistry Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.8
+      base_acceleration: 8
+      base_avoidance_priority: 50
+    base_total_money: 900
+    psychological_profile:
+      base_random_browse_probability: 0.15
+      base_impulse_probability: 0.1
+    base_shopping_list:
+    - CannedFood
+    - Rice
+    - FrozenFoods
+    - Milk
+    - SoftDrink
+    base_impulse_favorites:
+    - Chocolates
+    - Eat_ChickenPuff
+  - persona_name: Comfort Food Collector
+    demographics:
+      age: 76
+      profession: Retired Historian
+      income_level: Medium
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.2
+      base_acceleration: 5.5
+      base_avoidance_priority: 75
+    base_total_money: 2500
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - CannedFood
+    - Rice
+    - FrozenChicken
+    - Vegetables
+    - Butter
+    base_impulse_favorites:
+    - Magazines
+    - IceCream
+  - persona_name: Fitness Buff
+    demographics:
+      age: 32
+      profession: Fitness Blogger
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.2
+      base_acceleration: 8.5
+      base_avoidance_priority: 22
+    base_total_money: 17500
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.08
+    base_shopping_list:
+    - Vegetables
+    - Fruits
+    - Paneer
+    - FrozenChicken
+    - Milk
+    base_impulse_favorites:
+    - Eat_Samosa
+    - Drink_Tea
+  - persona_name: Late Night Snack Seeker
+    demographics:
+      age: 21
+      profession: Business Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 8
+      base_avoidance_priority: 30
+    base_total_money: 1300
+    psychological_profile:
+      base_random_browse_probability: 0.08
+      base_impulse_probability: 0.7
+    base_shopping_list:
+    - FrozenFoods
+    - Bakery
+    - InstantNoodles
+    - SoftDrink
+    - CannedFood
+    base_impulse_favorites:
+    - IceCream
+    - Drink_Tea
+  - persona_name: Practical Shopper
+    demographics:
+      age: 40
+      profession: Project Manager
+      income_level: Medium
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.2
+      base_acceleration: 6
+      base_avoidance_priority: 60
+    base_total_money: 1200
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - MensTshirt
+    - Shoes
+    - Toiletries
+    - Drink_Coffee
+    base_impulse_favorites:
+    - FrozenFoods
+    - Gifts
+    - Chocolates
+  - persona_name: Health-Focused Parent
+    demographics:
+      age: 40
+      profession: Stay-at-home Parent
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.5
+      base_acceleration: 5
+      base_avoidance_priority: 70
+    base_total_money: 3000
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.07
+    base_shopping_list:
+    - Vegetables
+    - Fruits
+    - Rice
+    - Milk
+    - Butter
+    base_impulse_favorites:
+    - Eat_Panipuri
+    - Drink_Coffee
+  - persona_name: Fashion-Forward College Student
+    demographics:
+      age: 22
+      profession: Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.5
+      base_acceleration: 6
+      base_avoidance_priority: 50
+    base_total_money: 900
+    psychological_profile:
+      base_random_browse_probability: 0.7
+      base_impulse_probability: 0.65
+    base_shopping_list:
+    - WomensJeans
+    - Activewear
+    - Cosmetics
+    - Saree
+    - Eat_Samosa
+    base_impulse_favorites:
+    - PartySupplies
+    - Toys
+    - GreetingCards
+  - persona_name: Family-Centric Shopper
+    demographics:
+      age: 40
+      profession: HR Manager
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 8
+      base_avoidance_priority: 22
+    base_total_money: 18000
+    psychological_profile:
+      base_random_browse_probability: 0.55
+      base_impulse_probability: 0.7
+    base_shopping_list:
+    - KidsClothing
+    - Diapers
+    - CannedFood
+    - Milk
+    - Fruits
+    base_impulse_favorites:
+    - Toys
+    - PartySupplies
+    - IceCream
+    - GreetingCards
+  - persona_name: Late Night Researcher
+    demographics:
+      age: 22
+      profession: History Student
+      income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.1
+      base_acceleration: 8.5
+      base_avoidance_priority: 22
+    base_total_money: 1700
+    psychological_profile:
+      base_random_browse_probability: 0.03
+      base_impulse_probability: 0.06
+    base_shopping_list:
+    - Rice
+    - Milk
+    - FrozenChicken
+    - CannedFood
+    - Bakery
+    base_impulse_favorites:
+    - Drink_Tea
+    - Eat_Panipuri
+  - persona_name: Savvy Single Mom
+    demographics:
+      age: 32
+      profession: Nurse
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3
+      base_acceleration: 7.5
+      base_avoidance_priority: 55
+    base_total_money: 1800
+    psychological_profile:
+      base_random_browse_probability: 0.1
+      base_impulse_probability: 0.07
+    base_shopping_list:
+    - KidsClothing
+    - Diapers
+    - FreshCutMeat
+    - Fruits
+    - Milk
+    base_impulse_favorites:
+    - Eat_Bhelpuri
+    - FrozenFoods
+    - Stationery
+  - persona_name: Penny-Pinching Retiree
+    demographics:
+      age: 67
+      profession: Retired
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.2
+      base_acceleration: 5
+      base_avoidance_priority: 75
+    base_total_money: 1200
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.02
+    base_shopping_list:
+    - Grains
+    - FrozenFoods
+    - Tea
+    - Toiletries
+    - CookingOil
+    base_impulse_favorites:
+    - Eat_Panipuri
+    - GreetingCards
+    - Cosmetics
+  - persona_name: Snack Attack Student
+    demographics:
+      age: 19
+      profession: Art Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.2
+      base_acceleration: 7.5
+      base_avoidance_priority: 40
+    base_total_money: 1100
+    psychological_profile:
+      base_random_browse_probability: 0.2
+      base_impulse_probability: 0.5
+    base_shopping_list:
+    - FrozenChicken
+    - InstantNoodles
+    - Tea
+    - Chocolates
+    - Fruits
+    base_impulse_favorites:
+    - IceCream
+    - Drink_Tea
+  - persona_name: Bargain-Hunting Grandmother
+    demographics:
+      age: 70
+      profession: Retired
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.4
+      base_acceleration: 5.5
+      base_avoidance_priority: 78
+    base_total_money: 800
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.03
+    base_shopping_list:
+    - Vegetables
+    - Fruits
+    - FrozenMeat
+    - Tea
+    - CannedFood
+    base_impulse_favorites:
+    - Eat_Bhelpuri
+    - GreetingCards
+    - Books
+  - persona_name: Casual Weekend Shopper
+    demographics:
+      age: 38
+      profession: Sales Executive
+      income_level: Medium
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3
+      base_acceleration: 5.05
+      base_avoidance_priority: 70
+    base_total_money: 1100
+    psychological_profile:
+      base_random_browse_probability: 0.05
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - WomensKurti
+    - Shoes
+    - Drink_Coffee
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+    - Magazines
+  - persona_name: Busy Entrepreneur
+    demographics:
+      age: 38
+      profession: Startup Founder
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.3
+      base_acceleration: 8.5
+      base_avoidance_priority: 20
+    base_total_money: 19000
+    psychological_profile:
+      base_random_browse_probability: 0.5
+      base_impulse_probability: 0.72
+    base_shopping_list:
+    - MensFormals
+    - CannedFood
+    - Milk
+    - Bakery
+    - Juice
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+    - PartySupplies
+    - Toys
+  - persona_name: Frugal College Graduate
+    demographics:
+      age: 25
+      profession: Recent Graduate
+      income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.2
+      base_acceleration: 6.8
+      base_avoidance_priority: 58
+    base_total_money: 900
+    psychological_profile:
+      base_random_browse_probability: 0.15
+      base_impulse_probability: 0.06
+    base_shopping_list:
+    - FrozenFoods
+    - Rice
+    - Tea
+    - CannedFood
+    - Milk
+    base_impulse_favorites:
+    - Eat_Samosa
+    - PartySupplies
+    - Chocolates
+  - persona_name: Fashion-Forward Teenager
+    demographics:
+      age: 19
+      profession: Student
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3.5
+      base_acceleration: 6.5
+      base_avoidance_priority: 40
+    base_total_money: 800
+    psychological_profile:
+      base_random_browse_probability: 0.65
+      base_impulse_probability: 0.7
+    base_shopping_list:
+    - WomensKurti
+    - Shoes
+    - Drink_Coffee
+    base_impulse_favorites:
+    - IceCream
+    - PartySupplies
+    - Magazines
+  - persona_name: Health Enthusiast
+    demographics:
+      age: 28
+      profession: Fitness Trainer
+      income_level: High
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.2
+      base_acceleration: 8.5
+      base_avoidance_priority: 18
+    base_total_money: 16500
+    psychological_profile:
+      base_random_browse_probability: 0.6
+      base_impulse_probability: 0.78
+    base_shopping_list:
+    - OrganicGreen
+    - Fruits
+    - FrozenFoods
+    - CookingOil
+    - Tea
+    base_impulse_favorites:
+    - IceCream
+    - Chocolates
+    - SoftDrink
+    - Bakery
+  - persona_name: Thrifty Young Professional
+    demographics:
+      age: 29
+      profession: Marketing Associate
+      income_level: Low
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 3
+      base_acceleration: 7
+      base_avoidance_priority: 60
+    base_total_money: 1300
+    psychological_profile:
+      base_random_browse_probability: 0.15
+      base_impulse_probability: 0.08
+    base_shopping_list:
+    - MensTshirt
+    - WomensJeans
+    - Butter
+    - OralCare
+    - Seafood
+    base_impulse_favorites:
+    - Drink_Tea
+    - Chocolates
+    - PartySupplies
+  - persona_name: Trendy Young Professional
+    demographics:
+      age: 29
+      profession: Marketing Executive
+      income_level: High
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4.3
+      base_acceleration: 8
+      base_avoidance_priority: 20
+    base_total_money: 17500
+    psychological_profile:
+      base_random_browse_probability: 0.65
+      base_impulse_probability: 0.75
+    base_shopping_list:
+    - OrganicGreen
+    - Bakery
+    - Seafood
+    - Milk
+    - Cereals
+    - PartySupplies
+    - Juice
+    base_impulse_favorites:
+    - Chocolates
+    - IceCream
+    - MensTshirt
+    - Toys
+    - GreetingCards
+  - persona_name: Gentle Morning Shopper
+    demographics:
+      age: 72
+      profession: Retired Teacher
+      income_level: Low
+      gender: Female
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 2.3
+      base_acceleration: 6
+      base_avoidance_priority: 70
+    base_total_money: 1500
+    psychological_profile:
+      base_random_browse_probability: 0.25
+      base_impulse_probability: 0.05
+    base_shopping_list:
+    - Vegetables
+    - Rice
+    - Paneer
+    - Milk
+    - Tea
+    - Fruits
+    - CookingOil
+    base_impulse_favorites:
+    - Magazines
+    - Coffee
+    - Bakery
+  - persona_name: Cardio Lover
+    demographics:
+      age: 34
+      profession: Running Coach
+      income_level: Medium
+      gender: Male
+    agent_type: 0
+    primary_trait: 0
+    baseline_physics:
+      base_speed: 4
+      base_acceleration: 8
+      base_avoidance_priority: 25
+    base_total_money: 3500
+    psychological_profile:
+      base_random_browse_probability: 0.04
+      base_impulse_probability: 0.06
+    base_shopping_list:
+    - Vegetables
+    - Fruits
+    - FrozenChicken
+    - Milk
+    - Butter
+    base_impulse_favorites:
+    - Drink_Coffee
+    - Eat_ChickenPuff
