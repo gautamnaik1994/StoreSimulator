@@ -96,6 +96,7 @@ public class HeatmapManager : MonoBehaviour
         else
         {
             // If turned off, stop the render loop to save massive CPU/GPU overhead
+            heatmapDisplay.enabled = isMapVisible;
             if (renderLoopCoroutine != null)
             {
                 StopCoroutine(renderLoopCoroutine);

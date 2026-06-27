@@ -9,12 +9,43 @@
             <ui:Label text="SALES: ₹0" name="totalSales" class="fw-medium" />
         </ui:VisualElement>
         <ui:VisualElement name="worldSettings" class="world-settings">
-            <ui:Label text="World Settings" class="fw-bold box-header" />
-            <ui:EnumField label="Macro Cycle" name="macroCycle" class="custom-enum-field" />
-            <ui:EnumField label="Store Event" name="storeEvent" class="custom-enum-field" />
-            <ui:EnumField label="Weather Condition" name="weatherCondition"
-                class="custom-enum-field" />
-            <ui:Button name="startSimulation" text="Start Simulation" class="btn-primary fw-medium" />
+            <ui:VisualElement class="left-sec">
+                <ui:Image
+                    source="project://database/Assets/Textures/ws_logo.svg?fileID=7388822144124034973&amp;guid=fd3ef0161129d4b4c8932ef6dad14fea&amp;type=3#ws_logo"
+                    class="ws-logo"
+                    style="" />
+            </ui:VisualElement>
+            <ui:VisualElement class="right-sec">
+
+                <ui:Label text="World Settings" class="fw-bold box-header" />
+                <ui:EnumField label="Macro Cycle" name="macroCycle" class="custom-enum-field" />
+                <ui:EnumField label="Store Event" name="storeEvent" class="custom-enum-field" />
+                <ui:EnumField label="Weather Condition" name="weatherCondition"
+                    class="custom-enum-field mb-16" />
+                <ui:VisualElement class="horizontal-divider mb-16" />
+                <ui:VisualElement class="controls">
+                    <ui:Label text="Toggle Heatmap" class="fw-medium" />
+                    <ui:Label text="H" class="fw-medium btn-icon" />
+                </ui:VisualElement>
+                <ui:VisualElement class="controls">
+                    <ui:Label text="Toggle Speed" class="fw-medium" />
+                    <ui:Label text="P" class="fw-medium btn-icon" />
+                </ui:VisualElement>
+                <ui:VisualElement class="controls">
+                    <ui:Label text="Toggle Sales Report" class="fw-medium" />
+                    <ui:Label text="D" class="fw-medium btn-icon" />
+                </ui:VisualElement>
+                <ui:VisualElement class="controls">
+                    <ui:Label text="Restart Simulation" class="fw-medium" />
+                    <ui:Label text="R" class="fw-medium btn-icon" />
+                </ui:VisualElement>
+                <ui:VisualElement class="controls">
+                    <ui:Label text="Spawn More Agents" class="fw-medium" />
+                    <ui:Label text="S" class="fw-medium btn-icon" />
+                </ui:VisualElement>
+                <ui:Button name="startSimulation" text="Start Simulation"
+                    class="btn-primary fw-medium" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="RightDrawer" class="drawer" style="display: none;">
             <ui:ScrollView name="DetailPanel" horizontal-scroller-visibility="Hidden"
@@ -108,13 +139,12 @@
                 </ui:VisualElement>
             </ui:ScrollView>
             <ui:Button name="Close" enable-rich-text="false" emoji-fallback-support="false"
-                class="close-btn"
-                icon-image="project://database/Assets/Textures/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png?fileID=21300000&amp;guid=dd25b8b3efd57452fb5c8f8caad8583d&amp;type=3#close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24" />
+                icon-image="project://database/Assets/Textures/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png?fileID=21300000&amp;guid=dd25b8b3efd57452fb5c8f8caad8583d&amp;type=3#close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24"
+                class="close-btn" />
         </ui:VisualElement>
         <ui:VisualElement name="salesReport" class="salesReport" style="display: none;">
             <ui:Label text="Sales Report" class=" salesReportLabel fw-bold" />
-            <ui:VisualElement style=""
-                class="sales-report-table-header fw-medium">
+            <ui:VisualElement class="sales-report-table-header fw-medium">
                 <ui:Label text="Product Name" class="sales-item-content" />
                 <ui:Label text="Quantity Sold" class="sales-item-content" />
                 <ui:Label text="Price Per Unit" class="sales-item-content" />
@@ -125,42 +155,9 @@
                 item-template="project://database/Assets/UI/SalesReportItem.uxml?fileID=9197481963319205126&amp;guid=9277efbd7a12841ca929c8485edacbfa&amp;type=3#SalesReportItem"
                 name="SalesReportList" focusable="false" selection-type="None"
                 class="my-custom-scroll " />
-            <!-- <ui:VisualElement style=""
-                class=" sales-item-row">
-                <ui:Label text="Prod tName" name="productName" class="sales-item-content" />
-                <ui:Label text="QuantitySold" name="quantitySold" class="sales-item-content" />
-                <ui:Label text="Pri Per Unit" name="pricePerUnit" class="sales-item-content" />
-                <ui:Label text="TotalRev enue" name="totalRevenue" class="sales-item-content" />
-                <ui:Label text="Purc haseType" name="purchaseType" class="sales-item-content last" />
-            </ui:VisualElement>
-            <ui:VisualElement style=""
-                class=" sales-item-row">
-                <ui:Label text="oductName" name="productName" class="sales-item-content" />
-                <ui:Label text="QuanSold" name="quantitySold" class="sales-item-content" />
-                <ui:Label text="PricePnit" name="pricePerUnit" class="sales-item-content" />
-                <ui:Label text="Totenue" name="totalRevenue" class="sales-item-content" />
-                <ui:Label text="PurchaseType" name="purchaseType" class="sales-item-content last" />
-            </ui:VisualElement>
-            <ui:VisualElement style=""
-                class=" sales-item-row">
-                <ui:Label text="Prod tName" name="productName" class="sales-item-content" />
-                <ui:Label text="QuantitySold" name="quantitySold" class="sales-item-content" />
-                <ui:Label text="Pit" name="pricePerUnit" class="sales-item-content" />
-                <ui:Label text="TotalRev enue" name="totalRevenue" class="sales-item-content" />
-                <ui:Label text="Purc haseType" name="purchaseType" class="sales-item-content last" />
-            </ui:VisualElement>
-            <ui:VisualElement style=""
-                class=" sales-item-row">
-                <ui:Label text="ame" name="productName" class="sales-item-content" />
-                <ui:Label text="QuanSold" name="quantitySold" class="sales-item-content" />
-                <ui:Label text="PricePnit" name="pricePerUnit" class="sales-item-content" />
-                <ui:Label text="Totenue" name="totalRevenue" class="sales-item-content" />
-                <ui:Label text="PurchaseType" name="purchaseType" class="sales-item-content last" />
-            </ui:VisualElement> -->
             <ui:Button name="CloseReport" enable-rich-text="false" emoji-fallback-support="false"
-                class="close-btn"
-                icon-image="project://database/Assets/Textures/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png?fileID=21300000&amp;guid=dd25b8b3efd57452fb5c8f8caad8583d&amp;type=3#close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24" />
-
+                icon-image="project://database/Assets/Textures/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png?fileID=21300000&amp;guid=dd25b8b3efd57452fb5c8f8caad8583d&amp;type=3#close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24"
+                class="close-btn" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

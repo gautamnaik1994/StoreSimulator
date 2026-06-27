@@ -368,15 +368,43 @@
 }
 
 .world-settings {
-    width: 400px;
+    width: 800px;
     height: auto;
     position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    background-color: rgba(0, 0, 0, 0.98);
+    background-color: #161920;
     border-radius: 10px;
     padding: 20px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.world-settings .left-sec{
+    /* background-color: pink; */
+
+    align-items: center;
+    justify-content: center;
+    flex-basis: 50%;
+     padding-right: 20px;
+   
+}
+
+.world-settings .right-sec{
+    /* background-color: green; */
+    display: flex;
+    flex-basis: 50%;
+    
+}
+
+.ws-logo{
+ height: auto; 
+ width: 300px; 
+ aspect-ratio: 1; 
+ background-size: 300px auto;
+   
 }
 
 .custom-enum-field {
@@ -437,7 +465,7 @@
     font-size: 16px;
 
     border-radius: 8px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .navbar {
@@ -507,4 +535,33 @@
 .sales-report-table-header .sales-item-content.last,
 .sales-item-row .sales-item-content.last {
     -unity-text-align: middle-right;
+}
+
+
+.sub-header{
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.mb-16{
+    margin-bottom: 16px;
+}
+
+.controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.controls .btn-icon{
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    border-width: 1px;
+    border-radius: 4px;
+    padding: 4px 10px;
+    color: #FFFFFF;
+    font-size: 12px;
 }
