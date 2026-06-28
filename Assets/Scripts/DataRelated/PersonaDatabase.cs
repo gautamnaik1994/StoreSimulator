@@ -1,11 +1,13 @@
-// PersonaDatabase.cs
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json; // <-- Add this
+using Newtonsoft.Json.Converters; // <-- Add this
 
-
-
+[JsonConverter(typeof(StringEnumConverter))] // <-- Add this
 public enum AgentType { Regular, BargainHunter, ImpulseBuyer, WindowShopper, BulkShopper, FocusedShopper }
+
+[JsonConverter(typeof(StringEnumConverter))] // <-- Add this
 public enum PrimaryTrait { Impulsive, Cautious, BudgetConscious, TimeSensitive, BrandLoyalist, Indecisive }
 
 [Serializable]
@@ -32,7 +34,13 @@ public class PsychologicalProfile
     public float base_impulse_probability;
 }
 
-// 1. This is a plain class now—no longer its own separate asset file
+[Serializable]
+public class ShoppingListItem
+{
+    public string item_name;
+    public int quantity;
+}
+
 [Serializable]
 public class AgentPersonaData
 {
@@ -43,10 +51,9 @@ public class AgentPersonaData
     public BaselinePhysics baseline_physics;
     public int base_total_money;
     public PsychologicalProfile psychological_profile;
-    public List<string> base_shopping_list;
-    public List<string> base_impulse_favorites;
+    public List<ShoppingListItem> base_shopping_list;
+    public List<ShoppingListItem> base_impulse_favorites;
 }
-
 
 [CreateAssetMenu(fileName = "PersonaDatabase", menuName = "AI/Persona Database")]
 public class PersonaDatabase : ScriptableObject

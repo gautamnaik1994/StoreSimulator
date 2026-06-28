@@ -16,7 +16,7 @@ public class ProductSection
     public int Price; // Optional: Price of the product at this slot
     public string SectionName; // e.g., "Milk Section", "Bakery"
 
-    public string ProductCategory;
+    public Department ProductCategory;
     public List<ProductSlot> Slots = new List<ProductSlot>();
 
     // Helper function for your agents to quickly grab an open spot

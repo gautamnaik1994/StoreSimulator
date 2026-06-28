@@ -86,12 +86,13 @@ public class LayoutBaker : MonoBehaviour
             }
 
             sectionInfo = sectionTransform.gameObject.GetComponent<ProductSectionInfo>();
-            Debug.Log($"Section '{sectionTransform.name}' has price '{sectionInfo.Price}'");
+            // sectionInfo.SectionDepartment = (ProductSectionInfo.Department)System.Enum.Parse(typeof(ProductSectionInfo.Department), sectionTransform.tag);
+            // Debug.Log($"Section '{sectionTransform.name}' has price '{sectionInfo.Price}'");
             ProductSection newSection = new ProductSection
             {
                 SectionName = sectionTransform.name,
                 Price = productDB[sectionTransform.name].price,
-                ProductCategory = sectionTransform.tag // Use the tag as the product category
+                ProductCategory = sectionInfo.SectionDepartment
             };
             // Debug.Log($"Product section '{sectionTransform.name}' price'{productDB[sectionTransform.name].price}'");
 

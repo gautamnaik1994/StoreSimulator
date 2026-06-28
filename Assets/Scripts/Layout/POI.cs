@@ -13,7 +13,7 @@ public class POI : MonoBehaviour
     public float pauseDuration = 5f;
     public float radiusControlInfluence = 0.15f;
 
-    private string poiTag;
+    public Department poiTag;
 
     [Header("Smoothness")]
     [Tooltip("Higher numbers mean faster transitions. Try values between 2 and 10.")]
@@ -42,7 +42,7 @@ public class POI : MonoBehaviour
 
         originalVisualScaleX = visualSpriteChild.localScale.x;
         targetScale = originalVisualScaleX; // Start at full size
-        poiTag = gameObject.tag; // Store the tag for later use
+        // poiTag = gameObject.tag; // Store the tag for later use
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -2,6 +2,7 @@
 using System.IO;
 using UnityEngine;
 using UnityEditor;
+using Newtonsoft.Json; // <-- Add this
 
 public class PersonaImporter : EditorWindow
 {
@@ -13,7 +14,8 @@ public class PersonaImporter : EditorWindow
 
         string jsonContent = File.ReadAllText(filePath);
 
-        PersonaJsonWrapper wrapper = JsonUtility.FromJson<PersonaJsonWrapper>(jsonContent);
+        // CHANGE THIS LINE: Use Newtonsoft instead of JsonUtility
+        PersonaJsonWrapper wrapper = JsonConvert.DeserializeObject<PersonaJsonWrapper>(jsonContent);
 
         if (wrapper == null || wrapper.personas == null || wrapper.personas.Count == 0)
         {
@@ -31,9 +33,6 @@ public class PersonaImporter : EditorWindow
 
         PersonaDatabase databaseAsset = AssetDatabase.LoadAssetAtPath<PersonaDatabase>(assetPath);
 
-        // FIX: If the asset doesn't exist, create it properly. 
-        // If it DOES exist, don't overwrite the file (which breaks the script reference); 
-        // instead, just replace the inner list data!
         if (databaseAsset == null)
         {
             databaseAsset = ScriptableObject.CreateInstance<PersonaDatabase>();
@@ -43,11 +42,9 @@ public class PersonaImporter : EditorWindow
         else
         {
             databaseAsset.personas = wrapper.personas;
-            // Marks the existing file as modified so Unity knows it needs to be saved
             EditorUtility.SetDirty(databaseAsset);
         }
 
-        // Force Unity to write the data changes out to the disk safely
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 

@@ -12,6 +12,7 @@ public class AgentMovementEnhanced : MonoBehaviour
     private SupermarketLayoutSO layoutData;
     private NavMeshAgent agent;
     private List<string> shoppingList = new List<string>();
+    // private Dictionary<string, ProductSection> shoppingList = new Dictionary<string, ProductSection>(); // Key: Product name, Value: ProductSection
     private SpriteRenderer agentRenderer;
     private float stateTimer = 0f;
     private float shoppingElapsedTime = 0f;
@@ -150,8 +151,10 @@ public class AgentMovementEnhanced : MonoBehaviour
     public void InitializeWithPersona(AgentPersonaData persona, int uniqueID, AgentModifiers modifiers = null)
     {
         agentID = uniqueID;
-        shoppingList = new List<string>(persona.base_shopping_list);
-        impulseFavorites = new List<string>(persona.base_impulse_favorites);
+        // shoppingList = new List<string>(persona.base_shopping_list);
+        // impulseFavorites = new List<string>(persona.base_impulse_favorites);
+        shoppingList = persona.base_shopping_list.Select(item => item.item_name).ToList();
+        impulseFavorites = persona.base_impulse_favorites.Select(item => item.item_name).ToList();
         TotalMoney = (int)(persona.base_total_money * modifiers.BudgetModifier);
         BaselineTotalMoney = TotalMoney;
         agent.speed = persona.baseline_physics.base_speed * modifiers.SpeedModifier + Random.Range(-0.2f, 0.2f);
@@ -778,7 +781,7 @@ public class AgentMovementEnhanced : MonoBehaviour
     }
 
     // function to buy random Point of Interest (POI) products that are not on the shopping list or impulse favorites based on a probability roll, and update the cart and total money spent accordingly
-    public void BuyRandomPOIProduct(string poiSectionName, string poiTag, int poiPrice)
+    public void BuyRandomPOIProduct(string poiSectionName, Department poiTag, int poiPrice)
     {
         float probabilityRoll = Random.value; // Generate a random float between 0 and 1
         // check if product in Cart has a tag that matches the POI tag so that user can buy the related POI product

@@ -884,6 +884,10 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: poiTag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
       value: MeatMasala_Powder
       objectReference: {fileID: 0}
@@ -1080,6 +1084,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
       value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
@@ -2115,6 +2123,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
@@ -3732,6 +3744,10 @@ PrefabInstance:
       value: 550
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
       value: New_Raincoat
       objectReference: {fileID: 0}
@@ -4888,6 +4904,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
@@ -7868,6 +7888,10 @@ PrefabInstance:
       value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
       value: New Clothing Launch
       objectReference: {fileID: 0}
@@ -8417,6 +8441,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
@@ -10946,6 +10974,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: poiTag
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
       value: PocketMirror
       objectReference: {fileID: 0}
@@ -11605,6 +11637,10 @@ PrefabInstance:
       value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
       value: 'New_Umbrella '
       objectReference: {fileID: 0}
@@ -12120,11 +12156,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
-      value: SmallPoi (4)
+      value: Chewing Gum
       objectReference: {fileID: 0}
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_TagString
       value: ImmediateFood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: poiTag
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
@@ -12677,6 +12717,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: poiTag
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
@@ -14140,6 +14184,10 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: poiTag
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
       value: FancyPens
       objectReference: {fileID: 0}
@@ -15196,6 +15244,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
@@ -16683,6 +16735,10 @@ PrefabInstance:
       value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
       value: New_Phone
       objectReference: {fileID: 0}
@@ -16978,7 +17034,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
-      value: SmallPoi
+      value: Batteries
       objectReference: {fileID: 0}
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_TagString
@@ -16987,6 +17043,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: poiTag
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
@@ -17458,6 +17518,10 @@ PrefabInstance:
       value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
       value: Electric_Tooth_Brush
       objectReference: {fileID: 0}
@@ -17868,6 +17932,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: poiTag
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
@@ -19220,6 +19288,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: poiTag
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
@@ -22551,6 +22623,10 @@ PrefabInstance:
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: poiTag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
       value: BarbecueSauce
       objectReference: {fileID: 0}
@@ -24612,7 +24688,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_Name
-      value: SmallPoi (5)
+      value: ChocolateSyrup
       objectReference: {fileID: 0}
     - target: {fileID: 2185938543593234654, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: m_TagString
@@ -24621,6 +24697,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: poiTag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
@@ -27704,6 +27784,10 @@ PrefabInstance:
       value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
       value: New Babywear Launch
       objectReference: {fileID: 0}
@@ -28507,6 +28591,10 @@ PrefabInstance:
       value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
       value: ScentedCandles
       objectReference: {fileID: 0}
@@ -28669,6 +28757,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: price
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
+      propertyPath: poiTag
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: a913e8aaf213547229ac16d99b8d1819, type: 3}
       propertyPath: POIName
@@ -30758,6 +30850,10 @@ PrefabInstance:
       propertyPath: Price
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6303750824299602277, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
+      propertyPath: SectionDepartment
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7823693581159119758, guid: dff036b4c96e84e25a2e58ec11c2dff1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -31059,6 +31155,10 @@ PrefabInstance:
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: price
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
+      propertyPath: poiTag
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4194367647789823065, guid: 400de105bf9fc4041a9b0c44ad946d73, type: 3}
       propertyPath: POIName
