@@ -20,19 +20,19 @@ public class ProductSection
     public List<ProductSlot> Slots = new List<ProductSlot>();
 
     // Helper function for your agents to quickly grab an open spot
-    public bool TryGetEmptySlot(out Vector2 slotPosition)
+    public bool TryGetEmptySlot(out ProductSlot emptySlot)
     {
         foreach (var slot in Slots)
         {
             if (!slot.IsOccupied)
             {
-                slotPosition = slot.Position;
+                emptySlot = slot;
                 return true;
             }
         }
 
         // Fallback if full: return the center or first slot
-        slotPosition = Slots.Count > 0 ? Slots[0].Position : Vector2.zero;
+        emptySlot = Slots.Count > 0 ? Slots[0] : null;
         return false;
     }
 

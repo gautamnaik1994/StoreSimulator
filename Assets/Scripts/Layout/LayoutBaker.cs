@@ -23,11 +23,11 @@ public class LayoutBaker : MonoBehaviour
         layoutAsset.CheckoutCounters.Clear();
         layoutAsset.HoldingAreas.Clear();
 
-        productDB = Resources.Load<ProductDatabase>("ProductDatabase");
+        // productDB = Resources.Load<ProductDatabase>("ProductDatabase");
         // print out all product names and prices in the database to verify it's loading correctly
-        Debug.Log("Loaded Product Database:");
-        string productList = string.Join(", ", productDB.products.Select(p => $"\"{p.productName}\" (Price: {p.price})"));
-        Debug.Log(productList);
+        // Debug.Log("Loaded Product Database:");
+        // string productList = string.Join(", ", productDB.products.Select(p => $"\"{p.productName}\" (Price: {p.price})"));
+        // Debug.Log(productList);
 
 
 
@@ -87,11 +87,12 @@ public class LayoutBaker : MonoBehaviour
 
             sectionInfo = sectionTransform.gameObject.GetComponent<ProductSectionInfo>();
             // sectionInfo.SectionDepartment = (ProductSectionInfo.Department)System.Enum.Parse(typeof(ProductSectionInfo.Department), sectionTransform.tag);
+            // sectionInfo.Price = productDB[sectionTransform.name].price;
             // Debug.Log($"Section '{sectionTransform.name}' has price '{sectionInfo.Price}'");
             ProductSection newSection = new ProductSection
             {
                 SectionName = sectionTransform.name,
-                Price = productDB[sectionTransform.name].price,
+                Price = sectionInfo.Price,
                 ProductCategory = sectionInfo.SectionDepartment
             };
             // Debug.Log($"Product section '{sectionTransform.name}' price'{productDB[sectionTransform.name].price}'");

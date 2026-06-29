@@ -2362,7 +2362,7 @@
             ],
             "base_impulse_favorites": [
                 {
-                    "item_name": "Eat_Tea",
+                    "item_name": "Drink_Tea",
                     "quantity": 2
                 },
                 {
@@ -3854,10 +3854,6 @@
                 {
                     "item_name": "SoftDrink",
                     "quantity": 10
-                },
-                {
-                    "item_name": "Baking",
-                    "quantity": 3
                 },
                 {
                     "item_name": "FreshCutMeat",
@@ -11239,7 +11235,7 @@
                     "quantity": 2
                 },
                 {
-                    "item_name": "Eat_Tea",
+                    "item_name": "Drink_Tea",
                     "quantity": 1
                 },
                 {

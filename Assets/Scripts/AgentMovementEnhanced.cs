@@ -11,7 +11,9 @@ public class AgentMovementEnhanced : MonoBehaviour
     [SerializeField]
     private SupermarketLayoutSO layoutData;
     private NavMeshAgent agent;
-    private List<string> shoppingList = new List<string>();
+    private Dictionary<string, ShoppingItem> shoppingList = new Dictionary<string, ShoppingItem>();
+    private Dictionary<string, ShoppingItem> impulseFavorites = new Dictionary<string, ShoppingItem>();
+
     // private Dictionary<string, ProductSection> shoppingList = new Dictionary<string, ProductSection>(); // Key: Product name, Value: ProductSection
     private SpriteRenderer agentRenderer;
     private float stateTimer = 0f;
@@ -41,7 +43,6 @@ public class AgentMovementEnhanced : MonoBehaviour
     private Dictionary<AgentMood, Color> agentMoodColors;
     public AgentState currentState = AgentState.Evaluating;
     private float impulseProbability = 0.3f; // 30% chance to make an impulse detour
-    private List<string> impulseFavorites;
 
     // Tracks the current ranked destinations chosen by the brain for this execution cycle
     private Queue<ShoppingTarget> rankedDestinationsQueue = new Queue<ShoppingTarget>();
@@ -92,7 +93,7 @@ public class AgentMovementEnhanced : MonoBehaviour
     }
     private int TotalMoney = 10000;
     private int BaselineTotalMoney = 10000;
-    public readonly List<ProductSection> cartItems = new List<ProductSection>();
+    public readonly List<ShoppingItem> cartItems = new List<ShoppingItem>();
     private int TotalMoneySpent = 0;
     private AgentMood currentMood = AgentMood.Neutral;
 
@@ -102,14 +103,14 @@ public class AgentMovementEnhanced : MonoBehaviour
     private string AgentGender = "Unspecified";
     private string AgentProfession = "Unemployed";
 
-    private List<ProductSection> CostlyItems = new List<ProductSection>();
+    private List<ShoppingItem> CostlyItems = new List<ShoppingItem>();
 
     private float baselineSpeed;
     private float originalImpulseProbability;
 
     public int agentID; // Unique identifier for the agent, can be set in the Inspector or assigned programmatically
 
-    private List<ProductSection> shoppingListBackup = new List<ProductSection>(); // Backup of the original shopping list for reference
+    private Dictionary<string, ShoppingItem> shoppingListBackup = new Dictionary<string, ShoppingItem>(); // Backup of the original shopping list for reference
 
 
 
@@ -153,8 +154,37 @@ public class AgentMovementEnhanced : MonoBehaviour
         agentID = uniqueID;
         // shoppingList = new List<string>(persona.base_shopping_list);
         // impulseFavorites = new List<string>(persona.base_impulse_favorites);
-        shoppingList = persona.base_shopping_list.Select(item => item.item_name).ToList();
-        impulseFavorites = persona.base_impulse_favorites.Select(item => item.item_name).ToList();
+        foreach (var shoppingListItem in persona.base_shopping_list)
+        {
+            ProductSection section = layoutData.sectionLookup[shoppingListItem.item_name];
+            if (section == null)
+            {
+                Debug.LogWarning($"Product section '{shoppingListItem.item_name}' not found in layoutData for agent ID {agentID}. Skipping this item.");
+                continue;
+            }
+            shoppingList[shoppingListItem.item_name] = new ShoppingItem(
+                shoppingListItem.item_name,
+                section.Price,
+                shoppingListItem.quantity,
+                section.ProductCategory,
+                PurchaseType.Standard
+            );
+
+        }
+        foreach (var impulseFavorite in persona.base_impulse_favorites)
+        {
+            ProductSection section = layoutData.sectionLookup[impulseFavorite.item_name];
+            if (section != null)
+            {
+                impulseFavorites[impulseFavorite.item_name] = new ShoppingItem(
+                    impulseFavorite.item_name,
+                    section.Price,
+                    impulseFavorite.quantity,
+                    section.ProductCategory,
+                    PurchaseType.StandardImpulse
+                );
+            }
+        }
         TotalMoney = (int)(persona.base_total_money * modifiers.BudgetModifier);
         BaselineTotalMoney = TotalMoney;
         agent.speed = persona.baseline_physics.base_speed * modifiers.SpeedModifier + Random.Range(-0.2f, 0.2f);
@@ -170,16 +200,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         AgentIncomeLevel = persona.demographics.income_level;
         AgentProfession = persona.demographics.profession;
 
-        shoppingListBackup = new List<ProductSection>();
-        foreach (string itemName in shoppingList)
-        {
-            ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == itemName);
-            if (section != null)
-            {
-                shoppingListBackup.Add(section);
-            }
-        }
-
+        shoppingListBackup = new Dictionary<string, ShoppingItem>(shoppingList); // Create a backup of the original shopping list
         ChangeState(AgentState.Evaluating);
         ChangeMood(AgentMood.Neutral);
 
@@ -286,7 +307,8 @@ public class AgentMovementEnhanced : MonoBehaviour
                 agent.speed = baselineSpeed * 1.3f;
                 if (shoppingList.Count > 1 && Random.value < 0.01f)
                 {
-                    string abandonedItem = shoppingList[Random.Range(0, shoppingList.Count)];
+                    // string abandonedItem = shoppingList[Random.Range(0, shoppingList.Count)];
+                    string abandonedItem = shoppingList.Keys.ToArray()[Random.Range(0, shoppingList.Count)];
                     shoppingList.Remove(abandonedItem);
                     agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"[Loss of Sale] Abandoned looking for {abandonedItem} due to impatience.", currentMood));
                 }
@@ -370,8 +392,7 @@ public class AgentMovementEnhanced : MonoBehaviour
             currentTargetItem = null;
 
             // Pick a completely random zone position from any section in the layout
-            int randomSectionIdx = Random.Range(0, layoutData.ProductSections.Count);
-            var randomSection = layoutData.ProductSections[randomSectionIdx];
+            var randomSection = layoutData.sectionLookup[layoutData.sectionLookup.Keys.ElementAt(Random.Range(0, layoutData.sectionLookup.Count))];
             Vector2 randomWanderPoint = randomSection.Slots[Random.Range(0, randomSection.Slots.Count)].Position;
 
             agent.SetDestination(randomWanderPoint);
@@ -388,14 +409,15 @@ public class AgentMovementEnhanced : MonoBehaviour
         List<ShoppingTarget> potentialTargets = new List<ShoppingTarget>();
 
         // Step 1: Add regular shopping list items (Your existing logic)
-        foreach (string item in shoppingList)
+        foreach (string item in shoppingList.Keys)
         {
             if (sectionCooldowns.TryGetValue(item, out float cooldownExpiry) && Time.time < cooldownExpiry)
             {
                 continue;
             }
 
-            ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == item);
+            // ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == item);
+            ProductSection section = layoutData.sectionLookup[item];
             if (section != null)
             {
                 int randomSlotIndex = Random.Range(0, section.Slots.Count);
@@ -407,9 +429,9 @@ public class AgentMovementEnhanced : MonoBehaviour
         if (potentialTargets.Count == 0 && shoppingList.Count > 0)
         {
             sectionCooldowns.Clear();
-            foreach (string item in shoppingList)
+            foreach (string item in shoppingList.Keys)
             {
-                ProductSection section = layoutData.ProductSections.Find(s => s.SectionName == item);
+                ProductSection section = layoutData.sectionLookup[item];
                 // AI added code below to prevent null reference exceptions if the section or its slots are missing
                 if (section == null || section.Slots == null || section.Slots.Count == 0)
                 {
@@ -436,12 +458,13 @@ public class AgentMovementEnhanced : MonoBehaviour
         {
             // Try to pick an impulse item that isn't already on the standard shopping list
             // <string> validImpulseChoices = impulseFavorites.FindAll(fav => !shoppingList.Contains(fav));
-            List<string> validImpulseChoices = impulseFavorites;
+            List<string> validImpulseChoices = impulseFavorites.Keys.ToList();
 
             if (validImpulseChoices.Count > 0)
             {
                 string chosenImpulseItem = validImpulseChoices[Random.Range(0, validImpulseChoices.Count)];
-                ProductSection impulseSection = layoutData.ProductSections.Find(s => s.SectionName == chosenImpulseItem);
+                // ProductSection impulseSection = layoutData.ProductSections.Find(s => s.SectionName == chosenImpulseItem);
+                ProductSection impulseSection = layoutData.sectionLookup[chosenImpulseItem];
 
                 if (impulseSection != null)
                 {
@@ -479,7 +502,8 @@ public class AgentMovementEnhanced : MonoBehaviour
             currentTargetSection = nextTarget.Section;
             // check if cuurentTargetSection is present in the shopping list or impulse favorites, if not, then skip it and move to the next one in the queue until we find one that is, or we run out of options and have to force a re-evaluation
 
-            while (!shoppingList.Contains(currentTargetSection.SectionName) && !impulseFavorites.Contains(currentTargetSection.SectionName))
+            // while (!shoppingList.Contains(currentTargetSection.SectionName) && !impulseFavorites.Contains(currentTargetSection.SectionName))
+            while (!shoppingList.ContainsKey(currentTargetSection.SectionName) && !impulseFavorites.ContainsKey(currentTargetSection.SectionName))
             {
                 if (rankedDestinationsQueue.Count == 0)
                 {
@@ -521,8 +545,9 @@ public class AgentMovementEnhanced : MonoBehaviour
         {
             bool itemPurchased = false;
             string purchasedItemName = currentTargetSection.SectionName;
-            bool wasPlanned = shoppingList.Contains(purchasedItemName);
-            bool wasImpulse = impulseFavorites.Contains(purchasedItemName);
+            bool wasPlanned = shoppingList.ContainsKey(purchasedItemName);
+            bool wasImpulse = impulseFavorites.ContainsKey(purchasedItemName);
+            ShoppingItem purchasedItem = null;
 
             // compare price to check if the agent can afford it
             if (currentTargetSection.Price <= TotalMoney)
@@ -533,6 +558,7 @@ public class AgentMovementEnhanced : MonoBehaviour
             // 1. Clear it from the lists it belongs to
             if (wasPlanned)
             {
+                purchasedItem = shoppingList[purchasedItemName];
                 shoppingList.Remove(purchasedItemName);
             }
 
@@ -540,6 +566,7 @@ public class AgentMovementEnhanced : MonoBehaviour
             {
                 // Removing it from favorites ensures they don't repeatedly impulse-buy 
                 // the exact same item over and over during a single shopping trip.
+                purchasedItem = impulseFavorites[purchasedItemName];
                 impulseFavorites.Remove(purchasedItemName);
             }
 
@@ -555,11 +582,13 @@ public class AgentMovementEnhanced : MonoBehaviour
                 agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, logMessage, currentMood));
                 // ChangeMood(AgentMood.Happy);
                 // update the cart with the newly purchased item
-                UpdateCart(currentTargetSection);
+                // UpdateCart(new ShoppingItem(currentTargetSection.SectionName, currentTargetSection.Price, 1, currentTargetSection.ProductCategory, PurchaseType.Standard));
+                // extract the purchased item from the shopping list or impulse favorites to pass to UpdateCart
+                UpdateCart(purchasedItem);
             }
             else
             {
-                CostlyItems.Add(currentTargetSection);
+                CostlyItems.Add(new ShoppingItem(currentTargetSection.SectionName, currentTargetSection.Price, 1, currentTargetSection.ProductCategory, PurchaseType.Standard));
                 // ChangeMood(AgentMood.Sad);
                 agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Browsed {purchasedItemName} but couldn't afford it. Needed {currentTargetSection.Price}, had {TotalMoney}.", currentMood));
             }
@@ -645,15 +674,17 @@ public class AgentMovementEnhanced : MonoBehaviour
 
         if (currentTargetSection != null && currentTargetItem == null)
         {
-            if (currentTargetSection.TryGetEmptySlot(out Vector2 slotPosition))
+            if (currentTargetSection.TryGetEmptySlot(out ProductSlot emptySlot))
             {
-                layoutData.sectionLookup[slotPosition].slot.IsOccupied = true;
-                currentTargetItem = layoutData.sectionLookup[slotPosition].slot;
-                agent.SetDestination(slotPosition);
+
+
+                emptySlot.IsOccupied = true;
+                currentTargetItem = emptySlot;
+                agent.SetDestination(emptySlot.Position);
 
                 ChangeState(AgentState.BrowsingShelf);
                 // ChangeMood(AgentMood.Neutral);
-                agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Navigating to specific slot at {slotPosition} in section {currentTargetSection.SectionName}", currentMood));
+                agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Navigating to specific slot at {emptySlot.Position} in section {currentTargetSection.SectionName}", currentMood));
             }
             else
             {
@@ -797,7 +828,9 @@ public class AgentMovementEnhanced : MonoBehaviour
         //     }
         // }
 
-        if (shoppingListBackup.Exists(item => item.ProductCategory == poiTag))
+
+
+        if (shoppingListBackup.Values.Any(item => item.ProductCategory == poiTag))
         {
             probabilityRoll *= 0.5f; // Reduce the probability of buying the POI product if a related product is already in the shopping list
         }
@@ -812,7 +845,7 @@ public class AgentMovementEnhanced : MonoBehaviour
             // Check if the agent can afford the product
             if (poiPrice <= TotalMoney)
             {
-                UpdateCart(new ProductSection { SectionName = poiSectionName, Price = poiPrice });
+                UpdateCart(new ShoppingItem(poiSectionName, poiPrice, 1, poiTag, PurchaseType.StandardImpulse));
                 agentHistory.Add(new AgentHistoryEntry(Time.time, AgentState.Distracted, $"Impulse bought POI product: {poiSectionName} for {poiPrice}.", AgentMood.Happy));
                 poiProductsInteractedWith.Add(poiSectionName);
             }
@@ -829,11 +862,11 @@ public class AgentMovementEnhanced : MonoBehaviour
     }
 
 
-    private void UpdateCart(ProductSection section)
+    private void UpdateCart(ShoppingItem item)
     {
-        cartItems.Add(section);
-        TotalMoneySpent += section.Price;
-        TotalMoney -= section.Price;
+        cartItems.Add(item);
+        TotalMoneySpent += item.Price;
+        TotalMoney -= item.Price;
     }
     public void ChangeState(AgentState newState)
     {
@@ -944,10 +977,10 @@ public class AgentMovementEnhanced : MonoBehaviour
             AgentProfession = AgentProfession,
             CurrentState = currentState.ToString(),
             CurrentMood = currentMood.ToString(),
-            ShoppingList = string.Join(", ", shoppingList),
-            ImpulseFavorites = string.Join(", ", impulseFavorites),
-            CostlyItems = string.Join(", ", CostlyItems.ConvertAll(item => item.SectionName)),
-            CartItems = string.Join(", ", cartItems.ConvertAll(item => item.SectionName)),
+            ShoppingList = string.Join(", ", shoppingList.Keys),
+            ImpulseFavorites = string.Join(", ", impulseFavorites.Keys),
+            CostlyItems = string.Join(", ", CostlyItems.ConvertAll(item => item.ItemName)),
+            CartItems = string.Join(", ", cartItems.ConvertAll(item => item.ItemName)),
             TotalMoneySpent = TotalMoneySpent,
             RemainingMoney = TotalMoney,
             BaselineMoney = BaselineTotalMoney,

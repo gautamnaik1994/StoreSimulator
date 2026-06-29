@@ -245,10 +245,17 @@ public class AgentManager : MonoBehaviour
             int agentsToSpawn = Mathf.Min(agentBatchCount, agentCount - (i * agentBatchCount));
             for (int j = 0; j < agentsToSpawn; j++)
             {
+                AgentPersonaData profile = database.personas[agentIDCounter % database.personas.Count]; // Loop through personas if we have more agents than profiles
+                // AgentPersonaData profile = database.personas[Random.Range(0, database.personas.Count)]; // Randomly select a persona for each agent
+                if (profile == null)
+                {
+                    Debug.LogError($"Persona profile is null for agent ID {agentIDCounter}. Check the PersonaDatabase.");
+                    continue; // Skip this agent if the profile is null
+                }
                 GameObject obj = Instantiate(agentPrefab, spawnPoint.position, Quaternion.identity);
                 AgentMovementEnhanced agent = obj.GetComponent<AgentMovementEnhanced>();
                 allAgentList.Add(agent); // Add the agent to the list of all agents
-                AgentPersonaData profile = database.personas[agentIDCounter % database.personas.Count]; // Loop through personas if we have more agents than profiles
+
                 agent.InitializeWithPersona(profile, agentIDCounter, modifiers);
                 agentIDCounter++;
             }

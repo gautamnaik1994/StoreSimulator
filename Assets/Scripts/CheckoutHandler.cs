@@ -31,12 +31,12 @@ public class CheckoutHandler : MonoBehaviour
     /// <summary>
     /// Call this when a customer scans an item at this specific counter.
     /// </summary>
-    public void ProcessItem(string productId, string productName, decimal price, PurchaseType type)
+    public void ProcessItem(ShoppingItem item)
     {
         // Execute checkout logic (animations, sounds, etc.)
 
         // Trigger the event safely if there are listeners
-        OnItemProcessed?.Invoke(this, new PurchaseEventArgs(productId, productName, price, type));
+        OnItemProcessed?.Invoke(this, new PurchaseEventArgs(item.ItemName, item.ItemName, item.Quantity, item.Price, item.PurchaseType));
     }
 
     private void OnEnable()
@@ -117,7 +117,7 @@ public class CheckoutHandler : MonoBehaviour
             // Process the items
             foreach (var item in frontAgent.cartItems)
             {
-                ProcessItem(item.SectionName, item.SectionName, item.Price, PurchaseType.Standard); // Assuming standard purchase for simplicity
+                ProcessItem(item);
             }
 
             // Simulate scanning items

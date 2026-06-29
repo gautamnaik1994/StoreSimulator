@@ -16,6 +16,8 @@ public class ProductSaleData
 public enum PurchaseType
 {
     Standard,          // Fixed item in sales
+
+    StandardImpulse,    // Standard item bought on impulse
     MajorImpulse,      // Large speed bump
     MinorImpulse       // Smaller speed bump
 }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SupermarketLayoutSO
   m_EditorClassIdentifier: Assembly-CSharp::SupermarketLayoutSO
   ProductSections:
-  - Price: 150
+  - Price: 100
     SectionName: FrozenFoods
-    ProductCategory: Frozen
+    ProductCategory: 0
     Slots:
     - Position: {x: -46.87334, y: 27.079975}
       IsOccupied: 0
@@ -33,9 +33,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -41.30191, y: 27.079975}
       IsOccupied: 0
-  - Price: 110
+  - Price: 100
     SectionName: Juice
-    ProductCategory: Beverages
+    ProductCategory: 0
     Slots:
     - Position: {x: -46.743217, y: 19.720955}
       IsOccupied: 0
@@ -53,9 +53,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -41.17179, y: 19.720966}
       IsOccupied: 0
-  - Price: 120
+  - Price: 100
     SectionName: Paneer
-    ProductCategory: DairyChilled
+    ProductCategory: 0
     Slots:
     - Position: {x: -35.604374, y: 19.718477}
       IsOccupied: 0
@@ -73,9 +73,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -30.032946, y: 19.718489}
       IsOccupied: 0
-  - Price: 40
+  - Price: 100
     SectionName: SoftDrink
-    ProductCategory: Beverages
+    ProductCategory: 0
     Slots:
     - Position: {x: -38.94884, y: 22.657467}
       IsOccupied: 0
@@ -93,9 +93,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -44.520267, y: 22.657482}
       IsOccupied: 0
-  - Price: 105
+  - Price: 100
     SectionName: Butter
-    ProductCategory: DairyChilled
+    ProductCategory: 0
     Slots:
     - Position: {x: -27.809998, y: 22.65499}
       IsOccupied: 0
@@ -113,9 +113,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -33.381424, y: 22.655005}
       IsOccupied: 0
-  - Price: 33
+  - Price: 100
     SectionName: Milk
-    ProductCategory: DairyChilled
+    ProductCategory: 0
     Slots:
     - Position: {x: -35.52857, y: 27.11288}
       IsOccupied: 0
@@ -133,9 +133,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -29.957138, y: 27.11288}
       IsOccupied: 0
-  - Price: 280
+  - Price: 100
     SectionName: FrozenChicken
-    ProductCategory: Frozen
+    ProductCategory: 0
     Slots:
     - Position: {x: -46.9772, y: -4.8002377}
       IsOccupied: 0
@@ -153,9 +153,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -46.977177, y: 0.77119064}
       IsOccupied: 0
-  - Price: 450
+  - Price: 100
     SectionName: FrozenMeat
-    ProductCategory: Frozen
+    ProductCategory: 0
     Slots:
     - Position: {x: -46.975014, y: 5.989997}
       IsOccupied: 0
@@ -173,9 +173,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -46.97499, y: 11.561426}
       IsOccupied: 0
-  - Price: 350
+  - Price: 100
     SectionName: Gifts
-    ProductCategory: EntertainmentHome
+    ProductCategory: 9
     Slots:
     - Position: {x: 14.824427, y: 27.033468}
       IsOccupied: 0
@@ -193,9 +193,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 20.195856, y: 27.033468}
       IsOccupied: 0
-  - Price: 499
+  - Price: 100
     SectionName: Toys
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: 26.705278, y: 27.033468}
       IsOccupied: 0
@@ -213,9 +213,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 32.076706, y: 27.033468}
       IsOccupied: 0
-  - Price: 1800
+  - Price: 100
     SectionName: SmallAppliances
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: -12.654286, y: 27.033468}
       IsOccupied: 0
@@ -233,9 +233,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -7.2828574, y: 27.033468}
       IsOccupied: 0
-  - Price: 199
+  - Price: 100
     SectionName: PartySupplies
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: 38.795715, y: 27.033468}
       IsOccupied: 0
@@ -253,9 +253,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 44.167145, y: 27.033468}
       IsOccupied: 0
-  - Price: 10000
+  - Price: 100
     SectionName: LargeAppliances
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: -0.56385016, y: 27.033468}
       IsOccupied: 0
@@ -273,9 +273,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 4.8075786, y: 27.033468}
       IsOccupied: 0
-  - Price: 120
+  - Price: 100
     SectionName: PersonalCare
-    ProductCategory: PersonalCare
+    ProductCategory: 0
     Slots:
     - Position: {x: 54.872593, y: 27.033468}
       IsOccupied: 0
@@ -293,9 +293,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 60.244022, y: 27.033468}
       IsOccupied: 0
-  - Price: 250
+  - Price: 100
     SectionName: Cosmetics
-    ProductCategory: PersonalCare
+    ProductCategory: 0
     Slots:
     - Position: {x: 65.362686, y: 23.924286}
       IsOccupied: 0
@@ -313,12 +313,12 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 65.362686, y: 18.552856}
       IsOccupied: 0
-  - Price: 65
+  - Price: 100
     SectionName: Rice
-    ProductCategory: GroceryPantry
+    ProductCategory: 0
     Slots:
     - Position: {x: 65.462685, y: 3.2742865}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 65.462685, y: 0.58857197}
       IsOccupied: 0
     - Position: {x: 65.462685, y: -3.4399993}
@@ -333,9 +333,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 65.462685, y: -2.0971427}
       IsOccupied: 0
-  - Price: 45
+  - Price: 100
     SectionName: Wheat
-    ProductCategory: GroceryPantry
+    ProductCategory: 0
     Slots:
     - Position: {x: 65.462685, y: -7.825714}
       IsOccupied: 0
@@ -353,9 +353,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 65.462685, y: -13.197144}
       IsOccupied: 0
-  - Price: 50
+  - Price: 100
     SectionName: IceCream
-    ProductCategory: Frozen
+    ProductCategory: 0
     Slots:
     - Position: {x: -23.987438, y: 24.914133}
       IsOccupied: 0
@@ -373,9 +373,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -22.790438, y: 26.859135}
       IsOccupied: 0
-  - Price: 40
+  - Price: 100
     SectionName: Chocolates
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: -28.115, y: -17.960001}
       IsOccupied: 0
@@ -393,9 +393,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -26.918, y: -16.015}
       IsOccupied: 0
-  - Price: 220
+  - Price: 100
     SectionName: Coffee
-    ProductCategory: Beverages
+    ProductCategory: 0
     Slots:
     - Position: {x: 49.119972, y: 6.3517065}
       IsOccupied: 0
@@ -425,14 +425,14 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 47.174973, y: 6.3516936}
       IsOccupied: 0
-  - Price: 140
+  - Price: 100
     SectionName: Tea
-    ProductCategory: Beverages
+    ProductCategory: 0
     Slots:
     - Position: {x: 49.119972, y: -3.8188934}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 49.10998, y: -5.104608}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 47.170006, y: -8.961764}
       IsOccupied: 0
     - Position: {x: 47.169983, y: -5.104621}
@@ -457,12 +457,12 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 47.174973, y: -3.8189063}
       IsOccupied: 0
-  - Price: 50
+  - Price: 100
     SectionName: InstantNoodles
-    ProductCategory: GroceryPantry
+    ProductCategory: 0
     Slots:
     - Position: {x: 53.079998, y: 6.3299932}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 54.36571, y: 6.3199954}
       IsOccupied: 0
     - Position: {x: 58.22286, y: 4.380002}
@@ -489,9 +489,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 53.08, y: 4.384993}
       IsOccupied: 0
-  - Price: 250
+  - Price: 100
     SectionName: LargeIceCream
-    ProductCategory: Frozen
+    ProductCategory: 0
     Slots:
     - Position: {x: -23.925001, y: 20.8}
       IsOccupied: 0
@@ -509,9 +509,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -22.728, y: 22.745}
       IsOccupied: 0
-  - Price: 70
+  - Price: 100
     SectionName: GreetingCards
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: -12.845002, y: -17.960001}
       IsOccupied: 0
@@ -529,9 +529,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -11.648003, y: -16.015}
       IsOccupied: 0
-  - Price: 400
+  - Price: 100
     SectionName: FreshCutMeat
-    ProductCategory: MeatSeafood
+    ProductCategory: 0
     Slots:
     - Position: {x: -40.838623, y: 2.9173963}
       IsOccupied: 0
@@ -561,9 +561,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -42.783623, y: 2.9174042}
       IsOccupied: 0
-  - Price: 120
+  - Price: 100
     SectionName: Fruits
-    ProductCategory: FreshProduce
+    ProductCategory: 0
     Slots:
     - Position: {x: 53.317394, y: -25.80717}
       IsOccupied: 0
@@ -593,9 +593,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 53.317394, y: -23.86217}
       IsOccupied: 0
-  - Price: 80
+  - Price: 100
     SectionName: OrganicGreen
-    ProductCategory: FreshProduce
+    ProductCategory: 0
     Slots:
     - Position: {x: 64.4644, y: -30.51717}
       IsOccupied: 0
@@ -625,9 +625,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 64.4644, y: -28.572168}
       IsOccupied: 0
-  - Price: 60
+  - Price: 100
     SectionName: Bakery
-    ProductCategory: GroceryPantry
+    ProductCategory: 0
     Slots:
     - Position: {x: 42.729996, y: -25.730001}
       IsOccupied: 0
@@ -657,9 +657,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 42.729996, y: -23.785}
       IsOccupied: 0
-  - Price: 550
+  - Price: 100
     SectionName: Seafood
-    ProductCategory: MeatSeafood
+    ProductCategory: 0
     Slots:
     - Position: {x: -40.838593, y: 13.403196}
       IsOccupied: 0
@@ -689,9 +689,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -42.783592, y: 13.403204}
       IsOccupied: 0
-  - Price: 3000
+  - Price: 100
     SectionName: MobilePhones
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: -1.5222013, y: 21.402828}
       IsOccupied: 0
@@ -721,16 +721,16 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -1.5222013, y: 23.347828}
       IsOccupied: 0
-  - Price: 50
+  - Price: 100
     SectionName: Vegetables
-    ProductCategory: FreshProduce
+    ProductCategory: 0
     Slots:
     - Position: {x: 64.41689, y: -25.840002}
       IsOccupied: 0
     - Position: {x: 61.116894, y: -25.830002}
       IsOccupied: 0
     - Position: {x: 58.916893, y: -23.890001}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 63.316895, y: -23.890001}
       IsOccupied: 0
     - Position: {x: 60.016895, y: -23.910002}
@@ -753,9 +753,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 64.41689, y: -23.895}
       IsOccupied: 0
-  - Price: 90
+  - Price: 100
     SectionName: Grains
-    ProductCategory: GroceryPantry
+    ProductCategory: 0
     Slots:
     - Position: {x: 60.995102, y: -0.589634}
       IsOccupied: 0
@@ -785,9 +785,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 60.995102, y: 1.355366}
       IsOccupied: 0
-  - Price: 140
+  - Price: 100
     SectionName: Detergent
-    ProductCategory: Household
+    ProductCategory: 0
     Slots:
     - Position: {x: 30.1151, y: -12.830002}
       IsOccupied: 0
@@ -817,9 +817,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 30.1151, y: -10.885002}
       IsOccupied: 0
-  - Price: 85
+  - Price: 100
     SectionName: Toiletries
-    ProductCategory: PersonalCare
+    ProductCategory: 0
     Slots:
     - Position: {x: 60.685097, y: 17.589996}
       IsOccupied: 0
@@ -849,9 +849,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 60.685097, y: 19.534998}
       IsOccupied: 0
-  - Price: 90
+  - Price: 100
     SectionName: OralCare
-    ProductCategory: PersonalCare
+    ProductCategory: 0
     Slots:
     - Position: {x: 60.685097, y: 22.160366}
       IsOccupied: 0
@@ -881,9 +881,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 60.685097, y: 24.105368}
       IsOccupied: 0
-  - Price: 180
+  - Price: 100
     SectionName: BabyCare
-    ProductCategory: PersonalCare
+    ProductCategory: 0
     Slots:
     - Position: {x: 18.6351, y: 5.5300007}
       IsOccupied: 0
@@ -913,9 +913,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 18.6351, y: 7.4750004}
       IsOccupied: 0
-  - Price: 350
+  - Price: 100
     SectionName: KitchenUtensils
-    ProductCategory: Household
+    ProductCategory: 0
     Slots:
     - Position: {x: 30.3051, y: 5.5300007}
       IsOccupied: 0
@@ -945,9 +945,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 30.3051, y: 7.4750004}
       IsOccupied: 0
-  - Price: 150
+  - Price: 100
     SectionName: WaterBottles
-    ProductCategory: Beverages
+    ProductCategory: 0
     Slots:
     - Position: {x: 30.3051, y: 0.8903654}
       IsOccupied: 0
@@ -977,9 +977,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 30.3051, y: 2.8353653}
       IsOccupied: 0
-  - Price: 400
+  - Price: 100
     SectionName: MensTshirt
-    ProductCategory: Apparel
+    ProductCategory: 0
     Slots:
     - Position: {x: 2.5, y: 5.5300007}
       IsOccupied: 0
@@ -1009,9 +1009,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 2.5, y: 7.4750004}
       IsOccupied: 0
-  - Price: 1100
+  - Price: 100
     SectionName: Activewear
-    ProductCategory: Apparel
+    ProductCategory: 0
     Slots:
     - Position: {x: 2.5, y: 0.8499997}
       IsOccupied: 0
@@ -1041,9 +1041,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 2.5, y: 2.7949996}
       IsOccupied: 0
-  - Price: 1200
+  - Price: 100
     SectionName: MensJeans
-    ProductCategory: Apparel
+    ProductCategory: 0
     Slots:
     - Position: {x: -9.25, y: 5.5300007}
       IsOccupied: 0
@@ -1073,9 +1073,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -9.25, y: 7.4750004}
       IsOccupied: 0
-  - Price: 1500
+  - Price: 100
     SectionName: MensFormals
-    ProductCategory: Apparel
+    ProductCategory: 0
     Slots:
     - Position: {x: -9.25, y: 0.8103655}
       IsOccupied: 0
@@ -1105,9 +1105,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -9.25, y: 2.7553654}
       IsOccupied: 0
-  - Price: 600
+  - Price: 100
     SectionName: WomensKurti
-    ProductCategory: Apparel
+    ProductCategory: 0
     Slots:
     - Position: {x: 2.5, y: -3.9903653}
       IsOccupied: 0
@@ -1137,9 +1137,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 2.5, y: -2.0453653}
       IsOccupied: 0
-  - Price: 1200
+  - Price: 100
     SectionName: WomensJeans
-    ProductCategory: Apparel
+    ProductCategory: 0
     Slots:
     - Position: {x: -9.25, y: -3.9903653}
       IsOccupied: 0
@@ -1169,9 +1169,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -9.25, y: -2.0453653}
       IsOccupied: 0
-  - Price: 800
+  - Price: 100
     SectionName: Saree
-    ProductCategory: Apparel
+    ProductCategory: 0
     Slots:
     - Position: {x: -9.25, y: -8.71}
       IsOccupied: 0
@@ -1201,9 +1201,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -9.25, y: -6.7650003}
       IsOccupied: 0
-  - Price: 1600
+  - Price: 100
     SectionName: WomensEthnicSet
-    ProductCategory: Apparel
+    ProductCategory: 0
     Slots:
     - Position: {x: 2.5, y: -8.81}
       IsOccupied: 0
@@ -1233,9 +1233,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 2.5, y: -6.8650002}
       IsOccupied: 0
-  - Price: 450
+  - Price: 100
     SectionName: KidsClothing
-    ProductCategory: Apparel
+    ProductCategory: 0
     Slots:
     - Position: {x: -9.200001, y: -13.170001}
       IsOccupied: 0
@@ -1265,9 +1265,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -9.200001, y: -11.225001}
       IsOccupied: 0
-  - Price: 1200
+  - Price: 100
     SectionName: Shoes
-    ProductCategory: Apparel
+    ProductCategory: 0
     Slots:
     - Position: {x: 2.5, y: -13.249634}
       IsOccupied: 0
@@ -1297,9 +1297,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 2.5, y: -11.304634}
       IsOccupied: 0
-  - Price: 320
+  - Price: 100
     SectionName: DogFood
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: 18.55, y: -12.860001}
       IsOccupied: 0
@@ -1329,9 +1329,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 18.55, y: -10.915001}
       IsOccupied: 0
-  - Price: 290
+  - Price: 100
     SectionName: CatFood
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: 18.55, y: -8.919634}
       IsOccupied: 0
@@ -1361,9 +1361,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 18.55, y: -6.974634}
       IsOccupied: 0
-  - Price: 650
+  - Price: 100
     SectionName: Diapers
-    ProductCategory: PersonalCare
+    ProductCategory: 0
     Slots:
     - Position: {x: 18.6351, y: 0.9300001}
       IsOccupied: 0
@@ -1393,9 +1393,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 18.6351, y: 2.875}
       IsOccupied: 0
-  - Price: 299
+  - Price: 100
     SectionName: Books
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: 20.499998, y: 21.42}
       IsOccupied: 0
@@ -1427,10 +1427,10 @@ MonoBehaviour:
       IsOccupied: 0
   - Price: 100
     SectionName: Magazines
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: 20.499998, y: 16.32}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 19.214283, y: 16.33}
       IsOccupied: 0
     - Position: {x: 15.3571415, y: 18.27}
@@ -1457,9 +1457,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 20.499998, y: 18.265001}
       IsOccupied: 0
-  - Price: 50
+  - Price: 100
     SectionName: Stationery
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: 33, y: 21.42}
       IsOccupied: 0
@@ -1489,9 +1489,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 33, y: 23.365002}
       IsOccupied: 0
-  - Price: 599
+  - Price: 100
     SectionName: BoardGames
-    ProductCategory: EntertainmentHome
+    ProductCategory: 0
     Slots:
     - Position: {x: 33, y: 16.370365}
       IsOccupied: 0
@@ -1521,9 +1521,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 33, y: 18.315367}
       IsOccupied: 0
-  - Price: 160
+  - Price: 100
     SectionName: CookingOil
-    ProductCategory: GroceryPantry
+    ProductCategory: 0
     Slots:
     - Position: {x: 60.949867, y: -5.57}
       IsOccupied: 0
@@ -1553,12 +1553,12 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 60.949867, y: -3.6250005}
       IsOccupied: 0
-  - Price: 130
+  - Price: 100
     SectionName: CannedFood
-    ProductCategory: GroceryPantry
+    ProductCategory: 0
     Slots:
     - Position: {x: 61.089996, y: -11.06}
-      IsOccupied: 0
+      IsOccupied: 1
     - Position: {x: 59.804283, y: -11.05}
       IsOccupied: 0
     - Position: {x: 55.94714, y: -9.110001}
@@ -1585,9 +1585,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 61.089996, y: -9.115001}
       IsOccupied: 0
-  - Price: 180
+  - Price: 100
     SectionName: Cereals
-    ProductCategory: GroceryPantry
+    ProductCategory: 0
     Slots:
     - Position: {x: 61.089996, y: -16.51}
       IsOccupied: 0
@@ -1617,9 +1617,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: 61.089996, y: -14.565}
       IsOccupied: 0
-  - Price: 40
+  - Price: 100
     SectionName: Drink_Coffee
-    ProductCategory: ImmediateFood
+    ProductCategory: 0
     Slots:
     - Position: {x: -41.596, y: -16.251999}
       IsOccupied: 0
@@ -1645,9 +1645,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -40.291, y: -16.09}
       IsOccupied: 0
-  - Price: 25
+  - Price: 100
     SectionName: Drink_Tea
-    ProductCategory: ImmediateFood
+    ProductCategory: 0
     Slots:
     - Position: {x: -41.475998, y: -11.371999}
       IsOccupied: 0
@@ -1673,9 +1673,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -40.170998, y: -11.209999}
       IsOccupied: 0
-  - Price: 50
+  - Price: 100
     SectionName: Eat_Samosa
-    ProductCategory: ImmediateFood
+    ProductCategory: 0
     Slots:
     - Position: {x: -46.979992, y: -9.534287}
       IsOccupied: 0
@@ -1707,9 +1707,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -46.975006, y: -14.105717}
       IsOccupied: 0
-  - Price: 50
+  - Price: 100
     SectionName: Eat_ChickenPuff
-    ProductCategory: ImmediateFood
+    ProductCategory: 0
     Slots:
     - Position: {x: -46.979992, y: -18.794289}
       IsOccupied: 0
@@ -1741,9 +1741,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -46.975006, y: -23.365717}
       IsOccupied: 0
-  - Price: 70
+  - Price: 100
     SectionName: Eat_Panipuri
-    ProductCategory: ImmediateFood
+    ProductCategory: 0
     Slots:
     - Position: {x: -45.713997, y: -27.144009}
       IsOccupied: 0
@@ -1761,9 +1761,9 @@ MonoBehaviour:
       IsOccupied: 0
     - Position: {x: -45.733, y: -28.033009}
       IsOccupied: 0
-  - Price: 70
+  - Price: 100
     SectionName: Eat_Bhelpuri
-    ProductCategory: ImmediateFood
+    ProductCategory: 0
     Slots:
     - Position: {x: -39.563995, y: -27.184006}
       IsOccupied: 0

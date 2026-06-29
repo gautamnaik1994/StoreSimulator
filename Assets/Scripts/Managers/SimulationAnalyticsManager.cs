@@ -10,11 +10,13 @@ public class PurchaseEventArgs : EventArgs
     public string ProductName { get; }
     public decimal Price { get; }
     public PurchaseType PurchaseType { get; }
+    public int Quantity { get; }
 
-    public PurchaseEventArgs(string productId, string productName, decimal price, PurchaseType purchaseType)
+    public PurchaseEventArgs(string productId, string productName, int quantity, decimal price, PurchaseType purchaseType)
     {
         ProductId = productId;
         ProductName = productName;
+        Quantity = quantity;
         Price = price;
         PurchaseType = purchaseType;
     }
@@ -67,7 +69,7 @@ public class SimulationAnalyticsManager : MonoBehaviour
 
         if (_salesRegistry.TryGetValue(registryKey, out ProductSaleData existingSale))
         {
-            existingSale.QuantitySold++;
+            existingSale.QuantitySold += e.Quantity;
         }
         else
         {
@@ -75,14 +77,14 @@ public class SimulationAnalyticsManager : MonoBehaviour
             {
                 ProductId = e.ProductId,
                 ProductName = e.ProductName,
-                QuantitySold = 1,
+                QuantitySold = e.Quantity,
                 PricePerUnit = e.Price,
                 Status = e.PurchaseType
             });
         }
 
         // Update live total revenue
-        liveTotalRevenue += (int)e.Price;
+        liveTotalRevenue += (int)(e.Price * e.Quantity);
         totalSales.text = $"SALES: ₹{liveTotalRevenue}";
     }
 

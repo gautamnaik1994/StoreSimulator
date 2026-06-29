@@ -1387,7 +1387,7 @@ MonoBehaviour:
     - item_name: Tea
       quantity: 1
     base_impulse_favorites:
-    - item_name: Eat_Tea
+    - item_name: Drink_Tea
       quantity: 2
     - item_name: Magazines
       quantity: 1
@@ -2266,8 +2266,6 @@ MonoBehaviour:
       quantity: 6
     - item_name: SoftDrink
       quantity: 10
-    - item_name: Baking
-      quantity: 3
     - item_name: FreshCutMeat
       quantity: 2
     - item_name: Tea
@@ -6601,7 +6599,7 @@ MonoBehaviour:
       quantity: 5
     - item_name: Magazines
       quantity: 2
-    - item_name: Eat_Tea
+    - item_name: Drink_Tea
       quantity: 1
     - item_name: MobilePhones
       quantity: 1
