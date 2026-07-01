@@ -25,6 +25,9 @@ public class AgentDetails
     public Color MoodColor; // New field for mood color
     public Color StateColor; // New field for state color
     public List<AgentHistoryEntryData> HistoryEntries;
+
+    public AgentType AgentType; // New field for agent type
+    public PrimaryTrait PrimaryTrait; // New field for primary trait
 }
 
 [Serializable]

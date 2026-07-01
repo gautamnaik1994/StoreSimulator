@@ -1,0 +1,33 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement>
+        <ui:Label text="Controls" class="fw-medium box-header mb-8"/>
+        <ui:VisualElement class="controls">
+            <ui:Label text="Pan" class="fw-medium"/>
+            <ui:Label text="Right Click + Drag" class="fw-medium btn-icon"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="controls">
+            <ui:Label text="Zoom" class="fw-medium"/>
+            <ui:Label text="Scroll" class="fw-medium btn-icon"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="controls">
+            <ui:Label text="Toggle Heatmap" class="fw-medium"/>
+            <ui:Label text="H" class="fw-medium btn-icon"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="controls">
+            <ui:Label text="Toggle Speed" class="fw-medium"/>
+            <ui:Label text="P" class="fw-medium btn-icon"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="controls">
+            <ui:Label text="Toggle Sales Report" class="fw-medium"/>
+            <ui:Label text="D" class="fw-medium btn-icon"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="controls">
+            <ui:Label text="Restart Simulation" class="fw-medium"/>
+            <ui:Label text="R" class="fw-medium btn-icon"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="controls">
+            <ui:Label text="Click and Follow Agent" class="fw-medium"/>
+            <ui:Label text="F" class="fw-medium btn-icon"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

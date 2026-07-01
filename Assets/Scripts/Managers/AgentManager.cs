@@ -14,7 +14,7 @@ public class AgentManager : MonoBehaviour
 
     public UIDocument uiDocument;
     [SerializeField] private CameraController cameraController;
-    private TextElement agentName, agentMood, agentStatus, agentProfession, agentAge, agentGender, agentIncomeLevel, moneySpent, moneyAvailable, shoppingList, impulseList, costlyItems, cartContents, agentHistory;
+    private TextElement agentName, agentMood, agentStatus, agentProfession, agentAge, agentGender, agentIncomeLevel, moneySpent, moneyAvailable, shoppingList, impulseList, costlyItems, cartContents, agentHistory, agentType, primaryTrait;
 
     private VisualElement rightDrawer, statusIcon, moodIcon;
 
@@ -37,13 +37,15 @@ public class AgentManager : MonoBehaviour
 
     private Image agentIconStatusRing, agentIcon;
 
-    private Button spawnAgentsButton;
+    private Button spawnAgentsButton, settingsButton;
+
+    private bool isSimulationRunning = false;
 
     private VisualElement worldSettingsContainer;
 
     public AudioSource crowdAudioSource;
 
-
+    private IntegerField shopperCountInputField;
     public List<AgentMovementEnhanced> allAgentList = new List<AgentMovementEnhanced>();
 
     void GetTextElementByID(string id, out TextElement textElement)
@@ -76,6 +78,8 @@ public class AgentManager : MonoBehaviour
         GetTextElementByID("impulseList", out impulseList);
         GetTextElementByID("costlyItems", out costlyItems);
         GetTextElementByID("cartContents", out cartContents);
+        GetTextElementByID("agentType", out agentType);
+        GetTextElementByID("primaryTrait", out primaryTrait);
 
         rightDrawer = uiDocument.rootVisualElement.Q<VisualElement>("RightDrawer");
         closeButton = uiDocument.rootVisualElement.Q<Button>("Close");
@@ -89,12 +93,26 @@ public class AgentManager : MonoBehaviour
         agentIcon = uiDocument.rootVisualElement.Q<Image>("triangle");
         spawnAgentsButton = uiDocument.rootVisualElement.Q<Button>("startSimulation");
         worldSettingsContainer = uiDocument.rootVisualElement.Q<VisualElement>("worldSettings");
+        shopperCountInputField = uiDocument.rootVisualElement.Q<IntegerField>("shopperCount");
+        settingsButton = uiDocument.rootVisualElement.Q<Button>("Settings");
+        shopperCountInputField.RegisterValueChangedCallback(evt =>
+        {
+            agentCount = evt.newValue;
+            Debug.Log($"Shopper Count changed to: {agentCount}");
+        });
+        agentCount = shopperCountInputField.value; // Initialize agentCount with the current value of the input field
+
         spawnAgentsButton.clicked += () =>
         {
             // hide the container
             SpawnAgents();
             crowdAudioSource.Play();
             worldSettingsContainer.style.display = DisplayStyle.None;
+        };
+
+        settingsButton.clicked += () =>
+        {
+
         };
     }
 
@@ -137,6 +155,8 @@ public class AgentManager : MonoBehaviour
         moodIcon.style.backgroundColor = agentData.MoodColor;
         agentIconStatusRing.tintColor = agentData.StateColor;
         agentIcon.tintColor = agentData.MoodColor;
+        agentType.text = agentData.AgentType.ToString();
+        primaryTrait.text = agentData.PrimaryTrait.ToString();
 
 
         agentHistoryListView.bindItem = (element, index) =>

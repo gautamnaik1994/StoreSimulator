@@ -1,11 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement; // Required for scene handling
+using UnityEngine.UIElements;
 
 
 public class SimulationManager : MonoBehaviour
 {
     [SerializeField] private SupermarketLayoutSO layoutData;
+    public UIDocument uiDocument;
+
+    private VisualElement controlSettingsContainer;
+    private Button settingsButton, settingsCloseButton;
+
+    private Button resetAllButton;
 
     private enum SimulationSpeed
     {
@@ -21,6 +28,34 @@ public class SimulationManager : MonoBehaviour
     {
         layoutData.ResetLayout(); // Reset the layout at the start of the simulation to clear any occupied slots from previous runs
         Time.timeScale = 1f;
+    }
+
+    void Start()
+    {
+        controlSettingsContainer = uiDocument.rootVisualElement.Q<VisualElement>("settingsContainer");
+        settingsButton = uiDocument.rootVisualElement.Q<Button>("Settings");
+        resetAllButton = uiDocument.rootVisualElement.Q<Button>("resetAll");
+        settingsCloseButton = uiDocument.rootVisualElement.Q<Button>("ControlClose");
+        controlSettingsContainer.style.display = DisplayStyle.None; // Initially hide the world settings container
+        settingsButton.clicked += () =>
+        {
+            Debug.Log("Settings button clicked");
+            if (controlSettingsContainer.style.display == DisplayStyle.Flex)
+            {
+                Debug.Log("Inside the if condition, showing world settings");
+                controlSettingsContainer.style.display = DisplayStyle.None;
+            }
+            else
+            {
+                Debug.Log("Inside the if condition, hiding world settings");
+                controlSettingsContainer.style.display = DisplayStyle.Flex;
+            }
+        };
+        settingsCloseButton.clicked += () =>
+        {
+            controlSettingsContainer.style.display = DisplayStyle.None;
+        };
+        resetAllButton.clicked += RestartScene;
     }
 
 

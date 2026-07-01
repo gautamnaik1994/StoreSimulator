@@ -36,9 +36,9 @@ public class AgentMovementEnhanced : MonoBehaviour
 
     public enum AgentState { Evaluating, NavigatingToShelf, BrowsingShelf, Wandering, WaitingToQueue, GoingToCheckout, CheckingOut, Leaving, Distracted }
     private Dictionary<AgentState, Color> agentStateColors;
-    public enum AgentType { Regular, BargainHunter, ImpulseBuyer, WindowShopper, BulkShopper, FocusedShopper }
-    public enum AgentBudgetLevel { Low, Medium, High }
-    public enum AgentPersonalityTrait { Impulsive, Cautious, BudgetConscious, TimeSensitive, BrandLoyalist, Indecisive }
+    // public enum AgentType { Regular, BargainHunter, ImpulseBuyer, WindowShopper, BulkShopper, FocusedShopper }
+    // public enum AgentBudgetLevel { Low, Medium, High }
+    // public enum AgentPersonalityTrait { Impulsive, Cautious, BudgetConscious, TimeSensitive, BrandLoyalist, Indecisive }
     public enum AgentMood { Happy, Neutral, Frustrated, Impatient, Lost, Sad, Confused }
     private Dictionary<AgentMood, Color> agentMoodColors;
     public AgentState currentState = AgentState.Evaluating;
@@ -112,7 +112,8 @@ public class AgentMovementEnhanced : MonoBehaviour
 
     private Dictionary<string, ShoppingItem> shoppingListBackup = new Dictionary<string, ShoppingItem>(); // Backup of the original shopping list for reference
 
-
+    private AgentType agentType = AgentType.Regular; // Default to Regular, can be set in the Inspector or assigned programmatically
+    private PrimaryTrait primaryTrait = PrimaryTrait.Impulsive; // Default to Impulsive, can be set in the Inspector or assigned programmatically
 
     void Awake()
     {
@@ -185,6 +186,8 @@ public class AgentMovementEnhanced : MonoBehaviour
                 );
             }
         }
+        agentType = persona.agent_type;
+        primaryTrait = persona.primary_trait;
         TotalMoney = (int)(persona.base_total_money * modifiers.BudgetModifier);
         BaselineTotalMoney = TotalMoney;
         agent.speed = persona.baseline_physics.base_speed * modifiers.SpeedModifier + Random.Range(-0.2f, 0.2f);
@@ -205,7 +208,7 @@ public class AgentMovementEnhanced : MonoBehaviour
         ChangeMood(AgentMood.Neutral);
 
         // Log the initialization in the agent history
-        agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Initialized with persona: {persona.persona_name}, Shopping List: {string.Join(", ", shoppingList)}, Impulse Favorites: {string.Join(", ", impulseFavorites)}, Total Money: {TotalMoney}", currentMood));
+        agentHistory.Add(new AgentHistoryEntry(Time.time, currentState, $"Initialized customer with \nShopping List: {string.Join(", ", shoppingList.Keys)}, \nImpulse Favorites: {string.Join(", ", impulseFavorites.Keys)}, Total Money: {TotalMoney}", currentMood));
     }
 
     // Update is called once per frame
@@ -987,7 +990,9 @@ public class AgentMovementEnhanced : MonoBehaviour
             History = historyDetails,
             HistoryEntries = historyEntries,
             MoodColor = agentMoodColors.TryGetValue(currentMood, out var moodColor) ? moodColor : Color.white,
-            StateColor = agentStateColors.TryGetValue(currentState, out var stateColor) ? stateColor : Color.white
+            StateColor = agentStateColors.TryGetValue(currentState, out var stateColor) ? stateColor : Color.white,
+            AgentType = agentType,
+            PrimaryTrait = primaryTrait
         };
     }
 

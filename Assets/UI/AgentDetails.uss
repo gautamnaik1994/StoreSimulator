@@ -1,20 +1,19 @@
 :root {
     color: rgb(225, 225, 225);
-    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-Regular.ttf");
+    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-Regular.ttf?fileID=12800000&guid=60b490663dafb4f2ca96da27cf91113f&type=3#Inter_18pt-Regular");
 }
 
 .fw-semi-bold {
-    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-SemiBold.ttf");
+    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-SemiBold.ttf?fileID=12800000&guid=8889e09d56e434aefb734f5e13e2792e&type=3#Inter_18pt-SemiBold");
 }
 
 .fw-medium {
-    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-Medium.ttf");
+    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-Medium.ttf?fileID=12800000&guid=83b55dee71047464eb402cf0013f7552&type=3#Inter_18pt-Medium");
 }
 
 .fw-bold {
-    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-Bold.ttf");
+    -unity-font-definition: url("project://database/Assets/Fonts/Inter/Inter_18pt-Bold.ttf?fileID=12800000&guid=af77ddcd6bd904ed8ad3e1ebab4a0056&type=3#Inter_18pt-Bold");
 }
-
 
 .unity-label {
     margin: 0;
@@ -30,7 +29,6 @@
 }
 
 #DetailPanel {
-    /* padding: 15px; */
     border-radius: 10px 0 0 10px;
     background-color: rgba(0, 0, 0, 0.98);
     height: 100%;
@@ -39,22 +37,27 @@
 }
 
 .wrapper {
-
     padding: 15px;
+}
+
+.icon-btn {
+    background-color: transparent;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 2px;
+    border-width: 0px;
+
+    /* border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; */
 }
 
 .close-btn {
     position: absolute;
     top: 20px;
     right: 20px;
-    height: 30px;
-    background-color: transparent;
-    font-size: 18px;
-    border-radius: 5px;
-    padding: 2px;
-    width: 30px;
-    aspect-ratio: 1;
-    margin: 0;
 }
 
 .agent-details {
@@ -64,8 +67,6 @@
     width: 100%;
     white-space: normal;
 }
-
-
 
 .AgentIcon {
     position: relative;
@@ -81,10 +82,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-
 }
-
-
 
 .AgentIcon #triangle {
     scale: 0.8;
@@ -104,7 +102,7 @@
 
 .horizontal-divider {
     height: 2px;
-    background-color: #272727;
+    background-color: rgb(39, 39, 39);
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -118,7 +116,7 @@
 
 .pills {
     border-width: 1px;
-    border-color: #909090;
+    border-color: rgb(144, 144, 144);
     border-radius: 15px;
     flex-basis: auto;
     margin-right: 10px;
@@ -129,7 +127,7 @@
     padding-bottom: 6px;
     padding-left: 8px;
     padding-right: 12px;
-    border-color: #7C7C7C;
+    border-color: rgb(124, 124, 124);
     font-size: 14px;
 }
 
@@ -137,11 +135,9 @@
     width: 12px;
     height: 12px;
     margin-right: 8px;
-    background-color: #4CAF50;
+    background-color: rgb(76, 175, 80);
     border-radius: 50%;
 }
-
-
 
 .money-stats {
     display: flex;
@@ -160,23 +156,18 @@
     padding-bottom: 10px;
 }
 
-
-
 .label-value-box .lv-label {
-
     font-size: 12px;
     margin-bottom: 6px;
 }
 
 .label-value-box .lv-value {
-    /* padding:0;
-    margin:0; */
     font-size: 14px;
 }
 
 .unity-progress-bar {
     flex: 0 0 100%;
-    margin: 0px;
+    margin: 0;
     height: 14px;
 }
 
@@ -188,14 +179,12 @@
     background-color: white;
     border-radius: 4px;
     padding: 0;
-
 }
 
 .unity-progress-bar__progress {
-    background-color: #00E676;
+    background-color: rgb(0, 230, 118);
     border-radius: 3px;
     margin: 0;
-
 }
 
 .text-right {
@@ -207,7 +196,6 @@
 }
 
 .detail-value-box {
-
     margin-bottom: 15px;
 }
 
@@ -224,7 +212,7 @@
 
 .item-label {
     font-size: 12px;
-    color: #909090;
+    color: rgb(144, 144, 144);
     margin-bottom: 6px;
 }
 
@@ -236,12 +224,9 @@
 .history-item {
     display: flex;
     flex-direction: column;
-
-    padding: 10px 0px;
-    border-color: #1a1a1a;
-    /* border-style: solid; */
-    border-bottom-width: 1px 0px;
-    /* background-color: #333333; */
+    padding: 10px 0;
+    border-color: rgb(26, 26, 26);
+    border-bottom-width: 1px 0;
 }
 
 .history-item:hover {
@@ -249,13 +234,10 @@
 }
 
 .history-item .history-item-description {
-
-
     white-space: normal;
     margin-bottom: 4px;
     margin-top: 4px;
     color: rgb(201, 201, 201);
-    /* -unity-paragraph-spacing:100px; */
 }
 
 .history-item .s-pill {
@@ -264,9 +246,8 @@
     font-size: 12px;
     margin-right: 8px;
     border-width: 1px;
-    border-color: #7C7C7C;
+    border-color: rgb(124, 124, 124);
     border-radius: 12px;
-
 }
 
 .history-item .history-item-header {
@@ -275,7 +256,7 @@
 
 .history-item .history-item-timestamp {
     font-size: 12px;
-    color: #909090;
+    color: rgb(144, 144, 144);
 }
 
 .d-flex {
@@ -291,21 +272,14 @@
     justify-content: space-between;
 }
 
-/* ==========================================
-   macOS Dark Mode Scrollbar for UI Toolkit
-   ========================================== */
-
-/* 1. Container & Scroller Track Layout */
 .my-custom-scroll .unity-scroller--vertical {
     width: 8px;
-    /* macOS scrollbars are quite thin */
     background-color: transparent;
     border-width: 0;
     margin: 0;
     padding: 0;
 }
 
-/* 2. Hide the top and bottom arrow buttons entirely */
 .my-custom-scroll .unity-scroller__low-button,
 .my-custom-scroll .unity-scroller__high-button {
     display: none;
@@ -314,47 +288,34 @@
     width: 0;
 }
 
-/* 3. Style the background track line (Slider Container) */
 .my-custom-scroll .unity-scroller--vertical .unity-base-slider__tracker {
     background-color: transparent;
-    /* macOS hides the track by default */
     border-width: 0;
     margin: 0;
     padding: 0;
 }
 
-/* 4. The Draggable Handle (The Capsule) */
 .my-custom-scroll .unity-scroller--vertical .unity-base-slider__dragger {
-    /* macOS dark scrollbar color with transparency */
     background-color: rgba(255, 255, 255, 0.25);
     border-radius: 4px;
-    /* Fully rounded capsule look */
     border-width: 0;
-
-    /* Crucial for UI Toolkit alignment quirks */
     left: 0;
     width: 6px;
     align-self: center;
-
     min-height: 20px;
     transition-property: background-color;
     transition-duration: 0.15s;
 }
 
-/* 5. Hover and Active States */
 .my-custom-scroll .unity-scroller--vertical .unity-base-slider__dragger:hover {
     background-color: rgba(255, 255, 255, 0.45);
-    /* Becomes more visible on hover */
     width: 8px;
-    /* Optional: slightly widens on hover like modern macOS */
 }
 
-/* When the user is actively dragging it */
 .my-custom-scroll .unity-scroller--vertical .unity-base-slider__dragger:active {
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-/* Optional: Show a subtle track background only when hovering over the whole scroller area */
 .my-custom-scroll .unity-scroller--vertical:hover .unity-base-slider__tracker {
     background-color: rgba(255, 255, 255, 0.05);
 }
@@ -368,88 +329,98 @@
 }
 
 .world-settings {
-    width: 800px;
+    display: flex;
+  
     height: auto;
     position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    background-color: #161920;
+    background-color: rgb(22, 25, 32);
     border-radius: 10px;
     padding: 20px;
-    display: flex;
-    flex-direction: row;
-
+    width: 500px;
 }
 
-.world-settings .left-sec{
-    /* background-color: pink; */
+.intial-settings{
+    width: 1000px;
+      flex-direction: row;
+   
+}
 
+.world-settings .close-btn{
+    top:10px;
+    right:12px;
+}
+
+.world-settings .left-sec {
     align-items: center;
     justify-content: center;
     flex-basis: 50%;
-     padding-right: 20px;
-   
+    padding-right: 20px;
 }
 
-.world-settings .right-sec{
-    /* background-color: green; */
+.world-settings .right-sec {
     display: flex;
     flex-basis: 50%;
-    
 }
 
-.ws-logo{
- height: auto; 
- width: 300px; 
- aspect-ratio: 1; 
- background-size: 300px auto;
-   
+
+
+.ws-logo {
+    height: auto;
+    width: 300px;
+    aspect-ratio: 1;
+    background-size: 300px auto;
 }
 
 .custom-enum-field {
     margin: 8px 4px;
-    padding: 0px;
+    padding: 0;
     align-items: center;
 }
 
-/* 2. Style the Label text on the left */
-.custom-enum-field>.unity-label {
-    color: #E0E0E0;
-    /* Off-white text for readability */
+.custom-enum-field > .unity-label {
+    color: rgb(224, 224, 224);
     font-size: 14px;
-    /* -unity-font-style: bold; */
-    /* min-width: 120px; Aligns label nicely */
 }
 
-/* 3. Style the actual Dropdown Button box */
-.custom-enum-field>.unity-enum-field__input {
+.custom-enum-field > .unity-enum-field__input {
     background-color: rgba(255, 255, 255, 0.05);
-    /* Subtle translucent white layer */
     border-color: rgba(255, 255, 255, 0.15);
-    /* Subtle border line */
     border-width: 1px;
     border-radius: 4px;
     padding: 6px 12px;
-    color: #FFFFFF;
-    /* High contrast text inside dropdown */
+    color: rgb(255, 255, 255);
     font-size: 13px;
 }
 
-/* 4. Hover effect for the Dropdown Box */
-.custom-enum-field>.unity-enum-field__input:hover {
+.custom-enum-field > .unity-enum-field__input:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    /* Brightens slightly on hover */
     border-color: rgba(255, 255, 255, 0.3);
-    /* Highlights border */
 }
 
-/* 5. Style the internal Arrow icon */
 .custom-enum-field .unity-enum-field__arrow {
-    -unity-background-image-tint-color: #E0E0E0;
-    /* Makes the arrow icon clean white */
+    -unity-background-image-tint-color: rgb(224, 224, 224);
     width: 10px;
     height: 10px;
+}
+
+.custom-input-field {
+    align-items: center;
+    margin: 8px 4px;
+    padding: 0;
+}
+
+.custom-input-field > .unity-integer-field__input {
+    color: rgb(224, 224, 224);
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    border-width: 1px;
+    border-radius: 4px;
+    margin-left: 4px;
+    padding: 6px 12px;
 }
 
 .box-header {
@@ -458,25 +429,26 @@
 }
 
 .btn-primary {
-    background-color: #34D399;
+    background-color: rgb(52, 211, 153);
     color: black;
-    border-color: #34D399;
+    border-color: rgb(52, 211, 153);
     padding: 10px 20px;
     font-size: 16px;
-
     border-radius: 8px;
     margin-top: 10px;
 }
 
 .navbar {
-    padding: 16px 8px;
+    padding: 10px 16px;
     font-size: 20px;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-
 
 .salesReport {
     position: absolute;
@@ -485,13 +457,12 @@
     left: 10%;
     bottom: 10%;
     background-color: rgba(0, 0, 0, 0.98);
-    padding: 16px 0px;
+    padding: 16px 0;
     border-radius: 10px;
 }
 
 .salesReportLabel {
     font-size: 20px;
-    /* margin-bottom: 10px; */
     padding: 16px;
 }
 
@@ -501,18 +472,14 @@
     justify-content: space-between;
     padding: 16px;
     border-bottom-width: 1px;
-    border-color: #1a1a1a;
+    border-color: rgb(26, 26, 26);
     border-style: solid;
     font-size: 16px;
-    /*
-   
-    align-items: flex-start; */
-
 }
 
 .sales-report-table-header .sales-item-content {
     flex-basis: 20%;
-    color: #E0E0E0;
+    color: rgb(224, 224, 224);
 }
 
 .sales-item-row {
@@ -520,11 +487,9 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 4px 16px;
-
     border-bottom-width: 1px;
-    border-color: #1a1a1a;
+    border-color: rgb(26, 26, 26);
     border-style: solid;
-
 }
 
 .sales-item-row .sales-item-content {
@@ -537,18 +502,26 @@
     -unity-text-align: middle-right;
 }
 
-
-.sub-header{
+.sub-header {
     font-size: 16px;
     margin-top: 10px;
     margin-bottom: 5px;
 }
 
-.mb-16{
+.mb-16 {
     margin-bottom: 16px;
 }
+.mt-16 {
+    margin-top: 16px;
+}
+.mt-8 {
+    margin-top: 8px;
+}
+.mb-8 {
+    margin-bottom: 8px;
+}
 
-.controls{
+.controls {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -556,12 +529,16 @@
     margin-bottom: 16px;
 }
 
-.controls .btn-icon{
+.controls .btn-icon {
     background-color: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.15);
     border-width: 1px;
     border-radius: 4px;
     padding: 4px 10px;
-    color: #FFFFFF;
+    color: rgb(255, 255, 255);
     font-size: 12px;
+}
+
+.totalSales{
+    font-size: 24px;
 }

@@ -1,14 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HeatmapManager : MonoBehaviour
 {
     [Header("Grid Settings")]
-    [SerializeField] private Vector2 storeSize = new Vector2(50f, 30f); // Example: Rectangular store
+    [SerializeField] private Vector2 storeSize = new Vector2(50f, 30f);
     [SerializeField] private Vector2 storeOffset = Vector2.zero;
-    [SerializeField] private float cellSize = 0.5f; // Size of each square cell in Unity world units
+    [SerializeField] private float cellSize = 0.5f;
 
-    // Replaces the old single gridResolution
     private int gridResolutionX;
     private int gridResolutionY;
 
@@ -24,61 +24,58 @@ public class HeatmapManager : MonoBehaviour
     [Header("Visualization")]
     [SerializeField] private SpriteRenderer heatmapDisplay;
     [SerializeField] private Gradient heatmapGradient;
-
-    // Controls whether the texture actively updates and renders
     [SerializeField] private bool isMapVisible = false;
 
-    private AgentManager agentManager; // Reference to the AgentManager to access all agents
-
-
-
+    private AgentManager agentManager;
     private Coroutine renderLoopCoroutine;
 
+    // OPTIMIZATION 1: Cache the color array to prevent allocating a new one every frame
+    private Color32[] colorMap;
     private void Start()
     {
         agentManager = GetComponent<AgentManager>();
-
         InitializeHeatmap();
-
-        // Data Collection Loop: Runs continuously in the background
         StartCoroutine(SampleAgentsLoop());
-
-        // Conditional Render Loop: Only runs if visible at start
         EvaluateRenderState();
     }
 
     private void InitializeHeatmap()
     {
-        // 1. Calculate proportional grid resolutions to guarantee perfect square cells
         gridResolutionX = Mathf.Max(1, Mathf.RoundToInt(storeSize.x / cellSize));
         gridResolutionY = Mathf.Max(1, Mathf.RoundToInt(storeSize.y / cellSize));
 
         gridData = new float[gridResolutionX, gridResolutionY];
 
-        // 2. Create the texture with matching rectangular resolution aspect ratio
+        // Allocate Color32 array instead
+        colorMap = new Color32[gridResolutionX * gridResolutionY];
+
         heatmapTexture = new Texture2D(gridResolutionX, gridResolutionY);
         heatmapTexture.filterMode = FilterMode.Bilinear;
         heatmapTexture.wrapMode = TextureWrapMode.Clamp;
 
-        // 3. Create the sprite mapping world units accurately
-        // We use gridResolutionX / storeSize.x to define the Pixels Per Unit (PPU)
+        // Pre-fill with completely transparent Color32 (all zeros)
+        Color32 clearColor = new Color32(0, 0, 0, 0);
+        for (int i = 0; i < colorMap.Length; i++)
+        {
+            colorMap[i] = clearColor;
+        }
+
+        // Use SetPixels32 here as well
+        heatmapTexture.SetPixels32(colorMap);
+        heatmapTexture.Apply(false);
+
         float ppu = gridResolutionX / storeSize.x;
         heatmapSprite = Sprite.Create(heatmapTexture, new Rect(0, 0, gridResolutionX, gridResolutionY), new Vector2(0.5f, 0.5f), ppu);
         heatmapDisplay.sprite = heatmapSprite;
 
-        // 4. Center and size the overlay to match the store rectangle boundaries
         heatmapDisplay.transform.position = new Vector3(storeOffset.x + (storeSize.x / 2f), storeOffset.y + (storeSize.y / 2f), -1f);
-        heatmapDisplay.transform.localScale = Vector3.one; // 1:1 Scale because PPU perfectly matches world dimensions now!
+        heatmapDisplay.transform.localScale = Vector3.one;
     }
 
-    /// <summary>
-    /// Public method to toggle heatmap visibility from a UI Button or Keyboard hotkey
-    /// </summary>
     public void ToggleHeatmapVisibility()
     {
         isMapVisible = !isMapVisible;
         heatmapDisplay.enabled = isMapVisible;
-
         EvaluateRenderState();
     }
 
@@ -86,8 +83,12 @@ public class HeatmapManager : MonoBehaviour
     {
         if (isMapVisible)
         {
-            // If turned on, force an immediate texture update and start the render loop
-            UpdateHeatmapTexture();
+            // FIX: Start the texture update as a coroutine instead of a direct method call
+            if (gameObject.activeInHierarchy)
+            {
+                StartCoroutine(UpdateHeatmapTextureSpread());
+            }
+
             if (renderLoopCoroutine == null)
             {
                 renderLoopCoroutine = StartCoroutine(RenderLoop());
@@ -95,7 +96,6 @@ public class HeatmapManager : MonoBehaviour
         }
         else
         {
-            // If turned off, stop the render loop to save massive CPU/GPU overhead
             heatmapDisplay.enabled = isMapVisible;
             if (renderLoopCoroutine != null)
             {
@@ -105,17 +105,22 @@ public class HeatmapManager : MonoBehaviour
         }
     }
 
-    // LOOP 1: Data Collection (Always active, lightweight matrix additions)
+    // LOOP 1: Zero-Allocation Data Collection
     private IEnumerator SampleAgentsLoop()
     {
         var wait = new WaitForSeconds(sampleInterval);
         while (true)
         {
-            AgentMovementEnhanced[] agents = agentManager.allAgentList.ToArray(); // Access the list of all agents from AgentManager
+            // OPTIMIZATION 2: Iterate directly over the internal list. 
+            // Removed .ToArray() to eliminate GC allocations per tick.
+            List<AgentMovementEnhanced> agents = agentManager.allAgentList;
+            int count = agents.Count;
 
-            foreach (var agent in agents)
+            for (int i = 0; i < count; i++)
             {
-                if (agent.isActiveAndEnabled == false) continue; // Skip inactive agents
+                AgentMovementEnhanced agent = agents[i];
+                if (agent == null || agent.isActiveAndEnabled == false) continue;
+
                 Vector2 pos = agent.transform.position;
 
                 float normalizedX = (pos.x - storeOffset.x) / storeSize.x;
@@ -144,45 +149,65 @@ public class HeatmapManager : MonoBehaviour
         }
     }
 
-    // LOOP 2: Texture Blitting (Only active when visible, saves performance when hidden)
+    // LOOP 2: Time-Slipped Intermittent Texture Blitting
     private IEnumerator RenderLoop()
     {
         var wait = new WaitForSeconds(sampleInterval);
         while (true)
         {
-            UpdateHeatmapTexture();
-            yield return wait;
+            // OPTIMIZATION 3: Spread the heavier texture color generation across multiple frames 
+            // if your grid happens to scale up in size.
+            yield return StartCoroutine(UpdateHeatmapTextureSpread());
         }
     }
 
-    private void UpdateHeatmapTexture()
+    // OPTIMIZATION 3 & 4: Time-sliced iteration + SetPixelsData for maximum speed
+    private IEnumerator UpdateHeatmapTextureSpread()
     {
-        Color[] colorMap = new Color[gridResolutionX * gridResolutionY];
+        int rowsPerFrame = 15;
+        Color32 clearColor = new Color32(0, 0, 0, 0);
+
         for (int y = 0; y < gridResolutionY; y++)
         {
+            int rowOffset = y * gridResolutionX;
+
             for (int x = 0; x < gridResolutionX; x++)
             {
                 float value = gridData[x, y];
-                int index = y * gridResolutionX + x;
+                int index = rowOffset + x;
 
                 if (value > 0)
                 {
                     float normalizedValue = value / maxIntensity;
                     Color gradientColor = heatmapGradient.Evaluate(normalizedValue);
-                    gradientColor.a = Mathf.Clamp(normalizedValue * 1.5f, 0.2f, 0.8f);
-                    colorMap[index] = gradientColor;
+
+                    // Calculate alpha mapping (0.0 to 1.0) and clamp it
+                    float alpha = Mathf.Clamp(normalizedValue * 1.5f, 0.2f, 0.8f);
+
+                    // Convert the evaluated Color to Color32 smoothly
+                    colorMap[index] = new Color32(
+                        (byte)(gradientColor.r * 255),
+                        (byte)(gradientColor.g * 255),
+                        (byte)(gradientColor.b * 255),
+                        (byte)(alpha * 255)
+                    );
                 }
                 else
                 {
-                    colorMap[index] = Color.clear;
+                    colorMap[index] = clearColor;
                 }
+            }
+
+            if (y > 0 && y % rowsPerFrame == 0)
+            {
+                yield return null;
             }
         }
 
-        heatmapTexture.SetPixels(colorMap);
-        heatmapTexture.Apply();
+        // Call the faster version
+        heatmapTexture.SetPixels32(colorMap);
+        heatmapTexture.Apply(false);
     }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;

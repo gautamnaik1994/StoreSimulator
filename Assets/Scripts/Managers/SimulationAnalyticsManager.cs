@@ -96,9 +96,7 @@ public class SimulationAnalyticsManager : MonoBehaviour
         // var finalReport = _salesRegistry.Values
         //     .OrderByDescending(item => item.TotalRevenue)
         //     .ToList();
-        var finalReport = _salesRegistry.Values
-            .ToList();
-        return finalReport;
+        return _salesRegistry.Values.ToList();
     }
 
     public void ToggleSalesReportInUI()
