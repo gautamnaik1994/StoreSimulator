@@ -62,6 +62,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.mp4
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -107,3 +108,5 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
 /Webgl
+
+ppt_assets/
