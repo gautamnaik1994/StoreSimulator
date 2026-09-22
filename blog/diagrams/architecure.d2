@@ -1,0 +1,89 @@
+direction: down
+
+**.style.border-radius: 8
+# **.style.font-color: "#333"
+#
+
+synthetic_data_generation: {
+  label: "Synthetic Data Generation"
+  style: {
+    stroke-dash: 2
+  }
+  persona_schema: "Persona Schema" {
+    shape: rectangle
+  }
+
+  gen_ai_data_generation: "Gen AI Data Generation" {
+    shape: rectangle
+  }
+
+  all_persona_data: "All Persona Data" {
+    shape: stored_data
+  }
+
+  persona_schema -> gen_ai_data_generation
+  gen_ai_data_generation -> all_persona_data
+}
+
+retail_store_data: "Retail Store Data" {
+  grid-columns: 1
+  style: {
+    stroke-dash: 2
+  }
+  layout_data: "Layout" {
+    shape: document
+  }
+
+  inventory_data: "Inventory" {
+    shape: document
+  }
+}
+
+unity_game_engine: Unity Game Engine {
+  grid-columns: 3
+  style: {
+    stroke-dash: 2
+  }
+  shape: rectangle
+
+  build_digital_twin: "Build Digital Twin" {
+    shape: rectangle
+  }
+  run_simulation: "Run Simulation" {
+    shape: rectangle
+  }
+
+  record_data: "Record Data" {
+    shape: rectangle
+  }
+
+  build_digital_twin -> run_simulation
+  run_simulation -> record_data
+}
+
+output: "Output" {
+  grid-columns: 2
+  style: {
+    stroke-dash: 2
+  }
+  heatmap: "Heat Map"
+  sales_data: "Sales Data"
+  customer_behavior_data: "Customer Behavior Data"
+  checkout_analysis: "Checkout Analysis"
+}
+
+retail_store_data -> unity_game_engine: {
+  style: {
+    animated: true
+  }
+}
+synthetic_data_generation -> unity_game_engine: {
+  style: {
+    animated: true
+  }
+}
+unity_game_engine -> output: {
+  style: {
+    animated: true
+  }
+}

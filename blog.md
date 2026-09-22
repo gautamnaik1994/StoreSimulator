@@ -1,1 +1,0 @@
-# Retail Store Layout Simulation

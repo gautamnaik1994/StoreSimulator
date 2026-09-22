@@ -1,0 +1,131 @@
+# flowchart TB
+#     Start(["Enter CentralizeDecisionMaking"]) --> DynamicMood["Evaluate Mood & Psychological Traits"]
+#     DynamicMood --> CheckComplete{"Is Shopping List Empty?"}
+#     CheckComplete -- Yes --> GoToQueue["Set State: WaitingToQueue\nMove to Holding Area"]
+#     CheckComplete -- No --> CheckBudget{"Is Money &lt;= 20% Baseline?"}
+#     CheckBudget -- Yes --> GoToQueue
+#     CheckBudget -- No --> CheckMidBudget{"Is Money &lt;= 40% Baseline?"}
+#     CheckMidBudget -- Yes --> ReduceImpulse["Halve Impulse Probability\nSet Mood: Sad"]
+#     ReduceImpulse --> DetourCheck{"Roll &lt; Random Browse Prob\nAND Detours &gt; 0?"}
+#     CheckMidBudget -- No --> DetourCheck
+#     DetourCheck -- Yes --> SetWander["Select Random Zone\nSet State: Wandering"]
+#     DetourCheck -- No --> BuildTargets["Gather Targets from Shopping List\nExcluding Cooldowns"]
+#     BuildTargets --> AnyTargets{"Any Valid Targets Found?"}
+#     AnyTargets -- No --> ResetCooldowns["Clear Section Cooldowns\nRe-populate Targets"]
+#     ResetCooldowns --> SortTargets["Rank Top 3 Closest Destinations via NavMesh"]
+#     AnyTargets -- Yes --> SortTargets
+#     SortTargets --> ImpulseRoll{"Roll inside Impulse Probability?"}
+#     ImpulseRoll -- Yes --> PickImpulse["Select Favorite Impulse Item\nEnqueue to FRONT of Itinerary"]
+#     PickImpulse --> Navigate["Enqueue Regular Targets"]
+#     ImpulseRoll -- No --> Navigate
+#     Navigate --> HasQueue{"Is Ranked Queue Non-Empty?"}
+#     HasQueue -- Yes --> SetNav["Set State: NavigatingToShelf\nStart Agent Movement"]
+#     HasQueue -- No --> ReEval["Set State: Evaluating\nForce Retry"]
+#     GoToQueue --> End(["Exit Decision Loop"])
+#     SetWander --> End
+#     SetNav --> End
+#     ReEval --> End
+
+direction: down
+
+**.style.border-radius: 8
+# **.style.font-color: "#333"
+
+start: "Start" {
+  shape: rectangle
+}
+
+dynamic_mood: "Evaluate Mood & Psychological Traits" {
+  shape: rectangle
+}
+
+check_complete: "Is Shopping List Empty?" {
+  shape: diamond
+}
+
+go_to_queue: "Set State: WaitingToQueue\nMove to Holding Area" {
+  shape: rectangle
+}
+
+check_budget: "Is Money <= 20% Baseline?" {
+  shape: diamond
+}
+
+check_mid_budget: "Is Money <= 40% Baseline?" {
+  shape: diamond
+}
+
+reduce_impulse: "Halve Impulse Probability\nSet Mood: Sad" {
+  shape: rectangle
+}
+
+detour_check: "Roll < Random Browse Prob\nAND Detours > 0?" {
+  shape: diamond
+}
+
+build_targets: "Gather Targets from Shopping List\nExcluding Cooldowns" {
+  shape: rectangle
+}
+
+any_targets: "Any Valid Targets Found?" {
+  shape: diamond
+}
+
+sort_targets: "Rank Top 3 Closest Destinations via NavMesh" {
+  shape: rectangle
+}
+
+impulse_roll: "Roll inside Impulse Probability?" {
+  shape: diamond
+}
+
+pick_impulse: "Select Favorite Impulse Item\nEnqueue to FRONT of Itinerary" {
+  shape: rectangle
+}
+
+navigate: "Enqueue Regular Targets" {
+  shape: rectangle
+}
+
+has_queue: "Is Ranked Queue Non-Empty?" {
+  shape: diamond
+}
+
+set_nav: "Set State: NavigatingToShelf\nStart Agent Movement" {
+  shape: rectangle
+}
+
+re_eval: "Set State: Evaluating\nForce Retry" {
+  shape: rectangle
+}
+
+end: "End" {
+  shape: rectangle
+}
+
+start -> dynamic_mood
+dynamic_mood -> check_complete
+check_complete -- Yes -> go_to_queue
+check_complete -- No -> check_budget
+check_budget -- Yes -> go_to_queue
+check_budget -- No -> check_mid_budget
+check_mid_budget -- Yes -> reduce_impulse
+reduce_impulse -> detour_check
+check_mid_budget -- No -> detour_check
+detour_check -- Yes -> set_wander
+detour_check -- No -> build_targets
+build_targets -> any_targets
+any_targets -- No -> reset_cooldowns
+reset_cooldowns -> sort_targets
+any_targets -- Yes -> sort_targets
+sort_targets -> impulse_roll
+impulse_roll -- Yes -> pick_impulse
+pick_impulse -> navigate
+impulse_roll -- No -> navigate
+navigate -> has_queue
+has_queue -- Yes -> set_nav
+has_queue -- No -> re_eval
+go_to_queue -> end
+set_wander -> end
+set_nav -> end
+re_eval -> end

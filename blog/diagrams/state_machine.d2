@@ -1,0 +1,66 @@
+# stateDiagram-v2
+#     [*] --> Evaluating
+
+#     Evaluating --> Wandering: Random Detour
+#     Evaluating --> NavigatingToShelf: Target Selected
+#     Evaluating --> WaitingToQueue: Shopping Complete / Low Budget
+
+#     Wandering --> Evaluating: Finished Wandering
+
+#     NavigatingToShelf --> BrowsingShelf: Arrived at Empty Slot
+#     NavigatingToShelf --> Evaluating: Shelf Full & No Alternatives
+
+#     BrowsingShelf --> Evaluating: Finished Browsing
+
+#     WaitingToQueue --> GoingToCheckout: Line Available
+#     GoingToCheckout --> CheckingOut: Joined Queue Slot
+#     CheckingOut --> Leaving: Transaction Complete
+
+#     Leaving --> [*]: Exited Store
+
+direction: down
+
+**.style.border-radius: 8
+# **.style.font-color: "#333"
+
+evaluating: "Evaluating" {
+  shape: rectangle
+}
+
+wandering: "Wandering" {
+  shape: rectangle
+}
+
+waiting_to_queue: "Waiting to Queue" {
+  shape: rectangle
+}
+
+navigating_to_shelf: "Navigating to Shelf" {
+  shape: rectangle
+}
+
+browsing_shelf: "Browsing Shelf" {
+  shape: rectangle
+}
+
+going_to_checkout: "Going to Checkout" {
+  shape: rectangle
+}
+
+checking_out: "Checking Out" {
+  shape: rectangle
+}
+leaving: "Leaving" {
+  shape: rectangle
+}
+
+evaluating -> wandering: "Random Detour"
+evaluating -> navigating_to_shelf: "Target Selected"
+evaluating -> waiting_to_queue: "Shopping Complete / Low Budget"
+wandering -> evaluating: "Finished Wandering"
+navigating_to_shelf -> browsing_shelf: "Arrived at Empty Slot"
+navigating_to_shelf -> evaluating: "Shelf Full & No Alternatives"
+browsing_shelf -> evaluating: "Finished Browsing"
+waiting_to_queue -> going_to_checkout: "Line Available"
+going_to_checkout -> checking_out: "Joined Queue Slot"
+checking_out -> leaving: "Transaction Complete"
