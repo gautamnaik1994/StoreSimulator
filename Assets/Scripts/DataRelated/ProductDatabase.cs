@@ -60,18 +60,16 @@ public class ProductDatabase : ScriptableObject
     };
     private Dictionary<string, ProductData> productDictionary = new Dictionary<string, ProductData>();
     private bool isDictionaryBuilt = false;
-    // --- The O(1) Indexer ---
     public ProductData this[string name]
     {
         get
         {
-            // BULLETPROOF: If the dictionary isn't ready or was cleared, rebuild it on demand
             if (!isDictionaryBuilt || productDictionary.Count == 0)
             {
                 BuildDictionary();
             }
 
-            string cleanName = name.Trim(); // Protect against "Cereals " with trailing spaces
+            string cleanName = name.Trim();
 
             if (productDictionary.TryGetValue(cleanName, out ProductData product))
             {
@@ -109,7 +107,7 @@ public class ProductDatabase : ScriptableObject
 public struct ProductData
 {
     public string productName;
-    public int price; // Changed to int to meet your integer requirement
+    public int price;
 
     public ProductData(string name, int itemPrice)
     {

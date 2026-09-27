@@ -2,7 +2,7 @@
 using System.IO;
 using UnityEngine;
 using UnityEditor;
-using Newtonsoft.Json; // <-- Add this
+using Newtonsoft.Json;
 
 public class PersonaImporter : EditorWindow
 {
@@ -14,7 +14,6 @@ public class PersonaImporter : EditorWindow
 
         string jsonContent = File.ReadAllText(filePath);
 
-        // CHANGE THIS LINE: Use Newtonsoft instead of JsonUtility
         PersonaJsonWrapper wrapper = JsonConvert.DeserializeObject<PersonaJsonWrapper>(jsonContent);
 
         if (wrapper == null || wrapper.personas == null || wrapper.personas.Count == 0)

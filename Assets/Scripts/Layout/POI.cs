@@ -26,8 +26,8 @@ public class POI : MonoBehaviour
     private Dictionary<AgentMovementEnhanced, Coroutine> activePauses = new Dictionary<AgentMovementEnhanced, Coroutine>();
     private List<AgentMovementEnhanced> agentsInTriggerZone = new List<AgentMovementEnhanced>();
 
-    public string POIName; // Name of the POI, can be set in the Inspector
-    public int price = 10; // Price of the product at this POI, can be set in the Inspector
+    public string POIName; // Name of the POI
+    public int price = 10; // Price of the product at this POI
 
     void Start()
     {
